@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="de">
+    <meta charset="UTF-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js'></script>
+    <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
+    <title>DukeCon</title>
+</head>
+<body>
+<h3>Talks</h3>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Abstract</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: talks">
+        <tr>
+            <td><span data-bind="text: title" /></td>
+            <td><span data-bind="text: abstract" /></td>
+            <td><a href="#" data-bind="click: toggleAbstract, text: toggleText"></a></td>
+        </tr>
+    </tbody>
+</table>
+
+<script type='text/javascript' src='js/dukecon.js'></script>
+</body>
+</html>
