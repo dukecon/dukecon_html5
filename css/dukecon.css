@@ -24,7 +24,13 @@ table {
 th {
     background-color: #666666;
     color: #ffffff;
+    cursor: pointer;
 }
+
+th:last-child {
+    cursor: default;
+}
+
 
 td {
     background-color:#ffffff;
