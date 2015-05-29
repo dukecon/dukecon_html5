@@ -2,28 +2,43 @@
 <html>
 <head lang="de">
     <meta charset="UTF-8">
-<!--     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js'></script> -->
+    <!--     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js'></script> -->
     <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
     <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/dukecon.css"/>
     <title>DukeCon</title>
 </head>
 <body>
-<h3>Talks</h3>
+<h1>Talks</h1>
 
-<table border="1">
+<table>
     <thead>
-        <tr>
-            <th>Title</th>
-            <th>Abstract</th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>Start</th>
+        <th>Track</th>
+        <th>Room</th>
+        <th>Title</th>
+        <th>Abstract</th>
+    </tr>
     </thead>
     <tbody data-bind="foreach: talks">
-        <tr>
-            <td><span data-bind="text: title" /></td>
-            <td><span data-bind="text: abstract" /></td>
-            <td><a href="#" data-bind="click: toggleAbstract, text: toggleText"></a></td>
-        </tr>
+    <tr>
+        <td class="time"><span data-bind="text: start" /></td>
+        <td class="track"><span data-bind="text: track" /></td>
+        <td class="room"><span data-bind="text: location" /></td>
+        <td class="title"><a data-bind="click: detailView, text: title" ></a></td>
+        <td class="abstract">
+            <div>
+                <span data-bind="text: shortAbstract" />
+            </div>
+            <a href="#" data-bind="click: toggleDetail, text: toggleText"></a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" class="more hidden" data-bind="attr: { id: id}">
+            <div data-bind="text: fullAbstract" />
+        </td>
+    </tr>
     </tbody>
 </table>
 

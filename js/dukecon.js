@@ -1,21 +1,33 @@
+var jsonUrl = "talks.json";
+
 function Talk(data) {
+    this.id = data.id;
+    this.start = data.start;
+    this.track = data.track;
+    this.location = data.location;
+    this.level = data.level;
     this.title = data.title;
     this.shortAbstract = data.abstractText.substring(0, 100) + "...";
     this.fullAbstract = data.abstractText;
-    this.abstract = ko.observable(this.shortAbstract);
-    this.shortAbstractShown = true;
-    this.toggleText = ko.observable("Show More");
+    this.detailVisible = false;
+    this.toggleText = ko.observable("more...");
 
-    self.toggleAbstract = function() {
-        if (this.shortAbstractShown) {
-            this.abstract(this.fullAbstract);
-            this.toggleText("Show Less");
+    self.detailView = function() {
+        alert("not implemented");
+    }
+
+    self.toggleDetail = function(element) {
+        if (this.detailVisible) {
+            this.toggleText("more...");
+            $('#' + this.id).removeClass("visible");
+            $('#' + this.id).addClass("hidden");
         }
         else {
-            this.abstract(this.shortAbstract);
-            this.toggleText("Show More");
+            this.toggleText("less...");
+            $('#' + this.id).addClass("visible");
+            $('#' + this.id).removeClass("hidden");
         }
-        this.shortAbstractShown = !this.shortAbstractShown;
+        this.detailVisible = !this.detailVisible;
     };
 }
 
@@ -24,7 +36,7 @@ function TalkListViewModel() {
     var self = this;
     self.talks = ko.observableArray([]);
 
-    $.getJSON("demotalks.json", function(allData) {
+    $.getJSON(jsonUrl, function(allData) {
         var mappedTalks = $.map(allData, function(item) { return new Talk(item) });
         self.talks(mappedTalks);
     });
