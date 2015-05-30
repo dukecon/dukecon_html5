@@ -1,4 +1,6 @@
 var jsonUrl = "talks.json";
+//var jsonUrl = "http://dev.dukecon.org:9090/talks";
+var originHeader = "http://dev.dukecon.org";
 
 function Talk(data) {
     this.id = data.id;
@@ -61,10 +63,27 @@ function TalkListViewModel() {
         self.talks.sort(sortFunc);
     };
 
-    $.getJSON(jsonUrl, function(allData) {
-        var mappedTalks = $.map(allData, function(item) { return new Talk(item) });
-        self.talks(mappedTalks);
+    $.ajax({
+      method: 'GET',
+      dataType: "json",
+      url: jsonUrl,
+      success: function(allData) {
+          var mappedTalks = $.map(allData, function(item) { return new Talk(item) });
+          self.talks(mappedTalks);
+          console.log("Talks updated - " + utils.getFormattedDate(new Date()));
+      },
+      error: function(error) {
+        console.log("Nothing updated. Device offline?");
+      }
     });
+
 }
 
 ko.applyBindings(new TalkListViewModel());
+
+var utils = {
+    getFormattedDate : function(timestamp) {
+        return timestamp.getDate() + '.' + (timestamp.getMonth() + 1) + '.' + timestamp.getFullYear() + ", " +
+            timestamp.getHours() + ':' +  timestamp.getMinutes() + '.' + timestamp.getSeconds();
+    }
+};
