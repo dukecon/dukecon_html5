@@ -2,9 +2,37 @@ var jsonUrl = "talks.json";
 //var jsonUrl = "http://dev.dukecon.org:9090/talks";
 var originHeader = "http://dev.dukecon.org";
 
+
+var utils = {
+    getFormattedDate : function(timestamp) {
+        return timestamp.getFullYear() + '-' + (timestamp.getMonth() + 1) + '-' + timestamp.getDate() + ", " +
+            timestamp.getHours() + ':' +  timestamp.getMinutes() + '.' + timestamp.getSeconds();
+    },
+
+    splitDate(datetimeString, splitter) {
+        var parsed = datetimeString.split(splitter);
+        if (parsed.length == 2) {
+            return parsed;
+        }
+        else {
+            return [datetimeString, ''];
+        }
+    },
+
+    getDisplayDate : function(datetimeString) {
+        return this.splitDate(datetimeString, 'T')[0];
+    },
+
+    getDisplayTime : function(datetimeString) {
+        return this.splitDate(datetimeString, 'T')[1];
+    }
+};
+
+
 function Talk(data) {
     this.id = data.id;
-    this.start = data.start;
+    this.startDisplayed = utils.getDisplayDate(data.start) + ", " + utils.getDisplayTime(data.start);
+    this.startSortable = data.start;
     this.track = data.track;
     this.location = data.location;
     this.level = data.level;
@@ -40,11 +68,11 @@ function TalkListViewModel() {
     self.talks = ko.observableArray([]);
 
     self.headers = [
-        { title:'Start', sortKey:'start', asc: true },
-        { title:'Track', sortKey:'track', asc: true },
-        { title:'Room', sortKey:'location', asc: true },
-        { title:'Title', sortKey:'title', asc: true },
-        { title:'Abstract', sortKey:'', asc: true }
+        { title:'Time', sortKey:'startSortable', asc: true, cssClass: 'clickable' },
+        { title:'Track', sortKey:'track', asc: true, cssClass: 'clickable' },
+        { title:'Room', sortKey:'location', asc: true, cssClass: 'clickable' },
+        { title:'Title', sortKey:'title', asc: true, cssClass: 'clickable' },
+        { title:'Abstract', sortKey:'', asc: true, cssClass: '' }
     ];
 
     self.activeSort = self.headers[0]; //set the default sort
@@ -81,9 +109,3 @@ function TalkListViewModel() {
 
 ko.applyBindings(new TalkListViewModel());
 
-var utils = {
-    getFormattedDate : function(timestamp) {
-        return timestamp.getDate() + '.' + (timestamp.getMonth() + 1) + '.' + timestamp.getFullYear() + ", " +
-            timestamp.getHours() + ':' +  timestamp.getMinutes() + '.' + timestamp.getSeconds();
-    }
-};
