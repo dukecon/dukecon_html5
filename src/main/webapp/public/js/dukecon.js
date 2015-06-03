@@ -1,4 +1,4 @@
-var jsonUrl = "talks.json";
+var jsonUrl = "../rest/talks";
 //var jsonUrl = "http://dev.dukecon.org:9090/talks";
 var originHeader = "http://dev.dukecon.org";
 
