@@ -44,7 +44,7 @@ function Talk(data) {
     this.toggleText = ko.observable("more...");
 
     self.detailView = function() {
-        alert("not implemented");
+        console.log("TODO: self.detailView");
     }
 
     self.toggleDetail = function(element) {
@@ -67,6 +67,12 @@ function TalkListViewModel() {
     var self = this;
     self.talks = ko.observableArray([]);
 
+    var getDistinctValues = function(key) {
+        console.log("TODO: getDistinctValues for given key - no duplicates");
+        return [ {value : key + "1"}, {value : key + "2"}, {value : key + "3"}];
+    };
+
+    // Sorting by column
     self.headers = [
         { title:'Time', sortKey:'startSortable', asc: true, cssClass: 'clickable' },
         { title:'Track', sortKey:'track', asc: true, cssClass: 'clickable' },
@@ -90,6 +96,28 @@ function TalkListViewModel() {
         var sortFunc = self.activeSort.asc ? ascSort : descSort;
         self.talks.sort(sortFunc);
     };
+
+    // filter
+        self.filters = [
+            {title: 'Day', values: getDistinctValues('start')},
+            {title: 'Level', values: getDistinctValues('level')},
+            {title: 'Language', values: getDistinctValues('language')},
+            {title: 'Track', values: getDistinctValues('track')},
+            {title: 'Speaker', values: getDistinctValues('speakers')},
+            {title: 'Room', values: getDistinctValues('location')}
+        ];
+
+        self.activeFilter = ko.observable();
+
+        self.setActiveFilter = function(model,event){
+            console.log("setActiveFilter " +  model);
+            //we'll select our filter and put it in self.activeFilter here
+        };
+
+        self.filteredPeople = ko.computed(function(){
+            //we'll apply our filter here in a moment
+            return self.talks;//unwrap the observable to return an array
+        });
 
     $.ajax({
       method: 'GET',

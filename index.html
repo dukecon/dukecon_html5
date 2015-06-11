@@ -11,6 +11,16 @@
 <body>
 <h1>Talks</h1>
 
+
+<h2>Filter by</h2>
+<div class="filter-box" data-bind="foreach: filters" style="display:none">
+    <span data-bind="text:title"></span>:
+    <select data-bind="foreach: values">
+        <!--  see http://knockoutjs.com/documentation/options-binding.html -->
+        <option data-bind="text: value, select: $parent.setActiveFilter"></option>
+    </select>
+</div>
+
 <table>
     <thead>
         <tr data-bind="foreach: headers">
