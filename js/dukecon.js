@@ -94,31 +94,27 @@ function TalkListViewModel() {
 
     // filter
     self.addFilters = function() {
-        console.log("adding Filters");
         $.each(self.filters, function(index, filter) {
           filter.filtervalues(self.getDistinctValues(filter.filterKey));
         });
     };
 
     self.getDistinctValues = function(key) {
-        console.log("TODO: getDistinctValues for given key - no duplicates");
-        console.log(self.talks);
-        var t = _.groupBy(self.talks, function(talk) {
-            return talk.key;
+        var t = _.groupBy(self.talks(), function(talk) {
+            return talk[key];
         });
-        console.log(t);
-        return ["fhghgf", "dgffdg"];
+        return _.keys(t).sort();
     };
 
 
 
         self.filters = [
             //{title: 'Day', filterKey: 'start', values: []},
-            //{title: 'Level', filterKey: 'level', values: []},
-            //{title: 'Language', filterKey: 'language', values: []},
-            {title: 'Track', filterKey: 'track', filtervalues : ko.observableArray([])}
+            {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([])},
+            //{title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([])},
+            {title: 'Track', filterKey: 'track', filtervalues : ko.observableArray([])},
             //{title: 'Speaker', filterKey: 'speakers', values: []},
-            //{title: 'Room', filterKey: 'location', values: []}
+            {title: 'Room', filterKey: 'location', filtervalues : ko.observableArray([])}
         ];
 
         self.activeFilter = ko.observable();
