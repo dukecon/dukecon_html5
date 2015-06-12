@@ -111,14 +111,24 @@ h2 {
 }
 
 .filter-values  > * {
-    padding: 2px;
 }
 
 .filter-values input[type=checkbox] {
-    margin-right: 2px;
-    border: 1px solid;
-    border-radius: 5px;
-    background: transparent;
+    display:none;
+}
+
+.filter-values input[type="checkbox"] + label {
+    padding: 2px;
+    display:block;
+    vertical-align:middle;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label {
+    background: #cccccc;
+}
+
+.filter-values div:hover {
+    background: #DDDDDD;
 }
 
 #nav {
