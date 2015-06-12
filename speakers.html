@@ -2,6 +2,9 @@
 <html>
 <head lang="de">
     <meta charset="UTF-8">
+    <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='js/underscore-min.js'></script>
+    <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
     <link rel="stylesheet" type="text/css" href="css/pure-min.css"/>
     <link rel="stylesheet" type="text/css" href="css/dukecon.css"/>
     <title>DukeCon</title>
@@ -17,8 +20,18 @@
     <h1>Sprecher</h1>
 </div>
 <div id="main" class="content pure-g">
-This intentionally left blank
+<ul data-bind="foreach: allSpeakers">
+    <li>
+        <div>
+            <span data-bind="text: name"></span> - <span data-bind="text: company"></span>
+            <div data-bind="foreach: talks">
+                <p data-bind="text: title"></p>
+            </div>
+        </div>
+    </li>
+</ul>
 </div>
 
+<script type='text/javascript' src='js/speakers.js'></script>
 </body>
 </html>
