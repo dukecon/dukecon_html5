@@ -12,8 +12,6 @@ function TalkListViewModel() {
         { title:'Abstract', sortKey:'', asc: true, cssClass: '' }
     ];
 
-    self.activeSort = self.headers[0]; //default sort
-
     self.filters = [
         {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
         {title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
@@ -91,20 +89,6 @@ function TalkListViewModel() {
         self.selectedDay = day;
         self.filterTalks();
     }
-
-    self.sort = function(header, event){
-        //if this header was just clicked a second time
-        if(self.activeSort === header) {
-            header.asc = !header.asc; //toggle the direction of the sort
-        } else {
-            self.activeSort = header; //first click, remember it
-        }
-        var prop = self.activeSort.sortKey;
-        var ascSort = function(a,b){ return a[prop] < b[prop] ? -1 : a[prop] > b[prop] ? 1 : a[prop] == b[prop] ? 0 : 0; };
-        var descSort = function(a,b){ return a[prop] > b[prop] ? -1 : a[prop] < b[prop] ? 1 : a[prop] == b[prop] ? 0 : 0; };
-        var sortFunc = self.activeSort.asc ? ascSort : descSort;
-        self.talks.sort(sortFunc);
-    };
 
 }
 
