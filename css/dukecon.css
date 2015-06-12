@@ -137,24 +137,40 @@ input[type="checkbox"]:checked + label:before {
     background: #DDDDDD;
 }
 
+#grid {
+    display:inline-block;
+    min-width: 250px;
+    width:80%
+}
+
 #nav {
     float:left;
+    display: inline-block;
+    min-width: 250px;
     margin-left:0px;
-    display:inline-block;
     margin-right: 5px;
     padding:0px;
     box-shadow: 1px 1px 2px #000000;
+}
+
+@media all and (max-width: 460px) {
+    #nav {
+        float:none;
+        display: none;
+    }
+}
+@media all and (min-width: 461px) {
+    #nav {
+        float:left;
+        display: inline-block;
+    }
 }
 
 #nav h2 {
     margin:5px 5px 15px 5px;
 }
 
-#nav-button {
-    position:relative;
-    top 5px;
-}
-
 .pure-g {
     letter-spacing: 0em;
 }
+

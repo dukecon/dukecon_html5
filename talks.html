@@ -19,51 +19,53 @@
     </div>
     <h1>Talks</h1>
 </div>
-<div id="main" class="content pure-g">
+<div id="main" class="content">
 
-    <div id="nav" class="pure-u">
-        <h2>Filter by</h2>
+    <div id="nav">
+        <h2>Filter</h2>
         <div class="filter-box" data-bind="foreach: filters">
             <span class="filter-category" data-bind="text:title"></span>
             <div class="filter-values" data-bind="foreach: filtervalues">
-            <div><input type="checkbox" data-bind="value: $data, checked: $parent.selected, attr:{id: $data}" /><label data-bind="text: $data, attr:{for: $data}"></label></div>
+                <div><input type="checkbox" data-bind="value: $data, checked: $parent.selected, attr:{id: $data}" /><label data-bind="text: $data, attr:{for: $data}"></label></div>
             </div>
         </div>
     </div>
-</div>
 
-<div>
-    <div data-bind="foreach: days">
-        <button class="pure-button" type="button" data-bind="text: $data, click: $parent.updateDay"/>
+    <div id="grid">
+        <div>
+            <div id="days_filter" data-bind="foreach: days">
+                <button class="pure-button" type="button" data-bind="text: $data, click: $parent.updateDay"/>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+            <tr data-bind="foreach: headers">
+                <th data-bind="click: $parent.sort, text: title, attr: { class: cssClass }"></th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: talks">
+            <tr>
+                <td class="time"><span data-bind="text: startDisplayed" /></td>
+                <td class="track"><span data-bind="text: track" /></td>
+                <td class="room"><span data-bind="text: location" /></td>
+                <td class="title"><span data-bind="text: title" /></td>
+                <td class="abstract">
+                    <div>
+                        <span data-bind="text: shortAbstract" />
+                    </div>
+                    <a href="#" data-bind="click: toggleDetail, text: toggleText"></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" class="more folded" data-bind="attr: { id: id}">
+                    <div data-bind="text: fullAbstract" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</div>
 
-    <table>
-        <thead>
-        <tr data-bind="foreach: headers">
-            <th data-bind="click: $parent.sort, text: title, attr: { class: cssClass }"></th>
-        </tr>
-        </thead>
-        <tbody data-bind="foreach: talks">
-        <tr>
-            <td class="time"><span data-bind="text: startDisplayed" /></td>
-            <td class="track"><span data-bind="text: track" /></td>
-            <td class="room"><span data-bind="text: location" /></td>
-            <td class="title"><span data-bind="text: title" /></td>
-            <td class="abstract">
-                <div>
-                    <span data-bind="text: shortAbstract" />
-                </div>
-                <a href="#" data-bind="click: toggleDetail, text: toggleText"></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="5" class="more folded" data-bind="attr: { id: id}">
-                <div data-bind="text: fullAbstract" />
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </div>
 
 <!--
