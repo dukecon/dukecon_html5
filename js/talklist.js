@@ -4,14 +4,6 @@ function TalkListViewModel() {
     self.talks = ko.observableArray([]);
     self.allTalks = [];
 
-    self.headers = [
-        { title:'Time', sortKey:'startSortable', asc: true, cssClass: 'clickable' },
-        { title:'Track', sortKey:'track', asc: true, cssClass: 'clickable' },
-        { title:'Room', sortKey:'location', asc: true, cssClass: 'clickable' },
-        { title:'Title', sortKey:'title', asc: true, cssClass: 'clickable' },
-        { title:'Abstract', sortKey:'', asc: true, cssClass: '' }
-    ];
-
     self.filters = [
         {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
         {title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
