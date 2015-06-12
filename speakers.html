@@ -35,7 +35,7 @@
             </td>
             <td>
                 <div data-bind="foreach: talks">
-                    <p class="title" data-bind="text: title"></p>
+                    <a class="title" data-bind="text: title, attr : { href : 'talk.html?talkId=' + id }"></a>
                 </div>
             </td>
         </tr>

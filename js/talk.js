@@ -16,9 +16,10 @@ function TalkViewModel() {
     });
 
     self.initializeData = function(allData) {
-        var talkId = self.getParameterByName("talkid");
+        var talkId = self.getParameterByName("talkId");
         var filtered = _.filter(allData, function(t) {return t.id === talkId});
-        self.talk(filtered[0]);
+        self.talk(new Talk(filtered[0]));
+        console.log(self.talk());
     };
 
     self.getParameterByName = function(name) {
@@ -29,6 +30,6 @@ function TalkViewModel() {
     };
 }
 
-//ko.applyBindings(new TalkViewModel());
+ko.applyBindings(new TalkViewModel());
 
 
