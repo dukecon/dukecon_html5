@@ -33,7 +33,6 @@ var utils = {
     }
 };
 
-
 function Talk(data) {
     this.id = data.id;
     this.day = utils.getDisplayDate(data.start);
@@ -49,10 +48,6 @@ function Talk(data) {
     this.fullAbstract = data.abstractText;
     this.detailVisible = false;
     this.toggleText = ko.observable("more...");
-
-    self.detailView = function() {
-        console.log("TODO: self.detailView");
-    }
 
     self.toggleDetail = function(element) {
         if (this.detailVisible) {
@@ -86,11 +81,9 @@ function TalkListViewModel() {
     self.activeSort = self.headers[0]; //default sort
 
     self.filters = [
-        //{title: 'Day', filterKey: 'start', values: []},
         {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
         {title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
         {title: 'Track', filterKey: 'track', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
-        //{title: 'Speaker', filterKey: 'speakers', values: []},
         {title: 'Room', filterKey: 'location', filtervalues : ko.observableArray([]), selected : ko.observableArray([])}
     ];
 
