@@ -62,10 +62,6 @@ function Talk(data) {
         }
         this.detailVisible = !this.detailVisible;
     };
-
-    self.detailView = function() {
-         console.log("TODO: self.detailView");
-    };
 }
 
 function TalkListViewModel() {
