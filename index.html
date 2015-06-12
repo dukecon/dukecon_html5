@@ -3,8 +3,9 @@
 <head lang="de">
     <meta charset="UTF-8">
     <!--     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js'></script> -->
-    <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
     <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='js/underscore-min.js'></script>
+    <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
     <link rel="stylesheet" type="text/css" href="css/dukecon.css"/>
     <title>DukeCon</title>
 </head>
@@ -13,11 +14,11 @@
 
 
 <h2>Filter by</h2>
-<div class="filter-box" data-bind="foreach: filters" style="display:none">
-    <span data-bind="text:title"></span>:
-    <select data-bind="foreach: values">
+<div class="filter-box" data-bind="foreach: filters">
+    <span data-bind="text:title"></span>
+    <select data-bind="foreach: $parent.filtervalues[$index], event:{ change: $parent.setActiveFilter}">
         <!--  see http://knockoutjs.com/documentation/options-binding.html -->
-        <option data-bind="text: value, select: $parent.setActiveFilter"></option>
+        <option data-bind="text: value"></option>
     </select>
 </div>
 

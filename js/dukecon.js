@@ -9,7 +9,7 @@ var utils = {
             timestamp.getHours() + ':' +  timestamp.getMinutes() + '.' + timestamp.getSeconds();
     },
 
-    splitDate(datetimeString, splitter) {
+    splitDate: function(datetimeString, splitter) {
         var parsed = datetimeString.split(splitter);
         if (parsed.length == 2) {
             return parsed;
@@ -66,11 +66,7 @@ function TalkListViewModel() {
     // Data
     var self = this;
     self.talks = ko.observableArray([]);
-
-    var getDistinctValues = function(key) {
-        console.log("TODO: getDistinctValues for given key - no duplicates");
-        return [ {value : key + "1"}, {value : key + "2"}, {value : key + "3"}];
-    };
+    self.filtervalues = ko.observableArray([]);
 
     // Sorting by column
     self.headers = [
@@ -98,13 +94,34 @@ function TalkListViewModel() {
     };
 
     // filter
+    self.addFilters = function() {
+        console.log("adding Filters");
+        $.each(self.filters, function(index, filter) {
+          var values = self.getDistinctValues(filter.filterKey);
+          values = ["bla"];
+          self.filtervalues.push(values);
+        });
+    };
+
+    self.getDistinctValues = function(key) {
+        console.log("TODO: getDistinctValues for given key - no duplicates");
+        console.log(self.talks);
+        var t = _.groupBy(self.talks, function(talk) {
+            return talk.key;
+        });
+        console.log(t);
+        return t;
+    };
+
+
+
         self.filters = [
-            {title: 'Day', values: getDistinctValues('start')},
-            {title: 'Level', values: getDistinctValues('level')},
-            {title: 'Language', values: getDistinctValues('language')},
-            {title: 'Track', values: getDistinctValues('track')},
-            {title: 'Speaker', values: getDistinctValues('speakers')},
-            {title: 'Room', values: getDistinctValues('location')}
+            //{title: 'Day', filterKey: 'start', values: []},
+            //{title: 'Level', filterKey: 'level', values: []},
+            //{title: 'Language', filterKey: 'language', values: []},
+            {title: 'Track', filterKey: 'track'},
+            //{title: 'Speaker', filterKey: 'speakers', values: []},
+            //{title: 'Room', filterKey: 'location', values: []}
         ];
 
         self.activeFilter = ko.observable();
@@ -126,6 +143,8 @@ function TalkListViewModel() {
       success: function(allData) {
           var mappedTalks = $.map(allData, function(item) { return new Talk(item) });
           self.talks(mappedTalks);
+          self.addFilters();
+
           console.log("Talks updated - " + utils.getFormattedDate(new Date()));
       },
       error: function(error) {
