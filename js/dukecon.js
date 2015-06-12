@@ -2,41 +2,10 @@ var jsonUrl = "talks.json";
 //var jsonUrl = "http://dev.dukecon.org:9090/talks";
 var originHeader = "http://dev.dukecon.org";
 
-
-var utils = {
-    getFormattedDate : function(timestamp) {
-        return timestamp.getFullYear() + '-' + (timestamp.getMonth() + 1) + '-' + timestamp.getDate() + ", " +
-            timestamp.getHours() + ':' +  timestamp.getMinutes() + '.' + timestamp.getSeconds();
-    },
-
-    splitDate: function(datetimeString, splitter) {
-        var parsed = datetimeString.split(splitter);
-        if (parsed.length == 2) {
-            return parsed;
-        }
-        else {
-            return [datetimeString, ''];
-        }
-    },
-
-    //format is: 2015-03-25T09:00
-    getDisplayDate : function(datetimeString) {
-        var dateString = this.splitDate(datetimeString, 'T')[0];
-        var parsed = dateString.split("-");
-        var month = parsed[1];
-        var day = parsed[2];
-        return day + "." + month;
-    },
-
-    getDisplayTime : function(datetimeString) {
-        return this.splitDate(datetimeString, 'T')[1];
-    }
-};
-
 function Talk(data) {
     this.id = data.id;
-    this.day = utils.getDisplayDate(data.start);
-    this.startDisplayed = utils.getDisplayTime(data.start);
+    this.day = dukeconDateUtils.getDisplayDate(data.start);
+    this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
     this.startSortable = data.start;
     this.track = data.track;
     this.location = data.location;
@@ -117,7 +86,6 @@ function TalkListViewModel() {
         self.selectedDay = self.days()[0];
         self.addFilters();
         self.filterTalks();
-        console.log("Talks updated - " + utils.getFormattedDate(new Date()));
     };
 
     self.sortTalk = function(t1, t2) {
