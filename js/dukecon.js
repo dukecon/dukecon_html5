@@ -37,7 +37,7 @@ var utils = {
 function Talk(data) {
     this.id = data.id;
     this.day = utils.getDisplayDate(data.start);
-    this.startDisplayed = this.day + ", " + utils.getDisplayTime(data.start);
+    this.startDisplayed = utils.getDisplayTime(data.start);
     this.startSortable = data.start;
     this.track = data.track;
     this.location = data.location;
@@ -117,7 +117,7 @@ function TalkListViewModel() {
     });
 
     self.initializeData = function(allData) {
-        var mappedTalks = $.map(allData, function(item) { return new Talk(item) });
+        var mappedTalks = $.map(allData, function(item) { return new Talk(item) }).sort(self.sortTalk);
         self.talks(mappedTalks);
         self.allTalks = mappedTalks;
         self.days(self.getDistinctValues('day'));
@@ -125,6 +125,13 @@ function TalkListViewModel() {
         self.addFilters();
         self.filterTalks();
         console.log("Talks updated - " + utils.getFormattedDate(new Date()));
+    };
+
+    self.sortTalk = function(t1, t2) {
+        if (t1.startDisplayed < t2.startDisplayed) {
+            return -1;
+        }
+        return t1.startDisplayed > t2.startDisplayed ? 1 : 0;
     };
 
     // Functions
