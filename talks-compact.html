@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="de">
+    <meta charset="UTF-8">
+    <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='js/underscore-min.js'></script>
+    <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/pure-min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dukecon.css"/>
+    <title>DukeCon</title>
+</head>
+<body>
+<div class="header">
+    <img src="img/logo_javaland.gif" title="javaland 2016"/>
+    <div class="main-menu">
+        <a href="index.html">Home</a> |
+        <a href="talks.html">Talks</a> |
+        <a href="speakers.html">Sprecher</a>
+    </div>
+    <h1>Talks</h1>
+</div>
+<div id="main" class="content">
+
+    <div id="nav">
+        <h2>Filter</h2>
+        <div class="filter-box" data-bind="foreach: filters">
+            <span class="filter-category" data-bind="text:title"></span>
+            <div class="filter-values" data-bind="foreach: filtervalues">
+                <div><input type="checkbox" data-bind="value: $data, checked: $parent.selected, attr:{id: $data}" /><label data-bind="text: $data, attr:{for: $data}"></label></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="grid">
+        <div>
+            <div id="days_filter" data-bind="foreach: days">
+                <button class="pure-button" type="button" data-bind="text: $data, click: $parent.updateDay"/>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Zeit</th>
+                <th>Raum/Track</th>
+                <th>Abstract</th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: talks">
+            <tr>
+                <td class="time">
+                    <span data-bind="text: startDisplayed" />
+                </td>
+                <td>
+                    <div class="room">Raum: <span data-bind="text: location" /></div>
+                    <div class="track">Track: <span data-bind="text: track" /></div>
+                </td>
+                <td>
+                    <div class="title"><span data-bind="text: title" /></div>
+                    <div class="abstract">
+                        <span data-bind="text: shortAbstract" />
+                    </div>
+                    <a href="#" data-bind="click: toggleDetail, text: toggleText"></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" class="more folded" data-bind="attr: { id: id}">
+                    <div data-bind="text: fullAbstract" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!--
+    TODO:
+    - get rid of table, make responsive
+    - create slidable controls for filter
+    - colors/icons for tracks, icons for rooms, language and level
+-->
+
+
+<script type='text/javascript' src='js/dukecon.js'></script>
+</body>
+</html>
