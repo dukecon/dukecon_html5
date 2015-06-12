@@ -50,7 +50,6 @@ td.more {
 }
 
 .more.folded div {
-    margin-top: -400px;
     transition: height 0.5s, margin-top 0.5s;
 }
 
@@ -146,7 +145,6 @@ input[type="checkbox"]:checked + label:before {
 #grid {
     display:inline-block;
     min-width: 250px;
-    width:78%
 }
 
 #nav {
@@ -196,11 +194,23 @@ div.room span {
         float:none;
         display: none;
     }
+    #grid {
+        width:100%
+    }
+    .more.folded div {
+        margin-top: -600px;
+    }
 }
 @media all and (min-width: 461px) {
     #nav {
         float:left;
         display: inline-block;
+    }
+    #grid {
+        width:78%
+    }
+    .more.folded div {
+        margin-top: -400px;
     }
 }
 
