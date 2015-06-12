@@ -12,6 +12,8 @@ body  {
 }
 
 table, th, td {
+    border-collapse: separate;
+    border-spacing: 1px;
     border: none;
     vertical-align: top;
     padding: 5px;
@@ -40,13 +42,13 @@ td.more div {
     margin: 5px;
 }
 
-td.more.visible div {
+td.more.shown div {
     overflow-x:auto;
     margin-top: 5px;
     transition: height 0.7s, margin-top 0.7s;
 }
 
-td.more.hidden div {
+td.more.folded div {
     margin-top: -400px;
     transition: height 0.5s, margin-top 0.5s;
 }
@@ -83,4 +85,32 @@ h2 {
 
 .clickable {
     cursor: pointer;
+}
+
+.filter-box * {
+    display:block;
+    margin: 2px 0 2px 0;
+}
+
+#nav {
+    float:left;
+    margin-left:-600px;
+    overflow: hidden;
+}
+
+#nav:target {
+    margin-left:0px;
+    display:inline-block;
+    margin-right: 5px;
+    padding:3px;
+    box-shadow: 1px 1px 2px #000000;
+}
+
+#nav-button {
+    position:relative;
+    top 5px;
+}
+
+.pure-g {
+    letter-spacing: 0em;
 }

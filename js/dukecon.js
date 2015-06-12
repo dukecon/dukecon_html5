@@ -51,13 +51,13 @@ function Talk(data) {
     self.toggleDetail = function(element) {
         if (this.detailVisible) {
             this.toggleText("more...");
-            $('#' + this.id).removeClass("visible");
-            $('#' + this.id).addClass("hidden");
+            $('#' + this.id).removeClass("shown");
+            $('#' + this.id).addClass("folded");
         }
         else {
             this.toggleText("less...");
-            $('#' + this.id).addClass("visible");
-            $('#' + this.id).removeClass("hidden");
+            $('#' + this.id).addClass("shown");
+            $('#' + this.id).removeClass("folded");
         }
         this.detailVisible = !this.detailVisible;
     };
