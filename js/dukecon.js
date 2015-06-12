@@ -125,7 +125,7 @@ function TalkListViewModel() {
 
     self.filterTalks = function() {
         self.talks(_.filter(self.allTalks, function(talk) {
-           var f = _.every(self.filters, function(filter) {
+           return _.every(self.filters, function(filter) {
                if (filter.selected().length === 0) {
                    return true;
                }
@@ -133,10 +133,6 @@ function TalkListViewModel() {
                    return talk[filter.filterKey] === selected;
                 })
            });
-            if (f) {
-                console.log(talk);
-            }
-            return f;
         }));
     };
 
