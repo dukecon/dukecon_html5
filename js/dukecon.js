@@ -62,6 +62,10 @@ function Talk(data) {
         }
         this.detailVisible = !this.detailVisible;
     };
+
+    self.detailView = function() {
+         console.log("TODO: self.detailView");
+    };
 }
 
 function TalkListViewModel() {
@@ -172,6 +176,7 @@ function TalkListViewModel() {
         var sortFunc = self.activeSort.asc ? ascSort : descSort;
         self.talks.sort(sortFunc);
     };
+
 }
 
 ko.applyBindings(new TalkListViewModel());

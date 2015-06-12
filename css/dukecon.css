@@ -106,11 +106,10 @@ h2 {
 
 .filter-values {
     margin-left: 5px;
+    margin-right:5px;
     font-size:smaller;
     color: #777777;
-}
-
-.filter-values  > * {
+    line-height:1.5em;
 }
 
 .filter-values input[type=checkbox] {
@@ -119,13 +118,20 @@ h2 {
 
 .filter-values input[type="checkbox"] + label {
     padding: 2px;
+    margin-left: 1em;
     display:block;
     vertical-align:middle;
     cursor:pointer;
 }
 input[type="checkbox"]:checked + label {
-    background: #cccccc;
+    margin-left: 0em;
 }
+
+input[type="checkbox"]:checked + label:before {
+    content: '\2714';
+    padding-right:3px;
+}
+
 
 .filter-values div:hover {
     background: #DDDDDD;
