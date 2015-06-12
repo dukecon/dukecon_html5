@@ -66,7 +66,6 @@ function TalkListViewModel() {
     // Data
     var self = this;
     self.talks = ko.observableArray([]);
-    self.filtervalues = ko.observableArray([]);
 
     // Sorting by column
     self.headers = [
@@ -97,9 +96,7 @@ function TalkListViewModel() {
     self.addFilters = function() {
         console.log("adding Filters");
         $.each(self.filters, function(index, filter) {
-          var values = self.getDistinctValues(filter.filterKey);
-          values = ["bla"];
-          self.filtervalues.push(values);
+          filter.filtervalues(self.getDistinctValues(filter.filterKey));
         });
     };
 
@@ -110,7 +107,7 @@ function TalkListViewModel() {
             return talk.key;
         });
         console.log(t);
-        return t;
+        return ["fhghgf", "dgffdg"];
     };
 
 
@@ -119,7 +116,7 @@ function TalkListViewModel() {
             //{title: 'Day', filterKey: 'start', values: []},
             //{title: 'Level', filterKey: 'level', values: []},
             //{title: 'Language', filterKey: 'language', values: []},
-            {title: 'Track', filterKey: 'track'},
+            {title: 'Track', filterKey: 'track', filtervalues : ko.observableArray([])}
             //{title: 'Speaker', filterKey: 'speakers', values: []},
             //{title: 'Room', filterKey: 'location', values: []}
         ];
