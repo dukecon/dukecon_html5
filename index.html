@@ -28,6 +28,12 @@
     </div>
 </div>
 
+<div>
+    <div data-bind="foreach: days">
+        <button class="pure-button" type="button" data-bind="text: $data, click: $parent.updateDay"/>
+    </div>
+</div>
+
 <table>
     <thead>
     <table>
