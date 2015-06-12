@@ -10,26 +10,23 @@
     <title>DukeCon</title>
 </head>
 <body>
-<h1>Talks</h1>
+<div class="header">
+    <img src="img/logo_javaland.gif" title="javaland 2016"/>
+    <h1>Talks</h1>
+</div>
 <div id="main" class="content pure-g">
 
-
-    <div id="nav-button"><a href="#nav">show filter</a></div>
     <div id="nav" class="pure-u">
         <h2>Filter by</h2>
-        <a href="#">hide filters</a>
         <div class="filter-box" data-bind="foreach: filters">
-            <span data-bind="text:title"></span>
-            <div data-bind="foreach: filtervalues">
-            <div>
-                <input type="checkbox" data-bind="value: $data, checked: $parent.selected" /><span data-bind="text: $data"></span></div>
+            <span class="filter-category" data-bind="text:title"></span>
+            <div class="filter-values" data-bind="foreach: filtervalues">
+            <div><input type="checkbox" data-bind="value: $data, checked: $parent.selected" /><span data-bind="text: $data"></span></div>
             </div>
         </div>
     </div>
 </div>
 
-<table>
-    <thead>
     <table>
         <thead>
         <tr data-bind="foreach: headers">
