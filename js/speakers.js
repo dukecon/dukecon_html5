@@ -1,11 +1,3 @@
-var jsonUrl = "talks.json";
-
-function Speaker(name, company, talks) {
-    this.name = name;
-    this.company = company;
-    this.talks = talks;
-};
-
 function SpeakerViewModel() {
     var self = this;
     self.allSpeakers = ko.observableArray([]);
