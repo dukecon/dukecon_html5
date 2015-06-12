@@ -39,16 +39,6 @@ function TalkListViewModel() {
     self.talks = ko.observableArray([]);
     self.allTalks = [];
 
-    self.headers = [
-        { title:'Time', sortKey:'startSortable', asc: true, cssClass: 'clickable' },
-        { title:'Track', sortKey:'track', asc: true, cssClass: 'clickable' },
-        { title:'Room', sortKey:'location', asc: true, cssClass: 'clickable' },
-        { title:'Title', sortKey:'title', asc: true, cssClass: 'clickable' },
-        { title:'Abstract', sortKey:'', asc: true, cssClass: '' }
-    ];
-
-    self.activeSort = self.headers[0]; //default sort
-
     self.filters = [
         {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
         {title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
@@ -88,13 +78,6 @@ function TalkListViewModel() {
         self.filterTalks();
     };
 
-    self.sortTalk = function(t1, t2) {
-        if (t1.startDisplayed < t2.startDisplayed) {
-            return -1;
-        }
-        return t1.startDisplayed > t2.startDisplayed ? 1 : 0;
-    };
-
     // Functions
     self.addFilters = function() {
         $.each(self.filters, function(index, filter) {
@@ -126,20 +109,6 @@ function TalkListViewModel() {
         self.selectedDay = day;
         self.filterTalks();
     }
-
-    self.sort = function(header, event){
-        //if this header was just clicked a second time
-        if(self.activeSort === header) {
-            header.asc = !header.asc; //toggle the direction of the sort
-        } else {
-            self.activeSort = header; //first click, remember it
-        }
-        var prop = self.activeSort.sortKey;
-        var ascSort = function(a,b){ return a[prop] < b[prop] ? -1 : a[prop] > b[prop] ? 1 : a[prop] == b[prop] ? 0 : 0; };
-        var descSort = function(a,b){ return a[prop] > b[prop] ? -1 : a[prop] < b[prop] ? 1 : a[prop] == b[prop] ? 0 : 0; };
-        var sortFunc = self.activeSort.asc ? ascSort : descSort;
-        self.talks.sort(sortFunc);
-    };
 
 }
 

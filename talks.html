@@ -41,18 +41,24 @@
 
         <table>
             <thead>
-            <tr data-bind="foreach: headers">
-                <th data-bind="click: $parent.sort, text: title, attr: { class: cssClass }"></th>
+            <tr>
+                <th>Zeit</th>
+                <th>Raum/Track</th>
+                <th>Abstract</th>
             </tr>
             </thead>
             <tbody data-bind="foreach: talks">
             <tr>
-                <td class="time"><span data-bind="text: startDisplayed" /></td>
-                <td class="track"><span data-bind="text: track" /></td>
-                <td class="room"><span data-bind="text: location" /></td>
-                <td class="title"><span data-bind="text: title" /></td>
-                <td class="abstract">
-                    <div>
+                <td class="time">
+                    <span data-bind="text: startDisplayed" />
+                </td>
+                <td>
+                    <div class="room">Raum: <span data-bind="text: location" /></div>
+                    <div class="track">Track: <span data-bind="text: track" /></div>
+                </td>
+                <td>
+                    <div class="title"><span data-bind="text: title" /></div>
+                    <div class="abstract">
                         <span data-bind="text: shortAbstract" />
                     </div>
                     <a href="#" data-bind="click: toggleDetail, text: toggleText"></a>
@@ -68,6 +74,15 @@
     </div>
 
 </div>
+
+<!--
+    TODO:
+    - make responsive
+    - create slidable controls for filter
+    - colors/icons for tracks, icons for rooms, language and level
+    - better highlighting for data buttons
+-->
+
 
 <script type='text/javascript' src='js/dukecon.js'></script>
 </body>
