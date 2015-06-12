@@ -37,18 +37,18 @@ td.more {
     background: transparent;
 }
 
-td.more div {
+.more div {
     padding: 5px;
     margin: 5px;
 }
 
-td.more.shown div {
+.more.shown div {
     overflow-x:auto;
     margin-top: 5px;
     transition: height 0.7s, margin-top 0.7s;
 }
 
-td.more.folded div {
+.more.folded div {
     margin-top: -400px;
     transition: height 0.5s, margin-top 0.5s;
 }
@@ -137,10 +137,21 @@ input[type="checkbox"]:checked + label:before {
     background: #DDDDDD;
 }
 
+.talk-info {
+    background: #ffffff;
+}
+
+#grid {
+    display:inline-block;
+    min-width: 250px;
+    width:80%
+}
+
 #nav {
     float:left;
+    display: inline-block;
+    min-width: 250px;
     margin-left:0px;
-    display:inline-block;
     margin-right: 5px;
     padding:0px;
     box-shadow: 1px 1px 2px #000000;
@@ -150,11 +161,45 @@ input[type="checkbox"]:checked + label:before {
     margin:5px 5px 15px 5px;
 }
 
-#nav-button {
-    position:relative;
-    top 5px;
-}
-
 .pure-g {
     letter-spacing: 0em;
 }
+
+div.title {
+    font-weight:bold;
+}
+
+div.track {
+    font-weight:bold;
+    font-size:smaller;
+    font-style:italic
+}
+div.track span {
+    font-style:italic;
+    font-weight: normal;
+}
+
+div.room {
+    font-weight:bold;
+    font-style:italic
+}
+div.room span {
+    font-weight: normal;
+}
+
+
+/* Media queries */
+
+@media all and (max-width: 460px) {
+    #nav {
+        float:none;
+        display: none;
+    }
+}
+@media all and (min-width: 461px) {
+    #nav {
+        float:left;
+        display: inline-block;
+    }
+}
+
