@@ -101,7 +101,7 @@
       null
     ],
     "abstractText": "About three years ago it seemed there was a demand for a modern statically-typed JVM language that Scala (turning attention from academy to industry), as well as newly appeared Ceylon and Kotlin, were going to satisfy.\r\n\r\nThe Java 8 release opens a reasonable question whether we still need other JVM languages. Do the long-anticipated lambdas make Java a \"modern\" language? What still puts Java apart from modern statically-typed JVM languages like Scala, Groovy, Ceylon and Kotlin?\r\n\r\nThis talk is trying to find the answers to these questions and explain why we haven't closed the Kotlin project so far. We are going to compare Kotlin with Java 8 (being very attentive to lambdas). Without going too deep into details we'll also compare Kotlin with other modern languages (Scala, Ceylon, Groovy) to find many similarities and one important difference.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -122,7 +122,7 @@
       null
     ],
     "abstractText": "I've never seen a job I didn't want to automate. Sometimes it's worked out well, sometimes automation has turned a small nuisance into a big, fragile, free-time-eating monster nuisance. In this talk, I'll explore why we automate, when to automate, the hazards of automation and the - big - rewards of automation. I'm part of the team developing IBM's WebSphere Liberty application server. We've used a mix of off-the-shelf and home-rolled tools and processes to work smarter and more productively. I'll describe what we've learned as WebSphere has transitioned to DevOps and continuous delivery and why I still can't resist trying to automate all the things.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -227,7 +227,7 @@
       null
     ],
     "abstractText": "Youve heard about Contexts and Dependency Injection (CDI) and the extensibility of Java EE 6. You may have also looked at Seam 3 or MyFaces CODI. Youve seen enough to pique your curiosity. This session will sate that curiosity and give you enough information to build great extensions for your application and business. The presentation covers creating extensions in Java EE 6 and shows how to use Apache DeltaSpike.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -248,7 +248,7 @@
       null
     ],
     "abstractText": "Apache Cordova is a platform for building native mobile applications using common Web technologies (HTML, CSS and JavaScript). Apache Cordova offers a set of APIs that allow the mobile application developers to access mobile native functions such as (Audio, Camera, File, Battery, Contacts) using JavaScript. Although there are many JavaScript mobile application frameworks, jQuery mobile is one of the best mobile web application frameworks which allows the web developers to develop neat mobile web apps. This session illustrates how to use Apache Cordova with the combination of jQuery mobile in order to design, develop, and deploy a complete hybrid Android (and iOS) app. The demo app utilizes the device native functions (Audio and Camera) using pure JavaScript.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -269,7 +269,7 @@
       null
     ],
     "abstractText": "With the rapid growth in interest around mobile, we're starting to hear that existing middleware implementations and approaches are simply not right for the mobile developer, Cloud or the Internet of Things. In short, these technology waves represent the death of middleware! However, we believe that this approach may be short-sighted and risky. Not only does enterprise Java (particularly Java EE) have a critical role to play in Java-based PaaS and mobile solutions, but it can also be used as a platform for other languages such as Ruby, that are finding growing adoption in both of these areas. The requirements for real world Cloud or Mobile applications include reliability, security, fault tolerance and much more: things that your typical enterprise middleware developer has taken for granted for four decades. In this session we will discuss the needs for enterprise Java in the IoT arena and show what weve been doing in JBoss to ensure that our projects run on a variety of devices, such as the Raspberry Pi or Android, and are available to the widest group of developers, such as mobile.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -315,7 +315,7 @@
       }
     ],
     "abstractText": "This talk presents the complete basis for IoT architectures starting from the different scenarios like industry, DIY projects, startups projects and going deep in each techincal parts:\r\n\r\n1. Single-board computers\r\n2. Sensores\r\n3. Actuators\r\n4. Power management\r\n5. Internet, IoT protocolos and Security\r\n\r\nWe will show demos from our main IoT projects:\r\n\r\n- Smart Helmet: for bike riders\r\n- Sailboat: we will connect online in our Sailboat in brazil\r\n- IoT Sandbox gateway using Camel + Mqtt\r\n\r\nThis is a very prepared talk with code, pictures, practical examples and demos!",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -378,7 +378,7 @@
       null
     ],
     "abstractText": "Security in Java EE has long been under used and under specified. The existing set of specifications range from overly complex to non-existent. The result is almost no one uses Java EE security. Java EE 8 is upon us and with it brings another opportunity to clean the slate and create something useful. This working session is intended to get attendees quickly up to speed with the current state of affairs, poll information from the audience then pose the question of how do we move forward?",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -420,7 +420,7 @@
       null
     ],
     "abstractText": "As the Internet of Things (IoT) continues to increase the demand for Java developers, it is becoming increasingly important for developers to understand IoT. This session introduces developers to IoT, making no assumptions about prior knowledge or experience. Attendees will leave the session understanding answers to questions such as:\r\n\r\n- What is IoT?\r\n- What are the major verticals for IoT?\r\n- What are some use case scenarios for IoT?\r\n- What are some of the sensors employed in \"things\"?\r\n- What communication protocols are leveraged, and emerging, in IoT?  \r\n- How will IoT impact the lives of developers?\r\n- In what ways can Java be leveraged to facilitate IoT application development?",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -650,7 +650,7 @@
       null
     ],
     "abstractText": "Every Java developer should have a good working knowledge of JVM bytecode. Its fun, it can help you diagnose problems, improve performance, and even empowers you to build your own languages. No matter what kind of Java application you work on, youll get something out of this talk. \r\n\r\nWell start with bytecode fundamentals. Youll learn how the most common operations work and see visual representations of how the JVM executes that code. The second part of the talk will introduce Jitescript, a Java library for generating bytecode. You learn how to use Jitescript with some plain old Java code to create your own JVM languages.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -696,7 +696,7 @@
       }
     ],
     "abstractText": "This talk presents the complete basis for IoT architectures starting from the different scenarios like industry, DIY projects, startups projects and going deep in each techincal parts:\r\n\r\n1. Single-board computers\r\n2. Sensores\r\n3. Actuators\r\n4. Power management\r\n5. Internet, IoT protocolos and Security\r\n\r\nWe will show demos from our main IoT projects:\r\n\r\n- Smart Helmet: for bike riders\r\n- Sailboat: we will connect online in our Sailboat in brazil\r\n- IoT Sandbox gateway using Camel + Mqtt\r\n\r\nThis is a very prepared talk with code, pictures, practical examples and demos!",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -738,7 +738,7 @@
       null
     ],
     "abstractText": "In addition to a complex server architecture web and mobile applications also have a challenging client code base. However traditional Java frameworks focus on server side rendering and do not integrate JavaScript very well. JBoss Errai is a framework which helps developing large, scaleable rich web applications using a consistent, standardized programming model for client development.\r\n\r\nLeveraging the Google Web Toolkit Errai brings a proven server-side programming model to the browser. The framework makes it possible to build rich web applications completely in Java. In a typesafe way with reducing boilerplate code.",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -759,7 +759,7 @@
       null
     ],
     "abstractText": "There are several programming language implementation projects that build on the Truffle/Graal infrastructure developed by Oracle Labs, for instance of JavaScript, R, and Ruby. Implementing a language in Truffle is done by building a comparatively simple interpreter - the framework will take care of optimising running code and compiling it to efficient machine code.\r\n\r\nThe talk is going to give an overview of the technology stack and its working principles, and introduce some of the language implementations by example.",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -780,7 +780,7 @@
       null
     ],
     "abstractText": "When one uses Test-Driven Development, has more then 90% test coverage and the best Sonar metrics ever seen, and still finds regular bugs in his application, it is time for something more. Unit Testing is like testing a car's every nuts and bolts while Integration Testing is like leading it on a test drive: one cannot achieve high internal quality without one or the other.\r\n\r\nHowever, Integration Testing might seem very complex when put in place for the first several times; I have made many mistakes and have lost much time. In this presentation, I will present tools that helped me tremendously in Integration Testing, as well as proven tactics to get the best out of your tests.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -801,7 +801,7 @@
       null
     ],
     "abstractText": "Nashorn is the new Javascript engine inside JDK 8. In this presentation you will see an overview of all features, and cool demos that will show you all the possibilities, from simple scripts to fully capable applications in JavaFX.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -822,7 +822,7 @@
       null
     ],
     "abstractText": "Apache Cordova is an open source project that provides a platform compose of apis, packaging, and tools, to build native apps for the different mobile platforms such like Apple iOS, Android, BlackBerry, Windows Phone 8, an others. The project helps web developers use their programming skills to create hybrid Apps which can be distributed in the different Apps Stores. This sessions will start by giving a quick overview of the different parts of the architecture for the new version of Apache Cordova 3. Also will go deep into creating a sample app for iOS and Android sharing common code, then deploying and debugging the App on a smartphone, and adding cloud storage to persist and share data using one of the modern mobile backend as a services (MBaaS) that make it very easy to enable mobile Apps to make the data transparently available on all devices with minimum investment on time and resources.",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -843,7 +843,7 @@
       null
     ],
     "abstractText": "The presentation will demonstrate the approach to build hybrid mobile apps using a Java REST adapter to access RESTful web services in the enterprise. It will cover architectural aspects including security and show how the mobile client is developed using a Java REST service adapter.",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -910,7 +910,7 @@
       }
     ],
     "abstractText": "It's commonly agreed in DevOps: without runtime information like log data or metrics you are literally blind in production. Even if such data is available, without correlating events from different sources it becomes very difficult to make sense of your metrics and to draw accurate conclusions. With the rise of microservice architectures, which aim at breaking monoliths into zoos of distributed services, standard approaches with local logfiles and basic runtime metrics are not sufficient anymore. Instead there is an increasing need for a centralized log and metrics collection that allows for aggregating, correlating and visualizing any kind of runtime events.\r\n\r\nIn this session, we will show both, the conceptual foundation and best practices for a monitoring solution of a decentralized and distributed application landscape. Coming from a blind example setup, we will show how logging data and runtime metrics can be captured, collected, evaluated and visualized in order to improve the operational experience and the ability to respond early to problems.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -952,7 +952,7 @@
       null
     ],
     "abstractText": "Be warned! In this session, attendees over 21 might get drunk. It demonstrates, end-to-end, how to DIY a Java-powered beer tap. The presentation shows you a visual Java SE 8 JavaFX application running on a Raspberry Pi, a Java EE 7 application to process Twitter data and communicate with the Raspberry Pi, and the use of complex event processing in the embedded device to warn users if they are drinking too much. Perhaps you will want to bring your beer mug!",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -1036,7 +1036,7 @@
       null
     ],
     "abstractText": "About three years ago it seemed there was a demand for a modern statically-typed JVM language that Scala (turning attention from academy to industry), as well as newly appeared Ceylon and Kotlin, were going to satisfy.\r\n\r\nThe Java 8 release opens a reasonable question whether we still need other JVM languages. Do the long-anticipated lambdas make Java a \"modern\" language? What still puts Java apart from modern statically-typed JVM languages like Scala, Groovy, Ceylon and Kotlin?\r\n\r\nThis talk is trying to find the answers to these questions and explain why we haven't closed the Kotlin project so far. We are going to compare Kotlin with Java 8 (being very attentive to lambdas). Without going too deep into details we'll also compare Kotlin with other modern languages (Scala, Ceylon, Groovy) to find many similarities and one important difference.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -1057,7 +1057,7 @@
       null
     ],
     "abstractText": "Who wants a mindless drone? Teach it to \"think,\" and it can do so much more. But how do you take it from Toy Story to Terminator? This session's speaker discusses a new open source library, Autonomous4j, for autonomous drone development. Combining this library and some components from their mad science toolkit, they demonstrate how to get your Internet of Things off the ground and do some real cloud computing. In the session, you'll learn how to write an autonomous drone program with Java 8; deploy it to the drone's \"positronic brain,\" an onboard Raspberry Pi; have the Pi guide an AR.Drone to accomplish a task; monitor it via a JavaFX console; and create your own robot overlord. Demos are included: you've been warned!",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -1078,7 +1078,7 @@
       null
     ],
     "abstractText": "10 years in the making and finally JSR-107 has been finalized. We now have a standardized Caching API for the Java Platform. But what does it mean for you? What's with these optional features? No transaction support? How do you efficiently make use of this new API to solve real world problems?\r\n\r\nIn this session you'll be quickly introduced to the API, but we'll then focus on solving real caching problems as we explore the javax.cache API in much more details. Whether explicitly (cache-aside, cache-through, ...) or implicitly through frameworks (like Hibernate or Spring). And how to abstract yourself from a given provider when you require more than what the specifications cover (e.g. transactional caches).\r\n\r\nWe'll also cover some implementer specifics you might want to account for when choosing an implementation, especially if you plan to push the spec to its limits, like when going distributed.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -1124,7 +1124,7 @@
       null
     ],
     "abstractText": "At a first glance, Java bytecode can appear to be some low level magic that is both hard to understand and effectively irrelevant to application developers. However, neither is true. With only little practice, Java byte code becomes easy to read and can give true insights into the functioning of a Java program. In this talk, we will cast light on compiled Java code and its interplay with the Java Virtual Machine. In the process, we will look into the evolution of byte code over the recent major releases with features such as dynamic method invocation which is the basis to Java 8 lambda expressions. Finally, we will learn about tools for the runtime generation of Java classes and byte code. Among those tools, I will present Byte Buddy, a novel open source code generator which is an attempt to considerably simplify runtime code generation in Java.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -1233,7 +1233,7 @@
       }
     ],
     "abstractText": "This talk presents the complete basis for IoT architectures starting from the different scenarios like industry, DIY projects, startups projects and going deep in each techincal parts:\r\n\r\n1. Single-board computers\r\n2. Sensores\r\n3. Actuators\r\n4. Power management\r\n5. Internet, IoT protocolos and Security\r\n\r\nWe will show demos from our main IoT projects:\r\n\r\n- Smart Helmet: for bike riders\r\n- Sailboat: we will connect online in our Sailboat in brazil\r\n- IoT Sandbox gateway using Camel + Mqtt\r\n\r\nThis is a very prepared talk with code, pictures, practical examples and demos!",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -1296,7 +1296,7 @@
       null
     ],
     "abstractText": "Do you speak MQTT? This session shows what MQTT is about and why it became an established IoT standard protocol. Learn why Pub / Sub scales for the Internet of Things and why HTTP is not a silver bullet for every Internet of Things communication problem.\r\n\r\nYou will see an introduction to MQTT and Pub/Sub messaging and see some live demos with Java IoT Technologies. You will gain insight to the young and very active MQTT ecosystem and why it gained that much traction the last months. You will learn about MQTT Java libraries and how to utilize them together with MQTT brokers to build scalable IoT architectures of tomorrow.",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -1338,7 +1338,7 @@
       null
     ],
     "abstractText": "Security in Java EE has long been under used and under specified. The existing set of specifications range from overly complex to non-existent. The result is almost no one uses Java EE security. Java EE 8 is upon us and with it brings another opportunity to clean the slate and create something useful. This working session is intended to get attendees quickly up to speed with the current state of affairs, poll information from the audience then pose the question of how do we move forward?",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -1422,7 +1422,7 @@
       null
     ],
     "abstractText": "Documentation is critical to increasing an open source projects adoption and growth. Planning and writing documentation for a variety of users and taking into consideration their needs, backgrounds, and environments can quickly become complex and feel overwhelming. \r\n\r\nUsing examples from new and mature open source projects, well explore tactics you can use to: \r\n\r\n- Determine your projects audiences\r\n- Prioritize the types of documentation each audience needs\r\n- Outline and write the text\r\n- Develop useful and interesting examples\r\n- Gather feedback and incorporate it into the documentation",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -1610,7 +1610,7 @@
       null
     ],
     "abstractText": "At a first glance, Java bytecode can appear to be some low level magic that is both hard to understand and effectively irrelevant to application developers. However, neither is true. With only little practice, Java byte code becomes easy to read and can give true insights into the functioning of a Java program. In this talk, we will cast light on compiled Java code and its interplay with the Java Virtual Machine. In the process, we will look into the evolution of byte code over the recent major releases with features such as dynamic method invocation which is the basis to Java 8 lambda expressions. Finally, we will learn about tools for the runtime generation of Java classes and byte code. Among those tools, I will present Byte Buddy, a novel open source code generator which is an attempt to considerably simplify runtime code generation in Java.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -1734,7 +1734,7 @@
       null
     ],
     "abstractText": "You may be hearing a lot of buzz around functional programming. For example, Java 8 recently introduced new features (lambda expressions and method references) and APIs (Streams, Optional and CompletableFutures) inspired from functional ideas such as first-class functions, composition and immutability. However, what does this mean for my existing codebase?\r\n\r\nIn this talk we show how you can refactor your traditional object-oriented Java to using FP features and APIs from Java 8 in a beneficial manner. We will discuss:\r\n\r\n- How to adapt to requirement changes using first-class functions\r\n- How you can enhance code reusability using currying\r\n- How you can make your code more robust by favouring immutability over mutability\r\n- How you can design better APIs and reduce unintended null pointer exceptions using an optional data type",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -1818,7 +1818,7 @@
       null
     ],
     "abstractText": "There are several programming language implementation projects that build on the Truffle/Graal infrastructure developed by Oracle Labs, for instance of JavaScript, R, and Ruby. Implementing a language in Truffle is done by building a comparatively simple interpreter - the framework will take care of optimising running code and compiling it to efficient machine code.\r\n\r\nThe talk is going to give an overview of the technology stack and its working principles, and introduce some of the language implementations by example.",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -1860,7 +1860,7 @@
       null
     ],
     "abstractText": "Nashorn is the new Javascript engine inside JDK 8. In this presentation you will see an overview of all features, and cool demos that will show you all the possibilities, from simple scripts to fully capable applications in JavaFX.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -1881,7 +1881,7 @@
       null
     ],
     "abstractText": "It's hard to overstate how much has changed in the world since HTTP 1.1 went final in June of 1999. There were no smartphones, Google had not yet IPO'd, Java Swing was less than a year old...  you get the idea. Yet for all that change, HTTP remains at version. HTTP 2.0 should be complete by 2015, and with that comes the need for a new version of Servlet.  It will embrace HTTP 2.0 and expose its key features to Java EE 8 applications.  \r\n\r\nThis session gives a peek into the progress of the Servlet spec and shares some ideas about how developers can take advantage of this exciting update to the world's most successful application protocol on the world's most popular programming language.",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -1902,7 +1902,7 @@
       null
     ],
     "abstractText": "Security in Java EE has long been under used and under specified. The existing set of specifications range from overly complex to non-existent. The result is almost no one uses Java EE security. Java EE 8 is upon us and with it brings another opportunity to clean the slate and create something useful. This working session is intended to get attendees quickly up to speed with the current state of affairs, poll information from the audience then pose the question of how do we move forward?",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -1986,7 +1986,7 @@
       null
     ],
     "abstractText": "That performance tuning is still considered to be a dark art is attributable to the lack of understanding of performance tuning best practices. This talk wild describe a more structure approach to performance tuning.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -2028,7 +2028,7 @@
       null
     ],
     "abstractText": "Be warned! In this session, attendees over 21 might get drunk. It demonstrates, end-to-end, how to DIY a Java-powered beer tap. The presentation shows you a visual Java SE 8 JavaFX application running on a Raspberry Pi, a Java EE 7 application to process Twitter data and communicate with the Raspberry Pi, and the use of complex event processing in the embedded device to warn users if they are drinking too much. Perhaps you will want to bring your beer mug!",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -2132,7 +2132,7 @@
       null
     ],
     "abstractText": "As part of the JavaEE 8 specification cycle the new MVC 1.0 JSR is in full swing and we want to show you where we are at.",
-    "language": "english",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -2174,7 +2174,7 @@
       null
     ],
     "abstractText": "Every year, the Eclipse simultaneous release brings together the hard work of dozens of open source projects into a single coordinated release. Most people think of Eclipse as a Java IDE; for the IDE crowd, this year's Luna release introduces changes in the look and feel of Eclipse, Java 8 support, enhanced content assist, and more. This session walks through some of the new IDE features and surveys some of the other technology being developed by open source projects at Eclipse, including application frameworks, runtime technology, and modeling tools. We'll also highlight some of the features coming with this year's Eclipse Mars release.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {
@@ -2195,7 +2195,7 @@
       null
     ],
     "abstractText": "Ratpack is yet another kid in the block of web application development frameworks. Why is it different? It gives you an ability of rapid prototyping of web UIs and APIs. Non-blocking implementation, which includes testing, dependency injection, monitoring, streaming are all (as well as many others) built-in features and are easy to use. You can start as small as a single script, or split your application into several source code files organically when it grows bigger. Also, the consisence of Groovy programming language and elegent API gives it an outstanding charm that's worth a try for your next small or big project. This presentation gives a demo of how to quickly create a web application with Ratpack.",
-    "language": "english",
+    "language": "Englisch",
     "demo": false
   },
   {

@@ -38,6 +38,7 @@ function Talk(data) {
     this.level = data.level;
     this.title = data.title;
     this.speakers = data.speakers;
+    this.language = data.language;
     this.shortAbstract = data.abstractText.substring(0, 100) + "...";
     this.fullAbstract = data.abstractText;
     this.detailVisible = false;
@@ -112,7 +113,7 @@ function TalkListViewModel() {
     self.filters = [
         //{title: 'Day', filterKey: 'start', values: []},
         {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observable("")},
-        //{title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([])},
+        {title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observable("")},
         {title: 'Track', filterKey: 'track', filtervalues : ko.observableArray([]), selected : ko.observable("")},
         //{title: 'Speaker', filterKey: 'speakers', values: []},
         {title: 'Room', filterKey: 'location', filtervalues : ko.observableArray([]), selected : ko.observable("")}
