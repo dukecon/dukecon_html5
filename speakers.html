@@ -20,16 +20,27 @@
     <h1>Sprecher</h1>
 </div>
 <div id="main" class="content pure-g">
-<ul data-bind="foreach: allSpeakers">
-    <li>
-        <div>
-            <span data-bind="text: name"></span> - <span data-bind="text: company"></span>
-            <div data-bind="foreach: talks">
-                <p data-bind="text: title"></p>
-            </div>
-        </div>
-    </li>
-</ul>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Talks</th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: allSpeakers">
+        <tr>
+            <td>
+                <div class="room">Name: <span data-bind="text: name" /></div>
+                <div class="track">Firma: <span data-bind="text: company" /></div>
+            </td>
+            <td>
+                <div data-bind="foreach: talks">
+                    <p class="title" data-bind="text: title"></p>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 <script type='text/javascript' src='js/speakers.js'></script>
