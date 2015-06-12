@@ -16,7 +16,9 @@
 <h2>Filter by</h2>
 <div class="filter-box" data-bind="foreach: filters">
     <span data-bind="text:title"></span>
-    <select data-bind="options:filtervalues, value:selected"></select>
+    <div data-bind="foreach: filtervalues">
+        <div><input type="checkbox" data-bind="value: $data, checked: $parent.selected" /><span data-bind="text: $data"></span></div>
+    </div>
 </div>
 
 <table>

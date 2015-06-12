@@ -17,7 +17,7 @@
       null
     ],
     "abstractText": "Wearable computers are one of the next big things. But at the moment, one can buy only specialized systems such as motion trackers, GPS watches, and the like. So why not use existing cheap technology to build your own wearable Java-powered device? This session shows what you can do with affordable technology and Java today. It uses a Raspberry Pi in combination with a heart rate sensor and a GPS sensor to track the heart rate and the location of a runner. The battery-powered Pi measures the data and publishes it via MQTT to different clients such as Java(FX)-based desktop clients and a smartwatch the runner can wear. Come get some ideas of what you can do with Java and wearable devices.",
-    "language": "Deutsch",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -206,7 +206,7 @@
       null
     ],
     "abstractText": "In this session the concepts of DevOps will be thoroughly presented to gain a common understanding of what it is an what it isn't. Then we will dive into the technical implications the introduction of DevOps in an organization have on your application architecture. Lastly I will show how well fitted Java EE is for DevOps compared to other alternatives.\r\n\r\nThe objectives of this session are:\r\n\r\n1. Demystify DevOps\r\n2. Technical implications of DevOps\r\n3. Evaluate Java EE with DevOps in mind\r\n\r\nThe slides for this session will be backed up by a demo to show the key concepts.",
-    "language": "Deutsch",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -441,7 +441,7 @@
       null
     ],
     "abstractText": "The presentation gives an overview of the existing solutions, use cases and requirements to cover with configuration in Java. It will discuss different views and stakeholders on the problem, such as DevOps, Java EE application server vendors and application developers and it will show, how different requirements such as adaptive deployments, cloud elasticity and application configuration can be covered with only a few simple mechanisms. Finally also advanced concepts like configuration views, configuration change management and CDI integration are discussed and it will be shown how things will fit well into Java SE and EE.",
-    "language": "Deutsch",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -1103,7 +1103,7 @@
       }
     ],
     "abstractText": "First Session: WebSocket, JSON, JSF\r\n\r\n    JSON\r\n    - Why is this important? JSON is to HTML5 what XML was to web services\r\n    - JSON-P is for parsing\r\n    - What about binding to Java Objects?\r\n    WebSocket\r\n    - Three specs: JavaScript API, IETF transport protocol, Java API\r\n    - Java API details: Usage from a browser, Usage from standalone client\r\n    JSF: The good parts\r\n    - Composite components\r\n    - HTML 5friendly markup\r\n\r\nSecond Session: HTML 5 Deep Dive\r\n\r\n    HTML 5: Why all the fuss?\r\n    - What's in a name?\r\n    - Is it really a big deal?\r\n    HTML 5: High-level perspective\r\n    - Design goals\r\n    - How does it differ from HTML 4\r\n    HTML 5: Subspecifications\r\n    - Browser contexts\r\n    - Microdata\r\n    - Canvas context\r\n    - Offline apps\r\n    - Messaging\r\n    - Events\r\n    - Cross-document messaging\r\n    - Server-sent events\r\n    - WebSocket\r\n    - Drag and drop\r\n    - Web storage",
-    "language": "Deutsch",
+    "language": "Englisch",
     "demo": true
   },
   {
@@ -1965,7 +1965,7 @@
       null
     ],
     "abstractText": "The presentation gives an overview of the existing solutions, use cases and requirements to cover with configuration in Java. It will discuss different views and stakeholders on the problem, such as DevOps, Java EE application server vendors and application developers and it will show, how different requirements such as adaptive deployments, cloud elasticity and application configuration can be covered with only a few simple mechanisms. Finally also advanced concepts like configuration views, configuration change management and CDI integration are discussed and it will be shown how things will fit well into Java SE and EE.",
-    "language": "Deutsch",
+    "language": "Englisch",
     "demo": true
   },
   {
