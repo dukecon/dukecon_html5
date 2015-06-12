@@ -16,7 +16,7 @@
 <h2>Filter by</h2>
 <div class="filter-box" data-bind="foreach: filters">
     <span data-bind="text:title"></span>
-    <select data-bind="options:filtervalues, event:{ change: $parent.setActiveFilter}"></select>
+    <select data-bind="options:filtervalues, value:selected"></select>
 </div>
 
 <table>

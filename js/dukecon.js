@@ -66,6 +66,7 @@ function TalkListViewModel() {
     // Data
     var self = this;
     self.talks = ko.observableArray([]);
+    self.allTalks = [];
 
     // Sorting by column
     self.headers = [
@@ -100,34 +101,41 @@ function TalkListViewModel() {
     };
 
     self.getDistinctValues = function(key) {
-        var t = _.groupBy(self.talks(), function(talk) {
+        var t = _.groupBy(self.allTalks, function(talk) {
             return talk[key];
         });
-        return _.keys(t).sort();
+        var values = _.keys(t);
+        values.push("");
+        return values.sort();
     };
 
+    self.filters = [
+        //{title: 'Day', filterKey: 'start', values: []},
+        {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observable("")},
+        //{title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([])},
+        {title: 'Track', filterKey: 'track', filtervalues : ko.observableArray([]), selected : ko.observable("")},
+        //{title: 'Speaker', filterKey: 'speakers', values: []},
+        {title: 'Room', filterKey: 'location', filtervalues : ko.observableArray([]), selected : ko.observable("")}
+    ];
 
-
-        self.filters = [
-            //{title: 'Day', filterKey: 'start', values: []},
-            {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([])},
-            //{title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([])},
-            {title: 'Track', filterKey: 'track', filtervalues : ko.observableArray([])},
-            //{title: 'Speaker', filterKey: 'speakers', values: []},
-            {title: 'Room', filterKey: 'location', filtervalues : ko.observableArray([])}
-        ];
-
-        self.activeFilter = ko.observable();
-
-        self.setActiveFilter = function(model,event){
-            console.log("setActiveFilter " +  model);
-            //we'll select our filter and put it in self.activeFilter here
-        };
-
-        self.filteredPeople = ko.computed(function(){
-            //we'll apply our filter here in a moment
-            return self.talks;//unwrap the observable to return an array
+    $.each(self.filters, function(index, filter) {
+        filter.selected.subscribe(function(s) {
+            self.filterTalks();
         });
+    });
+
+    self.filterTalks = function() {
+        self.talks(_.filter(self.allTalks, function(talk) {
+           return _.every(self.filters, function(filter) {
+                return filter.selected() === "" || talk[filter.filterKey] === filter.selected();
+           });
+        }));
+    };
+
+    self.filteredPeople = ko.computed(function(){
+        //we'll apply our filter here in a moment
+        return self.talks;//unwrap the observable to return an array
+    });
 
     $.ajax({
       method: 'GET',
@@ -136,6 +144,7 @@ function TalkListViewModel() {
       success: function(allData) {
           var mappedTalks = $.map(allData, function(item) { return new Talk(item) });
           self.talks(mappedTalks);
+          self.allTalks = mappedTalks;
           self.addFilters();
 
           console.log("Talks updated - " + utils.getFormattedDate(new Date()));
