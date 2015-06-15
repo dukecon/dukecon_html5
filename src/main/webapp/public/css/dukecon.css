@@ -2,16 +2,19 @@ html, body {
     width:100%;
     height:99%;
     margin:0;
+    color: #777777;
 }
 
 body  {
-    max-width: 1200px;
+    max-width: 1300px;
     margin:auto;
     font-family:Sans-Serif;
     text-align:left;
 }
 
 table, th, td {
+    border-collapse: separate;
+    border-spacing: 1px;
     border: none;
     vertical-align: top;
     padding: 5px;
@@ -35,23 +38,23 @@ td.more {
     background: transparent;
 }
 
-td.more div {
+.more div {
     padding: 5px;
     margin: 5px;
 }
 
-td.more.visible div {
+.more.shown div {
     overflow-x:auto;
     margin-top: 5px;
     transition: height 0.7s, margin-top 0.7s;
 }
 
-td.more.hidden div {
-    margin-top: -400px;
+.more.folded div {
     transition: height 0.5s, margin-top 0.5s;
 }
 
 a {
+    color: #1AA3B1;
     border-radius:5px;
     font-weight:normal;
     padding-right:0.5em;
@@ -69,18 +72,145 @@ a:hover {
 }
 
 h1 {
-  font-size:120%;
-  line-height:2em;
-  text-align: center;
-  background: #eeeeee;
+    font-size:120%;
+    line-height:2em;
+    text-align: center;
+    color: #FFFFFF;
+    background: #1AA3B1;
 }
 
 h2 {
-  font-size:115%;
-  text-align: center;
+  font-size:110%;
+  text-align: left;
 }
 
 
 .clickable {
     cursor: pointer;
 }
+
+.filter-box {
+    padding:0;
+}
+
+.filter-box > * {
+    display:block;
+}
+
+.filter-category {
+    font-weight:bold;
+    display: block;
+    padding: 5px;
+    margin: 5px 0px 5px; 0px;
+    color: #FFFFFF;
+    background: #1AA3B1;
+}
+
+.filter-values {
+    margin-left: 5px;
+    margin-right:5px;
+    font-size:smaller;
+    line-height:1.5em;
+}
+
+.filter-values input[type=checkbox] {
+    display:none;
+}
+
+.filter-values input[type="checkbox"] + label {
+    padding: 2px;
+    margin-left: 1em;
+    display:block;
+    vertical-align:middle;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label {
+    margin-left: 0em;
+}
+
+input[type="checkbox"]:checked + label:before {
+    content: '\2714';
+    padding-right:3px;
+}
+
+
+.filter-values div:hover {
+    background: #DDDDDD;
+}
+
+.talk-info {
+    background: #ffffff;
+}
+
+#grid {
+    display:inline-block;
+    min-width: 250px;
+}
+
+#nav {
+    float:left;
+    display: inline-block;
+    min-width: 250px;
+    margin-left:0px;
+    margin-right: 5px;
+    padding:0px;
+    border: 1px solid #dddddd;
+}
+
+#nav h2 {
+    margin:5px 5px 15px 5px;
+}
+
+.pure-g {
+    letter-spacing: 0em;
+}
+
+div.title {
+    font-weight:bold;
+}
+
+div.track {
+    font-weight:bold;
+    font-size:smaller;
+    font-style:italic
+}
+div.track span {
+    font-style:italic;
+    font-weight: normal;
+}
+
+div.room {
+    font-weight:bold;
+}
+div.room span {
+    font-weight: normal;
+}
+
+
+/* Media queries */
+
+@media all and (max-width: 460px) {
+    #nav {
+        float:none;
+        display: none;
+    }
+    #grid {
+        width:100%
+    }
+    .more.folded div {
+        margin-top: -600px;
+    }
+}
+@media all and (min-width: 461px) {
+    #nav {
+        float:left;
+        display: inline-block;
+    }
+    #grid {
+        width:78%
+    }
+    .more.folded div {
+        margin-top: -400px;
+    }
+}
+

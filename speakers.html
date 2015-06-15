@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="de">
+    <meta charset="UTF-8">
+    <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='js/underscore-min.js'></script>
+    <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/pure-min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dukecon.css"/>
+    <title>DukeCon</title>
+</head>
+<body>
+<div class="header">
+    <img src="img/logo_javaland.gif" title="javaland 2016"/>
+    <div class="main-menu">
+        <a href="index.html">Home</a> |
+        <a href="talks.html">Talks</a> |
+        <a href="speakers.html">Sprecher</a>
+    </div>
+    <h1>Sprecher</h1>
+</div>
+<div id="main" class="content pure-g">
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Talks</th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: allSpeakers">
+        <tr>
+            <td>
+                <div class="room">Name: <span data-bind="text: name" /></div>
+                <div class="track">Firma: <span data-bind="text: company" /></div>
+            </td>
+            <td>
+                <div data-bind="foreach: talks">
+                    <a class="title" data-bind="text: title, attr : { href : 'talk.html?talkId=' + id }"></a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type='text/javascript' src='js/dukecon.js'></script>
+<script type='text/javascript' src='js/speakers.js'></script>
+</body>
+</html>
