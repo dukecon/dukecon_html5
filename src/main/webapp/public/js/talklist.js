@@ -21,16 +21,8 @@ function TalkListViewModel() {
         });
     });
 
-    $.ajax({
-        method: 'GET',
-        dataType: "json",
-        url: jsonUrl,
-        success: function(allData) {
-            self.initializeData(allData);
-        },
-        error: function(error) {
-            console.log("Nothing updated. Device offline?");
-        }
+    dukeconStorageUtils.getData(function(allData) {
+        self.initializeData(allData);
     });
 
     self.initializeData = function(allData) {

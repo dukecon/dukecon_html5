@@ -64,3 +64,87 @@ var dukeconDateUtils = {
         return data;
     }
 };
+
+var dukeconStorageUtils = {
+    db_name : 'dukecon',
+    talk_store : 'talks',
+    indexedDB : window.indexedDB || window.webkitIndexedDB || window.msIndexedDB,
+
+    createDatabase : function(callback) {
+        //this.indexedDB.deleteDatabase(this.db_name);
+        var storeKey = this.talk_store;
+        var request = this.indexedDB.open(this.db_name);
+        request.onupgradeneeded = function(e){
+            var db = e.target.result;
+            if (!db.objectStoreNames.contains(storeKey)){
+                store = db.createObjectStore(storeKey, {
+                    keyPath: 'key',
+                    autoIncrement: true
+                });
+            }
+        };
+        request.onsuccess = callback;
+    },
+
+    storeDataInDb : function(store, data) {
+        store.openCursor().onsuccess = function(event) {
+            var cursor = event.target.result;
+            if (cursor) {
+                console.log('Cursor', cursor);
+                console.log('Cursor data', cursor.value);
+                store.delete(cursor);
+                cursor.continue();
+            }
+        };
+        store.add(data);
+    },
+
+    getDataFromDb : function(store, callback) {
+        store.openCursor().onsuccess = function(event) {
+            var cursor = event.target.result;
+            if (cursor) {
+                callback(cursor.value);
+            }
+            else {
+                console.log('No Entries in db, retrieving data from the server');
+                callback(null);
+            }
+        };
+    },
+
+    getData : function(callback) {
+       var utils = this;
+       utils.createDatabase(function(e) {
+           console.log('Db opened');
+           var db = e.target.result;
+           utils.getDataFromDb(utils.openTransaction(db), function(data) {
+                if (data) {
+                    callback(data);
+                }
+                else {
+                    utils.getDataFromServer(function(data) {
+                        utils.storeDataInDb(utils.openTransaction(db), data);
+                        callback(data);
+                    });
+                }
+            });
+        });
+    },
+
+    openTransaction : function(db) {
+        var trans = db.transaction(this.talk_store, 'readwrite');
+        return trans.objectStore(this.talk_store);
+    },
+
+    getDataFromServer : function(callback) {
+        $.ajax({
+            method: 'GET',
+            dataType: "json",
+            url: jsonUrl,
+            success: callback,
+            error: function(error) {
+                console.log("Nothing updated. Device offline?");
+            }
+        });
+    }
+};
