@@ -24,12 +24,12 @@ This is the parent `<div>` that contains the menu and the content area.
     padding-left: 0;
 }
     #layout.active #menu {
-        left: 260px;
+        left: 0px;
         width: 260px;
     }
 
     #layout.active .menu-link {
-        left: 260px;
+        left: 0px;
     }
 /*
 The content `<div>` is where all your content goes.
@@ -50,7 +50,7 @@ appears on the left side of the page.
 #menu {
     margin-left: -260px; /* "#menu" width */
     width: 260px;
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
@@ -70,7 +70,7 @@ how it works:
 small screens.
 */
 .menu-link {
-    position: fixed;
+    position: absolute;
     display: block; /* show this only on small screens */
     left: 0; /* "#menu width" */
     background: #fff;
@@ -105,6 +105,9 @@ small screens.
             margin-top: 0.6em;
         }
 
+#menu, .menu-link {
+    top: 0px;
+}
 
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
 
@@ -127,7 +130,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 
     .menu-link {
-        position: fixed;
+        position: absolute;
         left: 260px;
         display: none;
     }
@@ -150,17 +153,6 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
     #days_filter {
         margin-left: 50px;
-    }
-}
-
-@media (min-width: 343px) {
-    #menu, .menu-link {
-        top: 128px;
-    }
- }
-@media (max-width: 342px) {
-    #menu, .menu-link {
-        top: 155px;
     }
 }
 
