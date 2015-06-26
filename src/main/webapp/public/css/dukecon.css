@@ -12,14 +12,6 @@ body  {
     text-align:left;
 }
 
-table, th, td {
-    border-collapse: separate;
-    border-spacing: 1px;
-    border: none;
-    vertical-align: top;
-    padding: 5px;
-}
-
 table {
     background-color: #eeeeee;
 }
@@ -33,9 +25,10 @@ td {
     background-color:#ffffff;
 }
 
-td.more {
+.more {
     overflow: hidden;
     background: transparent;
+    position:relative;
 }
 
 .more div {
@@ -51,6 +44,7 @@ td.more {
 
 .more.folded div {
     transition: height 0.5s, margin-top 0.5s;
+    margin-top: -1500px;
 }
 
 a {
@@ -142,8 +136,7 @@ input[type="checkbox"]:checked + label:before {
     background: #ffffff;
 }
 
-#grid {
-    display:inline-block;
+#content {
     min-width: 250px;
 }
 
@@ -165,8 +158,21 @@ input[type="checkbox"]:checked + label:before {
     letter-spacing: 0em;
 }
 
+#talks-grid {
+    background-color: #eeeeee;
+}
+div.talk-cell {
+    background-color: #ffffff;
+    vertical-align:top;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+    min-width:200px;
+    width: 30%;
+}
 div.title {
     font-weight:bold;
+    color: #1AA3B1;
 }
 
 div.track {
@@ -181,36 +187,45 @@ div.track span {
 
 div.room {
     font-weight:bold;
+    font-size: smaller;
 }
-div.room span {
+div.room {
+    font-weight:bold;
+    font-size: smaller;
+}
+div.time {
+    display:inline-block;
+    font-weight:bold;
+    font-size: smaller;
+}
+div.room span, div.time span {
     font-weight: normal;
+}
+.morelink {
+    font-size: smaller;
 }
 
 
 /* Media queries */
 
-@media all and (max-width: 460px) {
+@media all and (max-width: 400px) {
     #nav {
         float:none;
         display: none;
     }
-    #grid {
+    #content {
+        display:block;
         width:100%
     }
-    .more.folded div {
-        margin-top: -600px;
-    }
 }
-@media all and (min-width: 461px) {
+@media all and (min-width: 401px) {
     #nav {
         float:left;
         display: inline-block;
     }
-    #grid {
-        width:78%
-    }
-    .more.folded div {
-        margin-top: -400px;
+    #content {
+        display:inline-block;
+        width:75%
     }
 }
 
