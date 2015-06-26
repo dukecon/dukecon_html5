@@ -17,21 +17,17 @@ table, th, td {
 }
 
 button {
-    background-color: #e6e6e6;
+    background-color: #eee;
     border: 0 none rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0.8);
-    font-family: inherit;
     font-weight:bold;
-    padding: 0.7em;
     font-size:smaller;
-}
-button {
-    -moz-user-select: none;
+    line-height: normal;
+    text-align: center;
+    padding: 0.7em;
     box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-    line-height: normal;
-    text-align: center;
     vertical-align: middle;
     white-space: nowrap;
 }
@@ -42,8 +38,7 @@ button:hover, button:focus {
     background-color:#eee;
 }
 button.selected {
-    background-color:#eee;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+    background-color:#ddee55;
 }
 th {
     background-color: #666666;

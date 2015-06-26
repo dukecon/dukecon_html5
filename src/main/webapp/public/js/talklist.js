@@ -12,6 +12,7 @@ function TalkListViewModel() {
     ];
 
     self.days = ko.observableArray([]);
+    self.selectedDayIndex = ko.observable(0);
     self.selectedDay = "";
 
     // Initialize
@@ -69,8 +70,10 @@ function TalkListViewModel() {
         }));
     };
 
-    self.updateDay = function(day) {
+    self.updateDay = function(day, event) {
         self.selectedDay = day;
+        self.selectedDayIndex(ko.contextFor(event.target).$index());
+        console.log(self.selectedDayIndex());
         self.filterTalks();
     }
 

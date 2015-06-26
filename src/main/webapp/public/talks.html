@@ -41,7 +41,7 @@
     <div id="content">
         <div>
             <div id="days_filter" data-bind="foreach: days">
-                <button type="button" data-bind="text: $data, click: $parent.updateDay"/>
+                <button type="button" data-bind="text: $data, click: $parent.updateDay, attr: { class: ($index() == $parent.selectedDayIndex() ? 'selected' : '')}"/>
             </div>
         </div>
 
