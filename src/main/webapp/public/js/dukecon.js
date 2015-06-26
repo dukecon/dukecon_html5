@@ -4,19 +4,20 @@ var jsonUrl = "demotalks.json";
 var originHeader = "http://dev.dukecon.org";
 
 function Talk(data) {
-    this.id = data.id;
-    this.day = dukeconDateUtils.getDisplayDate(data.start);
-    this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
-    this.startSortable = data.start;
-    this.track = data.track;
-    this.location = data.location;
-    this.level = data.level;
-    this.title = data.title;
-    this.speakers = data.speakers;
-    this.speakerString = data.speakers[0].name; // TODO: comma-list
-    this.language = data.language;
-    this.shortAbstract = data.abstractText.substring(0, 100) + "...";
-    this.fullAbstract = data.abstractText;
+    this.id = data.id || '';
+    this.day = dukeconDateUtils.getDisplayDate(data.start || '');
+    this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start || '');
+    this.startSortable = data.start || '';
+    this.track = data.track || '';
+    this.location = data.location || '';
+    this.level = data.level || '';
+    this.title = data.title || '';
+    this.speakers = data.speakers || '';
+    this.speakerString = data.speakers ? data.speakers[0].name : ""; // TODO: comma-list
+    this.language = data.language || '';
+    this.fullAbstract = data.abstractText || '';
+
+    this.shortAbstract = this.fullAbstract.substring(0, 100) + "...";
     this.detailVisible = false;
     this.toggleText = ko.observable("more...");
 

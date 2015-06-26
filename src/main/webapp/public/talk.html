@@ -19,10 +19,10 @@
         <a href="talks.html">Talks</a> |
         <a href="speakers.html">Sprecher</a>
     </div>
-    <h1>Talk</h1>
+    <h1 data-bind="text : talk().title"></h1>
 </div>
 <div id="layout" class="content">
-    <!-- <span data-bind="text : title"></span> -->
+   <span data-bind="text : talk().fullAbstract"></span>
 </div>
 <script type='text/javascript' src='js/dukecon.js'></script>
 <script type='text/javascript' src='js/talk.js'></script>
