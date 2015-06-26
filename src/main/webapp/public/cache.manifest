@@ -1,0 +1,19 @@
+CACHE MANIFEST
+# Html
+/index.html
+/speakers.html
+/talk.html
+/talks.html
+# Css
+/css/dukecon.css
+/css/pure-min.css
+# Images
+/img/log_javaland.gif
+# Js
+/js/dukecon.js
+/js/jquery-2.1.4.min.js
+/js/knockout-min-3.3.0.js
+/js/speakers.js
+/js/talk.js
+/js/talklist.js
+/js/underscore-min.js
