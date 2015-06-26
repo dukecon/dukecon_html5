@@ -31,19 +31,35 @@
         </div>
     </div>
 
-    <div id="grid">
+    <div id="content">
         <div>
             <div id="days_filter" data-bind="foreach: days">
                 <button class="pure-button" type="button" data-bind="text: $data, click: $parent.updateDay"/>
             </div>
         </div>
 
+        <div id="talks-grid" data-bind="foreach: talks">
+            <div class="talk-cell">
+                <div class="title"><span data-bind="text: title" /></div>
+                <div class="speaker"><span data-bind="text: speakerString" /></div>
+                <div class="time">Start: <span data-bind="text: day" /></div><div class="time">, <span data-bind="text: startDisplayed" /> </div>
+                <div class="room">Raum: <span data-bind="text: location" /></div>
+                <div class="track">Track: <span data-bind="text: track" /></div>
+                <a class="morelink" href="#" data-bind="click: toggleDetail, text: toggleText"></a>
+                <div class="more folded" data-bind="attr: { id: id}">
+                    <div data-bind="text: fullAbstract" />
+                </div>
+            </div>
+
+        </div>
+
+
+<!--
         <table>
             <thead>
             <tr>
                 <th>Zeit</th>
                 <th>Raum/Track</th>
-                <th>Abstract</th>
             </tr>
             </thead>
             <tbody data-bind="foreach: talks">
@@ -52,15 +68,11 @@
                     <span data-bind="text: startDisplayed" />
                 </td>
                 <td>
+                    <div class="title"><span data-bind="text: title" /></div>
+                    <div class="speaker"><span data-bind="text: speakerString" /></div>
                     <div class="room">Raum: <span data-bind="text: location" /></div>
                     <div class="track">Track: <span data-bind="text: track" /></div>
-                </td>
-                <td>
-                    <div class="title"><span data-bind="text: title" /></div>
-                    <div class="abstract">
-                        <span data-bind="text: shortAbstract" />
-                    </div>
-                    <a href="#" data-bind="click: toggleDetail, text: toggleText"></a>
+                    <a class="morelink" href="#" data-bind="click: toggleDetail, text: toggleText"></a>
                 </td>
             </tr>
             <tr>
@@ -70,6 +82,7 @@
             </tr>
             </tbody>
         </table>
+   -->
     </div>
 
 </div>

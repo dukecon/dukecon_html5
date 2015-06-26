@@ -13,6 +13,7 @@ function Talk(data) {
     this.level = data.level;
     this.title = data.title;
     this.speakers = data.speakers;
+    this.speakerString = data.speakers[0].name; // TODO: comma-list
     this.language = data.language;
     this.shortAbstract = data.abstractText.substring(0, 100) + "...";
     this.fullAbstract = data.abstractText;
