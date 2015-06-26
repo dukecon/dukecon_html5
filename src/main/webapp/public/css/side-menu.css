@@ -24,12 +24,12 @@ This is the parent `<div>` that contains the menu and the content area.
     padding-left: 0;
 }
     #layout.active #menu {
-        left: 250px;
-        width: 250px;
+        left: 260px;
+        width: 260px;
     }
 
     #layout.active .menu-link {
-        left: 250px;
+        left: 260px;
     }
 /*
 The content `<div>` is where all your content goes.
@@ -48,14 +48,13 @@ appears on the left side of the page.
 */
 
 #menu {
-    margin-left: -250px; /* "#menu" width */
-    width: 250px;
+    margin-left: -260px; /* "#menu" width */
+    width: 260px;
     position: fixed;
-    top: 195px;
     left: 0;
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
-    overflow-y: auto;
+    overflow-y: visible;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -73,7 +72,6 @@ small screens.
 .menu-link {
     position: fixed;
     display: block; /* show this only on small screens */
-    top: 195px;
     left: 0; /* "#menu width" */
     background: #fff;
     font-size: 10px; /* change this value to increase/decrease button size */
@@ -121,21 +119,21 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 
     #layout {
-        padding-left: 250px; /* left col width "#menu" */
+        padding-left: 260px; /* left col width "#menu" */
         left: 0;
     }
     #menu {
-        left: 250px;
+        left: 260px;
     }
 
     .menu-link {
         position: fixed;
-        left: 250px;
+        left: 260px;
         display: none;
     }
 
     #layout.active .menu-link {
-        left: 250px;
+        left: 260px;
     }
 }
 
@@ -148,10 +146,21 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     */
     #layout.active {
         position: relative;
-        left: 250px;
+        left: 260px;
     }
     #days_filter {
         margin-left: 50px;
+    }
+}
+
+@media (min-width: 343px) {
+    #menu, .menu-link {
+        top: 128px;
+    }
+ }
+@media (max-width: 342px) {
+    #menu, .menu-link {
+        top: 155px;
     }
 }
 

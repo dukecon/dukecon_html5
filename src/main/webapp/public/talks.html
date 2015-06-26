@@ -15,9 +15,7 @@
 <div class="header">
     <img src="img/logo_javaland.gif" title="javaland 2016"/>
     <div class="main-menu">
-        <a href="index.html">Home</a> |
-        <a href="talks.html">Talks</a> |
-        <a href="speakers.html">Sprecher</a>
+        <a href="index.html">Home</a>|<a href="talks.html">Talks</a>|<a href="speakers.html">Sprecher</a>
     </div>
     <h1>Talks</h1>
 </div>
@@ -43,7 +41,7 @@
     <div id="content">
         <div>
             <div id="days_filter" data-bind="foreach: days">
-                <button class="pure-button" type="button" data-bind="text: $data, click: $parent.updateDay"/>
+                <button type="button" data-bind="text: $data, click: $parent.updateDay"/>
             </div>
         </div>
 
