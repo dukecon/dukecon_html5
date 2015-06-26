@@ -64,6 +64,10 @@ h2 {
   text-align: left;
 }
 
+.main-menu {
+    margin-left:2em;
+    display: inline-block;
+}
 
 .clickable {
     cursor: pointer;

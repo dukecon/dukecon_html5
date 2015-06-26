@@ -2,11 +2,6 @@ body {
     color: #777;
 }
 
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
-}
-
 /*
 Add transition to containers so they can push in and out.
 */
@@ -42,7 +37,7 @@ The content `<div>` is where all your content goes.
 .content {
     margin: 0 auto;
     padding: 0 2em;
-    max-width: 800px;
+    max-width: 1200px;
     margin-bottom: 50px;
     line-height: 1.6em;
 }
@@ -63,22 +58,6 @@ appears on the left side of the page.
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
-    /*
-    Remove all background/borders, since we are applying them to #menu.
-    */
-     #menu .pure-menu,
-     #menu .pure-menu ul {
-        background: transparent;
-    }
-
-    /*
-    Add that light border to separate items into groups.
-    */
-    #menu .pure-menu ul,
-    #menu .pure-menu .menu-item-divided {
-        border-top: 1px solid #333;
-    }
-
 
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/
 
@@ -136,7 +115,6 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 */
 @media (min-width: 48em) {
 
-    .header,
     .content {
         padding-left: 2em;
         padding-right: 2em;
