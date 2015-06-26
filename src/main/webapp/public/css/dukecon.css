@@ -6,10 +6,52 @@ html, body {
 }
 
 body  {
-    max-width: 1300px;
-    margin:auto;
     font-family:Sans-Serif;
     text-align:left;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    vertical-align: top;
+    padding: 5px;
+}
+
+button {
+    background-color: #e6e6e6;
+    border: 0 none rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0.8);
+    font-family: inherit;
+    font-weight:bold;
+    padding: 0.7em;
+    font-size:smaller;
+}
+button {
+    -moz-user-select: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    line-height: normal;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+button:active {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+button:hover, button:focus {
+    background-color:#eee;
+}
+button.selected {
+    background-color:#eee;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+th {
+    background-color: #666666;
+    color: #ffffff;
+}
+
+td {
+    background-color:#ffffff;
 }
 
 .more {
@@ -34,6 +76,17 @@ body  {
     margin-top: -1500px;
 }
 
+.header img {
+    float:left;
+    margin-left:5px;
+}
+
+.main-menu {
+    margin-top: 0.5em;
+    display: inline-block;
+    float:left;
+}
+
 a {
     color: #1AA3B1;
     font-weight:normal;
@@ -52,6 +105,7 @@ a:hover {
 }
 
 h1 {
+    clear:both;
     font-size:120%;
     line-height:2em;
     text-align: center;
@@ -62,11 +116,6 @@ h1 {
 h2 {
   font-size:110%;
   text-align: left;
-}
-
-.main-menu {
-    margin-left:2em;
-    display: inline-block;
 }
 
 .clickable {
@@ -138,7 +187,7 @@ input[type="checkbox"]:checked + label:before {
     margin-left:5px;
     margin-right: 5px;
     padding:0px;
-    width:98%;
+    width:96%;
     border: 1px solid #dddddd;
 }
 
@@ -176,9 +225,8 @@ div.room {
     font-weight:bold;
     font-size: smaller;
 }
-div.room {
+div.speaker span {
     font-weight:bold;
-    font-size: smaller;
 }
 div.time {
     display:inline-block;

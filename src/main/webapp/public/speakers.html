@@ -15,13 +15,11 @@
 <div class="header">
     <img src="img/logo_javaland.gif" title="javaland 2016"/>
     <div class="main-menu">
-        <a href="index.html">Home</a> |
-        <a href="talks.html">Talks</a> |
-        <a href="speakers.html">Sprecher</a>
+        <a href="index.html">Home</a>|<a href="talks.html">Talks</a>|<a href="speakers.html">Sprecher</a>
     </div>
     <h1>Sprecher</h1>
 </div>
-<div id="layout" class="content">
+<div class="content">
     <table>
         <thead>
         <tr>
@@ -32,7 +30,7 @@
         <tbody data-bind="foreach: allSpeakers">
         <tr>
             <td>
-                <div class="room">Name: <span data-bind="text: name" /></div>
+                <div class="speaker">Name: <span data-bind="text: name" /></div>
                 <div class="track">Firma: <span data-bind="text: company" /></div>
             </td>
             <td>
