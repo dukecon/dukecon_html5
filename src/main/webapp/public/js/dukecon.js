@@ -71,6 +71,26 @@ var dukeconStorageUtils = {
     talk_store : 'talks',
     indexedDB : window.indexedDB || window.webkitIndexedDB || window.msIndexedDB,
 
+    getData : function(callback) {
+       var utils = this;
+       utils.createDatabase(function(e) {
+           console.log('Db opened');
+           var db = e.target.result;
+           utils.getDataFromDb(utils.openTransaction(db), function(data) {
+                if (data) {
+                    callback(data);
+                }
+                else {
+                    console.log('No Entries in db, retrieving data from the server');
+                    utils.getDataFromServer(function(data) {
+                        utils.storeDataInDb(utils.openTransaction(db), data);
+                        callback(data);
+                    });
+                }
+            });
+        });
+    },
+
     createDatabase : function(callback) {
         //this.indexedDB.deleteDatabase(this.db_name);
         var storeKey = this.talk_store;
@@ -103,33 +123,8 @@ var dukeconStorageUtils = {
     getDataFromDb : function(store, callback) {
         store.openCursor().onsuccess = function(event) {
             var cursor = event.target.result;
-            if (cursor) {
-                callback(cursor.value);
-            }
-            else {
-                console.log('No Entries in db, retrieving data from the server');
-                callback(null);
-            }
+            callback(cursor ? cursor.value : null);
         };
-    },
-
-    getData : function(callback) {
-       var utils = this;
-       utils.createDatabase(function(e) {
-           console.log('Db opened');
-           var db = e.target.result;
-           utils.getDataFromDb(utils.openTransaction(db), function(data) {
-                if (data) {
-                    callback(data);
-                }
-                else {
-                    utils.getDataFromServer(function(data) {
-                        utils.storeDataInDb(utils.openTransaction(db), data);
-                        callback(data);
-                    });
-                }
-            });
-        });
     },
 
     openTransaction : function(db) {
