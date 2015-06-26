@@ -1,7 +1,7 @@
 function TalkListViewModel() {
     // Data
     var self = this;
-    self.talks = ko.observableArray([]);
+    self.groupedTalks = ko.observableArray([]);
     self.allTalks = [];
 
     self.filters = [
@@ -28,7 +28,7 @@ function TalkListViewModel() {
 
     self.initializeData = function(allData) {
         var mappedTalks = $.map(allData, function(item) { return new Talk(item) }).sort(self.sortTalk);
-        self.talks(mappedTalks);
+        self.groupedTalks(self.groupTalks(mappedTalks));
         self.allTalks = mappedTalks;
         self.days(self.getDistinctValues('day'));
         self.selectedDay = self.days()[0];
@@ -58,7 +58,7 @@ function TalkListViewModel() {
     };
 
     self.filterTalks = function() {
-        self.talks(_.filter(self.allTalks, function(talk) {
+       var filtered = _.filter(self.allTalks, function(talk) {
             return talk.day === self.selectedDay && _.every(self.filters, function(filter) {
                 if (filter.selected().length === 0) {
                     return true;
@@ -67,7 +67,17 @@ function TalkListViewModel() {
                     return talk[filter.filterKey] === selected;
                 })
             });
-        }));
+        });
+        self.groupedTalks(self.groupTalks(filtered));
+    };
+
+    self.groupTalks = function(talks) {
+        var grouped = _.groupBy(talks, function(talk) {
+            return talk.startDisplayed;
+        });
+        return _.map(_.keys(grouped), function(time) {
+            return {"start" : time, "talks" : grouped[time]};
+        });
     };
 
     self.updateDay = function(day, event) {
@@ -76,7 +86,6 @@ function TalkListViewModel() {
         console.log(self.selectedDayIndex());
         self.filterTalks();
     }
-
 }
 
 ko.applyBindings(new TalkListViewModel());
