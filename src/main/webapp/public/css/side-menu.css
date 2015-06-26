@@ -9,11 +9,11 @@ Add transition to containers so they can push in and out.
 #menu,
 #nav,
 .menu-link {
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
+    -webkit-transition: margin-left 0.2s ease-out;
+    -moz-transition: margin-left 0.2s ease-out;
+    -ms-transition: margin-left 0.2s ease-out;
+    -o-transition: margin-left 0.2s ease-out;
+    transition: margin-left 0.2s ease-out;
 }
 
 /*
@@ -24,7 +24,8 @@ This is the parent `<div>` that contains the menu and the content area.
     padding-left: 0;
 }
     #layout.active #menu {
-        left: 0px;
+        left: -260px;
+        margin-left: 0px;
         width: 260px;
     }
 

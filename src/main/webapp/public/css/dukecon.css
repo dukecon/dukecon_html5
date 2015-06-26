@@ -186,6 +186,7 @@ input[type="checkbox"]:checked + label:before {
 #nav {
     margin-left:5px;
     margin-right: 5px;
+    background-color: #ffffff;
     padding:0px;
     width:96%;
     border: 1px solid #dddddd;
