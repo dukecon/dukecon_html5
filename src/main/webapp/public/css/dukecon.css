@@ -12,19 +12,6 @@ body  {
     text-align:left;
 }
 
-table {
-    background-color: #eeeeee;
-}
-
-th {
-    background-color: #666666;
-    color: #ffffff;
-}
-
-td {
-    background-color:#ffffff;
-}
-
 .more {
     overflow: hidden;
     background: transparent;
@@ -49,7 +36,6 @@ td {
 
 a {
     color: #1AA3B1;
-    border-radius:5px;
     font-weight:normal;
     padding-right:0.5em;
     padding-left:0.5em;
@@ -127,6 +113,9 @@ input[type="checkbox"]:checked + label:before {
     padding-right:3px;
 }
 
+#days_filter {
+    margin-bottom: 2px;
+}
 
 .filter-values div:hover {
     background: #DDDDDD;
@@ -137,27 +126,21 @@ input[type="checkbox"]:checked + label:before {
 }
 
 #content {
+    margin-left: 5px;
     min-width: 250px;
 }
 
 #nav {
-    float:left;
-    display: inline-block;
-    min-width: 250px;
-    margin-left:0px;
+    margin-left:5px;
     margin-right: 5px;
     padding:0px;
+    width:98%;
     border: 1px solid #dddddd;
 }
 
 #nav h2 {
     margin:5px 5px 15px 5px;
 }
-
-.pure-g {
-    letter-spacing: 0em;
-}
-
 #talks-grid {
     background-color: #eeeeee;
 }
@@ -206,26 +189,8 @@ div.room span, div.time span {
 }
 
 
-/* Media queries */
-
-@media all and (max-width: 400px) {
-    #nav {
-        float:none;
-        display: none;
-    }
-    #content {
-        display:block;
-        width:100%
-    }
-}
-@media all and (min-width: 401px) {
-    #nav {
-        float:left;
-        display: inline-block;
-    }
-    #content {
-        display:inline-block;
-        width:75%
-    }
+/* PURE CSS overrides */
+.pure-g {
+    letter-spacing: 0em;
 }
 

@@ -7,6 +7,7 @@ CACHE MANIFEST
 # Css
 /css/dukecon.css
 /css/pure-min.css
+/css/side-menu.css
 # Images
 /img/log_javaland.gif
 # Js
@@ -17,3 +18,4 @@ CACHE MANIFEST
 /js/talk.js
 /js/talklist.js
 /js/underscore-min.js
+/js/ui.js
