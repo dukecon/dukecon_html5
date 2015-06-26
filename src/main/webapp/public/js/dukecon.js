@@ -81,7 +81,6 @@ var dukeconStorageUtils = {
     getData : function(callback) {
        var utils = this;
        utils.createDatabase(function(e) {
-           console.log('Db opened');
            var db = e.target.result;
            utils.getDataFromDb(utils.openTransaction(db), function(data) {
                 if (data) {
@@ -118,8 +117,6 @@ var dukeconStorageUtils = {
         store.openCursor().onsuccess = function(event) {
             var cursor = event.target.result;
             if (cursor) {
-                console.log('Cursor', cursor);
-                console.log('Cursor data', cursor.value);
                 store.delete(cursor);
                 cursor.continue();
             }

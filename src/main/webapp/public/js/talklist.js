@@ -83,7 +83,6 @@ function TalkListViewModel() {
     self.updateDay = function(day, event) {
         self.selectedDay = day;
         self.selectedDayIndex(ko.contextFor(event.target).$index());
-        console.log(self.selectedDayIndex());
         self.filterTalks();
     }
 }
