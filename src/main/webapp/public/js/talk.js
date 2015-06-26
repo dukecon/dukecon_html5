@@ -2,7 +2,6 @@ function TalkViewModel() {
     // Data
     var self = this;
     self.talk = ko.observable(new Talk({}));
-    console.log(self.talk());
 
     dukeconStorageUtils.getData(function(allData) {
         self.initializeData(allData);
@@ -12,7 +11,6 @@ function TalkViewModel() {
         var talkId = self.getParameterByName("talkId");
         var filtered = _.filter(allData, function(t) {return t.id === talkId});
         self.talk(new Talk(filtered[0]));
-        console.log(self.talk());
     };
 
     self.getParameterByName = function(name) {
