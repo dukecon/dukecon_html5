@@ -5,14 +5,14 @@ var originHeader = "http://dev.dukecon.org";
 
 function Talk(data) {
     this.id = data.id || '';
-    this.day = dukeconDateUtils.getDisplayDate(data.start || '');
-    this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start || '');
+    this.day = dukeconDateUtils.getDisplayDate(data.start);
+    this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
     this.startSortable = data.start || '';
     this.track = data.track || '';
     this.location = data.location || '';
     this.level = data.level || '';
     this.title = data.title || '';
-    this.speakers = data.speakers || '';
+    this.speakers = dukeconUtils.getSpeakerNames(data.speakers);
     this.speakerString = data.speakers ? data.speakers[0].name : ""; // TODO: comma-list
     this.language = data.language || '';
     this.fullAbstract = data.abstractText || '';
@@ -47,6 +47,9 @@ var dukeconDateUtils = {
     weekDays : ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
 
     getDisplayDate : function(datetimeString) {
+        if (!datetimeString) {
+            return '';
+        }
         var date = new Date(datetimeString);
         var month = this.addTrailingZero(date.getMonth() + 1);
         var day = this.addTrailingZero(date.getDate());
@@ -55,6 +58,9 @@ var dukeconDateUtils = {
     },
 
     getDisplayTime : function(datetimeString) {
+        if (!datetimeString) {
+            return '';
+        }
         var date = new Date(datetimeString);
         return this.addTrailingZero(date.getHours()) + ":" + this.addTrailingZero(date.getMinutes());
     },
@@ -142,6 +148,18 @@ var dukeconStorageUtils = {
             error: function(error) {
                 console.log("Nothing updated. Device offline?");
             }
+        });
+    }
+};
+
+//not sure where else to put
+var dukeconUtils = {
+    getSpeakerNames : function(speakers) {
+        var filteredSpeakers = _.filter(speakers, function(speaker) {
+            return speaker;
+        });
+        return _.map(filteredSpeakers, function(speaker) {
+            return speaker.name + ", " + speaker.company;
         });
     }
 };

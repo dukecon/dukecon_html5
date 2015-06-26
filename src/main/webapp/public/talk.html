@@ -20,8 +20,17 @@
     <h1 data-bind="text : talk().title"></h1>
 </div>
 <div class="content">
-   <span data-bind="text : talk().fullAbstract"></span>
-    <!-- <span data-bind="text : title"></span> -->
+    <div style="margin-bottom: 10px;">
+        <span data-bind="text : talk().fullAbstract"></span>
+    </div>
+    <div data-bind="foreach: talk().speakers">
+        <div class="speaker">
+            <span data-bind="text: $data"/>
+        </div>
+    </div>
+    <div class="time">Start: <span data-bind="text: talk().day" /></div><div class="time">, <span data-bind="text: talk().startDisplayed" /> </div>
+    <div class="room">Raum: <span data-bind="text: talk().location" /></div>
+    <div class="track">Track: <span data-bind="text: talk().track" /></div>
 </div>
 <script type='text/javascript' src='js/dukecon.js'></script>
 <script type='text/javascript' src='js/talk.js'></script>
