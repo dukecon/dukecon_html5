@@ -16,24 +16,7 @@ function Talk(data) {
     this.speakerString = data.speakers ? data.speakers[0].name : ""; // TODO: comma-list
     this.language = data.language || '';
     this.fullAbstract = data.abstractText || '';
-
     this.shortAbstract = this.fullAbstract.substring(0, 100) + "...";
-    this.detailVisible = false;
-    this.toggleText = ko.observable("more...");
-
-    self.toggleDetail = function(element) {
-        if (this.detailVisible) {
-            this.toggleText("more...");
-            $('#' + this.id).removeClass("shown");
-            $('#' + this.id).addClass("folded");
-        }
-        else {
-            this.toggleText("less...");
-            $('#' + this.id).addClass("shown");
-            $('#' + this.id).removeClass("folded");
-        }
-        this.detailVisible = !this.detailVisible;
-    };
 };
 
 function Speaker(name, company, talks) {

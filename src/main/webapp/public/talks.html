@@ -54,15 +54,11 @@
         <div id="talks-grid" data-bind="foreach: groupedTalks">
             <div  data-bind="foreach: talks">
                 <div class="talk-cell">
-                    <div class="title"><span data-bind="text: title" /></div>
+                    <div class="title"><a style="padding: 0px" data-bind="text: title, attr : { href : 'talk.html?talkId=' + id }"></a></div>
                     <div class="speaker"><span data-bind="text: speakerString" /></div>
                     <div class="time">Start: <span data-bind="text: day" /></div><div class="time">, <span data-bind="text: startDisplayed" /> </div>
                     <div class="room">Raum: <span data-bind="text: location" /></div>
                     <div class="track">Track: <span data-bind="text: track" /></div>
-                    <a class="morelink" href="#" data-bind="click: toggleDetail, text: toggleText"></a>
-                    <div class="more folded" data-bind="attr: { id: id}">
-                        <div data-bind="text: fullAbstract" />
-                    </div>
                 </div>
             </div>
         </div>
