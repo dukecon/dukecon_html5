@@ -193,6 +193,23 @@ input[type="checkbox"]:checked + label:before {
 #talks-grid {
     background-color: #eeeeee;
 }
+
+#talks-grid table {
+    border-collapse:separate;
+    border-color:transparent;
+}
+#talks-grid td:first-child {
+    padding:0;
+}
+
+div.time-cell {
+    transform: rotate(-90deg);
+    position: relative;
+    top: 7px;
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
 div.talk-cell {
     background-color: #ffffff;
     vertical-align:top;
