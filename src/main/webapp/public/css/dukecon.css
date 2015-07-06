@@ -218,6 +218,7 @@ div.talk-cell {
     display: inline-block;
     min-width:200px;
     width: 30%;
+    line-height:1.1em;
 }
 div.title {
     font-weight:bold;
@@ -239,6 +240,7 @@ div.room {
     font-size: smaller;
 }
 div.speaker span {
+    font-size: smaller;
     font-weight:bold;
 }
 div.time {
