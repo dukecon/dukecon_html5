@@ -201,6 +201,9 @@ input[type="checkbox"]:checked + label:before {
 #talks-grid td:first-child {
     padding:0;
 }
+#talks-grid td:last-child {
+    width:100%;
+}
 
 div.time-cell {
     transform: rotate(-90deg);
