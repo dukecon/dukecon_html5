@@ -132,6 +132,21 @@ var dukeconStorageUtils = {
     }
 };
 
+//widgets
+ko.components.register('header-widget', {
+    viewModel : function(params) {
+        this.title = params.value;
+    },
+    template:
+        '<div class="header">'
+        + '<img src="img/logo_javaland.gif" title="javaland 2016"/>'
+        + '<div class="main-menu">'
+        + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="favourites.html">Favourites</a>'
+        + '</div>'
+        + '<h1 data-bind="text: title"></h1>'
+        + '</div>'
+});
+
 ko.components.register('talk-widget', {
     viewModel: function(data) {
         this.talk = data.value;
