@@ -56,7 +56,7 @@
                     <td>
                         <div  data-bind="foreach: talks">
                             <div class="talk-cell">
-                                <div class="title"><a style="padding: 0px" data-bind="text: title, attr : { href : 'talk.html?talkId=' + id }"></a></div>
+                                <div class="title"><a style="padding: 0px" data-bind="text: title, attr : { href : 'talk.html#talk?talkId=' + id }"></a></div>
                                 <div class="speaker"><span data-bind="text: speakerString" /></div>
                                 <div class="time">Start: <span data-bind="text: day" /></div><div class="time">, <span data-bind="text: startDisplayed" /> </div>
                                 <div class="room">Raum: <span data-bind="text: location" /></div>

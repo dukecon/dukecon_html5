@@ -15,7 +15,7 @@ function TalkViewModel() {
 
     self.getParameterByName = function(name) {
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
-        var results = regex.exec(location.search);
+        var results = regex.exec(location.hash);
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     };
 }
