@@ -132,6 +132,20 @@ var dukeconStorageUtils = {
     }
 };
 
+ko.components.register('talk-widget', {
+    viewModel: function(data) {
+        this.talk = data.value;
+    },
+    template:
+        '<div class="talk-cell">'
+            + '<div class="title"><a style="padding: 0px" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a></div>'
+            + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
+            + '<div class="time">Start: <span data-bind="text: talk.day" /></div><div class="time">, <span data-bind="text: talk.startDisplayed" /> </div>'
+            + '<div class="room">Raum: <span data-bind="text: talk.location" /></div>'
+            + '<div class="track">Track: <span data-bind="text: talk.track" /></div>'
+            + '</div>'
+});
+
 //not sure where else to put
 var dukeconUtils = {
     getSpeakerNames : function(speakers) {

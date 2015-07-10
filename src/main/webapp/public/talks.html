@@ -15,7 +15,7 @@
 <div class="header">
     <img src="img/logo_javaland.gif" title="javaland 2016"/>
     <div class="main-menu">
-        <a href="index.html">Home</a>|<a href="talks.html">Talks</a>|<a href="speakers.html">Sprecher</a>
+        <a href="index.html">Home</a>|<a href="talks.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="favourites.html">Favourites</a>
     </div>
     <h1>Talks</h1>
 </div>
@@ -54,14 +54,8 @@
                         </div>
                     </td>
                     <td>
-                        <div  data-bind="foreach: talks">
-                            <div class="talk-cell">
-                                <div class="title"><a style="padding: 0px" data-bind="text: title, attr : { href : 'talk.html#talk?talkId=' + id }"></a></div>
-                                <div class="speaker"><span data-bind="text: speakerString" /></div>
-                                <div class="time">Start: <span data-bind="text: day" /></div><div class="time">, <span data-bind="text: startDisplayed" /> </div>
-                                <div class="room">Raum: <span data-bind="text: location" /></div>
-                                <div class="track">Track: <span data-bind="text: track" /></div>
-                            </div>
+                        <div data-bind="foreach: talks">
+                            <talk-widget params="value: $data"></talk-widget>
                         </div>
                     </td>
                 </tr>

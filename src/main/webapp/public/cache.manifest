@@ -1,6 +1,7 @@
 CACHE MANIFEST
 # Html
 index.html
+favourites.html
 speakers.html
 talk.html
 talks.html
@@ -13,6 +14,7 @@ img/logo_javaland.gif
 img/filter.png
 # Js
 js/dukecon.js
+js/favourites.js
 js/jquery-2.1.4.min.js
 js/knockout-min-3.3.0.js
 js/speakers.js
