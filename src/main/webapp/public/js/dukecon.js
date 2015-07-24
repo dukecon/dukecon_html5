@@ -141,7 +141,7 @@ ko.components.register('header-widget', {
         '<div class="header">'
         + '<img src="img/logo_javaland.gif" title="javaland 2016"/>'
         + '<div class="main-menu">'
-        + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="favourites.html">Favourites</a>'
+        + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="favourites.html">Favoriten</a>'
         + '</div>'
         + '<h1 data-bind="text: title"></h1>'
         + '</div>'
@@ -153,7 +153,7 @@ ko.components.register('talk-widget', {
     },
     template:
         '<div class="talk-cell">'
-            + '<div class="title"><a style="padding: 0px" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a></div>'
+            + '<div class="title"><a style="padding: 0px" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a><span class="favourite">&nbsp;</span></div>'
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
             + '<div class="time">Start: <span data-bind="text: talk.day" /></div><div class="time">, <span data-bind="text: talk.startDisplayed" /> </div>'
             + '<div class="room">Raum: <span data-bind="text: talk.location" /></div>'
