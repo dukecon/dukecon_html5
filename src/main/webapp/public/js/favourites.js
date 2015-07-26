@@ -8,7 +8,7 @@ function FavouriteViewModel() {
     });
 
     self.initializeData = function(allData) {
-        var favIds = ["491354", "491635"];
+        var favIds = dukeconSettings.getFavourites();
         var grouped = _.groupBy(allData, function(t) { return t.id; });
         var talks = _.map(favIds, function(id) { return new Talk(grouped[id][0]); });
         self.favourites(talks);

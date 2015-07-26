@@ -17,6 +17,13 @@ function Talk(data) {
     this.language = data.language || '';
     this.fullAbstract = data.abstractText || '';
     this.shortAbstract = this.fullAbstract.substring(0, 100) + "...";
+    this.favourite = ko.observable(data.id ? dukeconSettings.isFavourite(data.id) : false);
+    this.favclass = ko.computed(function() {
+        return this.favourite() ? "fa-star" : "fa-star-o";
+    }, this);
+    this.toggleFavourite = function() {
+        this.favourite(!this.favourite());
+    };
 };
 
 function Speaker(name, company, talks) {
@@ -132,6 +139,38 @@ var dukeconStorageUtils = {
     }
 };
 
+var dukeconSettings = {
+    fav_key : "dukeconfavs",
+
+    getFavourites : function() {
+        if (localStorage) {
+            var favourites = localStorage.getItem(dukeconSettings.fav_key);
+            return favourites ? JSON.parse(favourites) : [];
+        }
+        return [];
+    },
+
+    isFavourite : function(id) {
+        return dukeconSettings.getFavourites().indexOf(id) != -1;
+    },
+
+    toggleFavourite : function(talkObject) {
+        var id = talkObject.talk.id;
+        var favourites = dukeconSettings.getFavourites();
+        var pos = favourites.indexOf(id);
+        if (pos === -1) {
+            favourites.push(id);
+        }
+        else {
+            favourites.splice(pos, 1);
+        }
+        talkObject.talk.toggleFavourite();
+        if (localStorage) {
+            localStorage.setItem(dukeconSettings.fav_key, JSON.stringify(favourites));
+        }
+    }
+};
+
 //widgets
 ko.components.register('header-widget', {
     viewModel : function(params) {
@@ -153,7 +192,10 @@ ko.components.register('talk-widget', {
     },
     template:
         '<div class="talk-cell">'
-            + '<div class="title"><a style="padding: 0px" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a><span class="favourite">&nbsp;</span></div>'
+            + '<div class="title">'
+                + '<a style="padding: 0px" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a>'
+                + '<i class="fa fa-lg" style="cursor:pointer; margin-left: 2px;" title="Add to Favourites" data-bind="click: dukeconSettings.toggleFavourite, css: talk.favclass"></i>'
+            + '</div>'
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
             + '<div class="time">Start: <span data-bind="text: talk.day" /></div><div class="time">, <span data-bind="text: talk.startDisplayed" /> </div>'
             + '<div class="room">Raum: <span data-bind="text: talk.location" /></div>'
