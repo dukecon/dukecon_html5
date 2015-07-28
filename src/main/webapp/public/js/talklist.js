@@ -15,6 +15,11 @@ function TalkListViewModel() {
     self.selectedDayIndex = ko.observable(0);
     self.selectedDay = "";
 
+    self.onlyFavourites = ko.observable(false);
+    self.onlyFavourites.subscribe(function(val) {
+        self.toggleFavourites();
+    });
+
     // Initialize
     $.each(self.filters, function(index, filter) {
         filter.selected.subscribe(function(s) {
@@ -23,18 +28,14 @@ function TalkListViewModel() {
     });
 
     dukeconStorageUtils.getData(function(allData) {
-        self.initializeData(allData);
-    });
-
-    self.initializeData = function(allData) {
         var mappedTalks = $.map(allData, function(item) { return new Talk(item) }).sort(self.sortTalk);
-        self.groupedTalks(self.groupTalks(mappedTalks));
         self.allTalks = mappedTalks;
         self.days(self.getDistinctValues('day'));
-        self.selectedDay = self.days()[0];
         self.addFilters();
+        self.selectedDay = self.days()[0];
+        self.groupedTalks(self.groupTalks(self.allTalks));
         self.filterTalks();
-    };
+    });
 
     self.sortTalk = function(t1, t2) {
         if (t1.startDisplayed < t2.startDisplayed) {
@@ -84,7 +85,28 @@ function TalkListViewModel() {
         self.selectedDay = day;
         self.selectedDayIndex(ko.contextFor(event.target).$index());
         self.filterTalks();
-    }
+    };
+
+    self.toggleFavourites = function() {
+        if (self.onlyFavourites()) {
+            self.groupedTalks(
+                _.chain(self.groupedTalks())
+                .map(function(grouped){
+                        return {
+                            "start" : grouped.start,
+                            "talks" : _.filter(grouped.talks, function(talk) {
+                                return talk.favourite();
+                            })};
+                })
+                .filter(function(grouped) {
+                    return grouped.talks.length > 0;
+                })
+                .value());
+        }
+        else {
+            self.filterTalks();
+        }
+    };
 }
 
 ko.applyBindings(new TalkListViewModel());

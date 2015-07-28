@@ -180,7 +180,7 @@ ko.components.register('header-widget', {
         '<div class="header">'
         + '<img src="img/logo_javaland.gif" title="javaland 2016"/>'
         + '<div class="main-menu">'
-        + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="favourites.html">Favoriten</a>'
+        + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>'
         + '</div>'
         + '<h1 data-bind="text: title"></h1>'
         + '</div>'
