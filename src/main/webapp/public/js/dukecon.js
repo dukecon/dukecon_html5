@@ -3,7 +3,7 @@ var jsonUrl = "demotalks.json";
 //var jsonUrl = "http://dev.dukecon.org:9090/talks";
 var originHeader = "http://dev.dukecon.org";
 
-function Talk(data) {
+function Talk(data, isFavourite) {
     this.id = data.id || '';
     this.day = dukeconDateUtils.getDisplayDate(data.start);
     this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
@@ -17,7 +17,7 @@ function Talk(data) {
     this.language = data.language || '';
     this.fullAbstract = data.abstractText || '';
     this.shortAbstract = this.fullAbstract.substring(0, 100) + "...";
-    this.favourite = ko.observable(data.id ? dukeconSettings.isFavourite(data.id) : false);
+    this.favourite = ko.observable(isFavourite);
     this.favclass = ko.computed(function() {
         return this.favourite() ? "fa-star" : "fa-star-o";
     }, this);

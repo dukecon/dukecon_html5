@@ -2,7 +2,7 @@ function SpeakerViewModel() {
     var self = this;
     self.allSpeakers = ko.observableArray([]);
 
-    dukeconStorageUtils.getData(function(allData) {
+    dukeconTalkUtils.getData(function(allData) {
         self.initializeData(allData);
     });
 

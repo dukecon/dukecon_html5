@@ -27,8 +27,9 @@ function TalkListViewModel() {
         });
     });
 
-    dukeconStorageUtils.getData(function(allData) {
-        var mappedTalks = $.map(allData, function(item) { return new Talk(item) }).sort(self.sortTalk);
+    dukeconTalkUtils.getData(function(allData) {
+        var favourites = dukeconSettings.getFavourites();
+        var mappedTalks = $.map(allData, function(item) { return new Talk(item, favourites.indexOf(item.id) !== -1) }).sort(self.sortTalk);
         self.allTalks = mappedTalks;
         self.days(self.getDistinctValues('day'));
         self.addFilters();
