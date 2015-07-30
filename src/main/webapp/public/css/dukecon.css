@@ -95,8 +95,7 @@ a {
 }
 
 a:hover {
-    background:#dddddd;
-    transition: background 0.7s
+    color:#00c3d7;
 }
 
 h1 {
@@ -226,6 +225,7 @@ div.talk-cell {
 div.title {
     font-weight:bold;
     color: #1AA3B1;
+    width:100%;
 }
 
 div.track {
@@ -256,6 +256,15 @@ div.room span, div.time span {
 }
 .morelink {
     font-size: smaller;
+}
+
+/* FONT-AWESOME overrides */
+.fav {
+    margin-left:5px;
+    display:inline-block;
+}
+.fav:hover {
+    color: #00c3d7;
 }
 
 

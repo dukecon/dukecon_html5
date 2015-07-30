@@ -70,6 +70,11 @@ function TalkListViewModel() {
                 })
             });
         });
+        if (self.onlyFavourites() == true) {
+            filtered = _.filter(filtered, function(talk) {
+                return talk.favourite();
+            });
+        }
         self.groupedTalks(self.groupTalks(filtered));
     };
 
