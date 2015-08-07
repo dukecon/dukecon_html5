@@ -7,6 +7,7 @@ talk.html
 css/dukecon.css
 css/pure-min.css
 css/side-menu.css
+css/font-awesome.min.css
 # Images
 img/logo_javaland.gif
 img/filter.png
@@ -20,5 +21,12 @@ js/talk.js
 js/talklist.js
 js/underscore-min.js
 js/ui.js
+# webfonts
+fonts/FontAwesome.otf
+fonts/fontawesome-webfont.eot
+fonts/fontawesome-webfont.svg
+fonts/fontawesome-webfont.ttf
+fonts/fontawesome-webfont.woff
+fonts/fontawesome-webfont.woff2
 # temporary hack
 demotalks.json
