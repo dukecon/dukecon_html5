@@ -1,27 +1,32 @@
 var dukeconTalkUtils = {
     getData : function(callback) {
-        dukeconDb.get(dukeconDb.talk_store, function(data) {
-            if (data) {
-                callback(data);
-            }
-            else {
-                console.log('No Entries in db, retrieving data from the server');
-                dukeconTalkUtils.getDataFromServer(function(data) {
-                    dukeconDb.save(dukeconDb.talk_store, data);
+        var successCallback = function(data) {
+            dukeconDb.save(dukeconDb.talk_store, data);
+            callback(data);
+        };
+        var errorCallback = function() {
+            dukeconDb.get(dukeconDb.talk_store, function(data) {
+                if (data) {
                     callback(data);
-                });
-            }
-        });
+                }
+                else {
+                    console.log('Could not retrieve any data');
+                }
+            });
+        };
+        console.log("Retrieving data from server");
+        dukeconTalkUtils.getDataFromServer(callback, errorCallback);
     },
 
-    getDataFromServer : function(callback) {
+    getDataFromServer : function(callback, errorCallback) {
         $.ajax({
             method: 'GET',
             dataType: "json",
             url: jsonUrl,
             success: callback,
             error: function(error) {
-                console.log("Nothing updated. Device offline?");
+                console.log('No connection to server, retrieving data from local storage');
+                errorCallback();
             }
         });
     }
