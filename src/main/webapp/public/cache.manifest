@@ -1,8 +1,11 @@
 CACHE MANIFEST
+
+CACHE:
 # Html
 index.html
 speakers.html
 talk.html
+impressum.html
 # Css
 css/dukecon.css
 css/pure-min.css
@@ -30,3 +33,7 @@ fonts/fontawesome-webfont.woff
 fonts/fontawesome-webfont.woff2
 # temporary hack
 demotalks.json
+
+NETWORK:
+*
+
