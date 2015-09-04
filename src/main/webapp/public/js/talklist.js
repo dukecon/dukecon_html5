@@ -4,6 +4,17 @@ function TalkListViewModel() {
     self.groupedTalks = ko.observableArray([]);
     self.allTalks = [];
 
+    self.talkIcons = [
+        {"Architecture & Security" : "track_architecture.jpg"},
+        {"Core Java/JVM-basierte Sprachen" : "track_jvm-languages.jpg"},
+        {"Enterprise Java und Cloud" : "track_enterprise-java-cloud.jpg"},
+        {"Frontend & Mobile" : "track_frontend-mobile.jpg"},
+        {"IDEs & Tools" : "track_ide-toolsjpg"},
+        {"Container und Microservices" : "track_microservices.jpg"},
+        {"Internet der Dinge" : "track_internet-of-things.jpg"},
+        {"Newcomer" : "track_newcomer.jpg"}
+    ];
+
     self.filters = [
         {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
         {title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
