@@ -24,7 +24,7 @@ function Talk(data, isFavourite) {
     this.toggleFavourite = function() {
         this.favourite(!this.favourite());
     };
-    this.talkIcon = dukeconUtils.talkIcons[this.track];
+    this.talkIcon = dukeconUtils.talkIcons[this.track] || 'img/Unknown.png';
 };
 
 function Speaker(name, company, talks) {
