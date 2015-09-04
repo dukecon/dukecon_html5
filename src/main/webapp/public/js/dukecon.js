@@ -24,6 +24,7 @@ function Talk(data, isFavourite) {
     this.toggleFavourite = function() {
         this.favourite(!this.favourite());
     };
+    this.talkIcon = dukeconUtils.talkIcons[this.track];
 };
 
 function Speaker(name, company, talks) {
@@ -31,6 +32,7 @@ function Speaker(name, company, talks) {
     this.company = company;
     this.talks = talks;
 };
+
 
 var dukeconDateUtils = {
 
@@ -86,17 +88,28 @@ ko.components.register('talk-widget', {
         '<div class="talk-cell">'
             + '<div class="title">'
                 + '<a style="padding: 0px" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a>'
-                + '<image style="cursor:pointer; margin-left: 2px;" title="Add to Favourites" data-bind="click: dukeconSettings.toggleFavourite, attr:{src: talk.favicon}"></image>'
+                + '<img style="cursor:pointer; margin-left: 2px;" title="Add to Favourites" data-bind="click: dukeconSettings.toggleFavourite, attr:{src: talk.favicon}"/>'
             + '</div>'
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
-            + '<div class="time">Start: <span data-bind="text: talk.day" /></div><div class="time">, <span data-bind="text: talk.startDisplayed" /> </div>'
-            + '<div class="room">Raum: <span data-bind="text: talk.location" /></div>'
-            + '<div class="track">Track: <span data-bind="text: talk.track" /></div>'
+            + '<div class="time"><img witdh="16px" height="16px" src="img/Clock.png"/> <b>Start:</b> <span data-bind="text: talk.day" /></div><div class="time">, <span data-bind="text: talk.startDisplayed" /> </div>'
+            + '<div class="room"><img witdh="16px" height="16px" src="img/House.png"/> <b>Raum:</b> <span data-bind="text: talk.location" /></div>'
+            + '<div class="track"><img witdh="16px" height="16px" data-bind="attr: {src: talk.talkIcon }"/> <b>Track:</b> <span data-bind="text: talk.track" /></div>'
             + '</div>'
 });
 
 //not sure where else to put
 var dukeconUtils = {
+    talkIcons : {
+        "Architecture & Security": "img/track_architecture.jpg",
+        "Core Java/JVM-basierte Sprachen": "img/track_jvm-languages.jpg",
+        "Enterprise Java und Cloud": "img/track_enterprise-java-cloud.jpg",
+        "Frontend & Mobile": "img/track_frontend-mobile.jpg",
+        "IDEs & Tools": "img/track_ide-tools.jpg",
+        "Container und Microservices": "img/track_microservices.jpg",
+        "Internet der Dinge": "img/track_internet-of-things.jpg",
+        "Newcomer": "img/track_newcomer.jpg"
+    },
+
     getSpeakerNames : function(speakers) {
         var filteredSpeakers = _.filter(speakers, function(speaker) {
             return speaker;

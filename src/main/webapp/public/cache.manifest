@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev 2
+# rev 3
 
 CACHE:
 # Html
@@ -13,10 +13,20 @@ css/pure-min.css
 css/side-menu.css
 css/font-awesome.min.css
 # Images
+img/Clock.png
 img/logo_javaland.gif
 img/filter.png
+img/House.png
 img/StarFilled.png
 img/StarLine.png
+img/track_architecture.jpg
+img/track_enterprise-java-cloud.jpg
+img/track_frontend-mobile.jpg
+img/track_ide-tools.jpg
+img/track_internet-of-things.jpg
+img/track_jvm-languages.jpg
+img/track_microservices.jpg
+img/track_newcomer.jpg
 # Js
 js/dukecon.js
 js/jquery-2.1.4.min.js
