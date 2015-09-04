@@ -188,6 +188,7 @@ input[type="checkbox"]:checked + label:before {
 
 #nav h2 {
     margin:5px 5px 15px 5px;
+    color: #1AA3B1;
 }
 #talks-grid {
     background-color: #eeeeee;

@@ -6,9 +6,9 @@ function TalkListViewModel() {
 
     self.filters = [
         {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
-        {title: 'Language', filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
+        {title: 'Sprache', filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
         {title: 'Track', filterKey: 'track', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
-        {title: 'Room', filterKey: 'location', filtervalues : ko.observableArray([]), selected : ko.observableArray([])}
+        {title: 'Raum', filterKey: 'location', filtervalues : ko.observableArray([]), selected : ko.observableArray([])}
     ];
 
     self.days = ko.observableArray([]);
