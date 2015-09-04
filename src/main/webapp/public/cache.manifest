@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev 1
+# rev 2
 
 CACHE:
 # Html
@@ -15,6 +15,8 @@ css/font-awesome.min.css
 # Images
 img/logo_javaland.gif
 img/filter.png
+img/StarFilled.png
+img/StarLine.png
 # Js
 js/dukecon.js
 js/jquery-2.1.4.min.js
