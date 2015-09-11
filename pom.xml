@@ -74,7 +74,12 @@
                 <configuration>
                     <doCheck>false</doCheck>
                     <doUpdate>false</doUpdate>
-                    <revisionOnScmFailure>true</revisionOnScmFailure>
+                    <revisionOnScmFailure>_localbuild</revisionOnScmFailure>
+                    <shortRevisionLength>8</shortRevisionLength>
+                    <format>{0,date,yyyy-MM-dd_HH:mm:ss}</format>
+                    <items>
+                        <item>timestamp</item>
+                    </items>
                 </configuration>
             </plugin>
             <plugin>
@@ -89,6 +94,7 @@
                             <filtering>true</filtering>
                             <includes>
                                 <include>**/*.txt</include>
+                                <include>**/cache.manifest</include>
                             </includes>
                         </resource>
                     </webResources>
