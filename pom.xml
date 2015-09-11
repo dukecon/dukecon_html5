@@ -14,8 +14,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Set this to localhost if you would like to test upload server -->
         <nexus.repository.host>dev.dukecon.org</nexus.repository.host>
-        <nexus.repository.port>:8081</nexus.repository.port>
-        <nexus.repository.base></nexus.repository.base>
+        <nexus.repository.port></nexus.repository.port>
+        <nexus.repository.base>/nexus</nexus.repository.base>
     </properties>
     
     <repositories>
