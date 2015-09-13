@@ -16,11 +16,12 @@ function TalkListViewModel() {
     self.selectedDay = "";
 
     self.onlyFavourites = ko.observable(false);
-    self.onlyFavourites.subscribe(function(val) {
-        self.toggleFavourites();
-    });
 
     // Initialize
+    self.onlyFavourites.subscribe(function(val) {
+        self.filterTalks();
+    });
+
     $.each(self.filters, function(index, filter) {
         filter.selected.subscribe(function(s) {
             self.filterTalks();
@@ -28,18 +29,23 @@ function TalkListViewModel() {
         });
     });
 
-
     dukeconTalkUtils.getData(function(allData) {
         var favourites = dukeconSettings.getFavourites();
         var mappedTalks = $.map(allData, function(item) { return new Talk(item, favourites.indexOf(item.id) !== -1) }).sort(self.sortTalk);
         self.allTalks = mappedTalks;
         self.initializeDays();
-        self.addFilters();
-        self.groupedTalks(self.groupTalks(self.allTalks));
+        self.initializeFilters();
         self.filterTalks();
     });
 
     // Functions
+    self.sortTalk = function(t1, t2) {
+        if (t1.startDisplayed < t2.startDisplayed) {
+            return -1;
+        }
+        return t1.startDisplayed > t2.startDisplayed ? 1 : 0;
+    };
+
     self.initializeDays = function() {
         self.days(self.getDistinctValues('day'));
         if (self.days().length <= self.selectedDayIndex()) {
@@ -48,14 +54,7 @@ function TalkListViewModel() {
         self.selectedDay = self.days()[self.selectedDayIndex()];
     };
 
-    self.sortTalk = function(t1, t2) {
-        if (t1.startDisplayed < t2.startDisplayed) {
-            return -1;
-        }
-        return t1.startDisplayed > t2.startDisplayed ? 1 : 0;
-    };
-
-    self.addFilters = function() {
+    self.initializeFilters = function() {
         //Get the saved filters first to prevent overwriting them by accident
         var savedFilters = dukeconSettings.getSavedFilters(self.filters);
         _.each(self.filters, function(filter) {
@@ -74,22 +73,30 @@ function TalkListViewModel() {
     };
 
     self.filterTalks = function() {
-       var filtered = _.filter(self.allTalks, function(talk) {
-            return talk.day === self.selectedDay && _.every(self.filters, function(filter) {
+        var filtered = self.getFilteredTasks();
+        if (self.onlyFavourites() == true) {
+            filtered = self.getFavouriteTalks(filtered);
+        }
+        self.groupedTalks(self.groupTalks(filtered));
+    };
+
+    self.getFavouriteTalks = function(filteredTalks) {
+        return  _.filter(filteredTalks, function (talk) {
+            return talk.favourite();
+        });
+    };
+
+    self.getFilteredTasks = function() {
+        return _.filter(self.allTalks, function (talk) {
+            return talk.day === self.selectedDay && _.every(self.filters, function (filter) {
                 if (filter.selected().length === 0) {
                     return true;
                 }
-                return _.some(filter.selected(), function(selected) {
+                return _.some(filter.selected(), function (selected) {
                     return talk[filter.filterKey] === selected;
                 })
             });
         });
-        if (self.onlyFavourites() == true) {
-            filtered = _.filter(filtered, function(talk) {
-                return talk.favourite();
-            });
-        }
-        self.groupedTalks(self.groupTalks(filtered));
     };
 
     self.groupTalks = function(talks) {
@@ -107,28 +114,6 @@ function TalkListViewModel() {
         self.filterTalks();
         dukeconSettings.saveSelectedDay(self.selectedDayIndex());
         dukeconSettings.saveSelectedFilters(self.filters);
-    };
-
-    self.toggleFavourites = function() {
-        if (self.onlyFavourites()) {
-            self.groupedTalks(
-                _.chain(self.groupedTalks())
-                .map(function(grouped){
-                        return {
-                            "start" : grouped.start,
-                            "talks" : _.filter(grouped.talks, function(talk) {
-                                return talk.favourite();
-                            })};
-                })
-                .filter(function(grouped) {
-                    return grouped.talks.length > 0;
-                })
-                .value());
-        }
-        else {
-            self.filterTalks();
-            dukeconSettings.saveSelectedFilters(self.filters);
-        }
     };
 }
 
