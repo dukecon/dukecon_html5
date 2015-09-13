@@ -12,7 +12,7 @@ function TalkListViewModel() {
     ];
 
     self.days = ko.observableArray([]);
-    self.selectedDayIndex = ko.observable(0);
+    self.selectedDayIndex = ko.observable(dukeconSettings.getSelectedDay());
     self.selectedDay = "";
 
     self.onlyFavourites = ko.observable(false);
@@ -27,18 +27,26 @@ function TalkListViewModel() {
         });
     });
 
+
     dukeconTalkUtils.getData(function(allData) {
         var favourites = dukeconSettings.getFavourites();
         var mappedTalks = $.map(allData, function(item) { return new Talk(item, favourites.indexOf(item.id) !== -1) }).sort(self.sortTalk);
         self.allTalks = mappedTalks;
-        self.days(self.getDistinctValues('day'));
+        self.initializeDays();
         self.addFilters();
-        self.selectedDay = self.days()[0];
         self.groupedTalks(self.groupTalks(self.allTalks));
         self.filterTalks();
     });
 
     // Functions
+    self.initializeDays = function() {
+        self.days(self.getDistinctValues('day'));
+        if (self.days().length <= self.selectedDayIndex()) {
+            self.selectedDayIndex = 0;
+        }
+        self.selectedDay = self.days()[self.selectedDayIndex()];
+    };
+
     self.sortTalk = function(t1, t2) {
         if (t1.startDisplayed < t2.startDisplayed) {
             return -1;
@@ -63,7 +71,7 @@ function TalkListViewModel() {
             savedFilters[filter.filterKey] = dukeconSettings.getSelectedFilters(filter.filterKey);
         });
         return savedFilters;
-    }
+    };
 
     self.getDistinctValues = function(key) {
         var t = _.groupBy(self.allTalks, function(talk) {
@@ -107,6 +115,7 @@ function TalkListViewModel() {
     self.updateDay = function(day, event) {
         self.selectedDay = day;
         self.selectedDayIndex(ko.contextFor(event.target).$index());
+        dukeconSettings.saveSelectedDay(self.selectedDayIndex())
         self.filterTalks();
     };
 

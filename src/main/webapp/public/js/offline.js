@@ -52,21 +52,19 @@ var dukeconTalkUtils = {
 var dukeconSettings = {
     fav_key : "dukeconfavs",
     filter_key_prefix : "dukeconfilters_",
+    day_key : "dukeconday",
 
     getFavourites : function() {
-        return dukeconSettings.getSetting(dukeconSettings.fav_key);
+        return dukeconSettings.getSettingOrEmptyArray(dukeconSettings.fav_key);
     },
 
     getSelectedFilters : function(filterKey) {
-        return dukeconSettings.getSetting(dukeconSettings.filter_key_prefix + filterKey);
+        return dukeconSettings.getSettingOrEmptyArray(dukeconSettings.filter_key_prefix + filterKey);
     },
 
-    getSetting : function(settingKey) {
-        if (localStorage) {
-            var setting = localStorage.getItem(settingKey);
-            return setting ? JSON.parse(setting) : [];
-        }
-        return [];
+    getSelectedDay : function() {
+        var day = dukeconSettings.getSetting(dukeconSettings.day_key);
+        return day ? day : "0";
     },
 
     isFavourite : function(id) {
@@ -84,14 +82,35 @@ var dukeconSettings = {
             favourites.splice(pos, 1);
         }
         talkObject.talk.toggleFavourite();
-        if (localStorage) {
-            localStorage.setItem(dukeconSettings.fav_key, JSON.stringify(favourites));
-        }
+        dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
     },
 
     saveSelectedFilters : function(filterKey, selected) {
+        dukeconSettings.saveSetting(dukeconSettings.filter_key_prefix + filterKey, selected);
+    },
+
+    saveSelectedDay : function(day_index) {
+        dukeconSettings.saveSetting(dukeconSettings.day_key, day_index);
+    },
+
+    getSettingOrEmptyArray : function(settingKey) {
+        var setting = dukeconSettings.getSetting(settingKey);
+        return setting ? setting : [];
+    },
+
+    getSetting : function(settingKey) {
         if (localStorage) {
-            localStorage.setItem(dukeconSettings.filter_key_prefix + filterKey, JSON.stringify(selected));
+            var setting = localStorage.getItem(settingKey);
+            console.log("Load: " + settingKey + " -> " + setting);
+            return setting ? JSON.parse(setting) : null;
+        }
+        return null;
+    },
+
+    saveSetting : function(settingKey, value) {
+        if (localStorage) {
+            console.log("Save: " + settingKey + " -> " + value)
+            localStorage.setItem(settingKey, JSON.stringify(value));
         }
     }
 
