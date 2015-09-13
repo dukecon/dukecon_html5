@@ -51,11 +51,20 @@ var dukeconTalkUtils = {
 
 var dukeconSettings = {
     fav_key : "dukeconfavs",
+    filter_key_prefix : "dukeconfilters_",
 
     getFavourites : function() {
+        return dukeconSettings.getSetting(dukeconSettings.fav_key);
+    },
+
+    getSelectedFilters : function(filterKey) {
+        return dukeconSettings.getSetting(dukeconSettings.filter_key_prefix + filterKey);
+    },
+
+    getSetting : function(settingKey) {
         if (localStorage) {
-            var favourites = localStorage.getItem(dukeconSettings.fav_key);
-            return favourites ? JSON.parse(favourites) : [];
+            var setting = localStorage.getItem(settingKey);
+            return setting ? JSON.parse(setting) : [];
         }
         return [];
     },
@@ -78,7 +87,14 @@ var dukeconSettings = {
         if (localStorage) {
             localStorage.setItem(dukeconSettings.fav_key, JSON.stringify(favourites));
         }
+    },
+
+    saveSelectedFilters : function(filterKey, selected) {
+        if (localStorage) {
+            localStorage.setItem(dukeconSettings.filter_key_prefix + filterKey, JSON.stringify(selected));
+        }
     }
+
 };
 
 var dukeconDb = {

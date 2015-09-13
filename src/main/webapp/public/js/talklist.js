@@ -38,6 +38,7 @@ function TalkListViewModel() {
         self.filterTalks();
     });
 
+    // Functions
     self.sortTalk = function(t1, t2) {
         if (t1.startDisplayed < t2.startDisplayed) {
             return -1;
@@ -45,12 +46,24 @@ function TalkListViewModel() {
         return t1.startDisplayed > t2.startDisplayed ? 1 : 0;
     };
 
-    // Functions
     self.addFilters = function() {
-        $.each(self.filters, function(index, filter) {
+        //Get the saved filters first to prevent overwriting them by accident
+        var savedFilters = this.getSavedFilters();
+        _.each(self.filters, function(filter) {
             filter.filtervalues(self.getDistinctValues(filter.filterKey));
+            _.each(savedFilters[filter.filterKey], function(selected) {
+                filter.selected.push(selected);
+            });
         });
     };
+
+    self.getSavedFilters = function() {
+        var savedFilters = {};
+        _.each(self.filters, function(filter) {
+            savedFilters[filter.filterKey] = dukeconSettings.getSelectedFilters(filter.filterKey);
+        });
+        return savedFilters;
+    }
 
     self.getDistinctValues = function(key) {
         var t = _.groupBy(self.allTalks, function(talk) {
@@ -76,6 +89,10 @@ function TalkListViewModel() {
             });
         }
         self.groupedTalks(self.groupTalks(filtered));
+
+        _.each(self.filters, function(filter) {
+            dukeconSettings.saveSelectedFilters(filter.filterKey, filter.selected());
+        });
     };
 
     self.groupTalks = function(talks) {
