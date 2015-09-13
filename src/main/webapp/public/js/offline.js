@@ -85,8 +85,10 @@ var dukeconSettings = {
         dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
     },
 
-    saveSelectedFilters : function(filterKey, selected) {
-        dukeconSettings.saveSetting(dukeconSettings.filter_key_prefix + filterKey, selected);
+    saveSelectedFilters : function(filters) {
+        _.each(filters, function(filter) {
+            dukeconSettings.saveSetting(dukeconSettings.filter_key_prefix + filter.filterKey, filter.selected());
+        });
     },
 
     saveSelectedDay : function(day_index) {

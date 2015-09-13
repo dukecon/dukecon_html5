@@ -24,6 +24,7 @@ function TalkListViewModel() {
     $.each(self.filters, function(index, filter) {
         filter.selected.subscribe(function(s) {
             self.filterTalks();
+            dukeconSettings.saveSelectedFilters(self.filters);
         });
     });
 
@@ -97,10 +98,6 @@ function TalkListViewModel() {
             });
         }
         self.groupedTalks(self.groupTalks(filtered));
-
-        _.each(self.filters, function(filter) {
-            dukeconSettings.saveSelectedFilters(filter.filterKey, filter.selected());
-        });
     };
 
     self.groupTalks = function(talks) {
@@ -115,8 +112,9 @@ function TalkListViewModel() {
     self.updateDay = function(day, event) {
         self.selectedDay = day;
         self.selectedDayIndex(ko.contextFor(event.target).$index());
-        dukeconSettings.saveSelectedDay(self.selectedDayIndex())
         self.filterTalks();
+        dukeconSettings.saveSelectedDay(self.selectedDayIndex());
+        dukeconSettings.saveSelectedFilters(self.filters);
     };
 
     self.toggleFavourites = function() {
@@ -137,6 +135,7 @@ function TalkListViewModel() {
         }
         else {
             self.filterTalks();
+            dukeconSettings.saveSelectedFilters(self.filters);
         }
     };
 }
