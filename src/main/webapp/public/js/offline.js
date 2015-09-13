@@ -58,8 +58,12 @@ var dukeconSettings = {
         return dukeconSettings.getSettingOrEmptyArray(dukeconSettings.fav_key);
     },
 
-    getSelectedFilters : function(filterKey) {
-        return dukeconSettings.getSettingOrEmptyArray(dukeconSettings.filter_key_prefix + filterKey);
+    getSavedFilters : function(filters) {
+        var savedFilters = {};
+        _.each(filters, function(filter) {
+            savedFilters[filter.filterKey] = dukeconSettings.getSettingOrEmptyArray(dukeconSettings.filter_key_prefix + filter.filterKey);
+        });
+        return savedFilters;
     },
 
     getSelectedDay : function() {

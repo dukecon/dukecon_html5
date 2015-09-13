@@ -57,21 +57,13 @@ function TalkListViewModel() {
 
     self.addFilters = function() {
         //Get the saved filters first to prevent overwriting them by accident
-        var savedFilters = this.getSavedFilters();
+        var savedFilters = dukeconSettings.getSavedFilters(self.filters);
         _.each(self.filters, function(filter) {
             filter.filtervalues(self.getDistinctValues(filter.filterKey));
             _.each(savedFilters[filter.filterKey], function(selected) {
                 filter.selected.push(selected);
             });
         });
-    };
-
-    self.getSavedFilters = function() {
-        var savedFilters = {};
-        _.each(self.filters, function(filter) {
-            savedFilters[filter.filterKey] = dukeconSettings.getSelectedFilters(filter.filterKey);
-        });
-        return savedFilters;
     };
 
     self.getDistinctValues = function(key) {
