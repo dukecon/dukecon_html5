@@ -101,7 +101,7 @@ function TalkListViewModel() {
 
     self.groupTalks = function(talks) {
         var grouped = _.groupBy(talks, function(talk) {
-            return talk.startDisplayed;
+            return talk.startDisplayed.substring(0,2) + ':00';
         });
         return _.map(_.keys(grouped), function(time) {
             return {"start" : time, "talks" : grouped[time]};
