@@ -18,7 +18,7 @@ function Talk(data, isFavourite) {
     this.language = data.language || '';
     this.fullAbstract = data.abstractText || '';
     this.timeCategory =  dukeconDateUtils.getTimeCategory(this.duration);
-    this.timeDecoration = this.timeCategory == 'regular' ? '' : '<img src="img/attention.png" alt="!" title="Talk hat abweichende Länge!"/>';
+    this.timeDecoration = this.timeCategory == 'regular' ? '' : '<img src="img/attention.png" alt="!" title="Startzeit und Dauer beachten!"/>';
     this.favourite = ko.observable(isFavourite);
     this.favicon = ko.computed(function() {
         return this.favourite() ? "img/StarFilled.png" : "img/StarLine.png";
