@@ -1,5 +1,5 @@
-var jsonUrl = "demotalks.json";
-//var jsonUrl = "../rest/talks";
+//var jsonUrl = "demotalks.json";
+var jsonUrl = "../rest/talks";
 //var jsonUrl = "http://dev.dukecon.org/latest/rest/talks";
 var originHeader = "http://dev.dukecon.org";
 
