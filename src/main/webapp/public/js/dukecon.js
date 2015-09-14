@@ -74,9 +74,6 @@ var dukeconDateUtils = {
         if (!duration || (duration > 30 && duration <= 60)) {
             return "regular";
         }
-        if (duration <= 20) {
-            return "very_short";
-        }
         if (duration <= 30) {
             return "short";
         }

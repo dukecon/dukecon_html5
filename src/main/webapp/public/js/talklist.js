@@ -47,7 +47,12 @@ function TalkListViewModel() {
     };
 
     self.initializeDays = function() {
-        self.days(self.getDistinctValues('day'));
+        var sortby = function(a,b) {
+            // sort by the date part of the displayed days. Not very elegant but works <.<
+            return a.substring(a.length - 4) > b.substring(b.length - 4);
+        }
+        self.days(self.getDistinctValues('day', sortby));
+
         if (self.days().length <= self.selectedDayIndex()) {
             self.selectedDayIndex = 0;
         }
@@ -65,11 +70,15 @@ function TalkListViewModel() {
         });
     };
 
-    self.getDistinctValues = function(key) {
+    self.getDistinctValues = function(key, sortBy) {
         var t = _.groupBy(self.allTalks, function(talk) {
             return talk[key];
         });
-        return _.keys(t).sort();
+        if (sortBy) {
+            return _.keys(t).sort(sortBy);
+        } else {
+            return _.keys(t).sort();
+        }
     };
 
     self.filterTalks = function() {
