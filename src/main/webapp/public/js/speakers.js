@@ -30,7 +30,6 @@ var collectAllSpeakers = function(allTalks) {
             }
         })
     });
-    console.log(allSpeakers);
     return allSpeakers;
 };
 

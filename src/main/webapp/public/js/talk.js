@@ -11,6 +11,7 @@ function TalkViewModel() {
         var talkId = self.getParameterByName("talkId");
         var filtered = _.filter(allData, function(t) {return t.id === talkId});
         self.talk(new Talk(filtered[0], false));
+        document.title = self.talk().title + " - " + document.title;
     };
 
     self.getParameterByName = function(name) {
@@ -21,5 +22,6 @@ function TalkViewModel() {
 }
 
 ko.applyBindings(new TalkViewModel());
+
 
 

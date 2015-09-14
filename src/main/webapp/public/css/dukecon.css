@@ -41,8 +41,8 @@ button.selected {
     background-color:#ddee55;
 }
 th {
-    background-color: #666666;
-    color: #ffffff;
+    color: #1AA3B1;
+    background-color:#fff;
 }
 
 td {
@@ -239,7 +239,7 @@ div.room span, div.time span {
 .speakertalks .track {
     display:none;
 }
-#speakers {
+#speakers, #talkinfo {
     border-spacing: 5px;
     border-collapse: separate;
     background: #eee;
@@ -259,14 +259,27 @@ div.room span, div.time span {
     color: #777;
 
 }
-@media (max-width: 47.9em) {
-    /* adjust widths and sizes for small displays */
-    #content {
-        font-size: 95%;
-    }
-    #speakers .speakerinfo .talk-cell {
-        width:90px;
-    }
+/* TALK DETAIL PAGE */
+#talkinfo .talk-details {
+    width:25%;
+    min-width:300px;
+}
+#talkinfo .label {
+    font-weight: bold;
+    display: inline-block;
+}
+#talkinfo .title {
+    display: inline-block;
+    width:auto;
+}
+#talkinfo .speaker-list {
+    margin-bottom: 15px;
+}
+#talkinfo div.talk-abstract {
+    margin-top:15px;
+}
+#talkinfo td {
+    padding: 1em;
 }
 
 /* FAVOURITES */
@@ -278,7 +291,7 @@ div.room span, div.time span {
     color: #00c3d7;
 }
 
-/* imprint */
+/* IMPRINT */
 .imprint {
     max-width: 400px;
     margin: 30px auto;
@@ -306,20 +319,23 @@ div.room span, div.time span {
     font-size:smaller;
 }
 
-/* language */
-.englisch:before {
-    content: url(../img/gb.png);
-}
-.deutsch:before {
-    content: url(../img/de.png);
-}
-
-/* Track-colors / icons */
-
-
-
 /* PURE CSS overrides */
 .pure-g {
     letter-spacing: 0em;
 }
 
+/* RESPONSIVE TWEAKS for small screens */
+@media (max-width: 47.9em) {
+    .content {
+        font-size: 95%;
+    }
+    #speakers .speakerinfo .talk-cell {
+        width:90px;
+    }
+    #talkinfo, #talkinfo td, #talkinfo .talk-details {
+        display:block;
+        min-width:0px;
+        width:auto;
+        margin:5px;
+    }
+}
