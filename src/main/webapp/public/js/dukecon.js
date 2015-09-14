@@ -91,7 +91,7 @@ ko.components.register('talk-widget', {
                 //+ '<img style="cursor:pointer; margin-left: 2px;" title="Add to Favourites" data-bind="click: dukeconSettings.toggleFavourite, attr:{src: talk.favicon}"/>'
             + '</div>'
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
-            + '<div class="time"><img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/> <span data-bind="text: talk.day" /></div><div class="time">, <span data-bind="text: talk.startDisplayed" /> </div>'
+            + '<div class="time"><img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/> <span data-bind="text: talk.day" />,</div><div class="time"> <span data-bind="text: talk.startDisplayed" /> </div>'
             + '<div class="room"><img witdh="16px" height="16px" src="img/House.png" alt="Raum" title="Raum"/> <span data-bind="text: talk.location" /></div>'
             + '<div class="track"><img witdh="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.track" /></div>'
             + '</div>'

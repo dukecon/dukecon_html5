@@ -49,28 +49,6 @@ td {
     background-color:#ffffff;
 }
 
-.more {
-    overflow: hidden;
-    background: transparent;
-    position:relative;
-}
-
-.more div {
-    padding: 5px;
-    margin: 5px;
-}
-
-.more.shown div {
-    overflow-x:auto;
-    margin-top: 5px;
-    transition: height 0.7s, margin-top 0.7s;
-}
-
-.more.folded div {
-    transition: height 0.5s, margin-top 0.5s;
-    margin-top: -1500px;
-}
-
 .header img {
     float:left;
     margin-left:5px;
@@ -238,7 +216,6 @@ div.track span {
     font-style:italic;
     font-weight: normal;
 }
-
 div.room {
     font-weight:bold;
     font-size: smaller;
@@ -255,11 +232,37 @@ div.time {
 div.room span, div.time span {
     font-weight: normal;
 }
-.morelink {
-    font-size: smaller;
+.time, .track, .room, .time *, .track *, .room * {
+    vertical-align: middle;
+}
+/* SPKEAKER PAGE */
+.speakertalks .track {
+    display:none;
+}
+#speakers .speakerinfo .talk-cell {
+    min-width: 80px;
+    width:95%;
+    background:transparent;
+    white-space: normal;
+}
+#speakers .speakertalks .talk-cell {
+    min-width: 120px;
+}
+.speakerinfo .title {
+    color: #777;
+
+}
+@media (max-width: 47.9em) {
+    /* adjust widths and sizes for small displays */
+    #content {
+        font-size: 95%;
+    }
+    #speakers .speakerinfo .talk-cell {
+        width:90px;
+    }
 }
 
-/* FONT-AWESOME overrides */
+/* FAVOURITES */
 .fav {
     margin-left:5px;
     display:inline-block;
@@ -268,14 +271,11 @@ div.room span, div.time span {
     color: #00c3d7;
 }
 
-.time, .track, .room, .time *, .track *, .room * {
-    vertical-align: middle;
-}
-
 /* imprint */
 .imprint {
     max-width: 400px;
     margin: 30px auto;
+    padding:1em;
 }
 .imprint table, .imprint td, .imprint th {
     border: none;
