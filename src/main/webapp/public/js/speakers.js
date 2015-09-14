@@ -26,6 +26,7 @@ var collectAllSpeakers = function(allTalks) {
             if (speaker) {
                 talk.day = dukeconDateUtils.getDisplayDate(talk.start);
                 talk.startDisplayed = dukeconDateUtils.getDisplayTime(talk.start);
+                talk.duration = dukeconDateUtils.getDurationInMinutes(talk.start, talk.end);
                 allSpeakers.push({ "speaker" : speaker,  "talk" : talk});
             }
         })

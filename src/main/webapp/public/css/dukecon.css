@@ -235,6 +235,27 @@ div.room span, div.time span {
 .time, .track, .room, .time *, .track *, .room * {
     vertical-align: middle;
 }
+/* TALK LENGTHS */
+/*
+.talk-cell.long {
+    background-color: #FFE0E0;
+}
+.talk-cell.short {
+    background-color: #FFFFE0;
+}
+.talk-cell.very_short {
+    background-color: #E0FFE0;
+}
+*/
+.talk-cell.long .time {
+    color: #990000;
+}
+.talk-cell.short .time{
+    color: #AA7700;
+}
+.talk-cell.very_short .time {
+    color: #007700;
+}
 /* SPKEAKER PAGE */
 .speakertalks .track {
     display:none;
