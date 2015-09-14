@@ -239,6 +239,13 @@ div.room span, div.time span {
 .speakertalks .track {
     display:none;
 }
+#speakers {
+    border-spacing: 5px;
+    border-collapse: separate;
+    background: #eee;
+    border:none;
+    padding:0px;
+}
 #speakers .speakerinfo .talk-cell {
     min-width: 80px;
     width:95%;
