@@ -14,22 +14,18 @@
 <body>
 <header-widget params="value: 'Sprecher'"></header-widget>
 <div class="content">
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Talks</th>
-        </tr>
-        </thead>
+    <table id="speakers">
         <tbody data-bind="foreach: allSpeakers">
         <tr>
-            <td>
-                <div class="speaker">Name: <span data-bind="text: name" /></div>
-                <div class="track">Firma: <span data-bind="text: company" /></div>
+            <td class="speakerinfo">
+                <div class="talk-cell">
+                    <div class="title"><span data-bind="text: name" /></div>
+                    <div class="track"><span data-bind="text: company" /></div>
+                </div>
             </td>
-            <td>
+            <td class="speakertalks">
                 <div data-bind="foreach: talks">
-                    <a class="title" data-bind="text: title, attr : { href : 'talk.html#talk?talkId=' + id }"></a>
+                    <talk-widget params="value: $data"></talk-widget>
                 </div>
             </td>
         </tr>

@@ -14,17 +14,27 @@
 <body>
 <header-widget params="value: talk().title"></header-widget>
 <div class="content">
-    <div style="margin-bottom: 10px;">
-        <span data-bind="text : talk().fullAbstract"></span>
-    </div>
-    <div data-bind="foreach: talk().speakers">
-        <div class="speaker">
-            <span data-bind="text: $data"/>
-        </div>
-    </div>
-    <div class="time">Start: <span data-bind="text: talk().day" /></div><div class="time">, <span data-bind="text: talk().startDisplayed" /> </div>
-    <div class="room">Raum: <span data-bind="text: talk().location" /></div>
-    <div class="track">Track: <span data-bind="text: talk().track" /></div>
+    <table id="talkinfo">
+        <tr>
+            <td class="talk-details">
+                <div class="speaker-list" data-bind="foreach: talk().speakers">
+                    <div class="title">
+                        <span data-bind="text: $data"/>
+                    </div>
+                </div>
+
+                <div class="time"><img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/> <span data-bind="text: talk().day"></span>, </div> <div class="time"> <span data-bind="text: talk().startDisplayed"></span> </div>
+                <div class="room"><img witdh="16px" height="16px" src="img/House.png" alt="Raum" title="Raum"/> <span data-bind="text: talk().location"></span></div>
+                <div class="track"><img witdh="16px" height="16px" data-bind="attr: {src: talk().talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk().track"></span></div>
+
+            </td>
+            <td class="talk-abstract">
+                <div class="title" data-bind="text : talk().title"></div>
+                <div class="label"> - Abstract</div>
+                <div class="talk-abstract" data-bind="text : talk().fullAbstract"></div>
+            </td>
+        </tr>
+    </table>
 </div>
 <script type='text/javascript' src='js/dukecon.js'></script>
 <script type='text/javascript' src='js/offline.js'></script>

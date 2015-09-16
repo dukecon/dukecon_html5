@@ -1,5 +1,7 @@
 CACHE MANIFEST
 # rev 3
+# Version: ${project.artifactId}-${project.version}-r${buildNumber}
+# Branch: ${scmBranch}
 
 CACHE:
 # Html
@@ -39,6 +41,7 @@ js/underscore-min.js
 js/ui.js
 # temporary hack
 demotalks.json
+../rest/talks
 
 NETWORK:
 *

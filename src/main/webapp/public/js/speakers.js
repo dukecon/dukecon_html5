@@ -24,6 +24,9 @@ var collectAllSpeakers = function(allTalks) {
     _.each(allTalks, function(talk) {
         _.each(talk.speakers, function(speaker) {
             if (speaker) {
+                talk.day = dukeconDateUtils.getDisplayDate(talk.start);
+                talk.startDisplayed = dukeconDateUtils.getDisplayTime(talk.start);
+                talk.duration = dukeconDateUtils.getDurationInMinutes(talk.start, talk.end);
                 allSpeakers.push({ "speaker" : speaker,  "talk" : talk});
             }
         })

@@ -10,12 +10,17 @@
 
     <name>DukeCon HTML5 Client</name>
 
+    <scm>
+        <url>https://github.com/dukecon/dukecon_html5</url>
+        <connection>scm:git:https://github.com/dukecon/dukecon_html5.git</connection>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Set this to localhost if you would like to test upload server -->
         <nexus.repository.host>dev.dukecon.org</nexus.repository.host>
-        <nexus.repository.port>:8081</nexus.repository.port>
-        <nexus.repository.base></nexus.repository.base>
+        <nexus.repository.port></nexus.repository.port>
+        <nexus.repository.base>/nexus</nexus.repository.base>
     </properties>
     
     <repositories>
@@ -55,11 +60,52 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.3</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <doCheck>false</doCheck>
+                    <doUpdate>false</doUpdate>
+                    <revisionOnScmFailure>_localbuild</revisionOnScmFailure>
+                    <shortRevisionLength>8</shortRevisionLength>
+                    <format>{0,date,yyyy-MM-dd_HH:mm:ss}</format>
+                    <items>
+                        <item>timestamp</item>
+                    </items>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
                     <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/webapp</directory>
+                            <filtering>true</filtering>
+                            <includes>
+                                <include>**/*.txt</include>
+                                <include>**/cache.manifest</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Implementation-Build>${project.artifactId}-${project.version}-r${buildNumber}</Implementation-Build>
+                        </manifestEntries>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>

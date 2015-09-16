@@ -1,12 +1,13 @@
-var jsonUrl = "demotalks.json";
+//var jsonUrl = "demotalks.json";
 //var jsonUrl = "../rest/talks";
-//var jsonUrl = "http://dev.dukecon.org/latest/rest/talks";
+var jsonUrl = "http://dev.dukecon.org/latest/rest/talks";
 var originHeader = "http://dev.dukecon.org";
 
 function Talk(data, isFavourite) {
     this.id = data.id || '';
     this.day = dukeconDateUtils.getDisplayDate(data.start);
     this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
+    this.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
     this.startSortable = data.start || '';
     this.track = data.track || '';
     this.location = data.location || '';
@@ -16,7 +17,8 @@ function Talk(data, isFavourite) {
     this.speakerString = data.speakers ? data.speakers[0].name : ""; // TODO: comma-list
     this.language = data.language || '';
     this.fullAbstract = data.abstractText || '';
-    this.shortAbstract = this.fullAbstract.substring(0, 100) + "...";
+    this.timeCategory =  dukeconDateUtils.getTimeCategory(this.duration);
+    this.timeDecoration = this.timeCategory == 'regular' ? '' : '<img src="img/attention.png" alt="!" title="Startzeit und Dauer beachten!"/>';
     this.favourite = ko.observable(isFavourite);
     this.favicon = ko.computed(function() {
         return this.favourite() ? "img/StarFilled.png" : "img/StarLine.png";
@@ -43,8 +45,8 @@ var dukeconDateUtils = {
             return '';
         }
         var date = new Date(datetimeString);
-        var month = this.addTrailingZero(date.getMonth() + 1);
-        var day = this.addTrailingZero(date.getDate());
+        var month = this.addLeadingZero(date.getMonth() + 1);
+        var day = this.addLeadingZero(date.getDate());
         var weekDay = this.weekDays[date.getDay()];
         return weekDay + ", " + day + "." + month;
     },
@@ -54,10 +56,33 @@ var dukeconDateUtils = {
             return '';
         }
         var date = new Date(datetimeString);
-        return this.addTrailingZero(date.getHours()) + ":" + this.addTrailingZero(date.getMinutes());
+        return this.addLeadingZero(date.getHours()) + ":" + this.addLeadingZero(date.getMinutes());
     },
 
-    addTrailingZero : function(data) {
+
+    getDurationInMinutes : function(dateStartString, dateEndString) {
+        if (!dateStartString || !dateEndString) {
+            return '';
+        }
+        var dateStart = new Date(dateStartString);
+        var dateEnd = new Date(dateEndString);
+        var millis = dateEnd - dateStart
+        return millis / 1000 / 60;
+    },
+
+    getTimeCategory : function(duration) {
+        if (!duration || (duration > 30 && duration <= 60)) {
+            return "regular";
+        }
+        if (duration <= 30) {
+            return "short";
+        }
+        if (duration > 60) {
+            return "long";
+        }
+    },
+
+    addLeadingZero : function(data) {
         if (data < 10) {
             return '0' + data;
         }
@@ -76,7 +101,7 @@ ko.components.register('header-widget', {
         + '<div class="main-menu">'
         + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="impressum.html">Impressum</a>'
         + '</div>'
-        + '<h1 data-bind="text: title"></h1>'
+        + '<h1 id="headertitle" data-bind="text: title"></h1>'
         + '</div>'
 });
 
@@ -85,14 +110,16 @@ ko.components.register('talk-widget', {
         this.talk = data.value;
     },
     template:
-        '<div class="talk-cell">'
+        '<div data-bind="attr : {class: \'talk-cell \' + talk.timeCategory}">'
             + '<div class="title">'
                 + '<a style="padding: 0px" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a>'
-                + '<img style="cursor:pointer; margin-left: 2px;" title="Add to Favourites" data-bind="click: dukeconSettings.toggleFavourite, attr:{src: talk.favicon}"/>'
+                //+ '<img style="cursor:pointer; margin-left: 2px;" title="Add to Favourites" data-bind="click: dukeconSettings.toggleFavourite, attr:{src: talk.favicon}"/>'
             + '</div>'
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
-            + '<div class="time"><img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/> <span data-bind="text: talk.day" /></div><div class="time">, <span data-bind="text: talk.startDisplayed" /> </div>'
-            + '<div class="room"><img witdh="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk.location" /></div>'
+            + '<div class="time"><img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>'
+            + ' <span data-bind="text: talk.day" /><span>,&nbsp;</span></div><div class="time"> <span data-bind="text: talk.startDisplayed" /> (<span data-bind="text: talk.duration" /><span> min</span>)'
+            + ' <span data-bind="html: talk.timeDecoration"></span></div>'
+            + '<div class="room"><img witdh="16px" height="16px" src="img/House.png" alt="Raum" title="Raum"/> <span data-bind="text: talk.location" /></div>'
             + '<div class="track"><img witdh="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.track" /></div>'
             + '</div>'
 });

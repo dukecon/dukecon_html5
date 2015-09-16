@@ -1,3 +1,20 @@
+// Check if a new cache is available on page load.
+window.addEventListener('load', function(e) {
+    console.log ("Adding event listener for cache updates");
+    window.applicationCache.addEventListener('updateready', function(e) {
+        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+            // Browser downloaded a new app cache.
+            // Swap it in and reload the page to get the new hotness.
+            window.applicationCache.swapCache();
+            if (confirm('A new version of this site is available. Load it?')) {
+                window.location.reload();
+            }
+        } else {
+            // Manifest didn't changed. Nothing new to server.
+        }
+    }, false);
+}, false);
+
 var dukeconTalkUtils = {
     getData : function(callback) {
         var successCallback = function(data) {
@@ -34,13 +51,24 @@ var dukeconTalkUtils = {
 
 var dukeconSettings = {
     fav_key : "dukeconfavs",
+    filter_key_prefix : "dukeconfilters_",
+    day_key : "dukeconday",
 
     getFavourites : function() {
-        if (localStorage) {
-            var favourites = localStorage.getItem(dukeconSettings.fav_key);
-            return favourites ? JSON.parse(favourites) : [];
-        }
-        return [];
+        return dukeconSettings.getSettingOrEmptyArray(dukeconSettings.fav_key);
+    },
+
+    getSavedFilters : function(filters) {
+        var savedFilters = {};
+        _.each(filters, function(filter) {
+            savedFilters[filter.filterKey] = dukeconSettings.getSettingOrEmptyArray(dukeconSettings.filter_key_prefix + filter.filterKey);
+        });
+        return savedFilters;
+    },
+
+    getSelectedDay : function() {
+        var day = dukeconSettings.getSetting(dukeconSettings.day_key);
+        return day ? day : "0";
     },
 
     isFavourite : function(id) {
@@ -58,10 +86,40 @@ var dukeconSettings = {
             favourites.splice(pos, 1);
         }
         talkObject.talk.toggleFavourite();
+        dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
+    },
+
+    saveSelectedFilters : function(filters) {
+        _.each(filters, function(filter) {
+            dukeconSettings.saveSetting(dukeconSettings.filter_key_prefix + filter.filterKey, filter.selected());
+        });
+    },
+
+    saveSelectedDay : function(day_index) {
+        dukeconSettings.saveSetting(dukeconSettings.day_key, day_index);
+    },
+
+    getSettingOrEmptyArray : function(settingKey) {
+        var setting = dukeconSettings.getSetting(settingKey);
+        return setting ? setting : [];
+    },
+
+    getSetting : function(settingKey) {
         if (localStorage) {
-            localStorage.setItem(dukeconSettings.fav_key, JSON.stringify(favourites));
+            var setting = localStorage.getItem(settingKey);
+            console.log("Load: " + settingKey + " -> " + setting);
+            return setting ? JSON.parse(setting) : null;
+        }
+        return null;
+    },
+
+    saveSetting : function(settingKey, value) {
+        if (localStorage) {
+            console.log("Save: " + settingKey + " -> " + value)
+            localStorage.setItem(settingKey, JSON.stringify(value));
         }
     }
+
 };
 
 var dukeconDb = {

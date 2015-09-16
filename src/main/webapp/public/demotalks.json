@@ -1,5 +1,68 @@
 [
     {
+        "id": "0815",
+        "track": "Newcomer",
+        "level": "Anfänger",
+        "type": "project report",
+        "start": "2015-03-24T10:10",
+        "end": "2015-03-24T10:30",
+        "location": "Rotunde",
+        "title": "Kurz 1",
+        "speakers": [
+            {
+                "name": "Erhard Seilig",
+                "company": "n/a",
+                "defaultSpeaker": true
+            },
+            null
+        ],
+        "abstractText": "Kurztalk test",
+        "language": "Deutsch",
+        "demo": true
+    },
+    {
+        "id": "0816",
+        "track": "Newcomer",
+        "level": "Anfänger",
+        "type": "project report",
+        "start": "2015-03-24T10:20",
+        "end": "2015-03-24T10:50",
+        "location": "Rotunde",
+        "title": "Kurz 2",
+        "speakers": [
+            {
+                "name": "Erhard Seilig",
+                "company": "n/a",
+                "defaultSpeaker": true
+            },
+            null
+        ],
+        "abstractText": "Kurztalk test",
+        "language": "Deutsch",
+        "demo": true
+    },
+    {
+        "id": "0817",
+        "track": "Newcomer",
+        "level": "Anfänger",
+        "type": "project report",
+        "start": "2015-03-26T10:25",
+        "end": "2015-03-26T11:40",
+        "location": "Rotunde",
+        "title": "Extralang",
+        "speakers": [
+            {
+                "name": "Erhard Seilig",
+                "company": "n/a",
+                "defaultSpeaker": true
+            },
+            null
+        ],
+        "abstractText": "Kurztalk test",
+        "language": "Deutsch",
+        "demo": true
+    },
+    {
         "id": "491683",
         "track": "Internet der Dinge",
         "level": "Anfänger",
@@ -7,7 +70,7 @@
         "start": "2015-03-24T17:00",
         "end": "2015-03-24T17:45",
         "location": "Rotunde",
-        "title": "\"Catch Me if YouCan\" - Java on Wearables",
+        "title": "Demo: Demo: \"Catch Me if YouCan\" - Java on Wearables",
         "speakers": [
             {
                 "name": "Gerrit Grunwald",
@@ -28,7 +91,7 @@
         "start": "2015-03-25T16:00",
         "end": "2015-03-25T16:45",
         "location": "Wintergarten",
-        "title": "Effizienz und Flexibilität mit dem Projektor-Pattern",
+        "title": "Demo: Effizienz und Flexibilität mit dem Projektor-Pattern",
         "speakers": [
             {
                 "name": "Dierk König",
@@ -49,7 +112,7 @@
         "start": "2015-03-24T15:00",
         "end": "2015-03-24T15:45",
         "location": "Rotunde",
-        "title": "MongoDB, Elasticsearch, Riak - dreimal dasselbe?",
+        "title": "Demo: MongoDB, Elasticsearch, Riak - dreimal dasselbe?",
         "speakers": [
             {
                 "name": "Eberhard Wolff",
@@ -70,7 +133,7 @@
         "start": "2015-03-24T15:00",
         "end": "2015-03-24T15:45",
         "location": "Quantum 2",
-        "title": "Why Kotlin?",
+        "title": "Demo: Why Kotlin?",
         "speakers": [
             {
                 "name": "Svetlana Isakova",
@@ -91,7 +154,7 @@
         "start": "2015-03-24T16:00",
         "end": "2015-03-24T16:45",
         "location": "Quantum 4",
-        "title": "Confessions of an Automation Addict",
+        "title": "Demo: Confessions of an Automation Addict",
         "speakers": [
             {
                 "name": "Holly Cummins",
@@ -112,7 +175,7 @@
         "start": "2015-03-24T11:00",
         "end": "2015-03-24T11:45",
         "location": "Rotunde",
-        "title": "Plug-in-Entwicklung für IntelliJ IDEA",
+        "title": "Demo: Plug-in-Entwicklung für IntelliJ IDEA",
         "speakers": [
             {
                 "name": "Yann Cébron",
@@ -133,7 +196,7 @@
         "start": "2015-03-24T12:00",
         "end": "2015-03-24T12:45",
         "location": "Quantum 4",
-        "title": "PostgreSQL: Die NoSQL-Datenbank, die niemand kennt",
+        "title": "Demo: PostgreSQL: Die NoSQL-Datenbank, die niemand kennt",
         "speakers": [
             {
                 "name": "Stephan Hochdörfer",
@@ -154,7 +217,7 @@
         "start": "2015-03-25T13:00",
         "end": "2015-03-25T13:45",
         "location": "Wintergarten",
-        "title": "\"From a Certain Point of View\" - Eyetracking with Java(FX)",
+        "title": "Demo: \"From a Certain Point of View\" - Eyetracking with Java(FX)",
         "speakers": [
             {
                 "name": "Gerrit Grunwald",
@@ -175,7 +238,7 @@
         "start": "2015-03-24T11:00",
         "end": "2015-03-24T11:45",
         "location": "Quantum 1",
-        "title": "How Java EE and DevOps Will Work Together",
+        "title": "Demo: How Java EE and DevOps Will Work Together",
         "speakers": [
             {
                 "name": "Ivar Grimstad",
@@ -196,7 +259,7 @@
         "start": "2015-03-25T09:00",
         "end": "2015-03-25T09:45",
         "location": "Schauspielhaus",
-        "title": "Building CDI Extensions",
+        "title": "Demo: Building CDI Extensions",
         "speakers": [
             {
                 "name": "Jason Porter",
@@ -217,7 +280,7 @@
         "start": "2015-03-25T09:00",
         "end": "2015-03-25T09:45",
         "location": "Quantum 3",
-        "title": "Developing Native Mobile Apps Using JavaScript",
+        "title": "Demo: Developing Native Mobile Apps Using JavaScript",
         "speakers": [
             {
                 "name": "Hazem Saleh",
@@ -238,7 +301,7 @@
         "start": "2015-03-25T11:00",
         "end": "2015-03-25T11:45",
         "location": "Wintergarten",
-        "title": "Keynote: Enterprise and Internet of Things",
+        "title": "Demo: Keynote: Enterprise and Internet of Things",
         "speakers": [
             {
                 "name": "Mark Little",
@@ -259,7 +322,7 @@
         "start": "2015-03-25T12:00",
         "end": "2015-03-25T12:45",
         "location": "Quantum 3",
-        "title": "Architecture for Internet of Things: Helmets, Houses and Sailboats!",
+        "title": "Demo: Architecture for Internet of Things: Helmets, Houses and Sailboats!",
         "speakers": [
             {
                 "name": "Vinicius Senger",
@@ -284,7 +347,7 @@
         "start": "2015-03-25T16:00",
         "end": "2015-03-25T16:45",
         "location": "Quantum 4",
-        "title": "Puppet für Entwickler",
+        "title": "Demo: Puppet für Entwickler",
         "speakers": [
             {
                 "name": "Sebastian Hempel",
@@ -305,7 +368,7 @@
         "start": "2015-03-24T16:00",
         "end": "2015-03-24T16:45",
         "location": "Schauspielhaus",
-        "title": "Der Just-In-Time Compiler - das unbekannte Wesen",
+        "title": "Demo: Der Just-In-Time Compiler - das unbekannte Wesen",
         "speakers": [
             {
                 "name": "Fabian Lange",
@@ -326,7 +389,7 @@
         "start": "2015-03-25T13:00",
         "end": "2015-03-25T13:45",
         "location": "Schauspielhaus",
-        "title": "Java EE Security: Let's Make Something Useful",
+        "title": "Demo: Java EE Security: Let's Make Something Useful",
         "speakers": [
             {
                 "name": "David Blevins",
@@ -347,7 +410,7 @@
         "start": "2015-03-25T14:00",
         "end": "2015-03-25T14:45",
         "location": "Quantum 3",
-        "title": "IoT Primer for Java Developers",
+        "title": "Demo: IoT Primer for Java Developers",
         "speakers": [
             {
                 "name": "James Weaver",
@@ -368,7 +431,7 @@
         "start": "2015-03-24T10:00",
         "end": "2015-03-24T10:45",
         "location": "Quantum 1",
-        "title": "Konfiguration in Java",
+        "title": "Demo: Konfiguration in Java",
         "speakers": [
             {
                 "name": "Anatole Tresch",
@@ -389,7 +452,7 @@
         "start": "2015-03-25T15:00",
         "end": "2015-03-25T15:45",
         "location": "Quantum 1",
-        "title": "Softwarequalität steigern",
+        "title": "Demo: Softwarequalität steigern",
         "speakers": [
             {
                 "name": "Andreas Günzel",
@@ -410,7 +473,7 @@
         "start": "2015-03-24T10:00",
         "end": "2015-03-24T10:45",
         "location": "Rotunde",
-        "title": "Docker für Java-Entwickler",
+        "title": "Demo: Docker für Java-Entwickler",
         "speakers": [
             {
                 "name": "Roland Huß",
@@ -431,7 +494,7 @@
         "start": "2015-03-24T10:00",
         "end": "2015-03-24T10:45",
         "location": "Quantum 2",
-        "title": "Einführung in Grafik- und UI-Design für Entwickler",
+        "title": "Demo: Einführung in Grafik- und UI-Design für Entwickler",
         "speakers": [
             {
                 "name": "Alexander Klein",
@@ -452,7 +515,7 @@
         "start": "2015-03-24T12:00",
         "end": "2015-03-24T12:45",
         "location": "Schauspielhaus",
-        "title": "Code Reviews: Techniken und Tipps",
+        "title": "Demo: Code Reviews: Techniken und Tipps",
         "speakers": [
             {
                 "name": "Rabea Gransberger",
@@ -472,7 +535,7 @@
         "start": "2015-03-24T16:00",
         "end": "2015-03-24T16:45",
         "location": "Quantum 2",
-        "title": "Programming JVM Bytecode with Jitescript",
+        "title": "Demo: Programming JVM Bytecode with Jitescript",
         "speakers": [
             {
                 "name": "Joe Kutner",
@@ -493,7 +556,7 @@
         "start": "2015-03-25T09:00",
         "end": "2015-03-25T09:45",
         "location": "Wintergarten",
-        "title": "Asynchronen Code testen",
+        "title": "Demo: Asynchronen Code testen",
         "speakers": [
             {
                 "name": "Andreas Simon",
@@ -514,7 +577,7 @@
         "start": "2015-03-25T09:00",
         "end": "2015-03-25T09:45",
         "location": "Quantum 1",
-        "title": "Rich Internet Applications with JBoss Errai",
+        "title": "Demo: Rich Internet Applications with JBoss Errai",
         "speakers": [
             {
                 "name": "Johannes Barop",
@@ -535,7 +598,7 @@
         "start": "2015-03-25T12:00",
         "end": "2015-03-25T12:45",
         "location": "Rotunde",
-        "title": "What Language Would You Like to Run?",
+        "title": "Demo: What Language Would You Like to Run?",
         "speakers": [
             {
                 "name": "Michael Haupt",
@@ -556,7 +619,7 @@
         "start": "2015-03-24T16:00",
         "end": "2015-03-24T16:45",
         "location": "Quantum 1",
-        "title": "Integration Testing - How-to",
+        "title": "Demo: Integration Testing - How-to",
         "speakers": [
             {
                 "name": "Nicolas Fränkel",
@@ -577,7 +640,7 @@
         "start": "2015-03-24T17:00",
         "end": "2015-03-24T17:45",
         "location": "Quantum 3",
-        "title": "Building Cloud-enable Hybrid Mobile Applications",
+        "title": "Demo: Building Cloud-enable Hybrid Mobile Applications",
         "speakers": [
             {
                 "name": "Carlos Santana",
@@ -598,7 +661,7 @@
         "start": "2015-03-25T13:00",
         "end": "2015-03-25T13:45",
         "location": "Quantum 4",
-        "title": "Don't Ignore the REST - Backend Access from Mobile Devices",
+        "title": "Demo: Don't Ignore the REST - Backend Access from Mobile Devices",
         "speakers": [
             {
                 "name": "Dr. Jürgen Menge",
@@ -619,7 +682,7 @@
         "start": "2015-03-25T10:00",
         "end": "2015-03-25T10:45",
         "location": "Rotunde",
-        "title": "Shootout: Clojure vs. Scala",
+        "title": "Demo: Shootout: Clojure vs. Scala",
         "speakers": [
             {
                 "name": "Michael Sperber",
@@ -640,7 +703,7 @@
         "start": "2015-03-24T16:00",
         "end": "2015-03-24T16:45",
         "location": "Wintergarten",
-        "title": "2000 Zeilen Java-Code - oder 50 Zeilen SQL?",
+        "title": "Demo: 2000 Zeilen Java-Code - oder 50 Zeilen SQL?",
         "speakers": [
             {
                 "name": "Lukas Eder",
@@ -661,7 +724,7 @@
         "start": "2015-03-24T14:00",
         "end": "2015-03-24T14:45",
         "location": "Quantum 4",
-        "title": "Distributed Metrics and Log Aggregation",
+        "title": "Demo: Distributed Metrics and Log Aggregation",
         "speakers": [
             {
                 "name": "Alexander Heusingfeld",
@@ -686,7 +749,7 @@
         "start": "2015-03-24T14:00",
         "end": "2015-03-24T14:45",
         "location": "Quantum 3",
-        "title": "Tweet4Beer! Beertap Powered by Java Goes Internet of Things and JavaFX",
+        "title": "Demo: Tweet4Beer! Beertap Powered by Java Goes Internet of Things and JavaFX",
         "speakers": [
             {
                 "name": "Bruno Borges",
@@ -707,7 +770,7 @@
         "start": "2015-03-24T13:00",
         "end": "2015-03-24T13:45",
         "location": "Quantum 2",
-        "title": "TypeScript: JavaScript für Java-Entwickler? ",
+        "title": "Demo: TypeScript: JavaScript für Java-Entwickler? ",
         "speakers": [
             {
                 "name": "Kai Tödter",
@@ -728,7 +791,7 @@
         "start": "2015-03-24T11:00",
         "end": "2015-03-24T11:45",
         "location": "Quantum 3",
-        "title": "Autonomous Drone Development with Java and Internet of Things",
+        "title": "Demo: Autonomous Drone Development with Java and Internet of Things",
         "speakers": [
             {
                 "name": "James Weaver",
@@ -749,7 +812,7 @@
         "start": "2015-03-25T16:00",
         "end": "2015-03-25T16:45",
         "location": "Schauspielhaus",
-        "title": "Applied javax.cach'ing",
+        "title": "Demo: Applied javax.cach'ing",
         "speakers": [
             {
                 "name": "Alex Snaps",
@@ -770,7 +833,7 @@
         "start": "2015-03-24T12:00",
         "end": "2015-03-24T12:45",
         "location": "Quantum 1",
-        "title": "Java EE 7 from an HTML 5 Perspective: WebSocket, JSON, & JSF",
+        "title": "Demo: Java EE 7 from an HTML 5 Perspective: WebSocket, JSON, & JSF",
         "speakers": [
             {
                 "name": "Ed Burns",
@@ -795,7 +858,7 @@
         "start": "2015-03-24T11:00",
         "end": "2015-03-24T11:45",
         "location": "Wintergarten",
-        "title": "Understanding Java Bytecode",
+        "title": "Demo: Understanding Java Bytecode",
         "speakers": [
             {
                 "name": "Rafael Winterhalter",
@@ -816,7 +879,7 @@
         "start": "2015-03-24T14:00",
         "end": "2015-03-24T14:45",
         "location": "Quantum 1",
-        "title": "BPM-Architektur und andere Horrorgeschichten",
+        "title": "Demo: BPM-Architektur und andere Horrorgeschichten",
         "speakers": [
             {
                 "name": "Bernd Rücker",
@@ -837,7 +900,7 @@
         "start": "2015-03-25T12:00",
         "end": "2015-03-25T12:45",
         "location": "Wintergarten",
-        "title": "Enterprise-Anwendungen mit JavaFX",
+        "title": "Demo: Enterprise-Anwendungen mit JavaFX",
         "speakers": [
             {
                 "name": "Hendrik Ebbers",
@@ -858,7 +921,7 @@
         "start": "2015-03-25T15:00",
         "end": "2015-03-25T15:45",
         "location": "Quantum 2",
-        "title": "Yes we scan! Software-Analysen mit jQAssistant",
+        "title": "Demo: Yes we scan! Software-Analysen mit jQAssistant",
         "speakers": [
             {
                 "name": "Dirk Mahler",
@@ -879,7 +942,7 @@
         "start": "2015-03-25T15:00",
         "end": "2015-03-25T15:45",
         "location": "Wintergarten",
-        "title": "Der CenterDevice Cloud Client - ein JavaFX-Erfahrungsbericht",
+        "title": "Demo: Der CenterDevice Cloud Client - ein JavaFX-Erfahrungsbericht",
         "speakers": [
             {
                 "name": "Patrick Peschlow",
@@ -900,7 +963,7 @@
         "start": "2015-03-24T10:00",
         "end": "2015-03-24T10:45",
         "location": "Schauspielhaus",
-        "title": "Praktisches API-Design",
+        "title": "Demo: Praktisches API-Design",
         "speakers": [
             {
                 "name": "Kai Spichale",
@@ -921,7 +984,7 @@
         "start": "2015-03-24T10:00",
         "end": "2015-03-24T10:45",
         "location": "Quantum 3",
-        "title": "Blablabla Microservices",
+        "title": "Demo: Blablabla Microservices",
         "speakers": [
             {
                 "name": "Kai Spichale",
@@ -942,7 +1005,7 @@
         "start": "2015-03-24T10:00",
         "end": "2015-03-24T10:45",
         "location": "Quantum 4",
-        "title": "Blablabla was Neues",
+        "title": "Demo: Blablabla was Neues",
         "speakers": [
             {
                 "name": "Newbie Newton",
@@ -963,7 +1026,7 @@
         "start": "2015-03-25T14:00",
         "end": "2015-03-25T14:45",
         "location": "Quantum 2",
-        "title": "Event Sourcing FTW",
+        "title": "Demo: Event Sourcing FTW",
         "speakers": [
             {
                 "name": "Jochen Mader",
@@ -984,7 +1047,7 @@
         "start": "2015-03-25T16:00",
         "end": "2015-03-25T16:45",
         "location": "Quantum 3",
-        "title": "Pub/Sub for the Masses! An Introduction to MQTT",
+        "title": "Demo: Pub/Sub for the Masses! An Introduction to MQTT",
         "speakers": [
             {
                 "name": "Dominik Obermaier",
@@ -1005,7 +1068,7 @@
         "start": "2015-03-25T09:00",
         "end": "2015-03-25T09:45",
         "location": "Quantum 4",
-        "title": "Undercover - auf den Spuren des JDK-bin-Verzeichnis",
+        "title": "Demo: Undercover - auf den Spuren des JDK-bin-Verzeichnis",
         "speakers": [
             {
                 "name": "Thomas Ronzon",
@@ -1026,7 +1089,7 @@
         "start": "2015-03-25T14:00",
         "end": "2015-03-25T14:45",
         "location": "Quantum 1",
-        "title": "Immutable Infrastructure: das neue App-Deployment",
+        "title": "Demo: Immutable Infrastructure: das neue App-Deployment",
         "speakers": [
             {
                 "name": "Axel Fontaine",
@@ -1047,7 +1110,7 @@
         "start": "2015-03-25T09:00",
         "end": "2015-03-25T09:45",
         "location": "Quantum 2",
-        "title": "7 Security-Tools und -Bibliotheken für (fast) jede Webanwendung",
+        "title": "Demo: 7 Security-Tools und -Bibliotheken für (fast) jede Webanwendung",
         "speakers": [
             {
                 "name": "Dominik Schadow",
@@ -1068,7 +1131,7 @@
         "start": "2015-03-25T12:00",
         "end": "2015-03-25T12:45",
         "location": "Quantum 4",
-        "title": "mgwt 2.0 - Cross-Plattform-Apps in Java",
+        "title": "Demo: mgwt 2.0 - Cross-Plattform-Apps in Java",
         "speakers": [
             {
                 "name": "Katharina Fahnenbruck",
@@ -1089,7 +1152,7 @@
         "start": "2015-03-24T15:00",
         "end": "2015-03-24T15:45",
         "location": "Quantum 1",
-        "title": "Driving Open Source Adoption with Documentation",
+        "title": "Demo: Driving Open Source Adoption with Documentation",
         "speakers": [
             {
                 "name": "Sarah White",
@@ -1110,7 +1173,7 @@
         "start": "2015-03-25T15:00",
         "end": "2015-03-25T15:45",
         "location": "Quantum 4",
-        "title": "Arquillian in der Praxis",
+        "title": "Demo: Arquillian in der Praxis",
         "speakers": [
             {
                 "name": "Stefan Hildebrandt",
@@ -1131,7 +1194,7 @@
         "start": "2015-03-25T15:00",
         "end": "2015-03-25T15:45",
         "location": "Rotunde",
-        "title": "Traits und ihre Anwendung in Groovy",
+        "title": "Demo: Traits und ihre Anwendung in Groovy",
         "speakers": [
             {
                 "name": "Jochen Theodorou",
@@ -1152,7 +1215,7 @@
         "start": "2015-03-25T15:00",
         "end": "2015-03-25T15:45",
         "location": "Schauspielhaus",
-        "title": "Java Persistence in Action  jenseits des Entry-Levels",
+        "title": "Demo: Java Persistence in Action  jenseits des Entry-Levels",
         "speakers": [
             {
                 "name": "Dirk Weil",
@@ -1173,7 +1236,7 @@
         "start": "2015-03-25T12:00",
         "end": "2015-03-25T12:45",
         "location": "Quantum 1",
-        "title": "Robuste Anwendungen mit Hystrix",
+        "title": "Demo: Robuste Anwendungen mit Hystrix",
         "speakers": [
             {
                 "name": "Alexander Schwartz",
@@ -1194,7 +1257,7 @@
         "start": "2015-03-25T13:00",
         "end": "2015-03-25T13:45",
         "location": "Quantum 1",
-        "title": "The YAGNI of Microservices",
+        "title": "Demo: The YAGNI of Microservices",
         "speakers": [
             {
                 "name": "Oliver Fischer",
@@ -1214,7 +1277,7 @@
         "start": "2015-03-25T14:00",
         "end": "2015-03-25T14:45",
         "location": "Schauspielhaus",
-        "title": "Spring Data REST - Repositories Meet Hypermedia",
+        "title": "Demo: Spring Data REST - Repositories Meet Hypermedia",
         "speakers": [
             {
                 "name": "Oliver Gierke",
@@ -1235,7 +1298,7 @@
         "start": "2015-03-24T11:00",
         "end": "2015-03-24T11:45",
         "location": "Quantum 2",
-        "title": "No-Backend-Anwendungen in der Java-Welt mit AngularJS",
+        "title": "Demo: No-Backend-Anwendungen in der Java-Welt mit AngularJS",
         "speakers": [
             {
                 "name": "Jörg Herbst",
@@ -1256,7 +1319,7 @@
         "start": "2015-03-25T10:00",
         "end": "2015-03-25T10:45",
         "location": "Quantum 2",
-        "title": "Hack that Website!",
+        "title": "Demo: Hack that Website!",
         "speakers": [
             {
                 "name": "Stefan Schlott",
@@ -1277,7 +1340,7 @@
         "start": "2015-03-25T15:00",
         "end": "2015-03-25T15:45",
         "location": "Quantum 3",
-        "title": "Extensible by Design: Binding-Entwicklung für Eclipse SmartHome ",
+        "title": "Demo: Extensible by Design: Binding-Entwicklung für Eclipse SmartHome ",
         "speakers": [
             {
                 "name": "Dennis Nobel",
@@ -1298,7 +1361,7 @@
         "start": "2015-03-25T10:00",
         "end": "2015-03-25T10:45",
         "location": "Quantum 1",
-        "title": "MVP mit dem Google Web Toolkit",
+        "title": "Demo: MVP mit dem Google Web Toolkit",
         "speakers": [
             {
                 "name": "Florian Felberbauer",
@@ -1319,7 +1382,7 @@
         "start": "2015-03-24T15:00",
         "end": "2015-03-24T15:45",
         "location": "Schauspielhaus",
-        "title": "Pragmatic Functional Refactoring with Java 8",
+        "title": "Demo: Pragmatic Functional Refactoring with Java 8",
         "speakers": [
             {
                 "name": "Richard Warburton",
@@ -1339,7 +1402,7 @@
         "start": "2015-03-24T14:00",
         "end": "2015-03-24T14:45",
         "location": "Rotunde",
-        "title": "Neuigkeiten vom Eclipse-Plattform-Team",
+        "title": "Demo: Neuigkeiten vom Eclipse-Plattform-Team",
         "speakers": [
             {
                 "name": "Lars Vogel",
@@ -1360,7 +1423,7 @@
         "start": "2015-03-25T13:00",
         "end": "2015-03-25T13:45",
         "location": "Rotunde",
-        "title": "CoffeeScript für Java-Entwickler",
+        "title": "Demo: CoffeeScript für Java-Entwickler",
         "speakers": [
             {
                 "name": "Michael Heinrichs",
@@ -1381,7 +1444,7 @@
         "start": "2015-03-24T13:00",
         "end": "2015-03-24T13:45",
         "location": "Quantum 1",
-        "title": "Pipelines zeichnen ist nicht schwer, Pipelines bauen dagegen sehr",
+        "title": "Demo: Pipelines zeichnen ist nicht schwer, Pipelines bauen dagegen sehr",
         "speakers": [
             {
                 "name": "Steffen Schluff",
@@ -1402,7 +1465,7 @@
         "start": "2015-03-24T17:00",
         "end": "2015-03-24T17:45",
         "location": "Quantum 2",
-        "title": "Nashorn: Javascript on JVM, from Scripts to Full Apps",
+        "title": "Demo: Nashorn: Javascript on JVM, from Scripts to Full Apps",
         "speakers": [
             {
                 "name": "Bruno Borges",
@@ -1423,7 +1486,7 @@
         "start": "2015-03-25T10:00",
         "end": "2015-03-25T10:45",
         "location": "Schauspielhaus",
-        "title": "HTTP 2.0 Comes to Java.  What Servlet 4.0 Means to You",
+        "title": "Demo: HTTP 2.0 Comes to Java.  What Servlet 4.0 Means to You",
         "speakers": [
             {
                 "name": "Ed Burns",
@@ -1444,7 +1507,7 @@
         "start": "2015-03-24T13:00",
         "end": "2015-03-24T13:45",
         "location": "Schauspielhaus",
-        "title": "The (not so) Dark Art of Performance Tuning",
+        "title": "Demo: The (not so) Dark Art of Performance Tuning",
         "speakers": [
             {
                 "name": "Kirk Pepperdine",
@@ -1465,7 +1528,7 @@
         "start": "2015-03-25T16:00",
         "end": "2015-03-25T16:45",
         "location": "Quantum 2",
-        "title": "Focus on Your Features - Dropwizard Takes Care of the REST",
+        "title": "Demo: Focus on Your Features - Dropwizard Takes Care of the REST",
         "speakers": [
             {
                 "name": "Felix Braun",
@@ -1486,7 +1549,7 @@
         "start": "2015-03-25T16:00",
         "end": "2015-03-25T16:45",
         "location": "Rotunde",
-        "title": "Avatar.js und Project Avatar - quo vadis?",
+        "title": "Demo: Avatar.js und Project Avatar - quo vadis?",
         "speakers": [
             {
                 "name": "Niko Köbler",
@@ -1507,7 +1570,7 @@
         "start": "2015-03-25T10:00",
         "end": "2015-03-25T10:45",
         "location": "Wintergarten",
-        "title": "Coding Culture",
+        "title": "Demo: Coding Culture",
         "speakers": [
             {
                 "name": "Sven Peters",
@@ -1528,7 +1591,7 @@
         "start": "2015-03-24T15:00",
         "end": "2015-03-24T15:45",
         "location": "Wintergarten",
-        "title": "Where Are We at with MVC in Java EE 8",
+        "title": "Demo: Where Are We at with MVC in Java EE 8",
         "speakers": [
             {
                 "name": "Manfred Riem",
@@ -1549,7 +1612,7 @@
         "start": "2015-03-25T10:00",
         "end": "2015-03-25T10:45",
         "location": "Quantum 3",
-        "title": "Mobile Push for the Enterprise",
+        "title": "Demo: Mobile Push for the Enterprise",
         "speakers": [
             {
                 "name": "Matthias Wessendorf",
@@ -1570,7 +1633,7 @@
         "start": "2015-03-24T12:00",
         "end": "2015-03-24T12:45",
         "location": "Rotunde",
-        "title": "Eclipse Luna: Java 8 and More",
+        "title": "Demo: Eclipse Luna: Java 8 and More",
         "speakers": [
             {
                 "name": "Wayne Beaton",
@@ -1591,7 +1654,7 @@
         "start": "2015-03-24T14:00",
         "end": "2015-03-24T14:45",
         "location": "Quantum 2",
-        "title": "Rapid Web Application Development with Groovy Ratpack ",
+        "title": "Demo: Rapid Web Application Development with Groovy Ratpack ",
         "speakers": [
             {
                 "name": "Andrey Adamovich",
