@@ -40,8 +40,8 @@ js/talklist.js
 js/underscore-min.js
 js/ui.js
 # temporary hack
-demotalks.json
-../rest/talks
+# rest/demotalks.json
+rest/talks
 
 NETWORK:
 *
