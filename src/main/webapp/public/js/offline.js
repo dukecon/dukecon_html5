@@ -8,9 +8,11 @@ window.addEventListener('load', function(e) {
             window.applicationCache.swapCache();
             if (confirm('A new version of this site is available. Load it?')) {
                 window.location.reload();
+            } else {
+            	console.log ("The reload of the site was refused by the user");
             }
         } else {
-            // Manifest didn't changed. Nothing new to server.
+            console.log ("The manifest did not change!");
         }
     }, false);
 }, false);
