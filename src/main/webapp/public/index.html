@@ -2,7 +2,7 @@
 <html manifest="cache.manifest">
 <head lang="de">
     <meta charset="UTF-8">
-    <META name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=5.0; minimum-scale=1.0">
+    <META name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
     <script type='text/javascript' src='js/underscore-min.js'></script>
     <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
@@ -46,7 +46,7 @@
     <div id="content">
         <div>
             <div id="days_filter" data-bind="foreach: days">
-                <button type="button" data-bind="text: $data, click: $parent.updateDay, attr: { class: ($index() == $parent.selectedDayIndex() ? 'selected' : '')}"/>
+                <button type="button" data-bind="text: $data, click: $parent.updateDay, attr: { class: ($index() == $parent.selectedDayIndex() ? 'selected' : '')}"></button>
             </div>
         </div>
 
