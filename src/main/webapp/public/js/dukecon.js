@@ -1,6 +1,6 @@
-// var jsonUrl = "demotalks.json";
-var jsonUrl = "rest/talks";
-//var jsonUrl = "http://dev.dukecon.org/latest/rest/talks";
+//var jsonUrl = "demotalks.json";
+//var jsonUrl = "http://localhost:8080/develop/rest/talks";
+var jsonUrl = "http://dev.dukecon.org/latest/rest/talks";
 var originHeader = "http://dev.dukecon.org";
 
 function Talk(data, isFavourite) {
@@ -51,12 +51,20 @@ var dukeconDateUtils = {
         return weekDay + ", " + day + "." + month;
     },
 
+    //2016-03-08T10:30
     getDisplayTime : function(datetimeString) {
         if (!datetimeString) {
             return '';
         }
-        var date = new Date(datetimeString);
-        return this.addLeadingZero(date.getHours()) + ":" + this.addLeadingZero(date.getMinutes());
+        var dayAndTime = datetimeString.split('T');
+        if (dayAndTime.length != 2) {
+            return '';
+        }
+        var hoursAndMinutes = dayAndTime[1].split(':');
+        if (hoursAndMinutes.length != 2) {
+            return '';
+        }
+        return this.addLeadingZero(hoursAndMinutes[0]) + ":" + this.addLeadingZero(hoursAndMinutes[1]);
     },
 
 
@@ -83,7 +91,7 @@ var dukeconDateUtils = {
     },
 
     addLeadingZero : function(data) {
-        if (data < 10) {
+        if (data < 10 && data.length == 1) {
             return '0' + data;
         }
         return data;
