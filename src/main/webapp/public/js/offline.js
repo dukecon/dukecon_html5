@@ -21,12 +21,12 @@ var dukeconTalkUtils = {
     getData : function(callback) {
         var successCallback = function(data) {
             dukeconDb.save(dukeconDb.talk_store, data);
-            callback(data);
+            callback(dukeconTalkUtils.filterNullTalks(data));
         };
         var errorCallback = function() {
             dukeconDb.get(dukeconDb.talk_store, function(data) {
                 if (data) {
-                    callback(data);
+                    callback(dukeconTalkUtils.filterNullTalks(data));
                 }
                 else {
                     console.log('Could not retrieve any data');
@@ -48,6 +48,10 @@ var dukeconTalkUtils = {
                 errorCallback();
             }
         });
+    },
+
+    filterNullTalks : function(allTalks) {
+        return _.filter(allData, function(talk) { return talk !== null; })
     }
 };
 

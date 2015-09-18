@@ -247,7 +247,7 @@ div.room span, div.time span {
 }
 
 /* SPKEAKER PAGE */
-.speakertalks .track {
+.speakertalks .speaker {
     display:none;
 }
 #speakers, #talkinfo {
