@@ -226,7 +226,7 @@ div.speaker span {
 }
 div.time {
     display:inline-block;
-    font-weight:bold;
+    font-weight: bold;
     font-size: smaller;
 }
 div.room span, div.time span {
@@ -235,12 +235,15 @@ div.room span, div.time span {
 .time, .track, .room, .time *, .track *, .room * {
     vertical-align: middle;
 }
-/* TALK LENGTHS */
-.talk-cell.long .time {
-    color: #990000;
+
+.time-extra {
+    color: #BF5A00;
+    font-weight: bold;
+    font-size: smaller;
 }
-.talk-cell.short .time {
-    color: #007700;
+
+.time-extra *{
+    vertical-align: middle;
 }
 
 /* SPKEAKER PAGE */
@@ -288,6 +291,27 @@ div.room span, div.time span {
 }
 #talkinfo td {
     padding: 1em;
+}
+
+/* Footer */
+.content-wrapper {
+    min-height: 85%;
+}
+
+.talk-content {
+    overflow: auto;
+    padding-bottom: 30px;
+}
+
+.footer-wrapper {
+    position:relative;
+    height: 30px;
+    clear:both;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 10px;
 }
 
 /* FAVOURITES */

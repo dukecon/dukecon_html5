@@ -31,7 +31,8 @@ function TalkListViewModel() {
 
     dukeconTalkUtils.getData(function(allData) {
         var favourites = dukeconSettings.getFavourites();
-        var mappedTalks = $.map(allData, function(item) { return new Talk(item, favourites.indexOf(item.id) !== -1) }).sort(self.sortTalk);
+        var allTalks = _.filter(allData, function(talk) { return talk !== null; })
+        var mappedTalks = $.map(allTalks, function(talk) { return new Talk(talk, favourites.indexOf(talk.id) !== -1) }).sort(self.sortTalk);
         self.allTalks = mappedTalks;
         self.initializeDays();
         self.initializeFilters();
@@ -47,12 +48,7 @@ function TalkListViewModel() {
     };
 
     self.initializeDays = function() {
-        var sortby = function(a,b) {
-            // sort by the date part of the displayed days. Not very elegant but works <.<
-            return a.substring(a.length - 4) > b.substring(b.length - 4);
-        }
-        self.days(self.getDistinctValues('day', sortby));
-
+        self.days(self.getDistinctValues('day', dukeconDateUtils.sortDays));
         if (self.days().length <= self.selectedDayIndex()) {
             self.selectedDayIndex = 0;
         }
@@ -115,7 +111,16 @@ function TalkListViewModel() {
             return talk.startDisplayed.substring(0,2) + ':00';
         });
         return _.map(_.keys(grouped), function(time) {
-            return {"start" : time, "talks" : grouped[time]};
+            return {"start" : time, "talks" : self.sortTalksForTime(grouped[time])};
+        });
+    };
+
+    self.sortTalksForTime = function(talks) {
+        return talks.sort(function(talk1, talk2) {
+            if (talk1.location > talk2.location) {
+                return 1;
+            }
+            return talk1.location < talk2.location ? -1 : 0;
         });
     };
 

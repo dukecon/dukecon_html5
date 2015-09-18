@@ -13,29 +13,36 @@
 </head>
 <body>
 <header-widget params="value: talk().title"></header-widget>
-<div class="content">
-    <table id="talkinfo">
-        <tr>
-            <td class="talk-details">
-                <div class="speaker-list" data-bind="foreach: talk().speakers">
-                    <div class="title">
-                        <span data-bind="text: $data"/>
+<div class="content-wrapper">
+    <div class="content talk-content">
+        <table id="talkinfo">
+            <tr>
+                <td class="talk-details">
+                    <div class="speaker-list" data-bind="foreach: talk().speakers">
+                        <div class="title">
+                            <span data-bind="text: $data"/>
+                        </div>
                     </div>
-                </div>
 
-                <div class="time"><img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/> <span data-bind="text: talk().day"></span>, </div> <div class="time"> <span data-bind="text: talk().startDisplayed"></span> </div>
-                <div class="room"><img witdh="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk().location"></span></div>
-                <div class="track"><img witdh="16px" height="16px" data-bind="attr: {src: talk().talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk().track"></span></div>
+                    <div class="time"><img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/> <span data-bind="text: talk().day"></span>, </div> <div class="time"> <span data-bind="text: talk().startDisplayed"></span> </div>
+                    <div class="room"><img witdh="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk().location"></span></div>
+                    <div class="track"><img witdh="16px" height="16px" data-bind="attr: {src: talk().talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk().track"></span></div>
 
-            </td>
-            <td class="talk-abstract">
-                <div class="title" data-bind="text : talk().title"></div>
-                <div class="label"> - Abstract</div>
-                <div class="talk-abstract" data-bind="text : talk().fullAbstract"></div>
-            </td>
-        </tr>
-    </table>
+                </td>
+                <td class="talk-abstract">
+                    <div class="title" data-bind="text : talk().title"></div>
+                    <div class="label"> - Abstract</div>
+                    <div class="talk-abstract" data-bind="text : talk().fullAbstract"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
+<div class="footer-wrapper">
+    <footer-widget/>
+</div>
+
+
 <script type='text/javascript' src='js/dukecon.js'></script>
 <script type='text/javascript' src='js/offline.js'></script>
 <script type='text/javascript' src='js/talk.js'></script>
