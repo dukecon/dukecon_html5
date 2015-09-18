@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev 4
+# rev 5
 # Version: ${project.artifactId}-${project.version}-r${buildNumber}
 # Branch: ${scmBranch}
 
@@ -14,7 +14,6 @@ css/dukecon.css
 css/pure-min.css
 css/side-menu.css
 # Images
-img/attention.png
 img/Clock.png
 img/logo_javaland.gif
 img/filter.png

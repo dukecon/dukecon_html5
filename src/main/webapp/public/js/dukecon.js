@@ -18,7 +18,7 @@ function Talk(data, isFavourite) {
     this.language = data.language || '';
     this.fullAbstract = data.abstractText || '';
     this.timeCategory =  dukeconDateUtils.getTimeCategory(this.duration);
-    this.timeDecoration = this.timeCategory == 'regular' ? '' : '<img src="img/attention.png" alt="!" title="Startzeit und Dauer beachten!"/>';
+    this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra';
     this.favourite = ko.observable(isFavourite);
     this.favicon = ko.computed(function() {
         return this.favourite() ? "img/StarFilled.png" : "img/StarLine.png";
@@ -142,9 +142,11 @@ ko.components.register('talk-widget', {
                 //+ '<img style="cursor:pointer; margin-left: 2px;" title="Add to Favourites" data-bind="click: dukeconSettings.toggleFavourite, attr:{src: talk.favicon}"/>'
             + '</div>'
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
-            + '<div class="time"><img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>'
-            + ' <span data-bind="text: talk.day" /><span>,&nbsp;</span></div><div class="time"> <span data-bind="text: talk.startDisplayed" /> (<span data-bind="text: talk.duration" /><span> min</span>)'
-            + ' <span data-bind="html: talk.timeDecoration"></span></div>'
+            + '<div data-bind="attr: {class: talk.timeClass}">'
+                + '<img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>'
+                + ' <span data-bind="text: talk.day" /><span>,&nbsp;</span>'
+                + '<span data-bind="text: talk.startDisplayed" /> (<span data-bind="text: talk.duration" /><span> min</span>)'
+            + '</div>'
             + '<div class="room"><img witdh="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk.location" /></div>'
             + '<div class="track"><img witdh="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.track" /></div>'
             + '</div>'
