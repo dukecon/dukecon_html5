@@ -30,8 +30,8 @@ function Talk(data, isFavourite) {
 };
 
 function Speaker(name, company, talks) {
-    this.name = name;
-    this.company = company;
+    this.name = name || '';
+    this.company = company || '';
     this.talks = talks;
 };
 
@@ -167,10 +167,10 @@ var dukeconUtils = {
 
     getSpeakerNames : function(speakers) {
         var filteredSpeakers = _.filter(speakers, function(speaker) {
-            return speaker;
+            return speaker && speaker.name;
         });
         return _.map(filteredSpeakers, function(speaker) {
-            return speaker.name + ", " + speaker.company;
+            return speaker.name + (speaker.company ? ", " + speaker.company : '');
         });
     },
 
