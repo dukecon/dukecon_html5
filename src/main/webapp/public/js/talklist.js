@@ -47,12 +47,8 @@ function TalkListViewModel() {
     };
 
     self.initializeDays = function() {
-        var sortby = function(a,b) {
-            // sort by the date part of the displayed days. Not very elegant but works <.<
-            return a.substring(a.length - 4) > b.substring(b.length - 4);
-        }
-        self.days(self.getDistinctValues('day', sortby));
-
+        self.days(self.getDistinctValues('day', dukeconDateUtils.sortDays));
+        console.log(self.days());
         if (self.days().length <= self.selectedDayIndex()) {
             self.selectedDayIndex = 0;
         }

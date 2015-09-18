@@ -40,6 +40,17 @@ var dukeconDateUtils = {
 
     weekDays : ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
 
+    sortDays : function(dayString1, dayString2) {
+        var day1 = dayString1 ? dayString1.split(',')[0] : '';
+        var day2 = dayString2 ? dayString2.split(',')[0] : '';
+        var posDay1 = dukeconDateUtils.weekDays.indexOf(day1);
+        var posDay2 = dukeconDateUtils.weekDays.indexOf(day2);
+        if (posDay1 > posDay2) {
+            return 1;
+        }
+        return posDay1 < posDay2 ? -1 : 0;
+    },
+
     getDisplayDate : function(datetimeString) {
         if (!datetimeString) {
             return '';
@@ -66,7 +77,6 @@ var dukeconDateUtils = {
         }
         return this.addLeadingZero(hoursAndMinutes[0]) + ":" + this.addLeadingZero(hoursAndMinutes[1]);
     },
-
 
     getDurationInMinutes : function(dateStartString, dateEndString) {
         if (!dateStartString || !dateEndString) {
