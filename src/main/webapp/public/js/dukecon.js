@@ -143,12 +143,12 @@ ko.components.register('talk-widget', {
             + '</div>'
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
             + '<div data-bind="attr: {class: talk.timeClass}">'
-                + '<img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>'
-                + ' <span data-bind="text: talk.day" /><span>,&nbsp;</span>'
-                + '<span data-bind="text: talk.startDisplayed" /> (<span data-bind="text: talk.duration" /><span> min</span>)'
+                + '<img width="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>'
+                + ' <span data-bind="text: talk.day"></span><span>,&nbsp;</span>'
+                + '<span data-bind="text: talk.startDisplayed"></span> (<span data-bind="text: talk.duration"></span><span> min)</span>'
             + '</div>'
-            + '<div class="room"><img witdh="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk.location" /></div>'
-            + '<div class="track"><img witdh="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.track" /></div>'
+            + '<div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk.location" /></div>'
+            + '<div class="track"><img width="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.track" /></div>'
             + '</div>'
 });
 
