@@ -60,11 +60,6 @@ td {
     float:left;
 }
 
-.footer {
-    text-align: center;
-    margin-top: 10px;
-}
-
 a {
     color: #1AA3B1;
     font-weight:normal;
@@ -293,6 +288,27 @@ div.room span, div.time span {
 }
 #talkinfo td {
     padding: 1em;
+}
+
+/* Footer */
+.content-wrapper {
+    min-height: 85%;
+}
+
+.talk-content {
+    overflow: auto;
+    padding-bottom: 30px;
+}
+
+.footer-wrapper {
+    position:relative;
+    height: 30px;
+    clear:both;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 10px;
 }
 
 /* FAVOURITES */
