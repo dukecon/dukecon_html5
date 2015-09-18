@@ -26,7 +26,7 @@ function Talk(data, isFavourite) {
     this.toggleFavourite = function() {
         this.favourite(!this.favourite());
     };
-    this.talkIcon = dukeconUtils.talkIcons[this.track] || 'img/Unknown.png';
+    this.talkIcon = dukeconUtils.getTalkIcon(this.track);
 };
 
 function Speaker(name, company, talks) {
@@ -145,14 +145,14 @@ ko.components.register('talk-widget', {
 //not sure where else to put
 var dukeconUtils = {
     talkIcons : {
-        "Architektur & Sicherheit": "img/track_architecture.jpg",
-        "Core Java & JVM basierte Sprachen": "img/track_jvm-languages.jpg",
-        "Enterprise Java & Cloud": "img/track_enterprise-java-cloud.jpg",
-        "Frontend & Mobile": "img/track_frontend-mobile.jpg",
-        "IDEs & Tools": "img/track_ide-tools.jpg",
-        "Container & Microservices": "img/track_microservices.jpg",
-        "Internet der Dinge": "img/track_internet-of-things.jpg",
-        "Newcomer": "img/track_newcomer.jpg"
+        "architecture & security": "img/track_architecture.jpg",
+        "core java & jvm based languages": "img/track_jvm-languages.jpg",
+        "enterprise java & cloud": "img/track_enterprise-java-cloud.jpg",
+        "frontend & mobile": "img/track_frontend-mobile.jpg",
+        "ides & tools": "img/track_ide-tools.jpg",
+        "container & microservices": "img/track_microservices.jpg",
+        "internet of things": "img/track_internet-of-things.jpg",
+        "newcomer": "img/track_newcomer.jpg"
     },
 
     getSpeakerNames : function(speakers) {
@@ -162,5 +162,9 @@ var dukeconUtils = {
         return _.map(filteredSpeakers, function(speaker) {
             return speaker.name + ", " + speaker.company;
         });
+    },
+
+    getTalkIcon : function(track) {
+        return dukeconUtils.talkIcons[track.toLowerCase()] || 'img/Unknown.png';
     }
 };

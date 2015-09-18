@@ -48,7 +48,6 @@ function TalkListViewModel() {
 
     self.initializeDays = function() {
         self.days(self.getDistinctValues('day', dukeconDateUtils.sortDays));
-        console.log(self.days());
         if (self.days().length <= self.selectedDayIndex()) {
             self.selectedDayIndex = 0;
         }
