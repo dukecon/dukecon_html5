@@ -31,7 +31,8 @@ function TalkListViewModel() {
 
     dukeconTalkUtils.getData(function(allData) {
         var favourites = dukeconSettings.getFavourites();
-        var mappedTalks = $.map(allData, function(item) { return new Talk(item, favourites.indexOf(item.id) !== -1) }).sort(self.sortTalk);
+        var allTalks = _.filter(allData, function(talk) { return talk !== null; })
+        var mappedTalks = $.map(allTalks, function(talk) { return new Talk(talk, favourites.indexOf(talk.id) !== -1) }).sort(self.sortTalk);
         self.allTalks = mappedTalks;
         self.initializeDays();
         self.initializeFilters();
