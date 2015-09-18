@@ -65,7 +65,9 @@ function TalkListViewModel() {
         _.each(self.filters, function(filter) {
             filter.filtervalues(self.getDistinctValues(filter.filterKey));
             _.each(savedFilters[filter.filterKey], function(selected) {
-                filter.selected.push(selected);
+                if (filter.filtervalues.indexOf(selected) > -1) {
+                    filter.selected.push(selected);
+                }
             });
         });
     };
