@@ -145,13 +145,13 @@ ko.components.register('talk-widget', {
 //not sure where else to put
 var dukeconUtils = {
     talkIcons : {
-        "architecture & security": "img/track_architecture.jpg",
-        "core java & jvm based languages": "img/track_jvm-languages.jpg",
+        "architektur & sicherheit": "img/track_architecture.jpg",
+        "core java & jvm basierte sprachen": "img/track_jvm-languages.jpg",
         "enterprise java & cloud": "img/track_enterprise-java-cloud.jpg",
         "frontend & mobile": "img/track_frontend-mobile.jpg",
         "ides & tools": "img/track_ide-tools.jpg",
         "container & microservices": "img/track_microservices.jpg",
-        "internet of things": "img/track_internet-of-things.jpg",
+        "internet der dinge": "img/track_internet-of-things.jpg",
         "newcomer": "img/track_newcomer.jpg"
     },
 
