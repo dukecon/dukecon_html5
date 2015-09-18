@@ -1,6 +1,6 @@
-var jsonUrl = "demotalks.json";
+//var jsonUrl = "demotalks.json";
 //var jsonUrl = "http://localhost:8080/develop/rest/talks";
-//var jsonUrl = "http://dev.dukecon.org/latest/rest/talks";
+var jsonUrl = "http://dev.dukecon.org/latest/rest/talks";
 var originHeader = "http://dev.dukecon.org";
 
 function Talk(data, isFavourite) {
