@@ -111,7 +111,16 @@ function TalkListViewModel() {
             return talk.startDisplayed.substring(0,2) + ':00';
         });
         return _.map(_.keys(grouped), function(time) {
-            return {"start" : time, "talks" : grouped[time]};
+            return {"start" : time, "talks" : self.sortTalksForTime(grouped[time])};
+        });
+    };
+
+    self.sortTalksForTime = function(talks) {
+        return talks.sort(function(talk1, talk2) {
+            if (talk1.location > talk2.location) {
+                return 1;
+            }
+            return talk1.location < talk2.location ? -1 : 0;
         });
     };
 
