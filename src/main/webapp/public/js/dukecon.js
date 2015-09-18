@@ -117,7 +117,7 @@ ko.components.register('header-widget', {
         '<div class="header">'
         + '<img src="img/logo_javaland.gif" title="javaland 2016"/>'
         + '<div class="main-menu">'
-        + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="https://github.com/dukecon/dukecon/wiki/Feedback">Feedback</a>'
+        + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="feedback.html">Feedback</a>'
         + '</div>'
         + '<h1 id="headertitle" data-bind="text: title"></h1>'
         + '</div>'

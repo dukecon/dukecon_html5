@@ -5,6 +5,7 @@ CACHE MANIFEST
 
 CACHE:
 # Html
+feedback.html
 index.html
 speakers.html
 talk.html
@@ -31,6 +32,7 @@ img/track_newcomer.jpg
 img/Unknown.png
 # Js
 js/dukecon.js
+js/feedback.js
 js/jquery-2.1.4.min.js
 js/knockout-min-3.3.0.js
 js/offline.js
