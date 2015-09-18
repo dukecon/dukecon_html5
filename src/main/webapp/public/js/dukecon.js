@@ -13,8 +13,8 @@ function Talk(data, isFavourite) {
     this.location = data.location || '';
     this.level = data.level || '';
     this.title = data.title || '';
-    this.speakers = dukeconUtils.getSpeakerNames(data.speakers);
-    this.speakerString = data.speakers ? data.speakers[0].name : ""; // TODO: comma-list
+    this.speakerString = dukeconUtils.getSpeakerNames(data.speakers, false).join(', ');
+    this.speakersWithCompanies = dukeconUtils.getSpeakerNames(data.speakers, true);
     this.language = data.language || '';
     this.fullAbstract = data.abstractText || '';
     this.timeCategory =  dukeconDateUtils.getTimeCategory(this.duration);
@@ -165,12 +165,18 @@ var dukeconUtils = {
         "newcomer": "img/track_newcomer.jpg"
     },
 
-    getSpeakerNames : function(speakers) {
+    getSpeakerNames : function(speakers, withCompany) {
+        if (!speakers) {
+            return [];
+        }
         var filteredSpeakers = _.filter(speakers, function(speaker) {
             return speaker && speaker.name;
         });
         return _.map(filteredSpeakers, function(speaker) {
-            return speaker.name + (speaker.company ? ", " + speaker.company : '');
+            if (withCompany) {
+                return speaker.name + (speaker.company ? ", " + speaker.company : '');
+            }
+            return speaker.name;
         });
     },
 
