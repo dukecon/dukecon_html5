@@ -13,8 +13,8 @@ function Talk(data, isFavourite) {
     this.location = data.location || '';
     this.level = data.level || '';
     this.title = data.title || '';
-    this.speakers = dukeconUtils.getSpeakerNames(data.speakers);
-    this.speakerString = data.speakers ? data.speakers[0].name : ""; // TODO: comma-list
+    this.speakerString = dukeconUtils.getSpeakerNames(data.speakers, false).join(', ');
+    this.speakersWithCompanies = dukeconUtils.getSpeakerNames(data.speakers, true);
     this.language = data.language || '';
     this.fullAbstract = data.abstractText || '';
     this.timeCategory =  dukeconDateUtils.getTimeCategory(this.duration);
@@ -30,8 +30,8 @@ function Talk(data, isFavourite) {
 };
 
 function Speaker(name, company, talks) {
-    this.name = name;
-    this.company = company;
+    this.name = name || '';
+    this.company = company || '';
     this.talks = talks;
 };
 
@@ -117,7 +117,7 @@ ko.components.register('header-widget', {
         '<div class="header">'
         + '<img src="img/logo_javaland.gif" title="javaland 2016"/>'
         + '<div class="main-menu">'
-        + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="https://github.com/dukecon/dukecon/wiki/Feedback">Feedback</a>'
+        + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="feedback.html">Feedback</a>'
         + '</div>'
         + '<h1 id="headertitle" data-bind="text: title"></h1>'
         + '</div>'
@@ -143,12 +143,12 @@ ko.components.register('talk-widget', {
             + '</div>'
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
             + '<div data-bind="attr: {class: talk.timeClass}">'
-                + '<img witdh="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>'
-                + ' <span data-bind="text: talk.day" /><span>,&nbsp;</span>'
-                + '<span data-bind="text: talk.startDisplayed" /> (<span data-bind="text: talk.duration" /><span> min</span>)'
+                + '<img width="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>'
+                + ' <span data-bind="text: talk.day"></span><span>,&nbsp;</span>'
+                + '<span data-bind="text: talk.startDisplayed"></span> (<span data-bind="text: talk.duration"></span><span> min)</span>'
             + '</div>'
-            + '<div class="room"><img witdh="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk.location" /></div>'
-            + '<div class="track"><img witdh="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.track" /></div>'
+            + '<div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk.location" /></div>'
+            + '<div class="track"><img width="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.track" /></div>'
             + '</div>'
 });
 
@@ -165,12 +165,18 @@ var dukeconUtils = {
         "newcomer": "img/track_newcomer.jpg"
     },
 
-    getSpeakerNames : function(speakers) {
+    getSpeakerNames : function(speakers, withCompany) {
+        if (!speakers) {
+            return [];
+        }
         var filteredSpeakers = _.filter(speakers, function(speaker) {
-            return speaker;
+            return speaker && speaker.name;
         });
         return _.map(filteredSpeakers, function(speaker) {
-            return speaker.name + ", " + speaker.company;
+            if (withCompany) {
+                return speaker.name + (speaker.company ? ", " + speaker.company : '');
+            }
+            return speaker.name;
         });
     },
 
