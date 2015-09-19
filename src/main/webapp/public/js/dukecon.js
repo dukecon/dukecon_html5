@@ -1,7 +1,5 @@
-//var jsonUrl = "demotalks.json";
-//var jsonUrl = "http://localhost:8080/develop/rest/talks";
-var jsonUrl = "http://dev.dukecon.org/latest/rest/talks";
-var originHeader = "http://dev.dukecon.org";
+// PLEASE! PLEASE! PLEASE! DO NEVER EVER CHANGE THIS LINE and check it into Git!!!
+var jsonUrl = "rest/talks";
 
 function Talk(data, isFavourite) {
     this.id = data.id || '';
