@@ -1,6 +1,5 @@
 // Check if a new cache is available on page load.
 window.addEventListener('load', function(e) {
-    console.log ("Adding event listener for cache updates");
     window.applicationCache.addEventListener('updateready', function(e) {
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
             // Browser downloaded a new app cache.
@@ -34,7 +33,7 @@ var dukeconTalkUtils = {
             });
         };
         console.log("Retrieving data from server");
-        dukeconTalkUtils.getDataFromServer(callback, errorCallback);
+        dukeconTalkUtils.getDataFromServer(successCallback, errorCallback);
     },
 
     getDataFromServer : function(callback, errorCallback) {
@@ -51,7 +50,7 @@ var dukeconTalkUtils = {
     },
 
     filterNullTalks : function(allTalks) {
-        return _.filter(allData, function(talk) { return talk !== null; })
+        return _.filter(allTalks, function(talk) { return talk !== null; })
     }
 };
 
@@ -113,7 +112,7 @@ var dukeconSettings = {
     getSetting : function(settingKey) {
         if (localStorage) {
             var setting = localStorage.getItem(settingKey);
-            console.log("Load: " + settingKey + " -> " + setting);
+            //console.log("Load: " + settingKey + " -> " + setting);
             return setting ? JSON.parse(setting) : null;
         }
         return null;
@@ -121,7 +120,7 @@ var dukeconSettings = {
 
     saveSetting : function(settingKey, value) {
         if (localStorage) {
-            console.log("Save: " + settingKey + " -> " + value)
+            //console.log("Save: " + settingKey + " -> " + value)
             localStorage.setItem(settingKey, JSON.stringify(value));
         }
     }
@@ -131,21 +130,16 @@ var dukeconSettings = {
 var dukeconDb = {
     db_name : 'dukecon',
     talk_store : 'talks',
-    fav_store : 'dukeconfavs',
     indexedDB : window.indexedDB || window.webkitIndexedDB || window.msIndexedDB,
 
     save : function(storeKey, data) {
+        dukeconDb.clear(storeKey);
         dukeconDb.createDatabase(storeKey, function(e) {
             var db = e.target.result;
             var store = dukeconDb.openTransaction(storeKey, db);
-            store.openCursor().onsuccess = function(event) {
-                var cursor = event.target.result;
-                if (cursor) {
-                    store.delete(cursor);
-                    cursor.continue();
-                }
+            store.add(data).onerror = function(e2) {
+                console.log("Saving data to indexeddb failed");
             };
-            store.add(data);
         });
     },
 
@@ -166,9 +160,21 @@ var dukeconDb = {
         request.onupgradeneeded = function(e){
             var db = e.target.result;
             dukeconDb.assertObjectStore(db, dukeconDb.talk_store);
-            dukeconDb.assertObjectStore(db, dukeconDb.fav_store);
         };
         request.onsuccess = callback;
+        request.onerror = function(e) {
+            console.log("Opening database failed: " + e);
+        }
+    },
+
+    clear : function(storeKey) {
+        dukeconDb.createDatabase(storeKey, function(e) {
+            var db = e.target.result;
+            var store = dukeconDb.openTransaction(storeKey, db);
+            store.clear().onerror = function(e2) {
+                console.log("Clearing the db failed");
+            };
+        });
     },
 
     openTransaction : function(storeKey, db) {
