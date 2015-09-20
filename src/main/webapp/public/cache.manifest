@@ -39,6 +39,9 @@ js/talk.js
 js/talklist.js
 js/underscore-min.js
 js/ui.js
+# temporary hack
+# rest/demotalks.json
+rest/talks
 
 NETWORK:
 *
