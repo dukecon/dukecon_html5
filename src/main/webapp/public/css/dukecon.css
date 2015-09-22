@@ -327,30 +327,16 @@ div.room span, div.time span {
 
 /* IMPRINT */
 .imprint {
-    max-width: 400px;
+    max-width: 800px;
     margin: 30px auto;
     padding:1em;
 }
-.imprint table, .imprint td, .imprint th {
-    border: none;
-    vertical-align:top;
-}
 
- .imprint th {
-    background: transparent;
-    color: #777777;
-    text-align:right;
- }
-
-.imprint tr:first-child td {
-    text-align:center;
-    font-size:larger;
-    font-weight: bold;
-    padding:1em;
-}
-
-.imprint td em {
-    font-size:smaller;
+.imprint p {
+     font-size: 11pt;
+     line-height: 15pt;
+     margin: 0;
+     padding: 0;
 }
 
 /* PURE CSS overrides */
