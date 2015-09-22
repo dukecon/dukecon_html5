@@ -155,6 +155,10 @@ input[type="checkbox"]:checked + label:before {
     min-width: 250px;
 }
 
+.content {
+    margin-bottom:2.5em;
+}
+
 #nav {
     margin-left:5px;
     margin-right: 5px;
