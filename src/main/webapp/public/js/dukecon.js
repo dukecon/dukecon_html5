@@ -113,7 +113,7 @@ ko.components.register('header-widget', {
     },
     template:
         '<div class="header">'
-        + '<img src="img/logo_javaland.gif" title="javaland 2016"/>'
+        + '<a href="http://www.javaland.eu"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
         + '<div class="main-menu">'
         + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="feedback.html">Feedback</a>'
         + '</div>'
