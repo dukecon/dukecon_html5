@@ -17,8 +17,10 @@ window.addEventListener('load', function(e) {
 var dukeconTalkUtils = {
     getData : function(callback) {
         var successCallback = function(data) {
-            dukeconDb.save(dukeconDb.talk_store, data);
-            callback(dukeconTalkUtils.filterNullTalks(data));
+            if (data) {
+                dukeconDb.save(dukeconDb.talk_store, data);
+                callback(dukeconTalkUtils.filterNullTalks(data));
+            }
         };
         var errorCallback = function() {
             dukeconDb.get(dukeconDb.talk_store, function(data) {
@@ -48,6 +50,9 @@ var dukeconTalkUtils = {
     },
 
     filterNullTalks : function(allTalks) {
+        if (!allTalks) {
+            console.log("No data");
+        }
         return _.filter(allTalks, function(talk) { return talk !== null; })
     }
 };
@@ -128,61 +133,87 @@ var dukeconSettings = {
 var dukeconDb = {
     db_name : 'dukecon',
     talk_store : 'talks',
-    indexedDB : window.indexedDB || window.webkitIndexedDB || window.msIndexedDB,
+    indexedDB : window.indexedDB || window.webkitIndexedDB || window.msIndexedDB || window.mozIndexedDB,
 
     save : function(storeKey, data) {
         dukeconDb.clear(storeKey);
-        dukeconDb.createDatabase(storeKey, function(e) {
-            var db = e.target.result;
-            var store = dukeconDb.openTransaction(storeKey, db);
+        dukeconDb.add(storeKey, data);
+    },
+
+    get : function(storeKey, callback) {
+        dukeconDb.createDatabase(storeKey, function(store) {
+            var cursor = store.openCursor();
+            cursor.onsuccess = function(event) {
+                var cursor = event.target.result;
+                callback(cursor ? cursor.value : null);
+            };
+            cursor.onerror = function(e) {
+                console.log("Retrieving data from indexeddb failed");
+            };
+        });
+    },
+
+    clear : function(storeKey) {
+        dukeconDb.createDatabase(storeKey, function(store) {
+            store.clear().onerror = function(e) {
+                console.log("Clearing the indexeddb failed");
+            };
+        });
+    },
+
+    add : function(storeKey, data) {
+        dukeconDb.createDatabase(storeKey, function(store) {
             store.add(data).onerror = function(e2) {
                 console.log("Saving data to indexeddb failed");
             };
         });
     },
 
-    get : function(storeKey, callback) {
-        dukeconDb.createDatabase(storeKey, function(e) {
-            var db = e.target.result;
-            var store = dukeconDb.openTransaction(storeKey, db);
-            store.openCursor().onsuccess = function(event) {
-                var cursor = event.target.result;
-                callback(cursor ? cursor.value : null);
-            };
-        });
-    },
-
     createDatabase : function(storeKey, callback) {
         //this.indexedDB.deleteDatabase(this.db_name); //please keep this line for debugging
+        if (!this.indexedDB) {
+            console.log("Cannot store in indexedDB");
+            return;
+        }
         var request = this.indexedDB.open(this.db_name, 2);
-        request.onupgradeneeded = function(e){
-            var db = e.target.result;
-            dukeconDb.assertObjectStore(db, dukeconDb.talk_store);
+        request.onupgradeneeded = function(e) {
+            if (!e || !e.target || !e.target.result) {
+                console.log("No db in " + e);
+            }
+            else {
+                dukeconDb.assertObjectStore(e.target.result, dukeconDb.talk_store);
+            }
         };
-        request.onsuccess = callback;
+        request.onsuccess = function(e) {
+            if (!e || !e.target || !e.target.result) {
+                console.log("No db in " + e);
+            }
+            else {
+                var store = dukeconDb.openTransaction(storeKey, e.target.result);
+                if (store) {
+                    callback(store);
+                }
+            }
+        };
         request.onerror = function(e) {
             console.log("Opening database failed: " + e);
-        }
-    },
-
-    clear : function(storeKey) {
-        dukeconDb.createDatabase(storeKey, function(e) {
-            var db = e.target.result;
-            var store = dukeconDb.openTransaction(storeKey, db);
-            store.clear().onerror = function(e2) {
-                console.log("Clearing the db failed");
-            };
-        });
+        };
     },
 
     openTransaction : function(storeKey, db) {
         var trans = db.transaction(storeKey, 'readwrite');
-        return trans.objectStore(storeKey);
+        if (!trans) {
+            console.log("Could not open transaction");
+            return null;
+        }
+        else {
+            return trans.objectStore(storeKey);
+        }
     },
 
     assertObjectStore : function(db, storeKey) {
         if (!db.objectStoreNames.contains(storeKey)){
-            store = db.createObjectStore(storeKey, {
+            db.createObjectStore(storeKey, {
                 keyPath: 'key',
                 autoIncrement: true
             });
