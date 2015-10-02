@@ -246,7 +246,7 @@ div.room span, div.time span {
     font-size: smaller;
 }
 
-.time-extra *{
+.time-extra * {
     vertical-align: middle;
 }
 
@@ -341,6 +341,19 @@ div.room span, div.time span {
      line-height: 15pt;
      margin: 0;
      padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#nothingtoshow {
+    color: #BF5A00;
+    font-weight: bold;
+    text-align:center;
+    vertical-aligh:middle;
+    padding:5em 0;
+    width:100%;
 }
 
 /* PURE CSS overrides */
