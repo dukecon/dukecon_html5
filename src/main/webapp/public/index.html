@@ -24,16 +24,21 @@
 
     <div id="menu">
         <div class="pure-menu custom-restricted-width" id="nav">
-            <!-- <div class="filter-box">
-                <span class="filter-category">Favoriten</span>
+            <div class="filter-box">
+                <span class="filter-category">Filter-Optionen
+                    <button data-bind="click: resetFilters">Zurücksetzen</button></span>
                 <div class="filter-values">
                     <div>
+                        <input type="checkbox" data-bind="checked: filtersActive, attr:{id: 'active'}"/>
+                        <label data-bind="text: 'Aktiv', attr:{for: 'active'}"></label>
+                    </div>
+                    <!-- <div>
                         <input type="checkbox" data-bind="checked: onlyFavourites, attr:{id: 'favs'}"/>
                         <label data-bind="text: 'Nur Favoriten', attr:{for: 'favs'}"></label>
-                    </div>
+                    </div>-->
                 </div>
-            </div> -->
-            <div class="filter-box" data-bind="foreach: filters">
+            </div>
+           <div class="filter-box" data-bind="foreach: filters">
                 <span class="filter-category" data-bind="text:title"></span>
                 <div class="filter-values" data-bind="foreach: filtervalues">
                     <div>
