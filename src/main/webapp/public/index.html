@@ -3,6 +3,7 @@
 <head lang="de">
     <meta charset="UTF-8">
     <META name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <script type='text/javascript' src='js/scrollfix.js'></script>
     <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
     <script type='text/javascript' src='js/underscore-min.js'></script>
     <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
@@ -12,9 +13,9 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <title>DukeCon</title>
 </head>
-<body>
+<body onunload="unloadP('dukeConMain')" onload="loadP('dukeConMain')">
 <header-widget params="value: 'Talks'"></header-widget>
-<div id="layout" class="content">
+<div id="layout" class="content" onload>
 
     <a href="#menu" id="menuLink" class="menu-link">
         <!-- Hamburger icon -->
