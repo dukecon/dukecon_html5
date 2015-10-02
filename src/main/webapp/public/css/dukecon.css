@@ -96,10 +96,29 @@ h2 {
 
 .filter-box {
     padding:0;
+    position:relative;
+}
+
+.filter-settings {
+    padding:0;
 }
 
 .filter-box > * {
     display:block;
+}
+
+#filter-veil {
+    top:0;
+    position: absolute;
+    height:100%;
+    width:100%;
+    background-color:rgba(0, 0, 0, 0.1);
+    z-index: 0;
+    visibility: hidden;
+}
+#filter-veil.shown {
+    z-index: 2000;
+    visibility: visible;
 }
 
 .filter-category {
@@ -363,6 +382,11 @@ div.room span, div.time span {
     vertical-aligh:middle;
     padding:5em 0;
     width:100%;
+}
+
+#nothingtoshow a {
+    font-weight: bold;
+    padding:0;
 }
 
 /* PURE CSS overrides */
