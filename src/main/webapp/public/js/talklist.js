@@ -16,7 +16,7 @@ function TalkListViewModel() {
     self.selectedDay = "";
 
     self.onlyFavourites = ko.observable(false);
-    self.filtersActive = ko.observable(true);
+    self.filtersActive = ko.observable(dukeconSettings.filtersActive());
 
     // Initialize
     self.onlyFavourites.subscribe(function(val) {
@@ -24,6 +24,7 @@ function TalkListViewModel() {
     });
 
     self.filtersActive.subscribe(function(val) {
+        dukeconSettings.saveSetting(dukeconSettings.filter_active_key, self.filtersActive());
         self.filterTalks();
     });
 
@@ -73,8 +74,6 @@ function TalkListViewModel() {
     };
 
     self.resetFilters = function() {
-        //Get the saved filters first to prevent overwriting them by accident
-        var savedFilters = dukeconSettings.getSavedFilters(self.filters);
         _.each(self.filters, function(filter) {
             filter.selected([]);
         });
@@ -112,13 +111,16 @@ function TalkListViewModel() {
     };
 
     self.getFilteredTasks = function() {
+        if (!self.filtersActive()) {
+            return self.allTalks;
+        }
         return _.filter(self.allTalks, function (talk) {
             return talk.day === self.selectedDay && _.every(self.filters, function (filter) {
                 if (filter.selected().length === 0) {
                     return true;
                 }
                 return _.some(filter.selected(), function (selected) {
-                    return self.filtersActive() ? talk[filter.filterKey] === selected : true;
+                    return talk[filter.filterKey] === selected;
                 })
             });
         });

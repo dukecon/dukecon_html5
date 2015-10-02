@@ -60,6 +60,7 @@ var dukeconTalkUtils = {
 var dukeconSettings = {
     fav_key : "dukeconfavs",
     filter_key_prefix : "dukeconfilters_",
+    filter_active_key : "dukeconfilters_active",
     day_key : "dukeconday",
 
     getFavourites : function() {
@@ -81,6 +82,11 @@ var dukeconSettings = {
 
     isFavourite : function(id) {
         return dukeconSettings.getFavourites().indexOf(id) != -1;
+    },
+
+    filtersActive : function() {
+        var result = dukeconSettings.getSetting(dukeconSettings.filter_active_key);
+        return result == null ? true : result;
     },
 
     toggleFavourite : function(talkObject) {
@@ -115,7 +121,7 @@ var dukeconSettings = {
     getSetting : function(settingKey) {
         if (localStorage) {
             var setting = localStorage.getItem(settingKey);
-            console.log("Load: " + settingKey + " -> " + setting);
+            //console.log("Load: " + settingKey + " -> " + setting);
             return setting ? JSON.parse(setting) : null;
         }
         return null;

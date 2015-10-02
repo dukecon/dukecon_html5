@@ -43,4 +43,12 @@ describe("dukecon settings", function () {
         dukeconSettings.saveSelectedDay(0);
         expect(dukeconSettings.getSelectedDay()).toEqual("0");
     });
+
+    it("handle filters active", function() {
+        expect(dukeconSettings.filtersActive()).toEqual(true);
+        dukeconSettings.saveSetting(dukeconSettings.filter_active_key, false);
+        expect(dukeconSettings.filtersActive()).toEqual(false);
+        dukeconSettings.saveSetting(dukeconSettings.filter_active_key, true);
+        expect(dukeconSettings.filtersActive()).toEqual(true);
+    });
 });
