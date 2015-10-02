@@ -57,7 +57,7 @@ var dukeconDateUtils = {
         var month = this.addLeadingZero(date.getMonth() + 1);
         var day = this.addLeadingZero(date.getDate());
         var weekDay = this.weekDays[date.getDay()];
-        return weekDay + ", " + day + "." + month;
+        return weekDay + ", " + day + "." + month + ".";
     },
 
     //2016-03-08T10:30
@@ -87,22 +87,23 @@ var dukeconDateUtils = {
     },
 
     getTimeCategory : function(duration) {
-        if (!duration || (duration > 30 && duration <= 60)) {
+        if (typeof duration === 'undefined' || (duration > 30 && duration <= 60)) {
             return "regular";
         }
         if (duration <= 30) {
             return "short";
         }
-        if (duration > 60) {
-            return "long";
-        }
+        return "long";
     },
 
     addLeadingZero : function(data) {
-        if (data < 10 && data.length == 1) {
+        if (typeof data === 'number' && data < 10) {
             return '0' + data;
         }
-        return data;
+        if (typeof data === 'string' && parseInt(data) < 10 && parseInt(data).length == 1) {
+            return '0' + data;
+        }
+        return data + '';
     }
 };
 
