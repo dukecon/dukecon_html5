@@ -16,9 +16,14 @@ function TalkListViewModel() {
     self.selectedDay = "";
 
     self.onlyFavourites = ko.observable(false);
+    self.filtersActive = ko.observable(true);
 
     // Initialize
     self.onlyFavourites.subscribe(function(val) {
+        self.filterTalks();
+    });
+
+    self.filtersActive.subscribe(function(val) {
         self.filterTalks();
     });
 
@@ -67,6 +72,14 @@ function TalkListViewModel() {
         });
     };
 
+    self.resetFilters = function() {
+        //Get the saved filters first to prevent overwriting them by accident
+        var savedFilters = dukeconSettings.getSavedFilters(self.filters);
+        _.each(self.filters, function(filter) {
+            filter.selected([]);
+        });
+    };
+
     self.getDistinctValues = function(key, sortBy) {
         var t = _.groupBy(self.allTalks, function(talk) {
             return talk[key];
@@ -105,7 +118,7 @@ function TalkListViewModel() {
                     return true;
                 }
                 return _.some(filter.selected(), function (selected) {
-                    return talk[filter.filterKey] === selected;
+                    return self.filtersActive() ? talk[filter.filterKey] === selected : true;
                 })
             });
         });
