@@ -48,14 +48,14 @@ function TalkListViewModel() {
         });
     });
 
-    dukeconTalkUtils.getData(function(allData) {
+    self.initialize = function(allData) {
         var favourites = dukeconSettings.getFavourites();
         var mappedTalks = $.map(allData, function(talk) { return new Talk(talk, favourites.indexOf(talk.id) !== -1) }).sort(self.sortTalk);
         self.allTalks = mappedTalks;
         self.initializeDays();
         self.initializeFilters();
         self.filterTalks();
-    });
+    };
 
     // Functions
     self.sortTalk = function(t1, t2) {
@@ -171,4 +171,8 @@ function TalkListViewModel() {
     };
 }
 
-ko.applyBindings(new TalkListViewModel());
+function initializeTalkList() {
+    var model = new TalkListViewModel();
+    dukeconTalkUtils.getData(model.initialize);
+    ko.applyBindings(model);
+}
