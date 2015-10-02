@@ -115,7 +115,7 @@ var dukeconSettings = {
     getSetting : function(settingKey) {
         if (localStorage) {
             var setting = localStorage.getItem(settingKey);
-            //console.log("Load: " + settingKey + " -> " + setting);
+            console.log("Load: " + settingKey + " -> " + setting);
             return setting ? JSON.parse(setting) : null;
         }
         return null;
