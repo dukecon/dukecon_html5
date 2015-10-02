@@ -104,6 +104,10 @@ function TalkListViewModel() {
         }
     };
 
+    self.deactivateFilters = function() {
+        self.filtersActive(false);
+    };
+
     self.filterTalks = function() {
         var filtered = self.getFilteredTasks();
         $('#nothingtoshow').addClass('hidden');
