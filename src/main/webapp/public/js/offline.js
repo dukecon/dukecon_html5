@@ -175,13 +175,13 @@ var dukeconDb = {
             console.log("Cannot store in indexedDB");
             return;
         }
-        var request = this.indexedDB.open(this.db_name, 2);
+        var request = this.indexedDB.open(this.db_name, 3);
         request.onupgradeneeded = function(e) {
             if (!e || !e.target || !e.target.result) {
                 console.log("No db in " + e);
             }
             else {
-                dukeconDb.assertObjectStore(e.target.result, dukeconDb.talk_store);
+                dukeconDb.assertObjectStore(e.target.result, storeKey);
             }
         };
         request.onsuccess = function(e) {
