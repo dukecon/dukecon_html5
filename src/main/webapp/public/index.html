@@ -24,7 +24,7 @@
 
     <div id="menu">
         <div class="pure-menu custom-restricted-width" id="nav">
-            <div class="filter-box">
+            <div class="filter-settings">
                 <span class="filter-category">Filter-Optionen
                     <button data-bind="click: resetFilters">Zurücksetzen</button></span>
                 <div class="filter-values">
@@ -59,7 +59,8 @@
                 <button type="button" data-bind="text: $data, click: $parent.updateDay, attr: { class: ($index() == $parent.selectedDayIndex() ? 'selected' : '')}"></button>
             </div>
         </div>
-        <div id="nothingtoshow" class="hidden">Keine Talks gefunden; bitte die Filter überprüfen!</div>
+        <div id="nothingtoshow" class="hidden">Keine Talks gefunden; bitte die Filter
+            <a data-bind="click: deactivateFilters">deaktivieren</a> oder <a data-bind="click: resetFilters">zurücksetzen </a>!</div>
         <div id="talks-grid" data-bind="foreach: groupedTalks">
             <table>
                 <tr>
