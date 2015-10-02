@@ -80,8 +80,14 @@ function TalkListViewModel() {
 
     self.filterTalks = function() {
         var filtered = self.getFilteredTasks();
+        $('#nothingtoshow').addClass('hidden');
+        $('#talks-grid').removeClass('hidden');
         if (self.onlyFavourites() == true) {
             filtered = self.getFavouriteTalks(filtered);
+        }
+        if( filtered.length === 0) {
+            $('#nothingtoshow').removeClass('hidden');
+            $('#talks-grid').addClass('hidden');
         }
         self.groupedTalks(self.groupTalks(filtered));
     };
