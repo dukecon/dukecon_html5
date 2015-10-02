@@ -38,14 +38,17 @@
                     </div>-->
                 </div>
             </div>
-           <div class="filter-box" data-bind="foreach: filters">
-                <span class="filter-category" data-bind="text:title"></span>
-                <div class="filter-values" data-bind="foreach: filtervalues">
-                    <div>
-                        <input type="checkbox" data-bind="value: $data, checked: $parent.selected, attr:{id: $data}" />
-                        <label data-bind="text: $data, attr:{for: $data}"></label>
+            <div class="filter-box">
+                <div  data-bind="foreach: filters">
+                    <span class="filter-category" data-bind="text:title"></span>
+                    <div class="filter-values" data-bind="foreach: filtervalues">
+                        <div>
+                            <input type="checkbox" data-bind="value: $data, checked: $parent.selected, attr:{id: $data}" />
+                            <label data-bind="text: $data, attr:{for: $data}"></label>
+                        </div>
                     </div>
                 </div>
+                <div id="filter-veil">&nbsp;</div>
             </div>
         </div>
     </div>

@@ -1,6 +1,16 @@
 function TalkListViewModel() {
     // Data
     var self = this;
+
+    self.toggleFilterMenu = function(active) {
+        var veil = $('#filter-veil');
+        if (active === true) {
+            veil.removeClass("shown");
+        } else {
+            veil.addClass("shown");
+        }
+    };
+
     self.groupedTalks = ko.observableArray([]);
     self.allTalks = [];
 
@@ -19,11 +29,14 @@ function TalkListViewModel() {
     self.filtersActive = ko.observable(dukeconSettings.filtersActive());
 
     // Initialize
+    self.toggleFilterMenu(self.filtersActive());
+
     self.onlyFavourites.subscribe(function(val) {
         self.filterTalks();
     });
 
     self.filtersActive.subscribe(function(val) {
+        self.toggleFilterMenu(self.filtersActive());
         dukeconSettings.saveSetting(dukeconSettings.filter_active_key, self.filtersActive());
         self.filterTalks();
     });
@@ -77,6 +90,7 @@ function TalkListViewModel() {
         _.each(self.filters, function(filter) {
             filter.selected([]);
         });
+        self.filtersActive(true);
     };
 
     self.getDistinctValues = function(key, sortBy) {
