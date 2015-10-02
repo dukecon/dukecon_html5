@@ -1,6 +1,6 @@
 describe("dukecon db - Happy Path", function() {
     var flag = false;
-    var storeKey = "testdb";
+    var storeKey = dukeconDb.talk_store;
     var data = {"hoi" : "hoi"};
 
     beforeAll(function(done) {
@@ -9,7 +9,7 @@ describe("dukecon db - Happy Path", function() {
             flag = d.hoi && d.hoi === "hoi";
             done();
         });
-    });
+    }, 10000);
 
     afterAll(function() {
        dukeconDb.clear(storeKey);
