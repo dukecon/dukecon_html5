@@ -120,7 +120,7 @@ var dukeconSettings = {
 
     getSetting : function(settingKey) {
         if (localStorage) {
-            var setting = localStorage.getItem(settingKey);
+            var setting = localStorage.getItem(window.location.pathname + settingKey);
             //console.log("Load: " + settingKey + " -> " + setting);
             return setting ? JSON.parse(setting) : null;
         }
@@ -130,7 +130,7 @@ var dukeconSettings = {
     saveSetting : function(settingKey, value) {
         if (localStorage) {
             //console.log("Save: " + settingKey + " -> " + value)
-            localStorage.setItem(settingKey, JSON.stringify(value));
+            localStorage.setItem(window.location.pathname + settingKey, JSON.stringify(value));
         }
     }
 
