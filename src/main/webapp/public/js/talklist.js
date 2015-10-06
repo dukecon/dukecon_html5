@@ -129,18 +129,19 @@ function TalkListViewModel() {
     };
 
     self.getFilteredTasks = function() {
-        if (!self.filtersActive()) {
-            return self.allTalks;
-        }
         return _.filter(self.allTalks, function (talk) {
-            return talk.day === self.selectedDay && _.every(self.filters, function (filter) {
-                if (filter.selected().length === 0) {
-                    return true;
-                }
-                return _.some(filter.selected(), function (selected) {
-                    return talk[filter.filterKey] === selected;
-                })
-            });
+            if (!self.filtersActive()) {
+                return talk.day === self.selectedDay;
+            } else {
+                return talk.day === self.selectedDay && _.every(self.filters, function (filter) {
+                    if (filter.selected().length === 0) {
+                        return true;
+                    }
+                    return _.some(filter.selected(), function (selected) {
+                        return talk[filter.filterKey] === selected;
+                    })
+                });
+            }
         });
     };
 
