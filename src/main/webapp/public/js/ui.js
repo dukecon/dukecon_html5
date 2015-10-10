@@ -1,3 +1,56 @@
+var languageUtils = {
+    selectedLanguage : ko.observable('de'),
+
+    strings: {
+        filterOptions : {
+            'de' : 'Filter-Optionen',
+            'en' : 'Filter Options'
+        },
+        reset : {
+            'de' : 'Zurücksetzen',
+            'en' : 'Reset'
+        },
+        level : {
+            'de' : 'Zielgruppe',
+            'en' : 'Audience'
+        },
+        track : {
+            'de' : 'Track',
+            'en' : 'Track'
+        },
+        location : {
+            'de' : 'Ort',
+            'en' : 'Location'
+        },
+        language : {
+            'de' : 'Sprache',
+            'en' : 'Language'
+        }
+    },
+
+    toggleLanguage : function () {
+        var languageImg = $('#language-select img');
+        if (languageUtils.selectedLanguage() === 'de') {
+            languageUtils.selectedLanguage('en');
+            languageImg.attr('src', 'img/en.png');
+        } else {
+            languageUtils.selectedLanguage('de');
+            languageImg.attr('src', 'img/de.png');
+        }
+        languageUtils.setLanguageStrings();
+    },
+
+    setLanguageStrings : function() {
+        $.each($('[data-resource]'), function(index, elem) {
+            var node = $(elem),
+                resourceKey = node.attr('data-resource');
+            if (typeof languageUtils.strings[resourceKey] !== 'undefined') {
+                node.text(languageUtils.strings[resourceKey][languageUtils.selectedLanguage()]);
+            }
+        });
+    }
+};
+
 (function (window, document) {
 
     var layout   = document.getElementById('layout'),
@@ -31,5 +84,7 @@
         toggleClass(menu, active);
         toggleClass(menuLink, active);
     };
+
+    languageUtils.setLanguageStrings();
 
 }(this, this.document));

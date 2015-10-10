@@ -25,8 +25,8 @@
     <div id="menu">
         <div class="pure-menu custom-restricted-width" id="nav">
             <div class="filter-settings">
-                <span class="filter-category">Filter-Optionen
-                    <button data-bind="click: resetFilters">Zurücksetzen</button></span>
+                <span class="filter-category"><span data-resource="filterOptions"></span>
+                    <button data-bind="click: resetFilters" data-resource="reset">Zurücksetzen</button></span>
                 <div class="filter-values">
                     <div>
                         <input type="checkbox" data-bind="checked: filtersActive, attr:{id: 'active'}"/>
@@ -43,8 +43,8 @@
                     <span class="filter-category" data-bind="text:title"></span>
                     <div class="filter-values" data-bind="foreach: filtervalues">
                         <div>
-                            <input type="checkbox" data-bind="value: $data, checked: $parent.selected, attr:{id: $data}" />
-                            <label data-bind="text: $data, attr:{for: $data}"></label>
+                            <input type="checkbox" data-bind="value: $data.en, checked: $parent.selected, attr:{id: $data.id}" />
+                            <label data-bind="text: $data.displayName(), attr:{for: $data.id}"></label>
                         </div>
                     </div>
                 </div>

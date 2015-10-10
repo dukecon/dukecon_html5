@@ -7,13 +7,17 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
     this.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
     this.startSortable = data.start || '';
-    this.track = dukeconUtils.getTrack(metaData, data.trackId);
-    this.location = dukeconUtils.getLocation(metaData, data.roomId);
-    this.level = dukeconUtils.getLevel(metaData, data.audienceId);
+    this.trackDisplay = dukeconUtils.getTrack(metaData, data.trackId);
+    this.track = dukeconUtils.getForFilter(metaData.tracks, data.trackId);
+    this.locationDisplay = dukeconUtils.getLocation(metaData, data.locationId);
+    this.location = dukeconUtils.getForFilter(metaData.locations, data.locationId);
+    this.levelDisplay = dukeconUtils.getLevel(metaData, data.audienceId);
+    this.level = dukeconUtils.getForFilter(metaData.audiences, data.audienceId);
     this.title = data.title || '';
     this.speakerString = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, false).join(', ');
     this.speakersWithCompanies = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, true);
-    this.language = dukeconUtils.getLanguage(metaData, data.languageId);
+    this.languageDisplay = dukeconUtils.getLanguage(metaData, data.languageId);
+    this.language = dukeconUtils.getForFilter(metaData.languages, data.languageId);
     this.fullAbstract = data.abstractText || '';
     this.timeCategory =  dukeconDateUtils.getTimeCategory(this.duration);
     this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra';
@@ -115,6 +119,7 @@ ko.components.register('header-widget', {
     template:
         '<div class="header">'
         + '<a href="http://www.javaland.eu"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
+        + '<a id="language-select" onclick="languageUtils.toggleLanguage();"><img src="img/de.png"/></a>'
         + '<div class="main-menu">'
         + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="feedback.html">Feedback</a>'
         + '</div>'
@@ -146,8 +151,8 @@ ko.components.register('talk-widget', {
                 + ' <span data-bind="text: talk.day"></span><span>,&nbsp;</span>'
                 + '<span data-bind="text: talk.startDisplayed"></span> (<span data-bind="text: talk.duration"></span><span> min)</span>'
             + '</div>'
-            + '<div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk.location" /></div>'
-            + '<div class="track"><img width="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.track" /></div>'
+            + '<div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Location" title="Location"/> <span data-bind="text: talk.locationDisplay" /></div>'
+            + '<div class="track"><img width="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.trackDisplay" /></div>'
             + '</div>'
 });
 
@@ -184,7 +189,14 @@ var dukeconUtils = {
         var value = _.find(data, function(d) {
             return d.id === id;
         });
-        return value ? value.names.de : '';
+        return value ? value.names[languageUtils.selectedLanguage()] : '';
+    },
+
+    getForFilter : function(data, id) {
+        var value = _.find(data, function(d) {
+            return d.id === id;
+        });
+        return value ? value.names.en : '';
     },
 
     getSpeakerNames : function(speakerIds, speakers, withCompany) {

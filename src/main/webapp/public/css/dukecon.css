@@ -54,6 +54,17 @@ td {
     margin-left:5px;
 }
 
+#language-select {
+    float:right;
+}
+#language-select img {
+    float:none;
+    vertical-align:middle;
+    margin-left:5px;
+    width: 48px;
+    height: 48px;
+}
+
 .main-menu {
     margin-top: 0.5em;
     display: inline-block;

@@ -13,12 +13,13 @@ function TalkListViewModel() {
 
     self.groupedTalks = ko.observableArray([]);
     self.allTalks = [];
+    self.metaData = {};
 
     self.filters = [
-        {title: 'Level', filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
-        {title: 'Sprache', filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
-        {title: 'Track', filterKey: 'track', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
-        {title: 'Raum', filterKey: 'location', filtervalues : ko.observableArray([]), selected : ko.observableArray([])}
+        {title: ko.observable(''), filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
+        {title: ko.observable(''), filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
+        {title: ko.observable(''), filterKey: 'track', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
+        {title: ko.observable(''), filterKey: 'location', filtervalues : ko.observableArray([]), selected : ko.observableArray([])}
     ];
 
     self.days = ko.observableArray([]);
@@ -41,6 +42,10 @@ function TalkListViewModel() {
         self.filterTalks();
     });
 
+    languageUtils.selectedLanguage.subscribe(function(language) {
+        self.initializeFilters(self.metaData);
+    });
+
     $.each(self.filters, function(index, filter) {
         filter.selected.subscribe(function(s) {
             self.filterTalks();
@@ -53,6 +58,7 @@ function TalkListViewModel() {
         var mappedTalks = $.map(allData.events, function(talk) {
             return new Talk(talk, allData.speakers, allData.metaData, favourites.indexOf(talk.id) !== -1)
         }).sort(self.sortTalk);
+        self.metaData = allData.metaData;
         self.allTalks = mappedTalks;
         self.initializeDays();
         self.initializeFilters(allData.metaData);
@@ -78,10 +84,14 @@ function TalkListViewModel() {
      self.initializeFilters = function(metaData) {
         //Get the saved filters first to prevent overwriting them by accident
         var savedFilters = dukeconSettings.getSavedFilters(self.filters);
-        self.filters[0].filtervalues(self.getFilterValues(metaData.audiences));
-        self.filters[1].filtervalues(self.getFilterValues(metaData.languages));
-        self.filters[2].filtervalues(self.getFilterValues(metaData.tracks));
-        self.filters[3].filtervalues(self.getFilterValues(metaData.locations));
+        self.filters[0].title(languageUtils.strings.level[languageUtils.selectedLanguage()]);
+        self.filters[0].filtervalues(self.getFilterValues('audience_', metaData.audiences));
+        self.filters[1].title(languageUtils.strings.language[languageUtils.selectedLanguage()]);
+        self.filters[1].filtervalues(self.getFilterValues('language_', metaData.languages));
+        self.filters[2].title(languageUtils.strings.track[languageUtils.selectedLanguage()]);
+        self.filters[2].filtervalues(self.getFilterValues('track_', metaData.tracks));
+        self.filters[3].title(languageUtils.strings.location[languageUtils.selectedLanguage()]);
+        self.filters[3].filtervalues(self.  getFilterValues('location_', metaData.locations));
 
         _.each(self.filters, function(filter) {
             _.each(savedFilters[filter.filterKey], function(selected) {
@@ -92,13 +102,16 @@ function TalkListViewModel() {
         });
     };
 
-    //TODO: hardcoded german names
-    self.getFilterValues = function(values) {
+    self.getFilterValues = function(prefix, values) {
         return _.map(values, function(value) {
-            if (value.names) {
-             return value.names.de;
-            }
-            return value.name;
+             var ret = {};
+             ret.id = prefix + value.id;
+             ret.en = value.names ? value.names.en : value.name;
+             ret.de = value.names ? value.names.de : value.name;
+             ret.displayName = function() {
+                return ret[languageUtils.selectedLanguage()];
+             }
+             return ret;
         });
     };
 
