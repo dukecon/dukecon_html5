@@ -1,6 +1,7 @@
 describe("dukecon - Date Utils", function() {
     it("weekdays", function() {
-        expect(dukeconDateUtils.weekDays).toEqual(["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]);
+        expect(dukeconDateUtils.weekDays.de).toEqual(["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]);
+        expect(dukeconDateUtils.weekDays.en).toEqual(["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]);
     });
     it("sortDays", function() {
        expect(dukeconDateUtils.sortDays("Montag", "Dienstag")).toBe(-1);
