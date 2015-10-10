@@ -10,6 +10,10 @@ var languageUtils = {
             'de' : 'Zurücksetzen',
             'en' : 'Reset'
         },
+        speaker : {
+            'de' : 'Sprecher',
+            'en' : 'Speakers'
+        },
         level : {
             'de' : 'Zielgruppe',
             'en' : 'Audience'
@@ -25,6 +29,22 @@ var languageUtils = {
         language : {
             'de' : 'Sprache',
             'en' : 'Language'
+        },
+        notalksfound : {
+            'de' : 'Keine Talks gefunden; bitte die Filter ',
+            'en' : 'No talks found; please perform a filter '
+        },
+        deactivate : {
+            'de' : 'Deaktivieren',
+            'en' : 'Deactivation'
+        },
+        or : {
+            'de' : ' oder ',
+            'en' : ' or '
+        },
+        active : {
+            'de' : 'Aktiv',
+            'en' : 'Active'
         }
     },
 
@@ -44,12 +64,19 @@ var languageUtils = {
         return 'img/' + languageUtils.selectedLanguage() + '.png';
     },
 
+    getResource : function(resourceKey) {
+        return languageUtils.strings[resourceKey][languageUtils.selectedLanguage()];
+    },
+
     setLanguageStrings : function() {
+        var speaker = $('#menu-speaker'); // observable seem awkward for this case
+        speaker.text(languageUtils.getResource('speaker'));
+
         $.each($('[data-resource]'), function(index, elem) {
             var node = $(elem),
                 resourceKey = node.attr('data-resource');
             if (typeof languageUtils.strings[resourceKey] !== 'undefined') {
-                node.text(languageUtils.strings[resourceKey][languageUtils.selectedLanguage()]);
+                node.html(languageUtils.getResource(resourceKey));
             }
         });
     }
@@ -80,14 +107,16 @@ var languageUtils = {
         element.className = classes.join(' ');
     }
 
-    menuLink.onclick = function (e) {
-        var active = 'active';
+    if (menuLink) {
+        menuLink.onclick = function (e) {
+            var active = 'active';
 
-        e.preventDefault();
-        toggleClass(layout, active);
-        toggleClass(menu, active);
-        toggleClass(menuLink, active);
-    };
+            e.preventDefault();
+            toggleClass(layout, active);
+            toggleClass(menu, active);
+            toggleClass(menuLink, active);
+        };
+    }
 
     languageUtils.setLanguageStrings();
 

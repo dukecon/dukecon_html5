@@ -30,7 +30,7 @@
                 <div class="filter-values">
                     <div>
                         <input type="checkbox" data-bind="checked: filtersActive, attr:{id: 'active'}"/>
-                        <label data-bind="text: 'Aktiv', attr:{for: 'active'}"></label>
+                        <label data-resource="active" data-bind="attr:{for: 'active'}"></label>
                     </div>
                     <!-- <div>
                         <input type="checkbox" data-bind="checked: onlyFavourites, attr:{id: 'favs'}"/>
@@ -59,8 +59,9 @@
                 <button type="button" data-bind="text: $data, click: $parent.updateDay, attr: { class: ($index() == $parent.selectedDayIndex() ? 'selected' : '')}"></button>
             </div>
         </div>
-        <div id="nothingtoshow" class="hidden">Keine Talks gefunden; bitte die Filter
-            <a data-bind="click: deactivateFilters">deaktivieren</a> oder <a data-bind="click: resetFilters">zurücksetzen </a>!</div>
+        <div id="nothingtoshow" class="hidden"><span data-resource="notalksfound"></span>
+            <a class="clickable" data-bind="click: deactivateFilters" data-resource="deactivate"></a> <span data-resource="or"></span>
+            <a class="clickable" data-bind="click: resetFilters" data-resource="reset"></a>!</div>
         <div id="talks-grid" data-bind="foreach: groupedTalks">
             <table>
                 <tr>

@@ -34,7 +34,7 @@ function Talk(data, speakers, metaData, isFavourite) {
 function Speaker(data, talks, speakers, metaData) {
     this.name = data.name || '';
     this.company = data.company || '';
-    this.talks = dukeconUtils.getTalks(data.talkIds, talks, speakers, metaData);
+    this.talks = dukeconUtils.getTalks(data.eventIds, talks, speakers, metaData);
 };
 
 
@@ -116,13 +116,14 @@ ko.components.register('header-widget', {
     viewModel : function(params) {
         this.title = params.value;
         this.icon = languageUtils.getLanguageIconUrl();
+        this.speaker = languageUtils.getResource('speaker');
     },
     template:
         '<div class="header">'
         + '<a href="http://www.javaland.eu"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
         + '<a id="language-select" onclick="languageUtils.toggleLanguage();"><img data-bind="attr : { src : icon }"/></a>'
         + '<div class="main-menu">'
-        + '<a href="index.html">Talks</a>|<a href="speakers.html">Sprecher</a>|<a href="feedback.html">Feedback</a>'
+        + '<a href="index.html">Talks</a>|<a id="menu-speaker" href="speakers.html" data-bind="text: speaker"></a>|<a href="feedback.html">Feedback</a>'
         + '</div>'
         + '<h1 id="headertitle" data-bind="text: title"></h1>'
         + '</div>'

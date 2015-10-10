@@ -58,6 +58,7 @@ td {
     float:right;
 }
 #language-select img {
+    cursor: pointer;
     float:none;
     vertical-align:middle;
     margin-left:5px;
