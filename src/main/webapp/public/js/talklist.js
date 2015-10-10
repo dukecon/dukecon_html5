@@ -50,11 +50,12 @@ function TalkListViewModel() {
 
     self.initialize = function(allData) {
         var favourites = dukeconSettings.getFavourites();
-        var mappedTalks = $.map(allData, function(talk) { return new Talk(talk, favourites.indexOf(talk.id) !== -1) }).sort(self.sortTalk);
+        var mappedTalks = $.map(allData.talks, function(talk) {
+            return new Talk(talk, allData.speakers, allData.metaData, favourites.indexOf(talk.id) !== -1)
+        }).sort(self.sortTalk);
         self.allTalks = mappedTalks;
         self.initializeDays();
-        self.initializeFilters();
-        self.filterTalks();
+        self.initializeFilters(allData.metaData);
     };
 
     // Functions
@@ -73,16 +74,30 @@ function TalkListViewModel() {
         self.selectedDay = self.days()[self.selectedDayIndex()];
     };
 
-    self.initializeFilters = function() {
+     self.initializeFilters = function(metaData) {
         //Get the saved filters first to prevent overwriting them by accident
         var savedFilters = dukeconSettings.getSavedFilters(self.filters);
+        self.filters[0].filtervalues(self.getFilterValues(metaData.audiences));
+        self.filters[1].filtervalues(self.getFilterValues(metaData.languages));
+        self.filters[2].filtervalues(self.getFilterValues(metaData.tracks));
+        self.filters[3].filtervalues(self.getFilterValues(metaData.rooms));
+
         _.each(self.filters, function(filter) {
-            filter.filtervalues(self.getDistinctValues(filter.filterKey));
             _.each(savedFilters[filter.filterKey], function(selected) {
                 if (filter.filtervalues.indexOf(selected) > -1) {
                     filter.selected.push(selected);
                 }
             });
+        });
+    };
+
+    //TODO: hardcoded german names
+    self.getFilterValues = function(values) {
+        return _.map(values, function(value) {
+            if (value.names) {
+             return value.names.de;
+            }
+            return value.name;
         });
     };
 

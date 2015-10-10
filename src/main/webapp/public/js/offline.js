@@ -19,7 +19,7 @@ var dukeconTalkUtils = {
         var successCallback = function(data) {
             if (data) {
                 dukeconDb.save(dukeconDb.talk_store, data);
-                callback(dukeconTalkUtils.filterNullTalks(data));
+                callback(data);
             }
         };
         var errorCallback = function() {

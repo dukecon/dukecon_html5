@@ -1,19 +1,19 @@
 // PLEASE! PLEASE! PLEASE! DO NEVER EVER CHANGE THIS LINE and check it into Git!!!
-var jsonUrl = "rest/talks";
+var jsonUrl = "rest/conference";
 
-function Talk(data, isFavourite) {
+function Talk(data, speakers, metaData, isFavourite) {
     this.id = data.id || '';
     this.day = dukeconDateUtils.getDisplayDate(data.start);
     this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
     this.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
     this.startSortable = data.start || '';
-    this.track = data.track || '';
-    this.location = data.location || '';
-    this.level = data.level || '';
+    this.track = dukeconUtils.getTrack(metaData, data.trackId);
+    this.location = dukeconUtils.getLocation(metaData, data.roomId);
+    this.level = dukeconUtils.getLevel(metaData, data.audienceId);
     this.title = data.title || '';
-    this.speakerString = dukeconUtils.getSpeakerNames(data.speakers, false).join(', ');
-    this.speakersWithCompanies = dukeconUtils.getSpeakerNames(data.speakers, true);
-    this.language = data.language || '';
+    this.speakerString = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, false).join(', ');
+    this.speakersWithCompanies = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, true);
+    this.language = dukeconUtils.getLanguage(metaData, data.languageId);
     this.fullAbstract = data.abstractText || '';
     this.timeCategory =  dukeconDateUtils.getTimeCategory(this.duration);
     this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra';
@@ -164,14 +164,44 @@ var dukeconUtils = {
         "newcomer": "img/track_newcomer.jpg"
     },
 
-    getSpeakerNames : function(speakers, withCompany) {
-        if (!speakers) {
+    getTrack : function(metaData, trackId) {
+        return dukeconUtils.getById(metaData.tracks, trackId);
+    },
+
+    getLanguage : function(metaData, languageId) {
+        return dukeconUtils.getById(metaData.languages, languageId);
+    },
+
+    getLevel : function(metaData, levelId) {
+        return dukeconUtils.getById(metaData.audiences, levelId);
+    },
+
+    getLocation : function(metaData, locationId) {
+        //return dukeconUtils.getById(metaData.rooms, locationId);
+        var value = _.find(metaData.rooms, function(d) {
+            return d.id === locationId;
+        });
+        return value ? value.name : '';
+    },
+
+    getById : function(data, id) {
+        var value = _.find(data, function(d) {
+            return d.id === id;
+        });
+        return value ? value.names.de : '';
+    },
+
+    getSpeakerNames : function(speakerIds, speakers, withCompany) {
+        if (!speakerIds || speakerIds.length === 0) {
             return [];
         }
         var filteredSpeakers = _.filter(speakers, function(speaker) {
             return speaker && speaker.name;
         });
-        return _.map(filteredSpeakers, function(speaker) {
+        return _.map(speakerIds, function(speakerId) {
+            var speaker = _.find(speakers, function(s) {
+                return s.id === speakerId}
+            );
             if (withCompany) {
                 return speaker.name + (speaker.company ? ", " + speaker.company : '');
             }
@@ -179,7 +209,9 @@ var dukeconUtils = {
         });
     },
 
-    getTalkIcon : function(track) {
-        return dukeconUtils.talkIcons[track.toLowerCase()] || 'img/Unknown.png';
+    getTalkIcon : function(track, metaData) {
+        //TODO: fix this
+        return 'img/Unknown.png';
+        //return dukeconUtils.talkIcons[track.toLowerCase()] || 'img/Unknown.png';
     }
 };
