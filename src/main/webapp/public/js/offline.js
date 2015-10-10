@@ -61,6 +61,7 @@ var dukeconSettings = {
     fav_key : "dukeconfavs",
     filter_key_prefix : "dukeconfilters_",
     filter_active_key : "dukeconfilters_active",
+    selected_language_key : "dukecon_language",
     day_key : "dukeconday",
 
     getFavourites : function() {
@@ -78,6 +79,11 @@ var dukeconSettings = {
     getSelectedDay : function() {
         var day = dukeconSettings.getSetting(dukeconSettings.day_key);
         return day ? day : "0";
+    },
+
+    getSelectedLanguage : function() {
+        var language = dukeconSettings.getSetting(dukeconSettings.selected_language_key);
+        return language ? language : "de";
     },
 
     isFavourite : function(id) {
@@ -111,6 +117,10 @@ var dukeconSettings = {
 
     saveSelectedDay : function(day_index) {
         dukeconSettings.saveSetting(dukeconSettings.day_key, day_index);
+    },
+
+    saveSelectedLanguage : function(language) {
+        dukeconSettings.saveSetting(dukeconSettings.selected_language_key, language);
     },
 
     getSettingOrEmptyArray : function(settingKey) {

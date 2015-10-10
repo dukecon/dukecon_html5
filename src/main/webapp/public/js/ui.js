@@ -1,5 +1,5 @@
 var languageUtils = {
-    selectedLanguage : ko.observable('de'),
+    selectedLanguage : ko.observable(dukeconSettings.getSelectedLanguage()),
 
     strings: {
         filterOptions : {
@@ -32,12 +32,16 @@ var languageUtils = {
         var languageImg = $('#language-select img');
         if (languageUtils.selectedLanguage() === 'de') {
             languageUtils.selectedLanguage('en');
-            languageImg.attr('src', 'img/en.png');
         } else {
             languageUtils.selectedLanguage('de');
-            languageImg.attr('src', 'img/de.png');
         }
         languageUtils.setLanguageStrings();
+        languageImg.attr('src', languageUtils.getLanguageIconUrl());
+        dukeconSettings.saveSelectedLanguage(languageUtils.selectedLanguage());
+    },
+
+    getLanguageIconUrl : function() {
+        return 'img/' + languageUtils.selectedLanguage() + '.png';
     },
 
     setLanguageStrings : function() {
