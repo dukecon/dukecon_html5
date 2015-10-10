@@ -1,57 +1,128 @@
 describe("talklist", function () {
-    var talk_json = [
-        {
-            "language" : "Deutsch",
-            "location" : "Schauspielhaus",
-            "demo" : false,
-            "track" : "Enterprise Java & Cloud",
-            "abstractText" : "abstract",
-            "end" : "2016-03-08T14:40",
-            "level" : "Fortgeschrittene",
-            "speakers" : [
-                {
-                    "defaultSpeaker" : true,
-                    "name" : "Mark Struberg",
-                    "company" : "TU Wien"
-                },
-                {
-                    "defaultSpeaker" : false,
-                    "name" : "Thorben Janssen"
-                }
-            ],
-            "id" : "509638",
-            "type" : "Tipps & Tricks",
-            "title" : "CDI-2.0 deep dive",
-            "start" : "2016-03-08T14:00"
-        },
-        {
-            "language" : "Englisch",
-            "location" : "Quantum 4",
-            "demo" : false,
-            "track" : "Newcomer",
-            "abstractText" : "abstract",
-            "end" : "2016-03-08T11:20",
-            "level" : "Anfänger",
-            "speakers" : [
-                {
-                    "defaultSpeaker" : true,
-                    "name" : "Mark Paluch",
-                    "company" : "PALUCH.biz"
-                }
-            ],
-            "id" : "509676",
-            "type" : "Neuerscheinungen oder Features",
-            "title" : "What's new in CDI 2.0 (JSR 365)",
-            "start" : "2016-03-08T11:00"
-        }
-    ];
-
-    var talks = [new Talk(talk_json[0], false), new Talk(talk_json[1], false)];
+    var talk_json = {
+        "metaData": {
+                "audiences": [
+                    {"id": "1",
+                    "order": 1,
+                    "names": {
+                        "de": "Anfänger",
+                        "en": "beginners"
+                    }},
+                    {"id": "2",
+                    "order": 2,
+                    "names": {
+                        "de": "Fortgeschrittene",
+                        "en": "advanced"
+                    }}
+                ],
+                "talkTypes":[
+                    {"id": "1",
+                    "order": 1,
+                    "names":{
+                        "de": "Best Practices",
+                        "en": "best practices"
+                    }},
+                    {"id": "2",
+                    "order": 2,
+                    "names":{
+                        "de": "Keynote",
+                        "en": "keynote"
+                    }}
+                ],
+                "languages":[
+                    {"id": "de",
+                    "order": 1,
+                    "names":{
+                        "de": "Deutsch",
+                        "en": "German"
+                    }},
+                    {"id": "en",
+                    "order": 2,
+                    "names":{
+                        "de": "Englisch",
+                        "en": "English"
+                    }}
+                ],
+                "tracks":[
+                    {"id": "1",
+                        "order": 1,
+                        "names":{
+                            "de": "Container & Microservices",
+                            "en": "container & microservices"
+                        }
+                    },
+                    {
+                        "id": "2",
+                        "order": 2,
+                        "names":
+                        {
+                            "de": "Core Java & JVM basierte Sprachen",
+                            "en": "Core Java & JVM based languages"
+                        }
+                    },
+                ],
+                "rooms":
+                [
+                    {
+                        "id": "1",
+                        "order": 1,
+                        "name": "Wintergarten"
+                    },
+                    {
+                        "id": "2",
+                        "order": 2,
+                        "name": "Schauspielhaus"
+                    },
+                ]
+            },
+        "talks" : [{
+                "id": "509415",
+                "start": "2016-03-09T10:00",
+                "end": "2016-03-09T10:40",
+                "title": "Container-Konfiguration mit Apache Tamaya",
+                "abstractText": "In diesem Vortrag wird gezeigt ...",
+                "demo": true,
+                "trackId": "1",
+                "audienceId": "2",
+                "typeId": "3",
+                "roomId": "4",
+                "speakerIds":
+                [
+                    "364340"
+                ],
+                "languageId": "de"
+            },
+            {
+                "id": "509350",
+                "start": "2016-03-08T10:00",
+                "end": "2016-03-08T10:40",
+                "title": "Securing Device Communication over MQTT",
+                "abstractText": "Security is critical...",
+                "demo": true,
+                "trackId": "6",
+                "audienceId": "2",
+                "typeId": "1",
+                "roomId": "4",
+                "speakerIds":
+                [
+                    "364340"
+                ],
+                "languageId": "en"
+            }],
+        "speakers" : [
+            {"id": "364340",
+            "name": "Arek Czarnik",
+            "company": "Rewe-Digital",
+            "defaultSpeaker": false,
+            "talkIds":["509415", "509350"]
+            }
+        ]
+    };
 
     it("allTalks", function() {
         var model = new TalkListViewModel();
         model.initialize(talk_json);
-        expect(model.allTalks[1].id).toEqual(talk_json[0].id);
-        expect(model.allTalks[0].id).toEqual(talk_json[1].id);
+        expect(model.allTalks[0].id).toEqual(talk_json.talks[0].id);
+        expect(model.allTalks[1].id).toEqual(talk_json.talks[1].id);
     });
 });
