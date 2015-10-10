@@ -24,7 +24,7 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.toggleFavourite = function() {
         this.favourite(!this.favourite());
     };
-    this.talkIcon = dukeconUtils.getTalkIcon(this.track);
+    this.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '')
 };
 
 function Speaker(data, talks, speakers, metaData) {
@@ -154,14 +154,14 @@ ko.components.register('talk-widget', {
 //not sure where else to put
 var dukeconUtils = {
     talkIcons : {
-        "architektur & sicherheit": "img/track_architecture.jpg",
-        "core java & jvm basierte sprachen": "img/track_jvm-languages.jpg",
-        "enterprise java & cloud": "img/track_enterprise-java-cloud.jpg",
-        "frontend & mobile": "img/track_frontend-mobile.jpg",
-        "ides & tools": "img/track_ide-tools.jpg",
-        "container & microservices": "img/track_microservices.jpg",
-        "internet der dinge": "img/track_internet-of-things.jpg",
-        "newcomer": "img/track_newcomer.jpg"
+        "7": "img/track_architecture.jpg",
+        "2": "img/track_jvm-languages.jpg",
+        "3": "img/track_enterprise-java-cloud.jpg",
+        "4": "img/track_frontend-mobile.jpg",
+        "5": "img/track_ide-tools.jpg",
+        "1": "img/track_microservices.jpg",
+        "6": "img/track_internet-of-things.jpg",
+        "8": "img/track_newcomer.jpg"
     },
 
     getTrack : function(metaData, trackId) {
@@ -209,10 +209,8 @@ var dukeconUtils = {
         });
     },
 
-    getTalkIcon : function(track, metaData) {
-        //TODO: fix this
-        return 'img/Unknown.png';
-        //return dukeconUtils.talkIcons[track.toLowerCase()] || 'img/Unknown.png';
+    getTalkIcon : function(typeId) {
+        return dukeconUtils.talkIcons[typeId] || 'img/Unknown.png';
     },
 
     getTalks(talkIds, talks, speakers, metaData) {
