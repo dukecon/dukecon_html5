@@ -27,10 +27,10 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.talkIcon = dukeconUtils.getTalkIcon(this.track);
 };
 
-function Speaker(name, company, talks) {
-    this.name = name || '';
-    this.company = company || '';
-    this.talks = talks;
+function Speaker(data, talks, speakers, metaData) {
+    this.name = data.name || '';
+    this.company = data.company || '';
+    this.talks = dukeconUtils.getTalks(data.talkIds, talks, speakers, metaData);
 };
 
 
@@ -213,5 +213,14 @@ var dukeconUtils = {
         //TODO: fix this
         return 'img/Unknown.png';
         //return dukeconUtils.talkIcons[track.toLowerCase()] || 'img/Unknown.png';
-    }
+    },
+
+    getTalks(talkIds, talks, speakers, metaData) {
+        return _.map(talkIds, function(id) {
+           var talk = _.find(talks, function(t) {
+                return t.id === id;
+            });
+           return talk ? new Talk(talk, speakers, metaData, false) : null;
+        });
+    },
 };
