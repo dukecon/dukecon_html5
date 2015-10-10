@@ -7,7 +7,7 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
     this.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
     this.startSortable = data.start || '';
-    this.trackDisplay = dukeconUtils.getTrack(metaData, data.trackId);
+    this.trackDisplay = dukeconUtils.getTrack(metaData, data.trackId);     // TODO: this is only set correctly on page reload
     this.track = dukeconUtils.getForFilter(metaData.tracks, data.trackId);
     this.locationDisplay = dukeconUtils.getLocation(metaData, data.locationId);
     this.location = dukeconUtils.getForFilter(metaData.locations, data.locationId);
@@ -40,6 +40,7 @@ function Speaker(data, talks, speakers, metaData) {
 
 var dukeconDateUtils = {
 
+    // TODO: this is only set correctly on page reload
     weekDays : {
          'de' : ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
          'en' : ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
