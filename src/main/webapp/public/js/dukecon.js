@@ -40,13 +40,16 @@ function Speaker(data, talks, speakers, metaData) {
 
 var dukeconDateUtils = {
 
-    weekDays : ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+    weekDays : {
+         'de' : ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+         'en' : ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    },
 
     sortDays : function(dayString1, dayString2) {
         var day1 = dayString1 ? dayString1.split(',')[0] : '';
         var day2 = dayString2 ? dayString2.split(',')[0] : '';
-        var posDay1 = dukeconDateUtils.weekDays.indexOf(day1);
-        var posDay2 = dukeconDateUtils.weekDays.indexOf(day2);
+        var posDay1 = dukeconDateUtils.weekDays[languageUtils.selectedLanguage()].indexOf(day1);
+        var posDay2 = dukeconDateUtils.weekDays[languageUtils.selectedLanguage()].indexOf(day2);
         if (posDay1 > posDay2) {
             return 1;
         }
@@ -60,7 +63,7 @@ var dukeconDateUtils = {
         var date = new Date(datetimeString);
         var month = this.addLeadingZero(date.getMonth() + 1);
         var day = this.addLeadingZero(date.getDate());
-        var weekDay = this.weekDays[date.getDay()];
+        var weekDay = this.weekDays[languageUtils.selectedLanguage()][date.getDay()];
         return weekDay + ", " + day + "." + month + ".";
     },
 
@@ -114,7 +117,8 @@ var dukeconDateUtils = {
 //widgets
 ko.components.register('header-widget', {
     viewModel : function(params) {
-        this.title = params.value;
+        this.resource = params.value;
+        this.title = languageUtils.getResource(params.value);
         this.icon = languageUtils.getLanguageIconUrl();
         this.speaker = languageUtils.getResource('speaker');
     },
@@ -123,9 +127,9 @@ ko.components.register('header-widget', {
         + '<a href="http://www.javaland.eu"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
         + '<a id="language-select" onclick="languageUtils.toggleLanguage();"><img data-bind="attr : { src : icon }"/></a>'
         + '<div class="main-menu">'
-        + '<a href="index.html">Talks</a>|<a id="menu-speaker" href="speakers.html" data-bind="text: speaker"></a>|<a href="feedback.html">Feedback</a>'
+        + '<a href="index.html">Talks</a>|<a href="speakers.html" data-bind="text: speaker" data-resource="speaker"></a>|<a href="feedback.html">Feedback</a>'
         + '</div>'
-        + '<h1 id="headertitle" data-bind="text: title"></h1>'
+        + '<h1 id="headertitle" data-bind="text: title, attr : {\'data-resource\' : resource}"></h1>'
         + '</div>'
 });
 

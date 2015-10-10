@@ -2,6 +2,7 @@ var languageUtils = {
     selectedLanguage : ko.observable(dukeconSettings.getSelectedLanguage()),
 
     strings: {
+        // talks page
         filterOptions : {
             'de' : 'Filter-Optionen',
             'en' : 'Filter Options'
@@ -45,7 +46,16 @@ var languageUtils = {
         active : {
             'de' : 'Aktiv',
             'en' : 'Active'
-        }
+        },
+        // feedback page
+        feedback_content : {
+            'de' : '<span>Rückmeldungen zur Javaland Talks Webseite bitte per Mail an</span>'
+                   + '<a href="mailto:feedback@dukecon.org">feedback@dukecon.org</a><span> oder direkt</span>'
+                   + '<a href="https://github.com/dukecon/dukecon/issues" alt="Isssuetracker">hier</a><span>ein Ticket erfassen!</span>',
+            'en' : '<span>Please send any feedback about the Javaland Talks website via mail to</span>'
+                   + '<a href="mailto:feedback@dukecon.org">feedback@dukecon.org</a><span>or</span>'
+                   + '<a href="https://github.com/dukecon/dukecon/issues" alt="Isssuetracker">create a ticket here</a><span>!</span>'
+        },
     },
 
     toggleLanguage : function () {
@@ -65,13 +75,12 @@ var languageUtils = {
     },
 
     getResource : function(resourceKey) {
-        return languageUtils.strings[resourceKey][languageUtils.selectedLanguage()];
+        return languageUtils.strings[resourceKey] ?
+                languageUtils.strings[resourceKey][languageUtils.selectedLanguage()] :
+                resourceKey;
     },
 
     setLanguageStrings : function() {
-        var speaker = $('#menu-speaker'); // observable seem awkward for this case
-        speaker.text(languageUtils.getResource('speaker'));
-
         $.each($('[data-resource]'), function(index, elem) {
             var node = $(elem),
                 resourceKey = node.attr('data-resource');
