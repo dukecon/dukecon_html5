@@ -95,8 +95,9 @@ function TalkListViewModel() {
 
         _.each(self.filters, function(filter) {
             _.each(savedFilters[filter.filterKey], function(selected) {
-                if (filter.filtervalues.indexOf(selected) > -1) {
-                    filter.selected.push(selected);
+                if (_.find(filter.filtervalues(), function(val) { return val.id === selected.id; })) {
+                    filter.selected().push(selected);
+                    $('#' + selected.id).prop('checked', true); // doesn't seem to be checked automatically on first load!
                 }
             });
         });
@@ -167,7 +168,7 @@ function TalkListViewModel() {
                         return true;
                     }
                     return _.some(filter.selected(), function (selected) {
-                        return talk[filter.filterKey] === selected;
+                        return talk[filter.filterKey] === selected.en;
                     })
                 });
             }
