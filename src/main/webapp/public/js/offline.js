@@ -64,6 +64,8 @@ var dukeconSettings = {
     selected_language_key : "dukecon_language",
     day_key : "dukeconday",
 
+    context : window.location.pathame,
+
     getFavourites : function() {
         return dukeconSettings.getSettingOrEmptyArray(dukeconSettings.fav_key);
     },
@@ -130,7 +132,7 @@ var dukeconSettings = {
 
     getSetting : function(settingKey) {
         if (localStorage) {
-            var setting = localStorage.getItem(window.location.pathname + settingKey);
+            var setting = localStorage.getItem(dukeconSettings.context + settingKey);
 //            console.log("Load: " + settingKey + " -> " + setting);
             return setting ? JSON.parse(setting) : null;
         }
@@ -139,8 +141,8 @@ var dukeconSettings = {
 
     saveSetting : function(settingKey, value) {
         if (localStorage) {
-//            console.log("Save: " + settingKey + " -> " + JSON.stringify(value));
-            localStorage.setItem(window.location.pathname + settingKey, JSON.stringify(value));
+ //             console.log("Save: " + settingKey + " -> " + JSON.stringify(value));
+            localStorage.setItem(dukeconSettings.context + settingKey, JSON.stringify(value));
         }
     }
 
