@@ -56,6 +56,7 @@ function TalkListViewModel() {
         self.allTalks = mappedTalks;
         self.initializeDays();
         self.initializeFilters(allData.metaData);
+        self.filterTalks();
     };
 
     // Functions
