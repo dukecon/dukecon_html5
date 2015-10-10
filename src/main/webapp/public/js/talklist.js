@@ -50,7 +50,7 @@ function TalkListViewModel() {
 
     self.initialize = function(allData) {
         var favourites = dukeconSettings.getFavourites();
-        var mappedTalks = $.map(allData.talks, function(talk) {
+        var mappedTalks = $.map(allData.events, function(talk) {
             return new Talk(talk, allData.speakers, allData.metaData, favourites.indexOf(talk.id) !== -1)
         }).sort(self.sortTalk);
         self.allTalks = mappedTalks;
@@ -81,7 +81,7 @@ function TalkListViewModel() {
         self.filters[0].filtervalues(self.getFilterValues(metaData.audiences));
         self.filters[1].filtervalues(self.getFilterValues(metaData.languages));
         self.filters[2].filtervalues(self.getFilterValues(metaData.tracks));
-        self.filters[3].filtervalues(self.getFilterValues(metaData.rooms));
+        self.filters[3].filtervalues(self.getFilterValues(metaData.locations));
 
         _.each(self.filters, function(filter) {
             _.each(savedFilters[filter.filterKey], function(selected) {

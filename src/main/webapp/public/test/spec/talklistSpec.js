@@ -61,21 +61,29 @@ describe("talklist", function () {
                         }
                     },
                 ],
-                "rooms":
+                "locations":
                 [
                     {
                         "id": "1",
                         "order": 1,
-                        "name": "Wintergarten"
+                        "names":
+                        {
+                            "de": "Wintergarten",
+                            "en": "Wintergarten"
+                        }
                     },
                     {
                         "id": "2",
                         "order": 2,
-                        "name": "Schauspielhaus"
+                        "names":
+                        {
+                            "de": "Schauspielhaus",
+                            "en": "Schauspielhaus"
+                        }
                     },
                 ]
             },
-        "talks" : [{
+        "events" : [{
                 "id": "509415",
                 "start": "2016-03-09T10:00",
                 "end": "2016-03-09T10:40",
@@ -122,7 +130,7 @@ describe("talklist", function () {
     it("allTalks", function() {
         var model = new TalkListViewModel();
         model.initialize(talk_json);
-        expect(model.allTalks[0].id).toEqual(talk_json.talks[0].id);
-        expect(model.allTalks[1].id).toEqual(talk_json.talks[1].id);
+        expect(model.allTalks[0].id).toEqual(talk_json.events[0].id);
+        expect(model.allTalks[1].id).toEqual(talk_json.events[1].id);
     });
 });

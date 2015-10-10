@@ -1,5 +1,5 @@
 // PLEASE! PLEASE! PLEASE! DO NEVER EVER CHANGE THIS LINE and check it into Git!!!
-var jsonUrl = "rest/conference";
+var jsonUrl = "rest/conferences/499959";
 
 function Talk(data, speakers, metaData, isFavourite) {
     this.id = data.id || '';
@@ -177,11 +177,7 @@ var dukeconUtils = {
     },
 
     getLocation : function(metaData, locationId) {
-        //return dukeconUtils.getById(metaData.rooms, locationId);
-        var value = _.find(metaData.rooms, function(d) {
-            return d.id === locationId;
-        });
-        return value ? value.name : '';
+        return dukeconUtils.getById(metaData.locations, locationId);
     },
 
     getById : function(data, id) {

@@ -8,7 +8,7 @@ function SpeakerViewModel() {
 
     self.initializeData = function(allData) {
         self.allSpeakers(_.map(allData.speakers, function(s) {
-            return new Speaker(s, allData.talks, allData.speakers, allData.metaData);
+            return new Speaker(s, allData.events, allData.speakers, allData.metaData);
         }).sort(sortSpeaker));
     };
 };
