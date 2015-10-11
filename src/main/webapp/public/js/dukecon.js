@@ -228,7 +228,7 @@ var dukeconUtils = {
         return dukeconUtils.talkIcons[typeId] || 'img/Unknown.png';
     },
 
-    getTalks(talkIds, talks, speakers, metaData) {
+	getTalks : function(talkIds, talks, speakers, metaData) {
         return _.map(talkIds, function(id) {
            var talk = _.find(talks, function(t) {
                 return t.id === id;
