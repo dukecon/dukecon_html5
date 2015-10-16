@@ -2,21 +2,23 @@
 var jsonUrl = "rest/conferences/499959";
 
 function Talk(data, speakers, metaData, isFavourite) {
+    var self = this;
+
     this.id = data.id || '';
     this.day = dukeconDateUtils.getDisplayDate(data.start);
-    this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
+    this.startDisplayed = ko.observable(dukeconDateUtils.getDisplayTime(data.start));
     this.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
     this.startSortable = data.start || '';
-    this.trackDisplay = dukeconUtils.getTrack(metaData, data.trackId);     // TODO: this is only set correctly on page reload
+    this.trackDisplay = ko.observable(dukeconUtils.getTrack(metaData, data.trackId));
     this.track = dukeconUtils.getForFilter(metaData.tracks, data.trackId);
-    this.locationDisplay = dukeconUtils.getLocation(metaData, data.locationId);
+    this.locationDisplay = ko.observable(dukeconUtils.getLocation(metaData, data.locationId));
     this.location = dukeconUtils.getForFilter(metaData.locations, data.locationId);
-    this.levelDisplay = dukeconUtils.getLevel(metaData, data.audienceId);
+    this.levelDisplay = ko.observable(dukeconUtils.getLevel(metaData, data.audienceId));
     this.level = dukeconUtils.getForFilter(metaData.audiences, data.audienceId);
     this.title = data.title || '';
     this.speakerString = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, false).join(', ');
     this.speakersWithCompanies = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, true);
-    this.languageDisplay = dukeconUtils.getLanguage(metaData, data.languageId);
+    this.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
     this.language = dukeconUtils.getForFilter(metaData.languages, data.languageId);
     this.fullAbstract = data.abstractText || '';
     this.timeCategory =  dukeconDateUtils.getTimeCategory(this.duration);
@@ -29,6 +31,15 @@ function Talk(data, speakers, metaData, isFavourite) {
         this.favourite(!this.favourite());
     };
     this.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '')
+
+    languageUtils.selectedLanguage.subscribe(function(language) {
+        self.startDisplayed(dukeconDateUtils.getDisplayTime(data.start));
+        self.trackDisplay(dukeconUtils.getTrack(metaData, data.trackId));
+        self.levelDisplay(dukeconUtils.getLevel(metaData, data.audienceId));
+        self.languageDisplay(dukeconUtils.getLanguage(metaData, data.languageId));
+        self.locationDisplay(dukeconUtils.getLocation(metaData, data.locationId));
+    });
+
 };
 
 function Speaker(data, talks, speakers, metaData) {
