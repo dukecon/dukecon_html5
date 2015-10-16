@@ -126,7 +126,7 @@ ko.components.register('header-widget', {
     template:
         '<div class="header">'
         + '<a href="http://www.javaland.eu"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
-        + '<a id="language-select" onclick="languageUtils.toggleLanguage();"><img data-bind="attr : { src : icon }"/></a>'
+        + '<a id="language-select" onclick="languageUtils.toggleLanguage();"><img alt="Sprache umschalten" data-bind="attr : { src : icon }"/></a>'
         + '<div class="main-menu">'
         + '<a href="index.html">Talks</a>|<a href="speakers.html" data-bind="text: speaker" data-resource="speaker"></a>|<a href="feedback.html">Feedback</a>'
         + '</div>'
