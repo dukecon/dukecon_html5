@@ -5,8 +5,8 @@ function Talk(data, speakers, metaData, isFavourite) {
     var self = this;
 
     this.id = data.id || '';
-    this.day = dukeconDateUtils.getDisplayDate(data.start);
-    this.startDisplayed = ko.observable(dukeconDateUtils.getDisplayTime(data.start));
+    this.day = ko.observable(dukeconDateUtils.getDisplayDate(data.start));
+    this.startDisplayed =dukeconDateUtils.getDisplayTime(data.start);
     this.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
     this.startSortable = data.start || '';
     this.trackDisplay = ko.observable(dukeconUtils.getTrack(metaData, data.trackId));
@@ -33,7 +33,7 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '')
 
     languageUtils.selectedLanguage.subscribe(function(language) {
-        self.startDisplayed(dukeconDateUtils.getDisplayTime(data.start));
+//        self.day(dukeconDateUtils.getDisplayDate(data.start));
         self.trackDisplay(dukeconUtils.getTrack(metaData, data.trackId));
         self.levelDisplay(dukeconUtils.getLevel(metaData, data.audienceId));
         self.languageDisplay(dukeconUtils.getLanguage(metaData, data.languageId));
