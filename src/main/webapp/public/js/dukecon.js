@@ -13,6 +13,7 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.track = dukeconUtils.getForFilter(metaData.tracks, data.trackId);
     this.locationDisplay = ko.observable(dukeconUtils.getLocation(metaData, data.locationId));
     this.location = dukeconUtils.getForFilter(metaData.locations, data.locationId);
+    this.locationOrder = dukeconUtils.getOrderById(metaData.locations, data.locationId)
     this.levelDisplay = ko.observable(dukeconUtils.getLevel(metaData, data.audienceId));
     this.level = dukeconUtils.getForFilter(metaData.audiences, data.audienceId);
     this.title = data.title || '';
@@ -89,7 +90,7 @@ var dukeconDateUtils = {
             return '';
         }
         var hoursAndMinutes = dayAndTime[1].split(':');
-        if (hoursAndMinutes.length != 2) {
+        if (hoursAndMinutes.length < 2) {
             return '';
         }
         return this.addLeadingZero(hoursAndMinutes[0]) + ":" + this.addLeadingZero(hoursAndMinutes[1]);
@@ -208,6 +209,13 @@ var dukeconUtils = {
             return d.id === id;
         });
         return value ? value.names[languageUtils.selectedLanguage()] : '';
+    },
+
+    getOrderById : function(data, id) {
+        var value = _.find(data, function(d) {
+            return d.id === id;
+        });
+        return value ? value.order : 0;
     },
 
     getForFilter : function(data, id) {

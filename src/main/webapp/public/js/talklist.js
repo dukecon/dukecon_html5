@@ -186,10 +186,10 @@ function TalkListViewModel() {
 
     self.sortTalksForTime = function(talks) {
         return talks.sort(function(talk1, talk2) {
-            if (talk1.location > talk2.location) {
+            if (talk1.locationOrder > talk2.locationOrder) {
                 return 1;
             }
-            return talk1.location < talk2.location ? -1 : 0;
+            return talk1.locationOrder < talk2.locationOrder ? -1 : 0;
         });
     };
 
