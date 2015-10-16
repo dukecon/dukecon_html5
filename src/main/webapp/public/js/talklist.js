@@ -74,7 +74,7 @@ function TalkListViewModel() {
     };
 
     self.initializeDays = function() {
-        self.days(self.getDistinctValues('day', dukeconDateUtils.sortDays));
+        self.days(self.getDistinctDateValues(dukeconDateUtils.sortDays));
         if (self.days().length <= self.selectedDayIndex()) {
             self.selectedDayIndex = 0;
         }
@@ -123,9 +123,9 @@ function TalkListViewModel() {
         self.filtersActive(true);
     };
 
-    self.getDistinctValues = function(key, sortBy) {
+    self.getDistinctDateValues = function(sortBy) {
         var t = _.groupBy(self.allTalks, function(talk) {
-            return talk[key];
+            return talk.day();
         });
         if (sortBy) {
             return _.keys(t).sort(sortBy);
@@ -139,7 +139,7 @@ function TalkListViewModel() {
     };
 
     self.filterTalks = function() {
-        var filtered = self.getFilteredTasks();
+        var filtered = self.getFilteredTalks();
         $('#nothingtoshow').addClass('hidden');
         $('#talks-grid').removeClass('hidden');
         if (self.onlyFavourites() == true) {
@@ -158,12 +158,12 @@ function TalkListViewModel() {
         });
     };
 
-    self.getFilteredTasks = function() {
+    self.getFilteredTalks = function() {
         return _.filter(self.allTalks, function (talk) {
             if (!self.filtersActive()) {
-                return talk.day === self.selectedDay;
+                return talk.day() === self.selectedDay;
             } else {
-                return talk.day === self.selectedDay && _.every(self.filters, function (filter) {
+                return talk.day() === self.selectedDay && _.every(self.filters, function (filter) {
                     if (filter.selected().length === 0) {
                         return true;
                     }
