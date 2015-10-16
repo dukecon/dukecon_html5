@@ -31,6 +31,7 @@ img/Unknown.png
 img/favicon.ico
 # Js
 js/dukecon.js
+js/dukecloak.js
 js/feedback.js
 js/jquery-2.1.4.min.js
 js/knockout-min-3.3.0.js

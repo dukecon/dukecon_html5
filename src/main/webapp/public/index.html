@@ -7,6 +7,9 @@
     <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
     <script type='text/javascript' src='js/underscore-min.js'></script>
     <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
+    <!-- Temporarily use a local keycloak.js file for debugging purposes -->
+    <script type='text/javascript' src='js/keycloak.js'></script>
+    <!--<script type='text/javascript' src='http://keycloak.dukecon.org/auth/js/keycloak.js'></script>-->
     <link rel="stylesheet" href="css/pure-min.css"/>
     <link rel="stylesheet" href="css/side-menu.css">
     <link rel="stylesheet" href="css/dukecon.css"/>
@@ -15,6 +18,13 @@
 </head>
 <body onunload="unloadP('dukeConMain')" onload="loadP('dukeConMain')">
 <header-widget params="value: 'Talks'"></header-widget>
+<div>
+    <div>
+        <a data-bind="click: dukecloak.login, visible: dukecloak.auth.loggedOut">*Broken* Sign in/Register</a>
+        <a data-bind="click: dukecloak.logout, visible: dukecloak.auth.loggedIn">Sign Out</a>
+        <div data-bind="text: dukecloak.auth.username"></div>
+    </div>
+</div>
 <div id="layout" class="content" onload>
 
     <a href="#menu" id="menuLink" class="menu-link">
@@ -82,12 +92,14 @@
 </div>
 <footer-widget/>
 
+<script type='text/javascript' src='js/dukecloak.js'></script>
 <script type='text/javascript' src='js/dukecon.js'></script>
 <script type='text/javascript' src='js/offline.js'></script>
 <script type='text/javascript' src='js/talklist.js'></script>
 <script type='text/javascript' src='js/ui.js'></script>
 <script type='text/javascript'>
     initializeTalkList();
+    dukecloak.init();
 </script>
 </body>
 </html>
