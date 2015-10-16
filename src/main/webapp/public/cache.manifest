@@ -33,7 +33,7 @@ img/favicon.ico
 js/dukecon.js
 js/dukecloak.js
 js/keycloak.js
-js/feedback.js
+js/empty-model.js
 js/jquery-2.1.4.min.js
 js/knockout-min-3.3.0.js
 js/offline.js
