@@ -1,5 +1,6 @@
 // PLEASE! PLEASE! PLEASE! DO NEVER EVER CHANGE THIS LINE and check it into Git!!!
 var jsonUrl = "rest/conferences/499959";
+var slicedEventsJsonUrl = "rest/conferences/499959/slicedEvents";
 
 function Talk(data, speakers, metaData, isFavourite) {
     var self = this;

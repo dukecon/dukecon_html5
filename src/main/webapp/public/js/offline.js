@@ -16,10 +16,22 @@ window.addEventListener('load', function(e) {
 
 var dukeconTalkUtils = {
     getData : function(callback) {
+        var successCallbackSlicedEvents = function(data) {
+            if (data) {
+                dukeconDb.get(dukeconDb.talk_store, function(dbData) {
+                    if (dbData) {
+                        dbData.events = data
+                        dukeconDb.save(dukeconDb.talk_store, dbData);
+                        callback(dbData);
+                    }
+                });
+            }
+        };
         var successCallback = function(data) {
             if (data) {
                 dukeconDb.save(dukeconDb.talk_store, data);
-                callback(data);
+                dukeconTalkUtils.getDataFromServer(slicedEventsJsonUrl, successCallbackSlicedEvents, errorCallback);
+                //callback(data);
             }
         };
         var errorCallback = function() {
@@ -33,14 +45,14 @@ var dukeconTalkUtils = {
             });
         };
         console.log("Retrieving data from server");
-        dukeconTalkUtils.getDataFromServer(successCallback, errorCallback);
+        dukeconTalkUtils.getDataFromServer(jsonUrl, successCallback, errorCallback);
     },
 
-    getDataFromServer : function(callback, errorCallback) {
+    getDataFromServer : function(url, callback, errorCallback) {
         $.ajax({
             method: 'GET',
             dataType: "json",
-            url: jsonUrl,
+            url: url,
             success: callback,
             error: function(error) {
                 console.log('No connection to server, retrieving data from local storage');
