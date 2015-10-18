@@ -107,8 +107,8 @@ function TalkListViewModel() {
         return _.map(values, function(value) {
              var ret = {};
              ret.id = prefix + value.id;
-             ret.en = value.names ? value.names.en : value.name;
-             ret.de = value.names ? value.names.de : value.name;
+             ret.en = value.names.en;
+             ret.de = value.names.de;
              ret.displayName = function() {
                 return ret[languageUtils.selectedLanguage()];
              }
@@ -145,7 +145,7 @@ function TalkListViewModel() {
         if (self.onlyFavourites() == true) {
             filtered = self.getFavouriteTalks(filtered);
         }
-        if( filtered.length === 0) {
+        if (filtered.length === 0) {
             $('#nothingtoshow').removeClass('hidden');
             $('#talks-grid').addClass('hidden');
         }
