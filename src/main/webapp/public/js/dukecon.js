@@ -12,6 +12,8 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.startSortable = data.start || '';
     this.trackDisplay = ko.observable(dukeconUtils.getTrack(metaData, data.trackId));
     this.track = data.trackId || '';
+    this.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '')
+    this.isTrackVisible = ko.computed(function() { return self.trackDisplay() !== '';})
     this.locationDisplay = ko.observable(dukeconUtils.getLocation(metaData, data.locationId));
     this.location = data.locationId || '';
     this.locationOrder = dukeconUtils.getOrderById(metaData.locations, data.locationId)
@@ -32,7 +34,6 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.toggleFavourite = function() {
         this.favourite(!this.favourite());
     };
-    this.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '')
 
     languageUtils.selectedLanguage.subscribe(function(language) {
         self.day(dukeconDateUtils.getDisplayDate(data.start));
@@ -53,7 +54,6 @@ function Speaker(data, talks, speakers, metaData) {
 
 var dukeconDateUtils = {
 
-    // TODO: this is only set correctly on page reload
     weekDays : {
          'de' : ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
          'en' : ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -172,7 +172,7 @@ ko.components.register('talk-widget', {
                 + '<span data-bind="text: talk.startDisplayed"></span> (<span data-bind="text: talk.duration"></span><span> min)</span>'
             + '</div>'
             + '<div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Location" title="Location"/> <span data-bind="text: talk.locationDisplay" /></div>'
-            + '<div class="track"><img width="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.trackDisplay" /></div>'
+            + '<div class="track" data-bind="visible: talk.isTrackVisible"><img width="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.trackDisplay" /></div>'
             + '</div>'
 });
 
