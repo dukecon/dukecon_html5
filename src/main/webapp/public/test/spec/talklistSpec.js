@@ -1,88 +1,27 @@
 describe("talklist", function () {
     var talk_json = {
         "metaData": {
-                "audiences": [
-                    {"id": "1",
-                    "order": 1,
-                    "names": {
-                        "de": "Anfänger",
-                        "en": "beginners"
-                    }},
-                    {"id": "2",
-                    "order": 2,
-                    "names": {
-                        "de": "Fortgeschrittene",
-                        "en": "advanced"
-                    }}
-                ],
-                "talkTypes":[
-                    {"id": "1",
-                    "order": 1,
-                    "names":{
-                        "de": "Best Practices",
-                        "en": "best practices"
-                    }},
-                    {"id": "2",
-                    "order": 2,
-                    "names":{
-                        "de": "Keynote",
-                        "en": "keynote"
-                    }}
-                ],
-                "languages":[
-                    {"id": "de",
-                    "order": 1,
-                    "names":{
-                        "de": "Deutsch",
-                        "en": "German"
-                    }},
-                    {"id": "en",
-                    "order": 2,
-                    "names":{
-                        "de": "Englisch",
-                        "en": "English"
-                    }}
-                ],
-                "tracks":[
-                    {"id": "1",
-                        "order": 1,
-                        "names":{
-                            "de": "Container & Microservices",
-                            "en": "container & microservices"
-                        }
-                    },
-                    {
-                        "id": "2",
-                        "order": 2,
-                        "names":
-                        {
-                            "de": "Core Java & JVM basierte Sprachen",
-                            "en": "Core Java & JVM based languages"
-                        }
-                    },
-                ],
-                "locations":
-                [
-                    {
-                        "id": "1",
-                        "order": 1,
-                        "names":
-                        {
-                            "de": "Wintergarten",
-                            "en": "Wintergarten"
-                        }
-                    },
-                    {
-                        "id": "2",
-                        "order": 2,
-                        "names":
-                        {
-                            "de": "Schauspielhaus",
-                            "en": "Schauspielhaus"
-                        }
-                    },
-                ]
-            },
+            "audiences": [
+                { "id": "1", "order": 1, "names": { "de": "Anfï¿½nger", "en": "beginners" }},
+                { "id": "2", "order": 2, "names": { "de": "Fortgeschrittene", "en": "advanced" }}
+            ],
+            "talkTypes": [
+                { "id": "1", "order": 1, "names": { "de": "Best Practices", "en": "best practices" }},
+                { "id": "2", "order": 2, "names": { "de": "Keynote", "en": "keynote" }}
+            ],
+            "languages": [
+                { "id": "de", "order": 1, "names": { "de": "Deutsch", "en": "German" }},
+                { "id": "en", "order": 2, "names": { "de": "Englisch", "en": "English" }}
+            ],
+            "tracks": [
+                { "id": "1", "order": 1, "names": { "de": "Container & Microservices", "en": "container & microservices" }},
+                { "id": "2", "order": 2, "names": { "de": "Core Java & JVM basierte Sprachen", "en": "Core Java & JVM based languages" }},
+            ],
+            "locations": [
+                { "id": "1", "order": 1, "names": { "de": "Wintergarten", "en": "Wintergarten" }},
+                { "id": "2", "order": 2, "names": { "de": "Schauspielhaus", "en": "Schauspielhaus" }},
+            ]
+        },
         "events" : [{
                 "id": "509415",
                 "start": "2016-03-09T10:00",

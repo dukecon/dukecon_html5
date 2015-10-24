@@ -23,10 +23,12 @@ describe("dukecon settings", function () {
     };
 
     it("handle filters", function () {
+        var filter1Unselected = createFilter('filter1', [createFilterValue("1", false), createFilterValue("2", false)]);
         var filter1 = createFilter('filter1', [createFilterValue("1", false), createFilterValue("2", true)]);
         var filter2 = createFilter('filter2', [createFilterValue("1", false), createFilterValue("2", false)]);
-        var filters = [filter1, filter2];
+        dukeconSettings.saveSelectedFilters([filter1Unselected, filter2]);
 
+        var filters = [filter1, filter2];
         expect(dukeconSettings.getSavedFilters(filters)).toEqual({"filter1" : [], "filter2" : []});
         dukeconSettings.saveSelectedFilters(filters);
         expect(dukeconSettings.getSavedFilters(filters)).toEqual({"filter1" : ["2"], "filter2" : []});

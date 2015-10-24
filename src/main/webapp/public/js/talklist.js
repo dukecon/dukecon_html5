@@ -1,3 +1,15 @@
+function FilterValue(key, value, isSelected) {
+    var filterValue = this;
+    this.ui_id = key + "_" + value.id;
+    this.id = value.id;
+    this.selected = ko.observable(isSelected);
+    this.en = value.names.en;
+    this.de = value.names.de;
+    this.displayName = function () {
+        return filterValue[languageUtils.selectedLanguage()];
+    };
+};
+
 function TalkListViewModel() {
     // Data
     var self = this;
@@ -81,21 +93,13 @@ function TalkListViewModel() {
     self.getFilterValues = function(key, metaData, selectedValues) {
         var values = metaData[key];
         return _.map(values, function(value) {
-             var filterValue = {};
-             filterValue.ui_id = key + "_" + value.id;
-             filterValue.id = value.id;
-             filterValue.selected = ko.observable(selectedValues.indexOf(filterValue.id) > -1);
-             filterValue.selected.subscribe(function(s) {
-                 if (!self.updateFiltersPaused) {
+            var filterValue = new FilterValue(key, value, selectedValues.indexOf(value.id) > -1);
+            filterValue.selected.subscribe(function (s) {
+                if (!self.updateFiltersPaused) {
                     self.filterTalks();
-                 }
-             });
-             filterValue.en = value.names.en;
-             filterValue.de = value.names.de;
-             filterValue.displayName = function() {
-                return filterValue[languageUtils.selectedLanguage()];
-             };
-             return filterValue;
+                }
+            });
+            return filterValue;
         });
     };
 
