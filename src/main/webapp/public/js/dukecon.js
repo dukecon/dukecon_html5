@@ -35,7 +35,7 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '')
 
     languageUtils.selectedLanguage.subscribe(function(language) {
-//        self.day(dukeconDateUtils.getDisplayDate(data.start));
+        self.day(dukeconDateUtils.getDisplayDate(data.start));
         self.trackDisplay(dukeconUtils.getTrack(metaData, data.trackId));
         self.levelDisplay(dukeconUtils.getLevel(metaData, data.audienceId));
         self.languageDisplay(dukeconUtils.getLanguage(metaData, data.languageId));
