@@ -15,25 +15,21 @@ describe("dukecon settings", function () {
         expect(dukeconSettings.getFavourites()).toEqual([]);
     });
 
+    var createFilterValue = function(id, selected) {
+        return {id : id, selected : function() { return selected; }};
+    };
+    var createFilter = function(filterKey, filterValues) {
+        return { filterKey: filterKey, filtervalues : function () { return filterValues; }};
+    };
+
     it("handle filters", function () {
-        var selected = true;
-        var filter1 = {
-            filterKey: 'filter1',
-            selected: function () { return selected ? ["value1"] : [] }
-        };
-        var filter2 = {
-            filterKey: 'filter2',
-            selected: function () { return selected ? ["value2"] : []; }
-        };
+        var filter1 = createFilter('filter1', [createFilterValue("1", false), createFilterValue("2", true)]);
+        var filter2 = createFilter('filter2', [createFilterValue("1", false), createFilterValue("2", false)]);
         var filters = [filter1, filter2];
 
         expect(dukeconSettings.getSavedFilters(filters)).toEqual({"filter1" : [], "filter2" : []});
         dukeconSettings.saveSelectedFilters(filters);
-        expect(dukeconSettings.getSavedFilters(filters)).toEqual({"filter1" : ["value1"], "filter2" : ["value2"]});
-
-        selected = false;
-        dukeconSettings.saveSelectedFilters(filters);
-        expect(dukeconSettings.getSavedFilters(filters)).toEqual({"filter1" : [], "filter2" : []});
+        expect(dukeconSettings.getSavedFilters(filters)).toEqual({"filter1" : ["2"], "filter2" : []});
     });
 
     it("handle selected day", function() {
