@@ -2,15 +2,6 @@ function TalkListViewModel() {
     // Data
     var self = this;
 
-    self.toggleFilterMenu = function(active) {
-        var veil = $('#filter-veil');
-        if (active === true) {
-            veil.removeClass("shown");
-        } else {
-            veil.addClass("shown");
-        }
-    };
-
     self.groupedTalks = ko.observableArray([]);
     self.allTalks = [];
     self.metaData = {};
@@ -28,9 +19,6 @@ function TalkListViewModel() {
 
     self.onlyFavourites = ko.observable(false);
     self.filtersActive = ko.observable(dukeconSettings.filtersActive());
-
-    // Initialize
-    self.toggleFilterMenu(self.filtersActive());
 
     self.onlyFavourites.subscribe(function(val) {
         self.filterTalks();
@@ -63,6 +51,7 @@ function TalkListViewModel() {
         self.initializeDays();
         self.initializeFilters(allData.metaData);
         self.filterTalks();
+        self.toggleFilterMenu(self.filtersActive());
     };
 
     // Functions
@@ -200,9 +189,19 @@ function TalkListViewModel() {
         dukeconSettings.saveSelectedDay(self.selectedDayIndex());
         dukeconSettings.saveSelectedFilters(self.filters);
     };
+
+    self.toggleFilterMenu = function(active) {
+        var veil = $('#filter-veil');
+        if (active === true) {
+            veil.removeClass("shown");
+        } else {
+            veil.addClass("shown");
+        }
+    };
 }
 
 function initializeTalkList() {
+    languageUtils.init();
     var model = new TalkListViewModel();
     dukeconTalkUtils.getData(model.initialize);
     ko.applyBindings(model);

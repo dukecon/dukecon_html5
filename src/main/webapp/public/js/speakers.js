@@ -20,4 +20,5 @@ var sortSpeaker = function(s1, s2) {
     return s1.name > s2.name ? 1 : 0;
 }
 
+languageUtils.init();
 ko.applyBindings(new SpeakerViewModel());

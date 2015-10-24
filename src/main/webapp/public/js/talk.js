@@ -21,7 +21,5 @@ function TalkViewModel() {
     };
 }
 
+languageUtils.init();
 ko.applyBindings(new TalkViewModel());
-
-
-
