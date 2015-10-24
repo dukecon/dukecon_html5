@@ -125,7 +125,10 @@ var dukeconSettings = {
 
     saveSelectedFilters : function(filters) {
         _.each(filters, function(filter) {
-            dukeconSettings.saveSetting(dukeconSettings.filter_key_prefix + filter.filterKey, filter.selected());
+            var selected = _.map(
+                _.filter(filter.filtervalues(), function(val) { return val.selected(); }),
+                function(filterValue) { return filterValue.id; });
+            dukeconSettings.saveSetting(dukeconSettings.filter_key_prefix + filter.filterKey, selected);
         });
     },
 
@@ -145,7 +148,7 @@ var dukeconSettings = {
     getSetting : function(settingKey) {
         if (localStorage) {
             var setting = localStorage.getItem(dukeconSettings.context + settingKey);
-//            console.log("Load: " + settingKey + " -> " + setting);
+            //console.log("Load: " + settingKey + " -> " + setting);
             return setting ? JSON.parse(setting) : null;
         }
         return null;
@@ -153,7 +156,7 @@ var dukeconSettings = {
 
     saveSetting : function(settingKey, value) {
         if (localStorage) {
- //             console.log("Save: " + settingKey + " -> " + JSON.stringify(value));
+            //console.log("Save: " + settingKey + " -> " + JSON.stringify(value));
             localStorage.setItem(dukeconSettings.context + settingKey, JSON.stringify(value));
         }
     }

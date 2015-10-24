@@ -7,10 +7,10 @@ function TalkListViewModel() {
     self.metaData = {};
 
     self.filters = [
-        {title: ko.observable(''), filterKey: 'level', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
-        {title: ko.observable(''), filterKey: 'language', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
-        {title: ko.observable(''), filterKey: 'track', filtervalues : ko.observableArray([]), selected : ko.observableArray([])},
-        {title: ko.observable(''), filterKey: 'location', filtervalues : ko.observableArray([]), selected : ko.observableArray([])}
+        {title: ko.observable(''), filterKey: 'level', filtervalues : ko.observableArray([])},
+        {title: ko.observable(''), filterKey: 'language', filtervalues : ko.observableArray([])},
+        {title: ko.observable(''), filterKey: 'track', filtervalues : ko.observableArray([])},
+        {title: ko.observable(''), filterKey: 'location', filtervalues : ko.observableArray([])}
     ];
 
     self.days = ko.observableArray([]);
@@ -19,6 +19,9 @@ function TalkListViewModel() {
 
     self.onlyFavourites = ko.observable(false);
     self.filtersActive = ko.observable(dukeconSettings.filtersActive());
+
+    //temporarily pause filter update actions
+    self.updateFiltersPaused = false;
 
     self.onlyFavourites.subscribe(function(val) {
         self.filterTalks();
@@ -32,13 +35,6 @@ function TalkListViewModel() {
 
     languageUtils.selectedLanguage.subscribe(function(language) {
         self.initializeFilters(self.metaData);
-    });
-
-    $.each(self.filters, function(index, filter) {
-        filter.selected.subscribe(function(s) {
-            self.filterTalks();
-            dukeconSettings.saveSelectedFilters(self.filters);
-        });
     });
 
     self.initialize = function(allData) {
@@ -71,44 +67,47 @@ function TalkListViewModel() {
     };
 
      self.initializeFilters = function(metaData) {
-        //Get the saved filters first to prevent overwriting them by accident
         var savedFilters = dukeconSettings.getSavedFilters(self.filters);
         self.filters[0].title(languageUtils.strings.level[languageUtils.selectedLanguage()]);
-        self.filters[0].filtervalues(self.getFilterValues('audience_', metaData.audiences));
+        self.filters[0].filtervalues(self.getFilterValues('audiences', metaData, savedFilters[self.filters[0].filterKey]));
         self.filters[1].title(languageUtils.strings.language[languageUtils.selectedLanguage()]);
-        self.filters[1].filtervalues(self.getFilterValues('language_', metaData.languages));
+        self.filters[1].filtervalues(self.getFilterValues('languages', metaData, savedFilters[self.filters[1].filterKey]));
         self.filters[2].title(languageUtils.strings.track[languageUtils.selectedLanguage()]);
-        self.filters[2].filtervalues(self.getFilterValues('track_', metaData.tracks));
+        self.filters[2].filtervalues(self.getFilterValues('tracks', metaData, savedFilters[self.filters[2].filterKey]));
         self.filters[3].title(languageUtils.strings.location[languageUtils.selectedLanguage()]);
-        self.filters[3].filtervalues(self.  getFilterValues('location_', metaData.locations));
-
-        _.each(self.filters, function(filter) {
-            _.each(savedFilters[filter.filterKey], function(selected) {
-                if (_.find(filter.filtervalues(), function(val) { return val.id === selected.id; })) {
-                    filter.selected().push(selected);
-                    $('#' + selected.id).prop('checked', true); // doesn't seem to be checked automatically on first load!
-                }
-            });
-        });
+        self.filters[3].filtervalues(self.getFilterValues('locations', metaData, savedFilters[self.filters[3].filterKey]));
     };
 
-    self.getFilterValues = function(prefix, values) {
+    self.getFilterValues = function(key, metaData, selectedValues) {
+        var values = metaData[key];
         return _.map(values, function(value) {
-             var ret = {};
-             ret.id = prefix + value.id;
-             ret.en = value.names.en;
-             ret.de = value.names.de;
-             ret.displayName = function() {
-                return ret[languageUtils.selectedLanguage()];
-             }
-             return ret;
+             var filterValue = {};
+             filterValue.ui_id = key + "_" + value.id;
+             filterValue.id = value.id;
+             filterValue.selected = ko.observable(selectedValues.indexOf(filterValue.id) > -1);
+             filterValue.selected.subscribe(function(s) {
+                 if (!self.updateFiltersPaused) {
+                    self.filterTalks();
+                 }
+             });
+             filterValue.en = value.names.en;
+             filterValue.de = value.names.de;
+             filterValue.displayName = function() {
+                return filterValue[languageUtils.selectedLanguage()];
+             };
+             return filterValue;
         });
     };
 
     self.resetFilters = function() {
+        self.updateFiltersPaused = true;
         _.each(self.filters, function(filter) {
-            filter.selected([]);
+            _.each(filter.filtervalues(), function(filtervalue) {
+                filtervalue.selected(false);
+            });
         });
+        self.updateFiltersPaused = false;
+        self.filterTalks();
         self.filtersActive(true);
     };
 
@@ -128,6 +127,7 @@ function TalkListViewModel() {
     };
 
     self.filterTalks = function() {
+        dukeconSettings.saveSelectedFilters(self.filters);
         var filtered = self.getFilteredTalks();
         $('#nothingtoshow').addClass('hidden');
         $('#talks-grid').removeClass('hidden');
@@ -148,16 +148,18 @@ function TalkListViewModel() {
     };
 
     self.getFilteredTalks = function() {
+        var savedFilters = dukeconSettings.getSavedFilters(self.filters);
         return _.filter(self.allTalks, function (talk) {
             if (!self.filtersActive()) {
                 return talk.day() === self.selectedDay;
             } else {
                 return talk.day() === self.selectedDay && _.every(self.filters, function (filter) {
-                    if (filter.selected().length === 0) {
+                    var selected = savedFilters[filter.filterKey];
+                    if (selected.length === 0) {
                         return true;
                     }
-                    return _.some(filter.selected(), function (selected) {
-                        return talk[filter.filterKey] === selected.en;
+                    return _.some(selected, function (selected) {
+                        return talk[filter.filterKey] === selected;
                     })
                 });
             }

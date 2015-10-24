@@ -53,8 +53,8 @@
                     <span class="filter-category" data-bind="text:title"></span>
                     <div class="filter-values" data-bind="foreach: filtervalues">
                         <div>
-                            <input type="checkbox" data-bind="checkedValue: $data, checked: $parent.selected, attr:{id: $data.id}" />
-                            <label data-bind="text: $data.displayName(), attr:{for: $data.id}"></label>
+                            <input type="checkbox" data-bind="checkedValue: $data, checked: $data.selected, attr:{id: $data.ui_id}" />
+                            <label data-bind="text: $data.displayName(), attr:{for: $data.ui_id}"></label>
                         </div>
                     </div>
                 </div>

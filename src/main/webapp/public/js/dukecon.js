@@ -11,17 +11,17 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
     this.startSortable = data.start || '';
     this.trackDisplay = ko.observable(dukeconUtils.getTrack(metaData, data.trackId));
-    this.track = dukeconUtils.getForFilter(metaData.tracks, data.trackId);
+    this.track = data.trackId || '';
     this.locationDisplay = ko.observable(dukeconUtils.getLocation(metaData, data.locationId));
-    this.location = dukeconUtils.getForFilter(metaData.locations, data.locationId);
+    this.location = data.locationId || '';
     this.locationOrder = dukeconUtils.getOrderById(metaData.locations, data.locationId)
     this.levelDisplay = ko.observable(dukeconUtils.getLevel(metaData, data.audienceId));
-    this.level = dukeconUtils.getForFilter(metaData.audiences, data.audienceId);
+    this.level = data.audienceId || '';
     this.title = data.title || '';
     this.speakerString = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, false).join(', ');
     this.speakersWithCompanies = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, true);
     this.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
-    this.language = dukeconUtils.getForFilter(metaData.languages, data.languageId);
+    this.language = data.languageId || '';
     this.fullAbstract = data.abstractText || '';
     this.timeCategory =  dukeconDateUtils.getTimeCategory(this.duration);
     this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra';
@@ -217,13 +217,6 @@ var dukeconUtils = {
             return d.id === id;
         });
         return value ? value.order : 0;
-    },
-
-    getForFilter : function(data, id) {
-        var value = _.find(data, function(d) {
-            return d.id === id;
-        });
-        return value ? value.names.en : '';
     },
 
     getSpeakerNames : function(speakerIds, speakers, withCompany) {
