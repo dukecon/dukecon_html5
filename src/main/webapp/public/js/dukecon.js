@@ -6,8 +6,9 @@ function Talk(data, speakers, metaData, isFavourite) {
     var self = this;
 
     this.id = data.id || '';
+    this.startDate = data.start ? new Date(data.start) : null;
     this.day = ko.observable(dukeconDateUtils.getDisplayDate(data.start));
-    this.startDisplayed =dukeconDateUtils.getDisplayTime(data.start);
+    this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
     this.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
     this.startSortable = data.start || '';
     this.trackDisplay = ko.observable(dukeconUtils.getTrack(metaData, data.trackId));
@@ -77,8 +78,8 @@ var dukeconDateUtils = {
         var date = new Date(datetimeString);
         var month = this.addLeadingZero(date.getMonth() + 1);
         var day = this.addLeadingZero(date.getDate());
-        var weekDay = this.weekDays[languageUtils.selectedLanguage()][date.getDay()];
-        return weekDay + ", " + day + "." + month + ".";
+        var weekday = this.weekDays[languageUtils.selectedLanguage()][date.getDay()];
+        return weekday + ", " + day + "." + month + ".";
     },
 
     //2016-03-08T10:30

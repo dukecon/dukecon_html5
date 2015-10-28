@@ -66,7 +66,7 @@
     <div id="content">
         <div>
             <div id="days_filter" data-bind="foreach: days">
-                <button type="button" data-bind="text: $data, click: $parent.updateDay, attr: { class: ($index() == $parent.selectedDayIndex() ? 'selected' : '')}"></button>
+                <button type="button" data-bind="text: $data.displayDay, click: $parent.updateDay, attr: { class: ($index() == $parent.selectedDayIndex() ? 'selected' : '')}"></button>
             </div>
         </div>
         <div id="nothingtoshow" class="hidden"><span data-resource="notalksfound"></span>

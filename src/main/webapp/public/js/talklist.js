@@ -71,11 +71,10 @@ function TalkListViewModel() {
     };
 
     self.initializeDays = function() {
-        self.days(self.getDistinctDateValues(dukeconDateUtils.sortDays));
+        self.days(self.getDistinctDateValues());
         if (self.days().length <= self.selectedDayIndex()) {
             self.selectedDayIndex = 0;
         }
-        self.selectedDay = self.days()[self.selectedDayIndex()];
     };
 
      self.initializeFilters = function(metaData) {
@@ -115,15 +114,16 @@ function TalkListViewModel() {
         self.filtersActive(true);
     };
 
-    self.getDistinctDateValues = function(sortBy) {
-        var t = _.groupBy(self.allTalks, function(talk) {
-            return talk.day();
+    self.getDistinctDateValues = function() {
+        var daysAndTalks = _.groupBy(self.allTalks, function(talk) {
+            return talk.startDate.getDay();
         });
-        if (sortBy) {
-            return _.keys(t).sort(sortBy);
-        } else {
-            return _.keys(t).sort();
-        }
+        var dates = [];
+        _.each(_.keys(daysAndTalks).sort(), function(day) {
+            var talk = daysAndTalks[day][0];
+            dates.push({ "day" : day, "displayDay" : talk.day})
+        });
+        return dates;
     };
 
     self.deactivateFilters = function() {
@@ -153,11 +153,17 @@ function TalkListViewModel() {
 
     self.getFilteredTalks = function() {
         var savedFilters = dukeconSettings.getSavedFilters(self.filters);
+        var filtersEmpty = _.every(self.filters, function (filter) {
+          return savedFilters[filter.filterKey].length === 0;
+        });
+        var selectedWeekdayIndex = self.days()[self.selectedDayIndex()].day;
         return _.filter(self.allTalks, function (talk) {
-            if (!self.filtersActive()) {
-                return talk.day() === self.selectedDay;
-            } else {
-                return talk.day() === self.selectedDay && _.every(self.filters, function (filter) {
+            var isSelectedDay = talk.startDate.getDay() + '' === selectedWeekdayIndex;
+            if (!self.filtersActive() || filtersEmpty) {
+                return isSelectedDay;
+            }
+            else {
+                return isSelectedDay && _.every(self.filters, function (filter) {
                     var selected = savedFilters[filter.filterKey];
                     if (selected.length === 0) {
                         return true;
@@ -189,7 +195,6 @@ function TalkListViewModel() {
     };
 
     self.updateDay = function(day, event) {
-        self.selectedDay = day;
         self.selectedDayIndex(ko.contextFor(event.target).$index());
         self.filterTalks();
         dukeconSettings.saveSelectedDay(self.selectedDayIndex());
