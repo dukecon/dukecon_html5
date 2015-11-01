@@ -73,6 +73,7 @@ var dukeconSettings = {
     fav_key : "dukeconfavs",
     filter_key_prefix : "dukeconfilters_",
     filter_active_key : "dukeconfilters_active",
+    favs_active : "dukeconfavs_active",
     selected_language_key : "dukecon_language",
     day_key : "dukeconday",
 
@@ -107,6 +108,11 @@ var dukeconSettings = {
     filtersActive : function() {
         var result = dukeconSettings.getSetting(dukeconSettings.filter_active_key);
         return result == null ? true : result;
+    },
+
+    favoritesActive : function() {
+        var result = dukeconSettings.getSetting(dukeconSettings.favs_active);
+        return result == null ? false : result;
     },
 
     toggleFavourite : function(talkObject) {

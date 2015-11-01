@@ -29,13 +29,14 @@ function TalkListViewModel() {
     self.selectedDayIndex = ko.observable(dukeconSettings.getSelectedDay());
     self.selectedDay = "";
 
-    self.onlyFavourites = ko.observable(false);
+    self.onlyFavourites = ko.observable(dukeconSettings.favoritesActive());
     self.filtersActive = ko.observable(dukeconSettings.filtersActive());
 
     //temporarily pause filter update actions
     self.updateFiltersPaused = false;
 
     self.onlyFavourites.subscribe(function(val) {
+        dukeconSettings.saveSetting(dukeconSettings.favs_active, self.onlyFavourites());
         self.filterTalks();
     });
 
