@@ -16,13 +16,21 @@ table, th, td {
     padding: 5px;
 }
 
-.login-area {
+#login-area {
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: 4em;
+	top: 13px;
 }
-.login-area .button, .login-area .username {
-	display: inline-block;
+#login-area .button, #login-area .username {
+	font-size:80%;
+	vertical-align:middle;
+}
+#login-area .button {
+	height: 28px;
+	line-height: 1em;
+}
+.username {
+	margin-right:0.5em;
 }
 
 button, .button {

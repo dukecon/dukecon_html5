@@ -19,9 +19,9 @@
 <body onunload="unloadP('dukeConMain')" onload="loadP('dukeConMain')">
 <div id="login-area">
     <div>
+        <span class="username" data-bind="text: dukecloak.auth.username"></span>
         <a class="button" data-bind="click: dukecloak.login, visible: dukecloak.auth.loggedOut">Sign in/Register</a>
         <a class="button" data-bind="click: dukecloak.logout, visible: dukecloak.auth.loggedIn">Sign Out</a>
-        <div class="username" data-bind="text: dukecloak.auth.username"></div>
     </div>
 </div>
 <header-widget params="value: 'Talks'"></header-widget>

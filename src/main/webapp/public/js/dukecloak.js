@@ -2,6 +2,7 @@
 
 var keycloakUrl = 'rest/keycloak.json';
 var preferencesUrl = location.href + "rest/preferences";
+var redirectUri = location.href;
 var dukecloak = {
     keycloakAuth : new Keycloak(keycloakUrl),
 
@@ -10,50 +11,51 @@ var dukecloak = {
         loggedIn : ko.observable(false),
         loggedOut : ko.observable(true)
     },
+
+    loadUserData : function() {
+		dukecloak.keycloakAuth.loadUserProfile().success(function(profile){
+			dukecloak.auth.username(profile.username);
+			console.log("Logged in: " + dukecloak.auth.username());
+			//TODO: load user data
+		});
+    },
+
     logout : function() {
-        console.log('*** LOGOUT');
-        dukecloak.auth.loggedIn(false);
-        dukecloak.auth.loggedOut(true);
-        dukecloak.auth.username("");
-        dukecloak.auth.logoutUrl = dukecloak.keycloakAuth.authServerUrl + "/realms/" + dukecloak.keycloakAuth.realm + "/tokens/logout";
-        console.log(dukecloak.auth.logoutUrl);
-        window.location = dukecloak.auth.logoutUrl;
+        dukecloak.keycloakAuth.logout({"redirectUri":redirectUri}).success(function() {
+			dukecloak.auth.loggedIn(false);
+			dukecloak.auth.loggedOut(true);
+			dukecloak.auth.username("");
+        }).error(function() {
+			console.log("WTF");
+        });
     },
     login : function() {
-        console.log('*** LOGIN');
-        var redirectUri = location.href;
         dukecloak.keycloakAuth.login({"redirectUri":redirectUri}).success(function () {
-            console.log('*** LOGIN-success');
             dukecloak.auth.loggedIn(true);
             dukecloak.auth.loggedOut(false);
-            console.log(dukecloak.keycloakAuth.hasRealmRole('user'));
-            console.log(dukecloak.keycloakAuth.hasRealmRole('admin'));
-            dukecloak.auth.logoutUrl = dukecloak.keycloakAuth.authServerUrl + "/realms/" + dukecloak.keycloakAuth.realm + "/tokens/logout";
         }).error(function () {
             dukecloak.auth.loggedIn(false);
             dukecloak.auth.loggedOut(true);
-            console.log('*** LOGIN-error');
         });
     },
     init : function() {
-    	console.log('*** INIT');
         dukecloak.keycloakAuth.redirectUri = location.href;
         dukecloak.keycloakAuth.init({ onLoad: "check-sso" }).success(function (authenticated) {
             dukecloak.auth.loggedIn(authenticated);
             dukecloak.auth.loggedOut(!authenticated);
             console.log('Authenticated: ' + authenticated);
             if (authenticated){
-                dukecloak.keycloakAuth.loadUserProfile().success(function(profile){
-                    dukecloak.auth.username(profile.username);
-                    console.log(dukecloak.auth.username);
-                    //TODO: load user data
-                });
+            	dukecloak.loadUserData();
+	        } else {
+				if (redirectUri.indexOf('?') >= 0) {
+			        location.href = redirectUri.split("?")[0]; // TODO: URL contains a huge querystring after returning from KC, how to keep this from happening?
+				}
             }
         }).error(function () {
             console.log("Error initializing keycloak");
         });
         dukecloak.keycloakAuth.onAuthSuccess = function() { console.log("Auth Success!!"); };
-        dukecloak.keycloakAuth.onAuthRefreshSuccess = function() { console.log("Authentication FAIL!!"); };
+        dukecloak.keycloakAuth.onAuthRefreshSuccess = function() { console.log("Authenticated!!"); };
     }
 };
 
