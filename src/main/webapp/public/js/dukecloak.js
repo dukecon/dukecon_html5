@@ -1,6 +1,7 @@
-//TODO: fix this!
+// TODO: a work in progress
 
 var keycloakUrl = 'rest/keycloak.json';
+var preferencesUrl = location.href + "rest/preferences";
 var dukecloak = {
     keycloakAuth : new Keycloak(keycloakUrl),
 
@@ -20,7 +21,7 @@ var dukecloak = {
     },
     login : function() {
         console.log('*** LOGIN');
-        var redirectUri = location.href + "rest/preferences";
+        var redirectUri = location.href;
         dukecloak.keycloakAuth.login({"redirectUri":redirectUri}).success(function () {
             console.log('*** LOGIN-success');
             dukecloak.auth.loggedIn(true);
@@ -29,17 +30,21 @@ var dukecloak = {
             console.log(dukecloak.keycloakAuth.hasRealmRole('admin'));
             dukecloak.auth.logoutUrl = dukecloak.keycloakAuth.authServerUrl + "/realms/" + dukecloak.keycloakAuth.realm + "/tokens/logout";
         }).error(function () {
+            dukecloak.auth.loggedIn(false);
+            dukecloak.auth.loggedOut(true);
             console.log('*** LOGIN-error');
         });
     },
     init : function() {
-        dukecloak.keycloakAuth.redirectUri = location.href + "rest/preferences";
+    	console.log('*** INIT');
+        dukecloak.keycloakAuth.redirectUri = location.href;
         dukecloak.keycloakAuth.init({ onLoad: "check-sso" }).success(function (authenticated) {
             dukecloak.auth.loggedIn(authenticated);
+            dukecloak.auth.loggedOut(!authenticated);
             console.log('Authenticated: ' + authenticated);
-            if(authenticated){
+            if (authenticated){
                 dukecloak.keycloakAuth.loadUserProfile().success(function(profile){
-                    dukecloak.auth.username = profile.username;
+                    dukecloak.auth.username(profile.username);
                     console.log(dukecloak.auth.username);
                     //TODO: load user data
                 });
@@ -47,8 +52,8 @@ var dukecloak = {
         }).error(function () {
             console.log("Error initializing keycloak");
         });
-        dukecloak.keycloakAuth.onAuthSuccess = function() { alert('onAuthSuccess'); };
-        dukecloak.keycloakAuth.onAuthRefreshSuccess = function() { alert('onAuthRefreshSuccess'); };
+        dukecloak.keycloakAuth.onAuthSuccess = function() { console.log("Auth Success!!"); };
+        dukecloak.keycloakAuth.onAuthRefreshSuccess = function() { console.log("Authentication FAIL!!"); };
     }
 };
 

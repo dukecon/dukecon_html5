@@ -16,7 +16,16 @@ table, th, td {
     padding: 5px;
 }
 
-button {
+.login-area {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.login-area .button, .login-area .username {
+	display: inline-block;
+}
+
+button, .button {
     background-color: #eee;
     border: 0 none rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0.8);
@@ -31,10 +40,10 @@ button {
     vertical-align: middle;
     white-space: nowrap;
 }
-button:active {
+button:active, .button:active  {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
 }
-button:hover, button:focus {
+button:hover, button:focus, .button:hover, .button:focus {
     background-color:#eee;
 }
 button.selected {
