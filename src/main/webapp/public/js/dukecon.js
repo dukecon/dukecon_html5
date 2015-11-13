@@ -149,10 +149,12 @@ ko.components.register('header-widget', {
 });
 
 ko.components.register('footer-widget', {
-    viewModel : function() {},
+    viewModel : function() {
+        this.imprint = languageUtils.getResource('imprint');
+    },
     template:
         '<div class="footer">'
-        + '<a href="impressum.html">Impressum</a>'
+        + '<a href="impressum.html" data-bind="text: imprint" data-resource="imprint"></a>'
         + '</div>'
 });
 
@@ -305,6 +307,11 @@ var languageUtils = {
         active : {
             'de' : 'Aktiv',
             'en' : 'Active'
+        },
+        // imprint
+        imprint : {
+            'de' : 'Impressum',
+            'en' : 'Imprint'
         },
         // feedback page
         feedback_content : {
