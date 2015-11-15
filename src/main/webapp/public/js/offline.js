@@ -15,29 +15,61 @@ window.addEventListener('load', function(e) {
 }, false);
 
 var dukeconTalkUtils = {
+    updateIntervall : 3600000,
     getData : function(callback) {
-        var successCallbackSlicedEvents = function(data) {
-            if (data) {
-                dukeconDb.get(dukeconDb.talk_store, function(dbData) {
-                    if (dbData) {
-                        dbData.events = data
-                        dukeconDb.save(dukeconDb.talk_store, dbData);
-                        callback(dbData);
-                    }
-                });
-            }
-        };
+        if (dukeconTalkUtils.needToUpdateFromServer()) {
+            dukeconTalkUtils.getDataFromServer(callback);
+        }
+        else {
+            dukeconDb.get(dukeconDb.talk_store, function(data) {
+                if (data) {
+                    callback(data);
+                }
+                else {
+                    dukeconTalkUtils.getDataFromServer(callback);
+                }
+            });
+        }
+    },
+
+    //TODO: replace with server call
+    needToUpdateFromServer : function() {
+        var lastUpdated = dukeconSettings.getSetting(dukeconSettings.last_updated);
+        if (!lastUpdated) {
+            return true;
+        }
+        var now = new Date().getTime();
+        var lastUpdatedTime = Number(lastUpdated);
+        if (isNaN(lastUpdatedTime) || lastUpdatedTime + dukeconTalkUtils.updateIntervall < now) {
+            return true;
+        }
+        return false;
+    },
+
+    getDataFromServer : function(callback) {
+        /* var successCallbackSlicedEvents = function(data) {
+         if (data) {
+         dukeconDb.get(dukeconDb.talk_store, function(dbData) {
+         if (dbData) {
+         dbData.events = data
+         dukeconDb.save(dukeconDb.talk_store, dbData);
+         callback(dbData);
+         }
+         });
+         }
+         };*/
         var successCallback = function(data) {
             if (data) {
                 dukeconDb.save(dukeconDb.talk_store, data);
-                dukeconTalkUtils.getDataFromServer(slicedEventsJsonUrl, successCallbackSlicedEvents, errorCallback);
-                //callback(data);
+                dukeconSettings.saveSetting(dukeconSettings.last_updated, new Date().getTime());
+                //dukeconTalkUtils.getDataFromServer(slicedEventsJsonUrl, successCallbackSlicedEvents, errorCallback);
+                callback(data);
             }
         };
         var errorCallback = function() {
             dukeconDb.get(dukeconDb.talk_store, function(data) {
                 if (data) {
-                    callback(dukeconTalkUtils.filterNullTalks(data));
+                    callback(data);
                 }
                 else {
                     console.log('Could not retrieve any data');
@@ -45,27 +77,16 @@ var dukeconTalkUtils = {
             });
         };
         console.log("Retrieving data from server");
-        dukeconTalkUtils.getDataFromServer(jsonUrl, successCallback, errorCallback);
-    },
-
-    getDataFromServer : function(url, callback, errorCallback) {
         $.ajax({
             method: 'GET',
             dataType: "json",
-            url: url,
-            success: callback,
+            url: jsonUrl,
+            success: successCallback,
             error: function(error) {
                 console.log('No connection to server, retrieving data from local storage');
                 errorCallback();
             }
         });
-    },
-
-    filterNullTalks : function(allTalks) {
-        if (!allTalks) {
-            console.log("No data");
-        }
-        return _.filter(allTalks, function(talk) { return talk !== null; })
     }
 };
 
@@ -76,6 +97,7 @@ var dukeconSettings = {
     favs_active : "dukeconfavs_active",
     selected_language_key : "dukecon_language",
     day_key : "dukeconday",
+    last_updated : "dukecon_last_updated",
 
     context : window.location.pathame,
 
@@ -180,6 +202,7 @@ var dukeconDb = {
     },
 
     get : function(storeKey, callback) {
+        console.log("Retrieve data from indexeddb");
         dukeconDb.createDatabase(storeKey, function(store) {
             var cursor = store.openCursor();
             cursor.onsuccess = function(event) {
