@@ -1,6 +1,7 @@
 // Check if a new cache is available on page load.
 window.addEventListener('load', function(e) {
     window.applicationCache.addEventListener('updateready', function(e) {
+        setOfflineStatus(false);
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
             console.log("Loading new version of page");
             // Browser downloaded a new app cache.
@@ -12,7 +13,25 @@ window.addEventListener('load', function(e) {
             console.log ("The manifest did not change!");
         }
     }, false);
+    window.applicationCache.addEventListener("error", function(e) {
+       setOfflineStatus(true);
+    });
+    window.applicationCache.addEventListener("noupdate", function(e) {
+        setOfflineStatus(false);
+    });
 }, false);
+
+function setOfflineStatus(offline) {
+    if (offline) {
+        console.log("We are offline");
+        dukeconSettings.saveSetting(dukeconSettings.offline, true);
+    }
+    else {
+        //TODO: if previously offline, we should check if the server has new data
+        console.log("We are online");
+        dukeconSettings.saveSetting(dukeconSettings.offline, false);
+    }
+}
 
 var dukeconTalkUtils = {
     updateIntervall : 3600000,
@@ -32,8 +51,12 @@ var dukeconTalkUtils = {
         }
     },
 
-    //TODO: replace with server call
     needToUpdateFromServer : function() {
+        if (dukeconSettings.getSetting(dukeconSettings.offline)) {
+            console.log("We are offline - not trying to access server");
+            return false;
+        }
+        //TODO: replace with server call
         var lastUpdated = dukeconSettings.getSetting(dukeconSettings.last_updated);
         if (!lastUpdated) {
             return true;
@@ -98,6 +121,7 @@ var dukeconSettings = {
     selected_language_key : "dukecon_language",
     day_key : "dukeconday",
     last_updated : "dukecon_last_updated",
+    offline : "dukecon_offline",
 
     context : window.location.pathame,
 
