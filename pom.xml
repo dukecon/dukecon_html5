@@ -5,7 +5,7 @@
 
     <groupId>org.dukecon</groupId>
     <artifactId>dukecon-html5-client</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>DukeCon HTML5 Client</name>
@@ -22,7 +22,7 @@
         <nexus.repository.port></nexus.repository.port>
         <nexus.repository.base>/nexus</nexus.repository.base>
     </properties>
-    
+
     <repositories>
         <repository>
             <id>dukecon</id>
@@ -35,7 +35,7 @@
             </snapshots>
         </repository>
     </repositories>
-    
+
     <pluginRepositories>
         <pluginRepository>
             <id>dukecon</id>
@@ -52,13 +52,26 @@
     <distributionManagement>
         <repository>
             <id>dukecon</id>
-            <name>DukeCon Snapshots</name>
-            <url>http://${nexus.repository.host}${nexus.repository.port}${nexus.repository.base}/content/repositories/snapshots</url>
+            <name>DukeCon</name>
+            <url>file://${java.io.tmpdir}/repos/releases</url>
         </repository>
     </distributionManagement>
-    
+
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.github.danielflower.mavenplugins</groupId>
+                    <artifactId>multi-module-maven-release-plugin</artifactId>
+                    <version>1.4.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>com.github.danielflower.mavenplugins</groupId>
+                <artifactId>multi-module-maven-release-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
