@@ -212,8 +212,12 @@ input[type="checkbox"]:checked + label:before {
     min-width: 250px;
 }
 
-.content {
+.content{
     margin-bottom:2.5em;
+}
+
+.content * {
+    transition: height 0.5s ease, width; 0.5s ease;
 }
 
 #nav {
@@ -402,6 +406,12 @@ div.room span, div.time span {
 
 .hidden {
     display: none;
+}
+
+#loading {
+    background: url('../img/ajax-circle.gif') no-repeat center center;
+    height: 50%;
+    width: 100%;
 }
 
 #nothingtoshow {

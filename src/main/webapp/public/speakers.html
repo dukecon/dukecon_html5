@@ -15,7 +15,8 @@
 </head>
 <body onunload="unloadP('dukeConSpeakers')" onload="loadP('dukeConSpeakers')">
 <header-widget params="value: 'speaker'"></header-widget>
-<div class="content">
+<div id="loading">&nbsp;</div>
+<div class="content hidden">
     <table id="speakers">
         <tbody data-bind="foreach: allSpeakers">
         <tr>

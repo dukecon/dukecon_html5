@@ -360,3 +360,14 @@ var languageUtils = {
         });
     }
 };
+
+var  hideLoading = function(delayMs) {
+        var loadingDiv = $('#loading'), contentDiv = $('.content');
+        // tried knockout-event-catching (ko.bindingHandlers...) but it doesn't work, so adding a minimal timeout here to avoid watching the screen render
+        setTimeout(function() {
+            contentDiv.removeClass('hidden');
+            if (!loadingDiv.hasClass('hidden')) {
+              loadingDiv.addClass('hidden');
+            }
+        }, delayMs ? delayMs : 5);
+ };

@@ -4,6 +4,7 @@ function SpeakerViewModel() {
 
     dukeconTalkUtils.getData(function(allData) {
         self.initializeData(allData);
+        hideLoading(200);
     });
 
     self.initializeData = function(allData) {

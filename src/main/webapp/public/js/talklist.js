@@ -61,6 +61,7 @@ function TalkListViewModel() {
         self.initializeFilters(allData.metaData);
         self.filterTalks();
         self.toggleFilterMenu(self.filtersActive());
+        hideLoading(200);
     };
 
     // Functions
