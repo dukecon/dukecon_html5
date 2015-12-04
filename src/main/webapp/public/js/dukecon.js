@@ -165,8 +165,8 @@ ko.components.register('talk-widget', {
     template:
         '<div data-bind="attr : {class: \'talk-cell \' + talk.timeCategory}">'
             + '<div class="title">'
+                + '<img style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="click: dukeconSettings.toggleFavourite, attr:{src: talk.favicon}"/>'
                 + '<a style="padding: 0px" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a>'
-                + '<img style="cursor:pointer; margin-left: 2px;" title="Add to Favourites" data-bind="click: dukeconSettings.toggleFavourite, attr:{src: talk.favicon}"/>'
             + '</div>'
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
             + '<div data-bind="attr: {class: talk.timeClass}">'
