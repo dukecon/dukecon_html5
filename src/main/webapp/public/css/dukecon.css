@@ -409,8 +409,8 @@ div.room span, div.time span {
 }
 
 #loading {
-    background: url('../img/ajax-circle.gif') no-repeat center center;
-    height: 50%;
+    background: url('../img/ajax-circle.gif') no-repeat center 10%;
+    height: 150%;
     width: 100%;
 }
 
