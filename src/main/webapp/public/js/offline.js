@@ -47,11 +47,11 @@ function setOfflineStatus(offline) {
 }
 
 var dukeconTalkUtils = {
-    getData : function(callback) {
+    getData : function(url, callback) {
         var offline = dukeconSettings.getSetting(dukeconSettings.offline);
         var dataHash = dukeconSettings.getSetting(dukeconSettings.last_updated_hash);
         if (!offline && !dataHash) {
-            dukeconTalkUtils.getDataFromServer(callback);
+            dukeconTalkUtils.getDataFromServer(url, callback);
         }
         else {
             dukeconDb.get(dukeconDb.talk_store, function(data) {
@@ -59,7 +59,7 @@ var dukeconTalkUtils = {
                     callback(data);
                 }
                 else if (!offline) {
-                    dukeconTalkUtils.getDataFromServer(callback);
+                    dukeconTalkUtils.getDataFromServer(url, callback);
                 }
             });
         }
@@ -75,12 +75,12 @@ var dukeconTalkUtils = {
                 dukeconSettings.clearSetting(dukeconSettings.last_updated_hash);
             }
         };
-        dukeconTalkUtils.doServerRequest(successCallback, function(error) {
+        dukeconTalkUtils.doServerRequest(jsonUrl, successCallback, function(error) {
             console.log('No connection to server');
         });
     },
 
-    getDataFromServer : function(callback) {
+    getDataFromServer : function(url, callback) {
         console.log("Retrieving data from server");
         var successCallback = function(data, status, xhr) {
             if (data) {
@@ -100,14 +100,14 @@ var dukeconTalkUtils = {
                 }
             });
         };
-        dukeconTalkUtils.doServerRequest(successCallback, errorCallback);
+        dukeconTalkUtils.doServerRequest(url, successCallback, errorCallback);
     },
 
-    doServerRequest : function(successCallback, errorCallback) {
+    doServerRequest : function(url, successCallback, errorCallback) {
         $.ajax({
             method: 'GET',
             dataType: "json",
-            url: jsonUrl,
+            url: url,
             success: successCallback,
             error: errorCallback
         });

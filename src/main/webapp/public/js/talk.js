@@ -3,7 +3,7 @@ function TalkViewModel() {
     var self = this;
     self.talk = ko.observable(new Talk({}, [], {}, false));
 
-    dukeconTalkUtils.getData(function(allData) {
+    dukeconTalkUtils.getData(jsonUrl, function(allData) {
         self.initializeData(allData);
     });
 
