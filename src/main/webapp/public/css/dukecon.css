@@ -17,9 +17,10 @@ table, th, td {
 }
 
 #login-area {
-	position: absolute;
+	position: fixed;
 	right: 4em;
 	top: 13px;
+	z-index: 1010;
 }
 #login-area .button, #login-area .username {
 	font-size:80%;
