@@ -1,12 +1,16 @@
 // Check if a new cache is available on page load.
 window.addEventListener('load', function(e) {
     window.applicationCache.addEventListener('updateready', function(e) {
-        setOfflineStatus(false);
+        var doPageReload = setOfflineStatus(false);
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
             console.log("Loading new version of page");
             // Browser downloaded a new app cache.
             // Swap it in and reload the page to get the new hotness.
             window.applicationCache.swapCache();
+            window.location.reload();
+        }
+        else if (doPageReload) {
+            console.log ("Back online - reload page in case there is new data");
             window.location.reload();
         }
         else {
@@ -22,21 +26,30 @@ window.addEventListener('load', function(e) {
 }, false);
 
 function setOfflineStatus(offline) {
+    var doPageReload = false;
     if (offline) {
         console.log("We are offline");
         dukeconSettings.saveSetting(dukeconSettings.offline, true);
     }
     else {
-        //TODO: if previously offline, we should check if the server has new data
-        console.log("We are online");
+        console.log("We are online - starting timer to check for updates");
+        doPageReload = dukeconSettings.getSetting(dukeconSettings.offline);
+        if (doPageReload) {
+            dukeconTalkUtils.checkNewDataOnServer();
+        }
         dukeconSettings.saveSetting(dukeconSettings.offline, false);
+        setInterval(function() {
+            dukeconTalkUtils.checkNewDataOnServer();
+        }, 300000);
     }
+    return doPageReload;
 }
 
 var dukeconTalkUtils = {
-    updateIntervall : 3600000,
     getData : function(callback) {
-        if (dukeconTalkUtils.needToUpdateFromServer()) {
+        var offline = dukeconSettings.getSetting(dukeconSettings.offline);
+        var dataHash = dukeconSettings.getSetting(dukeconSettings.last_updated_hash);
+        if (!offline && !dataHash) {
             dukeconTalkUtils.getDataFromServer(callback);
         }
         else {
@@ -44,52 +57,39 @@ var dukeconTalkUtils = {
                 if (data) {
                     callback(data);
                 }
-                else {
+                else if (!offline) {
                     dukeconTalkUtils.getDataFromServer(callback);
                 }
             });
         }
     },
 
-    needToUpdateFromServer : function() {
-        if (dukeconSettings.getSetting(dukeconSettings.offline)) {
-            console.log("We are offline - not trying to access server");
-            return false;
-        }
-        //TODO: replace with server call
-        var lastUpdated = dukeconSettings.getSetting(dukeconSettings.last_updated);
-        if (!lastUpdated) {
-            return true;
-        }
-        var now = new Date().getTime();
-        var lastUpdatedTime = Number(lastUpdated);
-        if (isNaN(lastUpdatedTime) || lastUpdatedTime + dukeconTalkUtils.updateIntervall < now) {
-            return true;
-        }
-        return false;
+    checkNewDataOnServer : function() {
+        console.log('Check for new data on server');
+        var successCallback = function(data, status, xhr) {
+            var newCacheHash = xhr.getResponseHeader("ETag"); // Math.random().toString(36).slice(2);
+            var oldCacheHash = dukeconSettings.getSetting(dukeconSettings.last_updated_hash);
+            if (newCacheHash != oldCacheHash) {
+                console.log("New Data on server; clearing cache hash");
+                dukeconSettings.clearSetting(dukeconSettings.last_updated_hash);
+            }
+        };
+        dukeconTalkUtils.doServerRequest(successCallback, function(error) {
+            console.log('No connection to server');
+        });
     },
 
     getDataFromServer : function(callback) {
-        /* var successCallbackSlicedEvents = function(data) {
-         if (data) {
-         dukeconDb.get(dukeconDb.talk_store, function(dbData) {
-         if (dbData) {
-         dbData.events = data
-         dukeconDb.save(dukeconDb.talk_store, dbData);
-         callback(dbData);
-         }
-         });
-         }
-         };*/
-        var successCallback = function(data) {
+        console.log("Retrieving data from server");
+        var successCallback = function(data, status, xhr) {
             if (data) {
                 dukeconDb.save(dukeconDb.talk_store, data);
-                dukeconSettings.saveSetting(dukeconSettings.last_updated, new Date().getTime());
-                //dukeconTalkUtils.getDataFromServer(slicedEventsJsonUrl, successCallbackSlicedEvents, errorCallback);
+                dukeconSettings.saveSetting(dukeconSettings.last_updated_hash, xhr.getResponseHeader("ETag"));
                 callback(data);
             }
         };
         var errorCallback = function() {
+            console.log('No connection to server, retrieving data from local storage');
             dukeconDb.get(dukeconDb.talk_store, function(data) {
                 if (data) {
                     callback(data);
@@ -99,16 +99,16 @@ var dukeconTalkUtils = {
                 }
             });
         };
-        console.log("Retrieving data from server");
+        dukeconTalkUtils.doServerRequest(successCallback, errorCallback);
+    },
+
+    doServerRequest : function(successCallback, errorCallback) {
         $.ajax({
             method: 'GET',
             dataType: "json",
             url: jsonUrl,
             success: successCallback,
-            error: function(error) {
-                console.log('No connection to server, retrieving data from local storage');
-                errorCallback();
-            }
+            error: errorCallback
         });
     }
 };
@@ -120,7 +120,7 @@ var dukeconSettings = {
     favs_active : "dukeconfavs_active",
     selected_language_key : "dukecon_language",
     day_key : "dukeconday",
-    last_updated : "dukecon_last_updated",
+    last_updated_hash : "dukecon_last_updated_hash",
     offline : "dukecon_offline",
 
     context : window.location.pathame,
@@ -210,6 +210,13 @@ var dukeconSettings = {
         if (localStorage) {
             //console.log("Save: " + settingKey + " -> " + JSON.stringify(value));
             localStorage.setItem(dukeconSettings.context + settingKey, JSON.stringify(value));
+        }
+    },
+
+    clearSetting : function(settingKey) {
+        if (localStorage) {
+            //console.log("Clear: " + settingKey));
+            localStorage.removeItem(dukeconSettings.context + settingKey);
         }
     }
 
