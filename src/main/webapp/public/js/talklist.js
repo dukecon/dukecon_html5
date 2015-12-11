@@ -216,6 +216,6 @@ function TalkListViewModel() {
 function initializeTalkList() {
     languageUtils.init();
     var model = new TalkListViewModel();
-    dukeconTalkUtils.getData(model.initialize);
+    dukeconTalkUtils.getData(jsonUrl, model.initialize);
     ko.applyBindings(model);
 }
