@@ -7,6 +7,7 @@
     <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
     <script type='text/javascript' src='js/underscore-min.js'></script>
     <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
+    <script type='text/javascript' src='js/keycloak.js'></script>
     <link rel="stylesheet" type="text/css" href="css/pure-min.css"/>
     <link rel="stylesheet" href="css/side-menu.css">
     <link rel="stylesheet" type="text/css" href="css/dukecon.css"/>
@@ -14,6 +15,7 @@
     <title>DukeCon</title>
 </head>
 <body onunload="unloadP('dukeConSpeakers')" onload="loadP('dukeConSpeakers')">
+<login-widget></login-widget>
 <header-widget params="value: 'speaker'"></header-widget>
 <div id="loading">&nbsp;</div>
 <div class="content hidden">
@@ -36,11 +38,15 @@
         </tbody>
     </table>
 </div>
-<footer-widget/>
+<footer-widget></footer-widget>
 
+<script type='text/javascript' src='js/dukecloak.js'></script>
 <script type='text/javascript' src='js/offline.js'></script>
 <script type='text/javascript' src='js/dukecon.js'></script>
 <script type='text/javascript' src='js/speakers.js'></script>
 <script type='text/javascript' src='js/ui.js'></script>
+<script type='text/javascript'>
+    dukecloak.init();
+</script>
 </body>
 </html>

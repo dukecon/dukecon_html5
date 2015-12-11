@@ -157,6 +157,21 @@ ko.components.register('header-widget', {
         + '</div>'
 });
 
+//widgets
+ko.components.register('login-widget', {
+    viewModel : function(params) {
+    	this.hideLoginButton = params.allowLogin === false;
+    },
+    template:
+    	'<div id="login-area" data-bind="visible: dukecloak">'
+		+ '     <div>'
+		+ '         <span class="username" data-bind="text: dukecloak.auth.username"></span>'
+		+ '         <a class="button" data-bind="click: dukecloak.login, visible: !hideLoginButton && dukecloak.auth.loggedOut">Sign in/Register</a>'
+		+ '         <a class="button" data-bind="click: dukecloak.logout, visible: !hideLoginButton && dukecloak.auth.loggedIn">Sign Out</a>'
+		+ '     </div>'
+		+ ' </div>'
+});
+
 ko.components.register('footer-widget', {
     viewModel : function() {
         this.imprint = languageUtils.getResource('imprint');
