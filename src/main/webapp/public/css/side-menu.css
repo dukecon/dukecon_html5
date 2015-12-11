@@ -77,7 +77,7 @@ small screens.
     position: absolute;
     padding-right:5px;
     display: block; /* show this only on small screens */
-    left: 0; /* "#menu width" */
+    left: -4px; /* "#menu width" */
     background: #fff;
     font-size: 10px; /* change this value to increase/decrease button size */
     z-index: 10;
@@ -141,7 +141,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         left: 260px;
     }
     #days_filter {
-        margin-left: 37px;
+        margin-left: 34px;
     }
 }
 
