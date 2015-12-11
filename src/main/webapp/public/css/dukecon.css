@@ -194,6 +194,8 @@ input[type="checkbox"]:checked + label:before {
 input[type="checkbox"] + label:before {
     content: '\2610';
     padding-right:3px;
+    font-size: 140%;
+    vertical-align:top;
 }
 
 
