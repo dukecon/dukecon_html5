@@ -38,6 +38,7 @@ function setOfflineStatus(offline) {
             dukeconTalkUtils.checkNewDataOnServer();
         }
         dukeconSettings.saveSetting(dukeconSettings.offline, false);
+        dukeconTalkUtils.checkNewDataOnServer();
         setInterval(function() {
             dukeconTalkUtils.checkNewDataOnServer();
         }, 300000);
