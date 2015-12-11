@@ -130,6 +130,7 @@ h2 {
 
 .filter-settings {
     padding:0;
+    margin-bottom:5px;
 }
 
 .filter-box > * {
@@ -154,7 +155,7 @@ h2 {
     font-weight:bold;
     display: block;
     padding: 5px;
-    margin: 5px 0px 5px 0px;
+    margin: 0px 0px 5px 0px;
     color: #FFFFFF;
     background: #1AA3B1;
 }
@@ -171,6 +172,7 @@ h2 {
 .filter-values {
     margin-left: 5px;
     margin-right:5px;
+    margin-bottom:5px;
     font-size:smaller;
     line-height:1.5em;
 }
@@ -187,15 +189,13 @@ h2 {
     cursor:pointer;
 }
 input[type="checkbox"]:checked + label:before {
-    content: '\2611';
-    padding-right:3px;
+    content: url('../img/checkbox_checked.png');
 }
 
 input[type="checkbox"] + label:before {
-    content: '\2610';
+    content: url('../img/checkbox.png');
     padding-right:3px;
-    font-size: 140%;
-    vertical-align:top;
+    vertical-align:middle;
 }
 
 
@@ -217,6 +217,7 @@ input[type="checkbox"] + label:before {
 }
 
 .content{
+	margin-top: 8em;
     margin-bottom:2.5em;
 }
 
@@ -245,31 +246,36 @@ input[type="checkbox"] + label:before {
 #talks-grid table {
     border-collapse:separate;
     border-color:transparent;
+    width: 100%;
+    table-layout: fixed;
 }
 #talks-grid td:first-child {
-    padding:0;
+    padding-top:5px;
+    width:36px;
 }
-#talks-grid td:last-child {
-    width:100%;
-}
-
 div.time-cell {
     transform: rotate(-90deg);
     position: relative;
-    top: 7px;
+    top: 25px;
     /* Internet Explorer */
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
+div.talk-widget  {
+	border-bottom: none;
+    display: inline-block;
+    width: 30%;
+    margin: 5px;
+    padding: 5px;
+}
 div.talk-cell {
     background-color: #ffffff;
     vertical-align:top;
-    margin: 5px;
-    padding: 5px;
     display: inline-block;
     min-width:200px;
-    width: 30%;
+    width: 100%;
     line-height:1.1em;
+	border-bottom: none;
 }
 div.title {
     font-weight:bold;
@@ -281,6 +287,7 @@ div.track {
     font-weight:bold;
     font-size:smaller;
     font-style:italic
+    display:block
 }
 div.track span {
     font-style:italic;
@@ -289,6 +296,7 @@ div.track span {
 div.room {
     font-weight:bold;
     font-size: smaller;
+    display:block;
 }
 div.speaker span {
     font-size: smaller;
@@ -310,6 +318,7 @@ div.room span, div.time span {
     color: #BF5A00;
     font-weight: bold;
     font-size: smaller;
+    display:block;
 }
 
 .time-extra * {
@@ -329,7 +338,8 @@ div.room span, div.time span {
 }
 #speakers .speakerinfo .talk-cell {
     min-width: 80px;
-    width:95%;
+    width:90%;
+    padding: 12px;
     background:transparent;
     white-space: normal;
 }
@@ -365,12 +375,26 @@ div.room span, div.time span {
 
 /* Footer */
 .content-wrapper {
-    min-height: 85%;
+    min-height: 80%;
 }
 
 .talk-content {
     overflow: auto;
     padding-bottom: 30px;
+}
+
+.header {
+    background: white;
+    top: 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 1005; /* side-menu has 1000 */
+    box-shadow: 0px 0px 4px 2px #000000;
+}
+
+.header h1 {
+	margin-bottom: 0;
 }
 
 .footer {
@@ -398,7 +422,8 @@ div.room span, div.time span {
 /* IMPRINT */
 .imprint {
     max-width: 800px;
-    margin: 30px auto;
+    margin-left: auto;
+    margin-right: auto;
     padding:1em;
 }
 
@@ -414,7 +439,7 @@ div.room span, div.time span {
 }
 
 #loading {
-    background: url('../img/ajax-circle.gif') no-repeat center 10%;
+    background: url('../img/ajax-circle.gif') no-repeat center 20%;
     height: 150%;
     width: 100%;
 }
@@ -438,13 +463,80 @@ div.room span, div.time span {
     letter-spacing: 0em;
 }
 
+.day-short {
+	display:none;
+}
+.day-long {
+	display:inline;
+}
+.talk-cell .speaker {
+	display:block;
+}
+
+
 /* RESPONSIVE TWEAKS for small screens */
 @media (max-width: 47.9em) {
+	div.talk-widget  {
+		display:block;
+		width:95%;
+		border-bottom: 1px solid #ddd;
+	}
+	div.time-cell {
+		top: 7px;
+	}
+	div.talk-widget:last-child  {
+		border-bottom: none;
+	}
+	.talk-cell div.room, .talk-cell div.time, .talk-cell div.time-extra  {
+		display:inline-block;
+		padding-right: 5px;
+	}
+	.talk-cell div.room {
+		max-width: 100px;
+		overflow: visible;
+		white-space:nowrap;
+	}
+	.talk-cell div.track {
+		display:none
+	}
+	.day-short {
+		display:inline;
+	}
+	.day-long {
+		display:none;
+	}
+	.talk-cell .title {
+		display: block;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 100%;
+		text-overflow: ellipsis;
+	}
+	.talk-cell .speaker {
+		display:none;
+	}
     .content {
+		margin-top: 10em;
         font-size: 95%;
+        padding: 0;
+        width:98%
+    }
+    #speakers {
+    	table-layout: fixed;
+    	width: 100%;
+    }
+    #speakers .speakerinfo {
+    	width: 95px;
+    }
+    #speakers .speakertalks {
+    	width: 90%;
     }
     #speakers .speakerinfo .talk-cell {
         width:90px;
+        padding: 0px;
+    }
+    #speakers .speakerinfo .talk-cell .title {
+		white-space: normal;
     }
     #talkinfo, #talkinfo td, #talkinfo .talk-details {
         display:block;
