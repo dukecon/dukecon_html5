@@ -189,15 +189,13 @@ h2 {
     cursor:pointer;
 }
 input[type="checkbox"]:checked + label:before {
-    content: '\2611';
-    padding-right:3px;
+    content: url('../img/checkbox_checked.png');
 }
 
 input[type="checkbox"] + label:before {
-    content: '\2610';
+    content: url('../img/checkbox.png');
     padding-right:3px;
-    font-size: 140%;
-    vertical-align:top;
+    vertical-align:middle;
 }
 
 
