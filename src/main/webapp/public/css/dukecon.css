@@ -503,6 +503,10 @@ div.room span, div.time span {
 	}
     .content {
         font-size: 95%;
+        width:91%
+    }
+    #layout.content {
+        width:98%
     }
     #speakers {
     	table-layout: fixed;
