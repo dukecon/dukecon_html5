@@ -8,6 +8,7 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.id = data.id || '';
     this.startDate = data.start ? new Date(data.start) : null;
     this.day = ko.observable(dukeconDateUtils.getDisplayDate(data.start));
+    this.dayshort = ko.observable(dukeconDateUtils.getDisplayDateShort(data.start));
     this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
     this.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
     this.startSortable = data.start || '';
@@ -76,10 +77,18 @@ var dukeconDateUtils = {
             return '';
         }
         var date = new Date(datetimeString);
+        var weekday = this.weekDays[languageUtils.selectedLanguage()][date.getDay()];
+        return weekday + ", " + this.getDisplayDateShort(datetimeString);
+    },
+
+    getDisplayDateShort : function(datetimeString) {
+        if (!datetimeString) {
+            return '';
+        }
+        var date = new Date(datetimeString);
         var month = this.addLeadingZero(date.getMonth() + 1);
         var day = this.addLeadingZero(date.getDate());
-        var weekday = this.weekDays[languageUtils.selectedLanguage()][date.getDay()];
-        return weekday + ", " + day + "." + month + ".";
+        return day + "." + month + ".";
     },
 
     //2016-03-08T10:30
@@ -171,7 +180,8 @@ ko.components.register('talk-widget', {
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
             + '<div data-bind="attr: {class: talk.timeClass}">'
                 + '<img width="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>'
-                + ' <span data-bind="text: talk.day"></span><span>,&nbsp;</span>'
+                + ' <span class="day-long" data-bind="text: talk.day"></span>'
+                + '<span class="day-short" data-bind="text: talk.dayshort"></span><span>,&nbsp;</span>'
                 + '<span data-bind="text: talk.startDisplayed"></span> (<span data-bind="text: talk.duration"></span><span> min)</span>'
             + '</div>'
             + '<div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Location" title="Location"/> <span data-bind="text: talk.locationDisplay" /></div>'

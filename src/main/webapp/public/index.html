@@ -77,13 +77,14 @@
             <table>
                 <tr>
                     <td>
-                        <a data-bind="attr: {name: 'time_' + start, id: 'time_' + start}">&nbsp;</a>
                         <div class="time-cell title" data-bind="text: start">
                         </div>
+                        <a data-bind="attr: {name: 'time_' + start, id: 'time_' + start}">&nbsp;</a>
                     </td>
                     <td>
                         <div data-bind="foreach: talks">
-                            <talk-widget params="value: $data"></talk-widget>
+                            <!-- changed from <talk-widget...> so that we can style it with CSS -->
+                            <div class="talk-widget" data-bind='component: { name: "talk-widget", params: { value: $data } }'></div>
                         </div>
                     </td>
                 </tr>

@@ -28,7 +28,8 @@
             </td>
             <td class="speakertalks">
                 <div data-bind="foreach: talks">
-                    <talk-widget params="value: $data"></talk-widget>
+                    <!-- changed from <talk-widget...> so that we can style it with CSS -->
+                    <div class="talk-widget" data-bind='component: { name: "talk-widget", params: { value: $data } }'></div>
                 </div>
             </td>
         </tr>
