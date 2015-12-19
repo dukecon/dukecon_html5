@@ -44,6 +44,8 @@ function setOfflineStatus(offline) {
 }
 
 var dukeconTalkUtils = {
+    updateCheck : ko.observable(false),
+
     getData : function(url, callback) {
         var offline = dukeconSettings.getSetting(dukeconSettings.offline);
         var dataHash = dukeconSettings.getSetting(dukeconSettings.last_updated_hash);
@@ -63,6 +65,7 @@ var dukeconTalkUtils = {
     },
 
     checkNewDataOnServer : function() {
+        dukeconTalkUtils.updateCheck(true);
         console.log('Check for new data on server');
         var successCallback = function(data, status, xhr) {
             var newCacheHash = xhr.getResponseHeader("ETag");
@@ -73,9 +76,11 @@ var dukeconTalkUtils = {
                 dukeconDb.save(dukeconDb.talk_store, data);
                 dukeconSettings.saveSetting(dukeconSettings.last_updated_hash, xhr.getResponseHeader("ETag"));
             }
+            dukeconTalkUtils.updateCheck(false);
         };
         dukeconTalkUtils.doServerRequest(jsonUrl, successCallback, function(error) {
             console.log('No connection to server');
+            dukeconTalkUtils.updateCheck(false);
         });
     },
 

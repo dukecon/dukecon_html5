@@ -178,7 +178,10 @@ ko.components.register('footer-widget', {
     },
     template:
         '<div class="footer">'
-        + '<a href="impressum.html" data-bind="text: imprint" data-resource="imprint"></a>'
+        + '<div style="position: absolute;top:0;left:0;text-align:left;z-index:10;display:inline-block; padding:6px;">'
+            + '<span data-bind="visible: dukeconTalkUtils.updateCheck"style="margin-left:5px;">Checking for update...</span>'
+        + '</div>'
+            + '<a href="impressum.html" data-bind="text: imprint" data-resource="imprint"></a>'
         + '</div>'
 });
 
