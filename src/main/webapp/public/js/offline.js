@@ -34,9 +34,6 @@ function setOfflineStatus(offline) {
     else {
         console.log("We are online - starting timer to check for updates");
         doPageReload = dukeconSettings.getSetting(dukeconSettings.offline);
-        if (doPageReload) {
-            dukeconTalkUtils.checkNewDataOnServer();
-        }
         dukeconSettings.saveSetting(dukeconSettings.offline, false);
         dukeconTalkUtils.checkNewDataOnServer();
         setInterval(function() {
@@ -68,11 +65,13 @@ var dukeconTalkUtils = {
     checkNewDataOnServer : function() {
         console.log('Check for new data on server');
         var successCallback = function(data, status, xhr) {
-            var newCacheHash = xhr.getResponseHeader("ETag"); // Math.random().toString(36).slice(2);
+            var newCacheHash = xhr.getResponseHeader("ETag");
+            //var newCacheHash = Math.random().toString(36).slice(2);
             var oldCacheHash = dukeconSettings.getSetting(dukeconSettings.last_updated_hash);
             if (newCacheHash != oldCacheHash) {
-                console.log("New Data on server; clearing cache hash");
-                dukeconSettings.clearSetting(dukeconSettings.last_updated_hash);
+                console.log("New Data on server; replacing old data in store");
+                dukeconDb.save(dukeconDb.talk_store, data);
+                dukeconSettings.saveSetting(dukeconSettings.last_updated_hash, xhr.getResponseHeader("ETag"));
             }
         };
         dukeconTalkUtils.doServerRequest(jsonUrl, successCallback, function(error) {
