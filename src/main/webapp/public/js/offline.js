@@ -178,6 +178,7 @@ var dukeconSettings = {
         }
         talkObject.talk.toggleFavourite();
         dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
+        //dukeconSynch.push();
     },
 
     saveSelectedFilters : function(filters) {
@@ -225,6 +226,31 @@ var dukeconSettings = {
         }
     }
 
+};
+
+var dukeconSynch = {
+
+    push : function() {
+        var successCallback = function() {
+            console.log("Success!");
+        };
+        var errorCallback = function() {
+            console.log("Error!");
+        };
+        var favourites = [];
+        var localFavourites = dukeconSettings.getFavourites();
+        _.each(localFavourites, function(fav) {
+            favourites.push({"eventId" : fav, "version" : "1"})
+        });
+        $.ajax({
+            method: 'POST',
+            contentType : "application/json",
+            data : JSON.stringify(favourites),
+            url: "rest/preferences",
+            success: successCallback,
+            error: errorCallback
+        });
+    }
 };
 
 var dukeconDb = {
