@@ -178,7 +178,7 @@ var dukeconSettings = {
         }
         talkObject.talk.toggleFavourite();
         dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
-        //dukeconSynch.push();
+        dukeconSynch.push();
     },
 
     saveSelectedFilters : function(filters) {
