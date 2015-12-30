@@ -49,6 +49,8 @@ js/talk.js
 js/talklist.js
 js/underscore-min.js
 js/ui.js
+# Rest
+rest/keycloak.json
 
 NETWORK:
 *
