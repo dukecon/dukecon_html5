@@ -1,7 +1,7 @@
 // TODO: a work in progress
 
-var keycloakUrl = 'rest/keycloak.json';
-var preferencesUrl = location.href + "rest/preferences";
+var keycloakUrl = "rest/keycloak.json";
+var preferencesUrl = "rest/preferences";
 var redirectUri = location.href;
 var dukecloak = {
     keycloakAuth : new Keycloak(keycloakUrl),
@@ -16,7 +16,20 @@ var dukecloak = {
 		dukecloak.keycloakAuth.loadUserProfile().success(function(profile){
 			dukecloak.auth.username(profile.username);
 			console.log("Logged in: " + dukecloak.auth.username());
-			//TODO: load user data
+            $.ajax({
+                method: 'GET',
+                dataType: "json",
+                url: preferencesUrl,
+                success: function(data) {
+                    console.log("Loaded preferences");
+                    var favourites = _.map(data, function(fav) {
+                        return fav.eventId;
+                    });
+                    dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
+                    window.location.reload();
+                },
+                error: function() { console.log("Error loading preferences");}
+            });
 		});
     },
 
