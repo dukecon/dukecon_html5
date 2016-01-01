@@ -231,6 +231,9 @@ var dukeconSettings = {
 var dukeconSynch = {
 
     push : function() {
+        if (!dukecloak.keycloakAuth.authenticated) {
+            return;
+        }
         var successCallback = function() {
             console.log("Success!");
         };
@@ -242,14 +245,18 @@ var dukeconSynch = {
         _.each(localFavourites, function(fav) {
             favourites.push({"eventId" : fav, "version" : "1"})
         });
-        $.ajax({
+        dukecloak.keycloakAuth.updateToken().success(function() {$.ajax({
             method: 'POST',
+            beforeSend: function (request)
+            {
+                request.setRequestHeader("Authorization", 'Bearer ' + dukecloak.keycloakAuth.token);
+            },
             contentType : "application/json",
             data : JSON.stringify(favourites),
             url: "rest/preferences",
             success: successCallback,
             error: errorCallback
-        });
+        })}).error(errorCallback);
     }
 };
 

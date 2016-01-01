@@ -16,8 +16,12 @@ var dukecloak = {
 		dukecloak.keycloakAuth.loadUserProfile().success(function(profile){
 			dukecloak.auth.username(profile.username);
 			console.log("Logged in: " + dukecloak.auth.username());
-            $.ajax({
+            dukecloak.keycloakAuth.updateToken().success(function() {$.ajax({
                 method: 'GET',
+                beforeSend: function (request)
+                {
+                    request.setRequestHeader("Authorization", 'Bearer ' + dukecloak.keycloakAuth.token);
+                },
                 dataType: "json",
                 url: preferencesUrl,
                 success: function(data) {
@@ -26,10 +30,13 @@ var dukecloak = {
                         return fav.eventId;
                     });
                     dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
-                    window.location.reload();
+                    /* TODO: can't do a page reload here as it would result in an infinite loop,
+                    instead put the favourites into the view model directly
+                    */ 
+                    // window.location.reload();
                 },
                 error: function() { console.log("Error loading preferences");}
-            });
+            })}).error(function() { console.log("Unable to update token");});
 		});
     },
 
