@@ -605,6 +605,7 @@ div.room span, div.time span {
     }
     h1 #mainmenu-items.shown {
     	display: block;
+    	box-shadow: 0px 2px 3px 0px #666666;
     }
 	h2 {
 	  margin-left:5px;
