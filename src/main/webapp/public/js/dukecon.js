@@ -141,19 +141,38 @@ var dukeconDateUtils = {
 //widgets
 ko.components.register('header-widget', {
     viewModel : function(params) {
-        this.resource = params.value;
-        this.title = languageUtils.getResource(params.value);
+        this.active = languageUtils.getResource(params.value);
         this.icon = languageUtils.getLanguageIconUrl();
-        this.speaker = languageUtils.getResource('speaker');
+        this.talks = 'Talks';
+        this.speakers = languageUtils.getResource('speaker');
+        this.feedback = 'Feedback';
+		this.getCssClass = function(item) {
+			return (item === this.active ? "mainmenu active" : "mainmenu inactive");
+		};
+		this.toggleMenu = function() {
+			var menu = document.getElementById('mainmenu-items');
+			if (menu) {
+				if (menu.className === "") {
+					menu.className = "shown";
+				} else {
+					menu.className = "";
+				}
+			}
+		};
     },
     template:
         '<div class="header">'
-        + '<a href="http://www.javaland.eu"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
-        + '<a id="language-select" onclick="languageUtils.toggleLanguage();"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/></a>'
-        + '<div class="main-menu">'
-        + '<a href="index.html">Talks</a>|<a href="speakers.html" data-bind="text: speaker" data-resource="speaker"></a>|<a href="feedback.html">Feedback</a>'
-        + '</div>'
-        + '<h1 id="headertitle" data-bind="text: title, attr : {\'data-resource\' : resource}"></h1>'
+		+ '<h1 id="headertitle">'
+		+ '	<a id="logo" href="http://www.javaland.eu"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
+		+ ' <span id="pagetitle" data-bind="text: active"></span>'
+		+ ' <div id="mainmenu-button" data-bind="click: toggleMenu"><img src="img/menu_24px.svg"></div>'
+		+ ' <div id="mainmenu-items">'
+		+ '	 <a href="index.html" data-bind="text: talks, attr: {class: getCssClass(talks)}"></a>'
+		+ '	 <a href="speakers.html" data-bind="text: speakers, attr: {class: getCssClass(speakers)}"></a>'
+		+ '	 <a href="feedback.html" data-bind="text: feedback, attr: {class: getCssClass(feedback)}"></a>'
+		+ '	 <a class="mainmenu" id="language-select" onclick="languageUtils.toggleLanguage();"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
+		+ ' </div>'
+		+ '</h1>'
         + '</div>'
 });
 
@@ -166,8 +185,8 @@ ko.components.register('login-widget', {
     	'<div id="login-area" data-bind="visible: dukecloak">'
 		+ '     <div>'
 		+ '         <span class="username" data-bind="text: dukecloak.auth.username"></span>'
-		+ '         <a class="button" data-bind="click: dukecloak.login, visible: !hideLoginButton && dukecloak.auth.loggedOut">Sign in/Register</a>'
-		+ '         <a class="button" data-bind="click: dukecloak.logout, visible: !hideLoginButton && dukecloak.auth.loggedIn">Sign Out</a>'
+		+ '         <a class="button" data-bind="click: dukecloak.login, visible: !hideLoginButton && dukecloak.auth.loggedOut"><img alt="Sign in/Register" title="Sign in/Register" src="img/unlock_24px.svg"></a>'
+		+ '         <a class="button" data-bind="click: dukecloak.logout, visible: !hideLoginButton && dukecloak.auth.loggedIn"><img alt="Sign Out" title="Sign Out" src="img/lock_24px.svg"></a>'
 		+ '     </div>'
 		+ ' </div>'
 });

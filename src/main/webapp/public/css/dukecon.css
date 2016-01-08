@@ -18,8 +18,8 @@ table, th, td {
 
 #login-area {
 	position: fixed;
-	right: 4em;
-	top: 13px;
+	right: 23em;
+	top: 6px;
 	z-index: 1010;
 }
 #login-area .button, #login-area .username {
@@ -27,11 +27,13 @@ table, th, td {
 	vertical-align:middle;
 }
 #login-area .button {
-	height: 28px;
-	line-height: 1em;
+	background: transparent;
+	padding:0;
+	margin:0;
 }
 .username {
 	margin-right:0.5em;
+	color: #FFFFFF;
 }
 
 button, .button {
@@ -68,22 +70,22 @@ td {
 }
 
 .header img {
-    float:left;
-    margin-left:5px;
+    height: 1.8em;
+    margin: 0;
 }
 
 #language-select {
-    float:right;
+    margin-left:5px;
 }
+
 #language-select img {
     cursor: pointer;
     float:none;
     vertical-align:middle;
-    margin-left:5px;
-    width: 48px;
-    height: 48px;
+    height: 1.5em;
 }
 
+/* remove: */
 .main-menu {
     margin-top: 0.5em;
     display: inline-block;
@@ -106,13 +108,65 @@ a:hover {
     color:#00c3d7;
 }
 
+
+.mainmenu {
+}
+.mainmenu.active {
+	background: #FFFFFF;
+	color: #1AA3B1;
+	cursor: default;
+}
+
 h1 {
+    height: 2em;
+    overflow: hidden;
+	margin-bottom: 0;
+	margin-top: 0;
     clear:both;
     font-size:120%;
-    line-height:2em;
-    text-align: center;
+    line-height:1.9em;
+    text-align: right;
     color: #FFFFFF;
     background: #1AA3B1;
+}
+
+h1 #mainmenu-items {
+   	position: relative;
+   	top: 0;
+   	right: 0;
+}
+
+h1 #mainmenu-items, h1 #mainmenu-button {
+	height: 2em;
+	overflow: hidden;
+	display: inline-block;
+	margin:0;
+	padding: 0;
+}
+
+h1 #pagetitle, h1 #mainmenu-button {
+	display: none;
+}
+
+h1 a, h1 span {
+	vertical-align: top;
+	padding-top: 0;
+	padding-bottom: 0;
+	height: 2em;
+	display: inline-block;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+h1 a:hover {
+	color: #FFFFFF;
+    background: #00c3d7;
+}
+h1 a#logo {
+	float: left;
+	height: 2em;
+	overflow: hidden;
+	padding: 0 10px 0 5px;
 }
 
 h2 {
@@ -218,12 +272,12 @@ input[type="checkbox"] + label:before {
 }
 
 .content{
-	margin-top: 8em;
+	margin-top: 3em;
     margin-bottom:2.5em;
 }
 
 .content * {
-    transition: height 0.5s ease, width; 0.5s ease;
+    transition: height 0.5s ease, width 0.5s ease;
     vertical-align: text-top;
 }
 
@@ -394,10 +448,6 @@ div.room span, div.time span {
     box-shadow: 0px 0px 4px 2px #666666;
 }
 
-.header h1 {
-	margin-bottom: 0;
-}
-
 .footer {
     background: white;
     bottom: 0;
@@ -517,12 +567,62 @@ div.room span, div.time span {
 		display:none;
 	}
     .content {
-		margin-top: 10em;
         font-size: 95%;
         padding: 0;
         width:98%
     }
-    #speakers {
+    h1 {
+    	text-align: left;
+    }
+    h1 #pagetitle {
+    	display: inline-block;
+    }
+    #talkpage h1 #pagetitle {
+    	display: none;
+    }
+    h1 #mainmenu-button {
+    	display: inline-block;
+    	float: right;
+    	padding-right: 5px;
+    	font-size: smaller;
+    	cursor: pointer;
+    }
+    h1 #mainmenu-button img {
+       	vertical-align: middle;
+	}
+    h1 #mainmenu-items {
+    	height: auto;
+    	font-size: smaller;
+    	background: #1aa3b1;
+    	width: 200px;
+    	position: fixed;
+    	display: none;
+    	top: 40px;
+    	right: 0px;
+    }
+    h1 #mainmenu-items.shown {
+    	display: block;
+    }
+	h2 {
+	  margin-left:5px;
+	}
+
+    .mainmenu {
+    	display: block;
+    	border-bottom: 1px solid #FFFFFF;
+    }
+    .mainmenu:last-child {
+    	display: block;
+    	border-bottom: none;
+    	padding-bottom: 5px;
+    }
+    #language-select {
+        margin-left:0;
+    }
+	#login-area {
+		right: 2.5em;
+	}
+   	#speakers {
     	table-layout: fixed;
     	width: 100%;
     }
