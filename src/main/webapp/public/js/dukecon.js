@@ -332,6 +332,10 @@ var languageUtils = {
             'de' : ' oder ',
             'en' : ' or '
         },
+        disablefavorites : {
+            'de' : 'Ist eventuell die Einstellung "Nur Favoriten" aktiviert?',
+            'en' : 'Also check if you have "Only Favorites" selected.'
+        },
         active : {
             'de' : 'Aktiv',
             'en' : 'Active'

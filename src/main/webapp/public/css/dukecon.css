@@ -449,7 +449,7 @@ div.room span, div.time span {
     color: #BF5A00;
     font-weight: bold;
     text-align:center;
-    vertical-aligh:middle;
+    vertical-align:top;
     padding:5em 0;
     width:100%;
 }

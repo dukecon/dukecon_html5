@@ -66,7 +66,10 @@
         </div>
         <div id="nothingtoshow" class="hidden"><span data-resource="notalksfound"></span>
             <a class="clickable" data-bind="click: deactivateFilters" data-resource="deactivate"></a> <span data-resource="or"></span>
-            <a class="clickable" data-bind="click: resetFilters" data-resource="reset"></a>!</div>
+            <a class="clickable" data-bind="click: resetFilters" data-resource="reset"></a><span>!</span><br>
+            <span data-resource="disablefavorites"></span>
+        </div>
+
         <div id="talks-grid" data-bind="foreach: groupedTalks">
             <table>
                 <tr>
