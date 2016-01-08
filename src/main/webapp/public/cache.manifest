@@ -35,6 +35,9 @@ img/Unknown.png
 img/favicon.ico
 img/checkbox.png
 img/checkbox_checked.png
+img/unlock_24px.svg
+img/lock_24px.svg
+img/menu_24px.svg
 # Js
 js/dukecon.js
 js/dukecloak.js
