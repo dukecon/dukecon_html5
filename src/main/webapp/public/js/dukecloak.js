@@ -27,10 +27,7 @@ var dukecloak = {
                         url: preferencesUrl,
                         success: function(data) {
                             console.log("Loaded preferences");
-                            var favourites = _.map(data, function(fav) {
-                                return fav.eventId;
-                            });
-                            dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
+                            dukeconSynch.merge(data);
                             if (dukeconTalklistModel) {
                                 dukeconTalklistModel.updateFavourites();
                             }

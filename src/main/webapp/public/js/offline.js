@@ -234,16 +234,8 @@ var dukeconSynch = {
         if (!dukecloak.keycloakAuth.authenticated) {
             return;
         }
-        var successCallback = function() {
-            console.log("Success!");
-        };
-        var errorCallback = function() {
-            console.log("Error!");
-        };
-        var favourites = [];
-        var localFavourites = dukeconSettings.getFavourites();
-        _.each(localFavourites, function(fav) {
-            favourites.push({"eventId" : fav, "version" : "1"})
+        var favourites = _.map(dukeconSettings.getFavourites(), function(fav) {
+            return {"eventId" : fav, "version" : "1"};
         });
         dukecloak.keycloakAuth.updateToken().success(function() {$.ajax({
             method: 'POST',
@@ -254,9 +246,24 @@ var dukeconSynch = {
             contentType : "application/json",
             data : JSON.stringify(favourites),
             url: "rest/preferences",
-            success: successCallback,
-            error: errorCallback
-        })}).error(errorCallback);
+            success: function() {
+                console.log("Pushed favourites to server");
+            },
+            error: function() {
+                console.log("Error pushing favourites to server");
+            }
+        })}).error(function() {
+            console.log("Error!");
+        });
+    },
+
+    merge : function(favouritesFromServer) {
+        var favourites = _.map(favouritesFromServer, function(fav) {
+            return fav.eventId;
+        });
+        var localFavourites = dukeconSettings.getFavourites();
+        dukeconSettings.saveSetting(dukeconSettings.fav_key, _.union(localFavourites, favourites));
+        dukeconSynch.push();
     }
 };
 
