@@ -1,5 +1,6 @@
 describe("dukecon settings", function () {
     it("handle favourites", function () {
+        spyOn(dukeconSynch, "push").and.returnValue(null);
         var talk = {
             talk: {
                 id: "id1",
