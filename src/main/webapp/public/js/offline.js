@@ -39,6 +39,7 @@ function setOfflineStatus(offline) {
         setInterval(function() {
             dukeconTalkUtils.checkNewDataOnServer();
         }, 300000);
+        dukecloak.init();
     }
     return doPageReload;
 }
@@ -67,11 +68,11 @@ var dukeconTalkUtils = {
     checkNewDataOnServer : function() {
         dukeconTalkUtils.updateCheck(true);
         console.log('Check for new data on server');
+        var oldCacheHash = dukeconSettings.getSetting(dukeconSettings.last_updated_hash);
+        //var oldCacheHash = Math.random().toString(36).slice(2);
+
         var successCallback = function(data, status, xhr) {
-            var newCacheHash = xhr.getResponseHeader("ETag");
-            //var newCacheHash = Math.random().toString(36).slice(2);
-            var oldCacheHash = dukeconSettings.getSetting(dukeconSettings.last_updated_hash);
-            if (newCacheHash != oldCacheHash) {
+            if (data) {
                 console.log("New Data on server; replacing old data in store");
                 dukeconDb.save(dukeconDb.talk_store, data);
                 dukeconSettings.saveSetting(dukeconSettings.last_updated_hash, xhr.getResponseHeader("ETag"));
@@ -81,7 +82,7 @@ var dukeconTalkUtils = {
         dukeconTalkUtils.doServerRequest(jsonUrl, successCallback, function(error) {
             console.log('No connection to server');
             dukeconTalkUtils.updateCheck(false);
-        });
+        }, { "If-None-Match": oldCacheHash });
     },
 
     getDataFromServer : function(url, callback) {
@@ -107,10 +108,11 @@ var dukeconTalkUtils = {
         dukeconTalkUtils.doServerRequest(url, successCallback, errorCallback);
     },
 
-    doServerRequest : function(url, successCallback, errorCallback) {
+    doServerRequest : function(url, successCallback, errorCallback, headers) {
         $.ajax({
             method: 'GET',
             dataType: "json",
+            headers: headers,
             url: url,
             success: successCallback,
             error: errorCallback
