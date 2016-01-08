@@ -128,7 +128,7 @@ var dukeconSettings = {
     last_updated_hash : "dukecon_last_updated_hash",
     offline : "dukecon_offline",
 
-    context : window.location.pathame,
+    context : window.location.pathname,
 
     getFavourites : function() {
         return dukeconSettings.getSettingOrEmptyArray(dukeconSettings.fav_key);

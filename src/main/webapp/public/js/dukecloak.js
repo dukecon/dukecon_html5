@@ -16,27 +16,29 @@ var dukecloak = {
 		dukecloak.keycloakAuth.loadUserProfile().success(function(profile){
 			dukecloak.auth.username(profile.username);
 			console.log("Logged in: " + dukecloak.auth.username());
-            dukecloak.keycloakAuth.updateToken().success(function() {$.ajax({
-                method: 'GET',
-                beforeSend: function (request)
-                {
-                    request.setRequestHeader("Authorization", 'Bearer ' + dukecloak.keycloakAuth.token);
-                },
-                dataType: "json",
-                url: preferencesUrl,
-                success: function(data) {
-                    console.log("Loaded preferences");
-                    var favourites = _.map(data, function(fav) {
-                        return fav.eventId;
-                    });
-                    dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
-                    /* TODO: can't do a page reload here as it would result in an infinite loop,
-                    instead put the favourites into the view model directly
-                    */ 
-                    // window.location.reload();
-                },
-                error: function() { console.log("Error loading preferences");}
-            })}).error(function() { console.log("Unable to update token");});
+            dukecloak.keycloakAuth.updateToken()
+                .success(function() {$.ajax({
+                        method: 'GET',
+                        beforeSend: function (request)
+                        {
+                            request.setRequestHeader("Authorization", 'Bearer ' + dukecloak.keycloakAuth.token);
+                        },
+                        dataType: "json",
+                        url: preferencesUrl,
+                        success: function(data) {
+                            console.log("Loaded preferences");
+                            var favourites = _.map(data, function(fav) {
+                                return fav.eventId;
+                            });
+                            dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
+                            if (dukeconTalklistModel) {
+                                dukeconTalklistModel.updateFavourites();
+                            }
+                        },
+                        error: function() { console.log("Error loading preferences");}
+                    })
+                })
+                .error(function() { console.log("Unable to update token");});
 		});
     },
 
