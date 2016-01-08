@@ -22,6 +22,9 @@ table, th, td {
 	top: 6px;
 	z-index: 1010;
 }
+#login-area img {
+	color: #ffffff;
+}
 #login-area .button, #login-area .username {
 	font-size:80%;
 	vertical-align:middle;
