@@ -229,6 +229,9 @@ var dukeconSettings = {
 };
 
 var dukeconSynch = {
+    setToken : function(request) {
+        request.setRequestHeader("Authorization", 'Bearer ' + dukecloak.keycloakAuth.token);
+    },
 
     push : function() {
         if (!dukecloak.keycloakAuth.authenticated) {
@@ -237,33 +240,48 @@ var dukeconSynch = {
         var favourites = _.map(dukeconSettings.getFavourites(), function(fav) {
             return {"eventId" : fav, "version" : "1"};
         });
-        dukecloak.keycloakAuth.updateToken().success(function() {$.ajax({
-            method: 'POST',
-            beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", 'Bearer ' + dukecloak.keycloakAuth.token);
-            },
-            contentType : "application/json",
-            data : JSON.stringify(favourites),
-            url: "rest/preferences",
-            success: function() {
-                console.log("Pushed favourites to server");
-            },
-            error: function() {
-                console.log("Error pushing favourites to server");
-            }
-        })}).error(function() {
-            console.log("Error!");
-        });
+        dukecloak.keycloakAuth.updateToken()
+            .success(function() {
+                $.ajax({
+                    method: 'POST',
+                    beforeSend: dukeconSynch.setToken,
+                    contentType : "application/json",
+                    data : JSON.stringify(favourites),
+                    url: "rest/preferences",
+                    success: function() {
+                        console.log("Pushed favourites to server");
+                    },
+                    error: function() {
+                        console.log("Error pushing favourites to server");
+                    }
+                });
+            })
+            .error(function() {
+                console.log("Error!");
+            });
     },
 
-    merge : function(favouritesFromServer) {
-        var favourites = _.map(favouritesFromServer, function(fav) {
-            return fav.eventId;
+    pull : function() {
+        $.ajax({
+            method: 'GET',
+            beforeSend: dukeconSynch.setToken,
+            dataType: "json",
+            url:"rest/preferences",
+            success: function(data) {
+                var favouritesFromServer = _.map(data, function(fav) {
+                    return fav.eventId;
+                });
+                var localFavourites = dukeconSettings.getFavourites();
+                if (_.difference(favouritesFromServer, localFavourites).length > 0) {
+                    dukeconSettings.saveSetting(dukeconSettings.fav_key, _.union(favouritesFromServer, localFavourites));
+                    dukeconSynch.push();
+                    if (dukeconTalklistModel) {
+                        dukeconTalklistModel.updateFavourites();
+                    }
+                }
+            },
+            error: function() { console.log("Error loading preferences");}
         });
-        var localFavourites = dukeconSettings.getFavourites();
-        dukeconSettings.saveSetting(dukeconSettings.fav_key, _.union(localFavourites, favourites));
-        dukeconSynch.push();
     }
 };
 

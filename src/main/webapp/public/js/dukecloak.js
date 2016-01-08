@@ -17,23 +17,8 @@ var dukecloak = {
 			dukecloak.auth.username(profile.username);
 			console.log("Logged in: " + dukecloak.auth.username());
             dukecloak.keycloakAuth.updateToken()
-                .success(function() {$.ajax({
-                        method: 'GET',
-                        beforeSend: function (request)
-                        {
-                            request.setRequestHeader("Authorization", 'Bearer ' + dukecloak.keycloakAuth.token);
-                        },
-                        dataType: "json",
-                        url: preferencesUrl,
-                        success: function(data) {
-                            console.log("Loaded preferences");
-                            dukeconSynch.merge(data);
-                            if (dukeconTalklistModel) {
-                                dukeconTalklistModel.updateFavourites();
-                            }
-                        },
-                        error: function() { console.log("Error loading preferences");}
-                    })
+                .success(function() {
+                    dukeconSynch.pull();
                 })
                 .error(function() { console.log("Unable to update token");});
 		});

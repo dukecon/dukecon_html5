@@ -66,17 +66,10 @@ function TalkListViewModel() {
 
     self.updateFavourites = function() {
         var favourites = dukeconSettings.getFavourites();
-        var favouritesChanged = false;
         _.each(self.allTalks, function(talk) {
-            var isFavourite = favourites.indexOf(talk.id) !== -1;
-            if (!favouritesChanged && talk.favourite() != isFavourite) {
-                favouritesChanged = true;
-            }
-            talk.favourite(isFavourite);
+            talk.favourite(favourites.indexOf(talk.id) !== -1);
         });
-        if (favouritesChanged) {
-            self.filterTalks();
-        }
+        self.filterTalks();
     };
 
     // Functions
