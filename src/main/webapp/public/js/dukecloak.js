@@ -1,18 +1,20 @@
 // TODO: a work in progress
 
 var keycloakUrl = "rest/keycloak.json";
-var preferencesUrl = "rest/preferences";
 var redirectUri = location.href;
-var dukecloak = {
-    keycloakAuth : new Keycloak(keycloakUrl),
+var dukecloak = new function() {
+    // Data
+    var self = this;
 
-    auth : {
+    self.keycloakAuth = new Keycloak(keycloakUrl);
+
+    self.auth = {
         username : ko.observable(""),
         loggedIn : ko.observable(false),
         loggedOut : ko.observable(true)
-    },
+    };
 
-    loadUserData : function() {
+    self.loadUserData = function() {
 		dukecloak.keycloakAuth.loadUserProfile().success(function(profile){
 			dukecloak.auth.username(profile.username);
 			console.log("Logged in: " + dukecloak.auth.username());
@@ -22,9 +24,9 @@ var dukecloak = {
                 })
                 .error(function() { console.log("Unable to update token");});
 		});
-    },
+    };
 
-    logout : function() {
+    self.logout = function() {
         dukecloak.keycloakAuth.logout({"redirectUri":redirectUri}).success(function() {
 			dukecloak.auth.loggedIn(false);
 			dukecloak.auth.loggedOut(true);
@@ -32,8 +34,15 @@ var dukecloak = {
         }).error(function() {
 			console.log("WTF");
         });
-    },
-    login : function() {
+    };
+
+    var dukecloakInitialized = false;
+
+    self.login = function() {
+        if(!dukecloakInitialized) {
+            self.init(true);
+            return;
+        }
         dukecloak.keycloakAuth.login({"redirectUri":redirectUri}).success(function () {
             dukecloak.auth.loggedIn(true);
             dukecloak.auth.loggedOut(false);
@@ -41,10 +50,15 @@ var dukecloak = {
             dukecloak.auth.loggedIn(false);
             dukecloak.auth.loggedOut(true);
         });
-    },
-    init : function() {
+    };
+
+    self.init = function(login) {
+        if(dukecloakInitialized) {
+            return;
+        }
         dukecloak.keycloakAuth.redirectUri = location.href;
-        dukecloak.keycloakAuth.init({ onLoad: "check-sso" }).success(function (authenticated) {
+        dukecloak.keycloakAuth.init({ onLoad: login ? "login-required" : "check-sso" }).success(function (authenticated) {
+            dukecloakInitialized = true;
             dukecloak.auth.loggedIn(authenticated);
             dukecloak.auth.loggedOut(!authenticated);
             console.log('Authenticated: ' + authenticated);
