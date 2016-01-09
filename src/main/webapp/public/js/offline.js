@@ -20,6 +20,9 @@ window.addEventListener('load', function(e) {
     window.applicationCache.addEventListener("error", function(e) {
        setOfflineStatus(true);
     });
+    window.applicationCache.addEventListener("cached", function(e) {
+        setOfflineStatus(false);
+    });
     window.applicationCache.addEventListener("noupdate", function(e) {
         setOfflineStatus(false);
     });
