@@ -135,7 +135,9 @@ var dukeconSettings = {
     last_updated_hash : "dukecon_last_updated_hash",
     offline : "dukecon_offline",
 
-    context : window.location.pathname,
+    // strip the file name from the URL to get the context (i.e. '/latest/speakers.html' -> '/latest')
+    // so that all pages of the app use the same context
+    context : window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/")),
 
     getFavourites : function() {
         return dukeconSettings.getSettingOrEmptyArray(dukeconSettings.fav_key);
