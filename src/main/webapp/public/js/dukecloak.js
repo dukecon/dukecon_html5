@@ -63,6 +63,11 @@ var dukecloak = new function() {
             dukecloak.auth.loggedOut(!authenticated);
             console.log('Authenticated: ' + authenticated);
             if (authenticated){
+                console.log('local time: ' + new Date().getTime()/1000);
+                console.log('iat: ' + dukecloak.keycloakAuth.tokenParsed.iat);
+                console.log('diff: ' + (new Date().getTime()/1000 - dukecloak.keycloakAuth.tokenParsed.iat));
+                console.log('exp in: ' + (dukecloak.keycloakAuth.tokenParsed.exp - new Date().getTime()/1000));
+                console.log('isExpired: ' + dukecloak.keycloakAuth.isTokenExpired());
             	dukecloak.loadUserData();
 	        } else {
 				if (redirectUri.indexOf('?') >= 0) {
