@@ -47,10 +47,10 @@ function Talk(data, speakers, metaData, isFavourite) {
 
 };
 
-function Speaker(data, talks, speakers, metaData) {
+function Speaker(data, talks, speakers, metaData, favorites) {
     this.name = data.name || '';
     this.company = data.company || '';
-    this.talks = dukeconUtils.getTalks(data.eventIds, talks, speakers, metaData);
+    this.talks = dukeconUtils.getTalks(data.eventIds, talks, speakers, metaData, favorites);
 };
 
 
@@ -291,12 +291,12 @@ var dukeconUtils = {
         return dukeconUtils.talkIcons[typeId] || 'img/Unknown.png';
     },
 
-	getTalks : function(talkIds, talks, speakers, metaData) {
+	getTalks : function(talkIds, talks, speakers, metaData, favourites) {
         return _.map(talkIds, function(id) {
            var talk = _.find(talks, function(t) {
                 return t.id === id;
             });
-           return talk ? new Talk(talk, speakers, metaData, false) : null;
+           return talk ? new Talk(talk, speakers, metaData, favourites.indexOf(talk.id) !== -1) : null;
         });
     }
 };

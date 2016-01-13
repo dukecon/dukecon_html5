@@ -8,8 +8,9 @@ function SpeakerViewModel() {
     });
 
     self.initializeData = function(allData) {
+        var favourites = dukeconSettings.getFavourites();
         self.allSpeakers(_.map(allData.speakers, function(s) {
-            return new Speaker(s, allData.events, allData.speakers, allData.metaData);
+            return new Speaker(s, allData.events, allData.speakers, allData.metaData, favourites);
         }).sort(sortSpeaker));
     };
 };
