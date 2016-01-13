@@ -682,7 +682,13 @@
                 }
 
                 return oauth;
+            //// LOCALFIX START: logout on page with fragment will invalidate fragment ////
+            } else if (oauth.fragment) {
+                oauth.newUrl += '#' + oauth.fragment;
+
+                return oauth;
             }
+            //// LOCALFIX END ////
         }
 
         function createPromise() {
