@@ -1,7 +1,6 @@
 // TODO: a work in progress
 
 var keycloakUrl = "rest/keycloak.json";
-var redirectUri = location.href;
 var dukecloak = new function() {
     // Data
     var self = this;
@@ -27,7 +26,7 @@ var dukecloak = new function() {
     };
 
     self.logout = function() {
-        dukecloak.keycloakAuth.logout({"redirectUri":redirectUri}).success(function() {
+        dukecloak.keycloakAuth.logout().success(function() {
 			dukecloak.auth.loggedIn(false);
 			dukecloak.auth.loggedOut(true);
 			dukecloak.auth.username("");
@@ -43,7 +42,7 @@ var dukecloak = new function() {
             self.init(true);
             return;
         }
-        dukecloak.keycloakAuth.login({"redirectUri":redirectUri}).success(function () {
+        dukecloak.keycloakAuth.login().success(function () {
             dukecloak.auth.loggedIn(true);
             dukecloak.auth.loggedOut(false);
         }).error(function () {
@@ -56,7 +55,6 @@ var dukecloak = new function() {
         if(dukecloakInitialized) {
             return;
         }
-        dukecloak.keycloakAuth.redirectUri = location.href;
         dukecloak.keycloakAuth.init({ onLoad: login ? "login-required" : "check-sso" }).success(function (authenticated) {
             dukecloakInitialized = true;
             dukecloak.auth.loggedIn(authenticated);
@@ -69,11 +67,7 @@ var dukecloak = new function() {
                 console.log('exp in: ' + (dukecloak.keycloakAuth.tokenParsed.exp - new Date().getTime()/1000));
                 console.log('isExpired: ' + dukecloak.keycloakAuth.isTokenExpired());
             	dukecloak.loadUserData();
-	        } else {
-				if (redirectUri.indexOf('?') >= 0) {
-			        location.href = redirectUri.split("?")[0]; // TODO: URL contains a huge querystring after returning from KC, how to keep this from happening?
-				}
-            }
+	        }
         }).error(function () {
             console.log("Error initializing keycloak");
         });
