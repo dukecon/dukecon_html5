@@ -13,19 +13,46 @@ var dukecloak = new function() {
         loggedOut : ko.observable(true)
     };
 
+    function saveTokens() {
+        dukeconSettings.saveSetting('keycloak_token', dukecloak.keycloakAuth.token);
+        dukeconSettings.saveSetting('keycloak_refreshToken', dukecloak.keycloakAuth.refreshToken);
+        dukeconSettings.saveSetting('keycloak_idToken', dukecloak.keycloakAuth.idToken);
+        dukeconSettings.saveSetting('keycloak_timeSkew', dukecloak.keycloakAuth.timeSkew);
+    }
+
+    function clearTokens() {
+        dukeconSettings.clearSetting('keycloak_token');
+        dukeconSettings.clearSetting('keycloak_refreshToken');
+        dukeconSettings.clearSetting('keycloak_idToken');
+        dukeconSettings.clearSetting('keycloak_timeSkew');
+        dukeconSettings.clearSetting('keycloak_username');
+    }
+
     self.loadUserData = function() {
-		dukecloak.keycloakAuth.loadUserProfile().success(function(profile){
-			dukecloak.auth.username(profile.username);
-			console.log("Logged in: " + dukecloak.auth.username());
-            dukecloak.keycloakAuth.updateToken()
-                .success(function() {
-                    dukeconSynch.pull();
-                })
-                .error(function() { console.log("Unable to update token");});
-		});
+        dukecloak.keycloakAuth.updateToken()
+            .success(function() {
+                var username = dukeconSettings.getSetting('keycloak_username');
+                if (username) {
+                    dukecloak.auth.username(username);
+                } else {
+                    dukecloak.keycloakAuth.loadUserProfile().success(function (profile) {
+                        dukecloak.auth.username(profile.username);
+                        dukeconSettings.saveSetting('keycloak_username', dukecloak.auth.username());
+                        console.log("Logged in: " + dukecloak.auth.username());
+                    });
+                }
+                dukeconSynch.pull();
+            })
+            .error(function() {
+                /* load user data is quite close to the initial setup
+                failling an update here might indicate the the saved tokens are no longer valid */
+                clearTokens();
+                console.log("Unable to update token");
+            });
     };
 
     self.logout = function() {
+        clearTokens();
         dukecloak.keycloakAuth.logout().success(function() {
 			dukecloak.auth.loggedIn(false);
 			dukecloak.auth.loggedOut(true);
@@ -51,28 +78,49 @@ var dukecloak = new function() {
         });
     };
 
+    self.keycloakAuth.onAuthSuccess = function() {
+        console.log("Auth Success!!");
+        saveTokens();
+    };
+
+    self.keycloakAuth.onAuthRefreshSuccess = function() {
+        console.log("Auth Refreshed!!");
+        saveTokens();
+    };
+
+    self.keycloakAuth.onAuthLogout = function() {
+        console.log("Logged out!!");
+        clearTokens();
+    };
+
     self.init = function(login) {
         if(dukecloakInitialized) {
             return;
         }
-        dukecloak.keycloakAuth.init({ onLoad: login ? "login-required" : "check-sso" }).success(function (authenticated) {
+
+        dukecloak.keycloakAuth.timeSkew = dukeconSettings.getSetting('keycloak_timeSkew');
+
+        dukecloak.keycloakAuth.init({
+            onLoad: login ? "login-required" : "check-sso",
+            token: dukeconSettings.getSetting('keycloak_token'),
+            idToken: dukeconSettings.getSetting('keycloak_idToken'),
+            refreshToken: dukeconSettings.getSetting('keycloak_refreshToken')
+        }).success(function (authenticated) {
             dukecloakInitialized = true;
             dukecloak.auth.loggedIn(authenticated);
             dukecloak.auth.loggedOut(!authenticated);
             console.log('Authenticated: ' + authenticated);
-            if (authenticated){
-                console.log('local time: ' + new Date().getTime()/1000);
+            if (authenticated) {
+                console.log('local time: ' + new Date().getTime() / 1000);
                 console.log('iat: ' + dukecloak.keycloakAuth.tokenParsed.iat);
-                console.log('diff: ' + (new Date().getTime()/1000 - dukecloak.keycloakAuth.tokenParsed.iat));
-                console.log('exp in: ' + (dukecloak.keycloakAuth.tokenParsed.exp - new Date().getTime()/1000));
+                console.log('diff: ' + (new Date().getTime() / 1000 - dukecloak.keycloakAuth.tokenParsed.iat));
+                console.log('exp in: ' + (dukecloak.keycloakAuth.tokenParsed.exp - new Date().getTime() / 1000));
                 console.log('isExpired: ' + dukecloak.keycloakAuth.isTokenExpired());
-            	dukecloak.loadUserData();
-	        }
+                dukecloak.loadUserData();
+            }
         }).error(function () {
             console.log("Error initializing keycloak");
         });
-        dukecloak.keycloakAuth.onAuthSuccess = function() { console.log("Auth Success!!"); };
-        dukecloak.keycloakAuth.onAuthRefreshSuccess = function() { console.log("Authenticated!!"); };
     }
 };
 
