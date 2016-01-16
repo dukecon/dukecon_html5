@@ -683,6 +683,7 @@
 
                 return oauth;
             //// LOCALFIX START: logout on page with fragment will invalidate fragment ////
+            // https://issues.jboss.org/browse/KEYCLOAK-2323
             } else if (oauth.fragment) {
                 oauth.newUrl += '#' + oauth.fragment;
 

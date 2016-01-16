@@ -46,6 +46,8 @@ var dukecloak = new function() {
             .error(function() {
                 /* load user data is quite close to the initial setup
                 failling an update here might indicate the the saved tokens are no longer valid */
+                dukecloak.auth.loggedIn(false);
+                dukecloak.auth.loggedOut(true);
                 clearTokens();
                 console.log("Unable to update token");
             });
@@ -98,6 +100,7 @@ var dukecloak = new function() {
             return;
         }
 
+        // https://issues.jboss.org/browse/KEYCLOAK-2322
         dukecloak.keycloakAuth.timeSkew = dukeconSettings.getSetting('keycloak_timeSkew');
 
         dukecloak.keycloakAuth.init({
