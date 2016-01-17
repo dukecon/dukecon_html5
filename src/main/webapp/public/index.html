@@ -18,6 +18,10 @@
 </head>
 <body onunload="unloadP('dukeConMain')" onload="loadP('dukeConMain')">
 <noscript><br><br>&nbsp;Please enable Javascript to use this site.</noscript>
+<div id="cookies" data-bind="visible: cookiesConfirmed">
+    <div data-bind="resource: 'cookieDisclaimer'"></div>
+    <div class="alert-button"><button data-bind="resource: 'cookieDisclaimerOK', click : function() { closeCookieDisclaimer(); }"></button></div>
+</div>
 <login-widget></login-widget>
 <header-widget params="value: 'talks'"></header-widget>
 

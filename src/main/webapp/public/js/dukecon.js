@@ -35,7 +35,7 @@ function Talk(data, speakers, metaData, isFavourite) {
     }, this);
     this.showAlertWindow = function() {
         // requires scrollfix.js for cookie handling:
-        var alreadySeen = readCookie('dukeConFavouriteAlertSeen');
+        var alreadySeen = readCookie('dukecon.favouriteAlertSeen');
         if (!dukecloak.auth.loggedIn() && !alreadySeen) {
             var alertWin = document.getElementById('alert-window');
             if (alertWin) {
@@ -67,6 +67,12 @@ function Speaker(data, talks, speakers, metaData, favorites) {
     this.talks = dukeconUtils.getTalks(data.eventIds, talks, speakers, metaData, favorites);
 }
 
+
+var cookiesConfirmed = ko.observable(readCookie('dukecon.cookiesConfirmed') !== '1');
+var closeCookieDisclaimer = function() {
+    createCookie('dukecon.cookiesConfirmed', '1', 1);
+    document.getElementById('cookies').style.display="none";
+};
 
 var dukeconDateUtils = {
 
@@ -217,7 +223,7 @@ ko.components.register('alert-window', {
     	this.resourceTitle = params.resourceTitle;
     	this.resourceBody = params.resourceBody;
     	this.hide = function() {
-            createCookie('dukeConFavouriteAlertSeen', '1', 1);
+            createCookie('dukecon.favouriteAlertSeen', '1', 1);
     	    document.getElementById('alert-window').className="";
     	};
     },
@@ -400,15 +406,29 @@ var languageUtils = {
             'de' : 'Impressum',
             'en' : 'Imprint'
         },
-        // imprint
+        // favorites hint
         favoriteAlertTitle : {
             'de' : 'Favoriten',
             'en' : 'Favorites'
         },
-        // imprint
         favoriteAlertBody : {
             'de' : 'Favoriten werden erst mit Eurem Konto synchronisiert wenn Ihr Euch einloggt bzw. registriert. <br><br>Clickt dazu auf das Schloss-Symbol oben.',
             'en' : 'Favorites are synchronized with your account once you log in. <br><br>Click the lock symbol at the top to do so.'
+        },
+        // regarding cookies
+        cookieDisclaimer : {
+            'de' : 'Diese Seite verwendet <a href="https://de.wikipedia.org/wiki/Cookie" target="new">Cookies</a>, ' +
+                   'um Seitenpositionen und Authentifizierungsstatus zu verfolgen. Es werden keine Daten aus diesen Cookies an '
+                   + 'Dritte weitergegeben. Mit Verwendung dieser Webseite erklären Sie sich mit diesen Bedingungen einverstanden. '
+                   + 'Wenn Sie Cookies im Browser deaktivieren, kann dies die Bedienung dieser Webseite beeinträchtigen.',
+            'en' : '<a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="new">Cookies</a> are used on this page to track '
+                   + 'page positions and authentication status. Not data from these cookies is forwarded to third parties. '
+                   + 'By using this website you agree to these conditions. Please note that disabling cookies in your browser '
+                   + 'may diminish your experience when using this site.'
+        },
+        cookieDisclaimerOK : {
+            'de' : 'Verstanden',
+            'en' : 'Understood'
         },
         // feedback page
         feedback_content : {

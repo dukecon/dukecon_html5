@@ -523,6 +523,23 @@ div.room span, div.time span {
     padding:0;
 }
 
+#cookies {
+    z-index: 2000;
+    border: 1px solid #1AA3B1;
+    position: absolute;
+    top : 0px;
+    left: 0px;
+    padding: 7px;
+    width: 99%;
+    text-align: center;
+    background: #FFFFFF;
+  	box-shadow: 0px 2px 3px 0px #666666;
+}
+#cookies a {
+    padding: 0;
+    margin: 0;
+}
+
 #alert-window {
     border: 1px solid #1AA3B1;
     position: absolute;
@@ -540,7 +557,7 @@ div.room span, div.time span {
     margin: 0;
     padding: 5px;
 }
-.alert-body, .alert-buttons {
+.alert-body, .alert-button {
     padding: 0.5em;
 }
 
@@ -682,6 +699,9 @@ div.room span, div.time span {
     }
     #alert-window {
         width: 240px;
+    }
+    #cookies {
+        width: 94%;
     }
 }
 
