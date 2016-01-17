@@ -217,7 +217,7 @@ ko.components.register('alert-window', {
     	this.resourceTitle = params.resourceTitle;
     	this.resourceBody = params.resourceBody;
     	this.hide = function() {
-            createCookie('dukeConFavouriteAlertSeen', '1');
+            createCookie('dukeConFavouriteAlertSeen', '1', 1);
     	    document.getElementById('alert-window').className="";
     	};
     },
