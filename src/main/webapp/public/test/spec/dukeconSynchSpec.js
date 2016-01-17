@@ -52,8 +52,7 @@ describe("dukeconSynch", function() {
         expect(request.data()).toEqual([{ eventId : '509516' , version : '1' },{ eventId : '509557' , version : '1'}]);
     });
 
-    it("pull - merge", function() {
-
+    it("pull - merge 1", function() {
         spyOn(dukeconTalklistModel, "updateFavourites");
         spyOn(dukeconSynch, "setToken").and.returnValue(null);
         spyOn(dukeconSynch, "push").and.returnValue(null);
@@ -69,10 +68,59 @@ describe("dukeconSynch", function() {
 
         request.respondWith({
             status: 200,
-            responseText: '[{"eventId":"1","version":0},{"eventId":"2","version":0},{"eventId":"3","version":0}]'
+            responseText: '[{"eventId":"1","version":0},{"eventId":"2","version":0},{"eventId":"3","version":0},{"eventId":"4","version":0}]'
         });
 
         expect(dukeconSettings.saveSetting).toHaveBeenCalledWith("dukeconfavs", ["1", "2", "3", "4"]);
+        expect(dukeconSynch.push).toHaveBeenCalled();
+        expect(dukeconTalklistModel.updateFavourites).toHaveBeenCalled();
+    });
+
+    it("pull - merge 2", function() {
+        spyOn(dukeconTalklistModel, "updateFavourites");
+        spyOn(dukeconSynch, "setToken").and.returnValue(null);
+        spyOn(dukeconSynch, "push").and.returnValue(null);
+        spyOn(dukeconSettings, "getFavourites").and.returnValue(['1', '2', '3', '4']);
+
+        spyOn(dukeconSettings, "saveSetting").and.returnValue(null);
+
+        dukeconSynch.pull();
+
+        var request = jasmine.Ajax.requests.mostRecent();
+        expect(request.url).toBe('rest/preferences');
+        expect(request.method).toBe('GET');
+
+        request.respondWith({
+            status: 200,
+            responseText: '[{"eventId":"1","version":0},{"eventId":"2","version":0}]'
+        });
+
+        expect(dukeconSettings.saveSetting).toHaveBeenCalledWith("dukeconfavs", ["1", "2", "3", "4"]);
+        expect(dukeconSynch.push).toHaveBeenCalled();
+        expect(dukeconTalklistModel.updateFavourites).toHaveBeenCalled();
+    });
+
+    it("pull - take local", function() {
+        spyOn(dukeconTalklistModel, "updateFavourites");
+        spyOn(dukeconSynch, "setToken").and.returnValue(null);
+        spyOn(dukeconSynch, "push").and.returnValue(null);
+        spyOn(dukeconSettings, "getFavourites").and.returnValue(['3', '4']);
+        spyOn(dukeconSettings, "getSetting").and.returnValue(true);
+
+        spyOn(dukeconSettings, "saveSetting").and.returnValue(null);
+
+        dukeconSynch.pull();
+
+        var request = jasmine.Ajax.requests.mostRecent();
+        expect(request.url).toBe('rest/preferences');
+        expect(request.method).toBe('GET');
+
+        request.respondWith({
+            status: 200,
+            responseText: '[{"eventId":"1","version":0},{"eventId":"2","version":0},{"eventId":"3","version":0}]'
+        });
+
+        expect(dukeconSettings.saveSetting).toHaveBeenCalledWith("dukeconfavs", ["3", "4"]);
         expect(dukeconSynch.push).toHaveBeenCalled();
         expect(dukeconTalklistModel.updateFavourites).toHaveBeenCalled();
     });

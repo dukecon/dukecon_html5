@@ -1,7 +1,8 @@
 // Check if a new cache is available on page load.
 window.addEventListener('load', function(e) {
     window.applicationCache.addEventListener('updateready', function(e) {
-        var doPageReload = setOfflineStatus(false);
+        var doPageReload = dukeconSettings.getSetting(dukeconSettings.offline);
+        setOfflineStatus(false);
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
             console.log("Loading new version of page");
             // Browser downloaded a new app cache.
@@ -29,14 +30,14 @@ window.addEventListener('load', function(e) {
 }, false);
 
 function setOfflineStatus(offline) {
-    var doPageReload = false;
     if (offline) {
         console.log("We are offline");
         dukeconSettings.saveSetting(dukeconSettings.offline, true);
+        dukeconSettings.saveSetting(dukeconSettings.previously_offline, false);
     }
     else {
         console.log("We are online - starting timer to check for updates");
-        doPageReload = dukeconSettings.getSetting(dukeconSettings.offline);
+        dukeconSettings.saveSetting(dukeconSettings.previously_offline, dukeconSettings.getSetting(dukeconSettings.offline));
         dukeconSettings.saveSetting(dukeconSettings.offline, false);
         dukeconTalkUtils.checkNewDataOnServer();
         setInterval(function() {
@@ -46,7 +47,6 @@ function setOfflineStatus(offline) {
             dukecloak.nowOnline();
         }
     }
-    return doPageReload;
 }
 
 var dukeconTalkUtils = {
@@ -134,6 +134,7 @@ var dukeconSettings = {
     day_key : "dukeconday",
     last_updated_hash : "dukecon_last_updated_hash",
     offline : "dukecon_offline",
+    previously_offline : "dukecon_previously_offline",
 
     // strip the file name from the URL to get the context (i.e. '/latest/speakers.html' -> '/latest')
     // so that all pages of the app use the same context
@@ -277,12 +278,15 @@ var dukeconSynch = {
             dataType: "json",
             url:"rest/preferences",
             success: function(data) {
+                console.log("Pulling favourites from server");
                 var favouritesFromServer = _.map(data, function(fav) {
                     return fav.eventId;
                 });
                 var localFavourites = dukeconSettings.getFavourites();
-                if (_.difference(favouritesFromServer, localFavourites).length > 0) {
-                    dukeconSettings.saveSetting(dukeconSettings.fav_key, _.union(favouritesFromServer, localFavourites));
+                if (_.difference(localFavourites, favouritesFromServer).length > 0 || _.difference(favouritesFromServer, localFavourites).length > 0) {
+                    var previouslyOffline = dukeconSettings.getSetting(dukeconSettings.previously_offline);
+                    console.log("Taking local favourites: " + previouslyOffline);
+                    dukeconSettings.saveSetting(dukeconSettings.fav_key, previouslyOffline ? localFavourites : _.union(favouritesFromServer, localFavourites));
                     dukeconSynch.push();
                     if (dukeconTalklistModel) {
                         dukeconTalklistModel.updateFavourites();
