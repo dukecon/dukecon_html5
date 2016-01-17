@@ -43,7 +43,7 @@ function setOfflineStatus(offline) {
             dukeconTalkUtils.checkNewDataOnServer();
         }, 300000);
         if(typeof dukecloak !== 'undefined') {
-            dukecloak.init();
+            dukecloak.nowOnline();
         }
     }
     return doPageReload;

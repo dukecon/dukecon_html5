@@ -1,16 +1,16 @@
 // TODO: a work in progress
 
 var keycloakUrl = "rest/keycloak.json";
-var dukecloak = new function() {
+var dukecloak = new function () {
     // Data
     var self = this;
 
     self.keycloakAuth = new Keycloak(keycloakUrl);
 
     self.auth = {
-        username : ko.observable(""),
-        loggedIn : ko.observable(false),
-        loggedOut : ko.observable(true)
+        username: ko.observable(""),
+        loggedIn: ko.observable(false),
+        loggedOut: ko.observable(true)
     };
 
     function saveTokens() {
@@ -28,9 +28,9 @@ var dukecloak = new function() {
         dukeconSettings.clearSetting('keycloak_username');
     }
 
-    self.loadUserData = function() {
+    self.loadUserData = function () {
         dukecloak.keycloakAuth.updateToken()
-            .success(function() {
+            .success(function () {
                 var username = dukeconSettings.getSetting('keycloak_username');
                 if (username) {
                     dukecloak.auth.username(username);
@@ -43,9 +43,9 @@ var dukecloak = new function() {
                 }
                 dukeconSynch.pull();
             })
-            .error(function() {
+            .error(function () {
                 /* load user data is quite close to the initial setup
-                failling an update here might indicate the the saved tokens are no longer valid */
+                 failling an update here might indicate the the saved tokens are no longer valid */
                 dukecloak.auth.loggedIn(false);
                 dukecloak.auth.loggedOut(true);
                 clearTokens();
@@ -53,21 +53,61 @@ var dukecloak = new function() {
             });
     };
 
-    self.logout = function() {
+    function createPromise() {
+        var p = {
+            setSuccess: function (result) {
+                p.success = true;
+                p.result = result;
+                if (p.successCallback) {
+                    p.successCallback(result);
+                }
+            },
+
+            setError: function (result) {
+                p.error = true;
+                p.result = result;
+                if (p.errorCallback) {
+                    p.errorCallback(result);
+                }
+            },
+
+            promise: {
+                success: function (callback) {
+                    if (p.success) {
+                        callback(p.result);
+                    } else if (!p.error) {
+                        p.successCallback = callback;
+                    }
+                    return p.promise;
+                },
+                error: function (callback) {
+                    if (p.error) {
+                        callback(p.result);
+                    } else if (!p.success) {
+                        p.errorCallback = callback;
+                    }
+                    return p.promise;
+                }
+            }
+        }
+        return p;
+    }
+
+    self.logout = function () {
         clearTokens();
-        dukecloak.keycloakAuth.logout().success(function() {
-			dukecloak.auth.loggedIn(false);
-			dukecloak.auth.loggedOut(true);
-			dukecloak.auth.username("");
-        }).error(function() {
-			console.log("WTF");
+        dukecloak.keycloakAuth.logout().success(function () {
+            dukecloak.auth.loggedIn(false);
+            dukecloak.auth.loggedOut(true);
+            dukecloak.auth.username("");
+        }).error(function () {
+            console.log("WTF");
         });
     };
 
     var dukecloakInitialized = false;
 
-    self.login = function() {
-        if(!dukecloakInitialized) {
+    self.login = function () {
+        if (!dukecloakInitialized) {
             self.init(true);
             return;
         }
@@ -80,23 +120,23 @@ var dukecloak = new function() {
         });
     };
 
-    self.keycloakAuth.onAuthSuccess = function() {
+    self.keycloakAuth.onAuthSuccess = function () {
         console.log("Auth Success!!");
         saveTokens();
     };
 
-    self.keycloakAuth.onAuthRefreshSuccess = function() {
+    self.keycloakAuth.onAuthRefreshSuccess = function () {
         console.log("Auth Refreshed!!");
         saveTokens();
     };
 
-    self.keycloakAuth.onAuthLogout = function() {
+    self.keycloakAuth.onAuthLogout = function () {
         console.log("Logged out!!");
         clearTokens();
     };
 
-    self.init = function(login) {
-        if(dukecloakInitialized) {
+    self.init = function (login) {
+        if (dukecloakInitialized) {
             return;
         }
 
@@ -125,5 +165,35 @@ var dukecloak = new function() {
             console.log("Error initializing keycloak");
         });
     }
+
+    // ensure that keycloak is initialized when dom is ready and application is online
+    self.initPromise = createPromise();
+
+    self.initPromise.promise.success(function () {
+        self.init();
+    });
+
+    self.online = false;
+
+    self.domReady = false;
+
+    self.check = function () {
+        if (self.online && self.domReady) {
+            self.initPromise.setSuccess();
+        }
+    }
+
+    self.nowOnline = function () {
+        self.online = true;
+        console.log("dukecloak: online");
+        self.check();
+    }
+
+    $(document).ready(function () {
+        console.log("dukecloak: documentready");
+        self.domReady = true;
+        self.check();
+    });
+
 };
 
