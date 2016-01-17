@@ -14,11 +14,11 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.startSortable = data.start || '';
     this.trackDisplay = ko.observable(dukeconUtils.getTrack(metaData, data.trackId));
     this.track = data.trackId || '';
-    this.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '')
-    this.isTrackVisible = ko.computed(function() { return self.trackDisplay() !== '';})
+    this.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '');
+    this.isTrackVisible = ko.computed(function() { return self.trackDisplay() !== '';});
     this.locationDisplay = ko.observable(dukeconUtils.getLocation(metaData, data.locationId));
     this.location = data.locationId || '';
-    this.locationOrder = dukeconUtils.getOrderById(metaData.locations, data.locationId)
+    this.locationOrder = dukeconUtils.getOrderById(metaData.locations, data.locationId);
     this.levelDisplay = ko.observable(dukeconUtils.getLevel(metaData, data.audienceId));
     this.level = data.audienceId || '';
     this.title = data.title || '';
@@ -51,7 +51,7 @@ function Talk(data, speakers, metaData, isFavourite) {
         this.favourite(!this.favourite());
     };
 
-    languageUtils.selectedLanguage.subscribe(function(language) {
+    languageUtils.selectedLanguage.subscribe(function() {
         self.day(dukeconDateUtils.getDisplayDate(data.start));
         self.trackDisplay(dukeconUtils.getTrack(metaData, data.trackId));
         self.levelDisplay(dukeconUtils.getLevel(metaData, data.audienceId));
@@ -59,13 +59,13 @@ function Talk(data, speakers, metaData, isFavourite) {
         self.locationDisplay(dukeconUtils.getLocation(metaData, data.locationId));
     });
 
-};
+}
 
 function Speaker(data, talks, speakers, metaData, favorites) {
     this.name = data.name || '';
     this.company = data.company || '';
     this.talks = dukeconUtils.getTalks(data.eventIds, talks, speakers, metaData, favorites);
-};
+}
 
 
 var dukeconDateUtils = {
@@ -127,12 +127,12 @@ var dukeconDateUtils = {
         }
         var dateStart = new Date(dateStartString);
         var dateEnd = new Date(dateEndString);
-        var millis = dateEnd - dateStart
+        var millis = dateEnd - dateStart;
         return millis / 1000 / 60;
     },
 
     getTimeCategory : function(duration) {
-        if (typeof duration === 'undefined' || (duration > 30 && duration <= 60)) {
+        if (duration === 'undefined' || (duration > 30 && duration <= 60)) {
             return "regular";
         }
         if (duration <= 30) {
@@ -219,7 +219,7 @@ ko.components.register('alert-window', {
     	this.hide = function() {
             createCookie('dukeConFavouriteAlertSeen', '1');
     	    document.getElementById('alert-window').className="";
-    	}
+    	};
     },
     template:
         '<div id="alert-window">'
@@ -305,7 +305,8 @@ var dukeconUtils = {
         });
         return _.map(speakerIds, function(speakerId) {
             var speaker = _.find(speakers, function(s) {
-                return s.id === speakerId}
+                    return s.id === speakerId;
+                }
             );
             if (withCompany) {
                 return speaker.name + (speaker.company ? ", " + speaker.company : '');
@@ -444,15 +445,14 @@ var languageUtils = {
     getLanguageIconUrl : function() {
         return ko.pureComputed(function() {
             return 'img/' + languageUtils.selectedLanguage() + '.png';
-        }, { languageUtils: languageUtils})
+        }, { languageUtils: languageUtils});
     },
 
     getResource : function(resourceKey) {
         return languageUtils.strings[resourceKey] ?
             languageUtils.strings[resourceKey].resource  :
-            resourceKey
-    },
-
+            resourceKey;
+    }
 };
 
 languageUtils.init();
