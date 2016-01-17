@@ -143,9 +143,6 @@ ko.components.register('header-widget', {
     viewModel : function(params) {
         this.active = params.value;
         this.icon = languageUtils.getLanguageIconUrl();
-        this.talks = 'Talks';
-        this.speakers = languageUtils.getResource('speaker');
-        this.feedback = 'Feedback';
 		this.getCssClass = function(item) {
 			return (item === this.active ? "mainmenu active" : "mainmenu inactive");
 		};
@@ -164,12 +161,12 @@ ko.components.register('header-widget', {
         '<div class="header">'
 		+ '<h1 id="headertitle">'
 		+ '	<a id="logo" href="http://www.javaland.eu"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
-		+ ' <span id="pagetitle" data-bind="text: active"></span>'
+		+ ' <span id="pagetitle" data-bind="resource: active"></span>'
 		+ ' <div id="mainmenu-button" data-bind="click: toggleMenu"><img src="img/menu_24px.svg"></div>'
 		+ ' <div id="mainmenu-items">'
-		+ '	 <a href="index.html" data-bind="text: talks, attr: {class: getCssClass(\'talks\')}"></a>'
-		+ '	 <a href="speakers.html" data-bind="text: speakers, attr: {class: getCssClass(\'speakers\')}"></a>'
-		+ '	 <a href="feedback.html" data-bind="text: feedback, attr: {class: getCssClass(\'feedback\')}"></a>'
+		+ '	 <a href="index.html" data-bind="resource: \'talks\', attr: {class: getCssClass(\'talks\')}"></a>'
+		+ '	 <a href="speakers.html" data-bind="resource: \'speaker\', attr: {class: getCssClass(\'speaker\')}"></a>'
+		+ '	 <a href="feedback.html" data-bind="resource: \'feedback\', attr: {class: getCssClass(\'feedback\')}"></a>'
 		+ '	 <a class="mainmenu" id="language-select" onclick="languageUtils.toggleLanguage();"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
 		+ ' </div>'
 		+ '</h1>'
@@ -316,9 +313,17 @@ var languageUtils = {
             'de' : 'Zurücksetzen',
             'en' : 'Reset'
         },
+        talks : {
+            'de' : 'Talks',
+            'en' : 'Talks'
+        },
         speaker : {
             'de' : 'Sprecher',
             'en' : 'Speakers'
+        },
+        feedback : {
+            'de' : 'Feedback',
+            'en' : 'Feedback'
         },
         level : {
             'de' : 'Zielgruppe',
