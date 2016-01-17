@@ -422,7 +422,7 @@ var languageUtils = {
                    + 'Dritte weitergegeben. Mit Verwendung dieser Webseite erklären Sie sich mit diesen Bedingungen einverstanden. '
                    + 'Wenn Sie Cookies im Browser deaktivieren, kann dies die Bedienung dieser Webseite beeinträchtigen.',
             'en' : '<a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="new">Cookies</a> are used on this page to track '
-                   + 'page positions and authentication status. Not data from these cookies is forwarded to third parties. '
+                   + 'page positions and authentication status. No data from these cookies is forwarded to third parties. '
                    + 'By using this website you agree to these conditions. Please note that disabling cookies in your browser '
                    + 'may diminish your experience when using this site.'
         },
