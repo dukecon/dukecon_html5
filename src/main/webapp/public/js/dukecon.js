@@ -33,7 +33,21 @@ function Talk(data, speakers, metaData, isFavourite) {
     this.favicon = ko.computed(function() {
         return this.favourite() ? "img/StarFilled.png" : "img/StarLine.png";
     }, this);
+    this.showAlertWindow = function() {
+        // requires scrollfix.js for cookie handling:
+        var alreadySeen = readCookie('dukeConFavouriteAlertSeen');
+        if (!dukecloak.auth.loggedIn() && !alreadySeen) {
+            var alertWin = document.getElementById('alert-window');
+            if (alertWin) {
+                var position = getScrollXY();
+                alertWin.className = 'shown';
+                alertWin.style.top = (position[1] + 150) + 'px';
+                alertWin.style.left = (position[0] + 40) + 'px';
+            }
+        }
+    };
     this.toggleFavourite = function() {
+        this.showAlertWindow();
         this.favourite(!this.favourite());
     };
 
@@ -191,10 +205,29 @@ ko.components.register('login-widget', {
 ko.components.register('footer-widget', {
     template:
         '<div class="footer">'
-        + '<div style="position: absolute;top:0;left:0;text-align:left;z-index:10;display:inline-block; padding:6px;">'
+        + '<div id="#update-info">'
             + '<span data-bind="visible: dukeconTalkUtils.updateCheck"style="margin-left:5px;">Checking for update...</span>'
         + '</div>'
             + '<a href="impressum.html" data-bind="resource: \'imprint\'"></a>'
+        + '</div>'
+});
+
+ko.components.register('alert-window', {
+    viewModel : function(params) {
+    	this.resourceTitle = params.resourceTitle;
+    	this.resourceBody = params.resourceBody;
+    	this.hide = function() {
+            createCookie('dukeConFavouriteAlertSeen', '1');
+    	    document.getElementById('alert-window').className="";
+    	}
+    },
+    template:
+        '<div id="alert-window">'
+        + '   <div class="alert-title" data-bind="resource : resourceTitle"></div>'
+        + '   <div class="alert-body" data-bind="resource : resourceBody"></div>'
+        + '   <div class="alert-buttons">'
+        + '      <button data-bind="click: function() { hide(); }">OK</button>'
+        + '   </div>'
         + '</div>'
 });
 
@@ -366,6 +399,16 @@ var languageUtils = {
             'de' : 'Impressum',
             'en' : 'Imprint'
         },
+        // imprint
+        favoriteAlertTitle : {
+            'de' : 'Favoriten',
+            'en' : 'Favorites'
+        },
+        // imprint
+        favoriteAlertBody : {
+            'de' : 'Favoriten werden erst mit Eurem Konto synchronisiert wenn Ihr Euch einloggt bzw. registriert. <br><br>Clickt dazu auf das Schloss-Symbol oben.',
+            'en' : 'Favorites are synchronized with your account once you log in. <br><br>Click the lock symbol at the top to do so.'
+        },
         // feedback page
         feedback_content : {
             'de' : '<span>Rückmeldungen zur Javaland Talks Webseite bitte per Mail an</span>'
@@ -423,7 +466,7 @@ ko.bindingHandlers['resource'] = {
     }
 };
 
-var  hideLoading = function(delayMs) {
+var hideLoading = function(delayMs) {
         var loadingDiv = $('#loading'), contentDiv = $('.content');
         // tried knockout-event-catching (ko.bindingHandlers...) but it doesn't work, so adding a minimal timeout here to avoid watching the screen render
         setTimeout(function() {

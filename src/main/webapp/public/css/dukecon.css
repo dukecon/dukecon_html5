@@ -464,6 +464,17 @@ div.room span, div.time span {
     box-shadow: 0px 0px 4px -2px #000000;
 }
 
+#update-info {
+    position: absolute;
+    top:0;
+    left:0;
+    text-align:left;
+    z-index:10;
+    display:inline-block;
+    padding:6px;
+}
+
+
 /* FAVOURITES */
 .fav {
     margin-left:5px;
@@ -512,9 +523,30 @@ div.room span, div.time span {
     padding:0;
 }
 
-/* PURE CSS overrides */
-.pure-g {
-    letter-spacing: 0em;
+#alert-window {
+    border: 1px solid #1AA3B1;
+    position: absolute;
+    top : 1px;
+    left: 1px;
+    width: 350px;
+    text-align: center;
+    background: #FFFFFF;
+  	box-shadow: 0px 2px 3px 0px #666666;
+    visibility: hidden;
+}
+.alert-title {
+    background: #1AA3B1;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 5px;
+}
+.alert-body, .alert-buttons {
+    padding: 0.5em;
+}
+
+#alert-window.shown {
+    z-index: 2000;
+    visibility: visible;
 }
 
 .day-short {
@@ -526,7 +558,6 @@ div.room span, div.time span {
 .talk-cell .speaker {
 	display:block;
 }
-
 
 /* RESPONSIVE TWEAKS for small screens */
 @media (max-width: 47.9em) {
@@ -649,4 +680,12 @@ div.room span, div.time span {
         width:auto;
         margin:5px;
     }
+    #alert-window {
+        width: 240px;
+    }
+}
+
+/* PURE CSS overrides */
+.pure-g {
+    letter-spacing: 0em;
 }
