@@ -442,7 +442,11 @@ var languageUtils = {
     },
 
     init : function() {
-        languageUtils.selectedLanguage(dukeconSettings.getSelectedLanguage());
+        if(typeof dukeconSettings !== 'undefined') {
+            languageUtils.selectedLanguage(dukeconSettings.getSelectedLanguage());
+        } else {
+            languageUtils.selectedLanguage("de");
+        }
         // pre-creating computed elements to avoid having it multiple times on a page
         for (var key in languageUtils.strings) {
             if (languageUtils.strings.hasOwnProperty(key)) {
