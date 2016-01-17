@@ -1,3 +1,7 @@
+var hideLoading = function(timeout) {
+    console.log("Mocking hideLoading() Method");
+};
+
 describe("talklist", function () {
     var talk_json = {
         "metaData": {
