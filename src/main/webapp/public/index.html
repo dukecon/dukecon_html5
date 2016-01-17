@@ -19,7 +19,7 @@
 <body onunload="unloadP('dukeConMain')" onload="loadP('dukeConMain')">
 <noscript><br><br>&nbsp;Please enable Javascript to use this site.</noscript>
 <login-widget></login-widget>
-<header-widget params="value: 'Talks'"></header-widget>
+<header-widget params="value: 'talks'"></header-widget>
 
 <div id="loading">&nbsp;</div>
 <div id="layout" class="content hidden">
@@ -32,16 +32,16 @@
     <div id="menu">
         <div class="pure-menu custom-restricted-width" id="nav">
             <div class="filter-settings">
-                <span class="filter-category"><span data-resource="filterOptions"></span>
-                    <button data-bind="click: resetFilters" data-resource="reset">Zurücksetzen</button></span>
+                <span class="filter-category"><span data-bind="resource: 'filterOptions'"></span>
+                    <button data-bind="click: resetFilters, resource: 'reset'">Zurücksetzen</button></span>
                 <div class="filter-values">
                     <div>
                         <input type="checkbox" data-bind="checked: filtersActive, attr:{id: 'active'}"/>
-                        <label data-resource="active" data-bind="attr:{for: 'active'}"></label>
+                        <label data-bind="resource: 'active', attr:{for: 'active'}"></label>
                     </div>
                     <div>
                         <input type="checkbox" data-bind="checked: onlyFavourites, attr:{id: 'favs'}"/>
-                        <label data-resource="toggleFavorites" data-bind="attr:{for: 'favs'}"></label>
+                        <label data-bind="resource: 'toggleFavorites', attr:{for: 'favs'}"></label>
                     </div>
                 </div>
             </div>
@@ -66,10 +66,10 @@
                 <button type="button" data-bind="text: $data.displayDay, click: $parent.updateDay, attr: { class: ($index() == $parent.selectedDayIndex() ? 'selected' : '')}"></button>
             </div>
         </div>
-        <div id="nothingtoshow" class="hidden"><span data-resource="notalksfound"></span>
-            <a class="clickable" data-bind="click: deactivateFilters" data-resource="deactivate"></a> <span data-resource="or"></span>
-            <a class="clickable" data-bind="click: resetFilters" data-resource="reset"></a><span>!</span><br>
-            <span data-resource="disablefavorites"></span>
+        <div id="nothingtoshow" class="hidden"><span data-bind="resource: 'notalksfound'"></span>
+            <a class="clickable" data-bind="click: deactivateFilters, resource: 'deactivate'"></a> <span data-bind="resource: 'or'"></span>
+            <a class="clickable" data-bind="click: resetFilters, resource: 'reset'"></a><span>!</span><br>
+            <span data-bind="resource: 'disablefavorites'"></span>
         </div>
 
         <div id="talks-grid" data-bind="foreach: groupedTalks">

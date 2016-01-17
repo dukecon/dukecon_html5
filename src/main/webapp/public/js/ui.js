@@ -34,6 +34,4 @@
         };
     }
 
-    languageUtils.setLanguageStrings();
-
 }(this, this.document));

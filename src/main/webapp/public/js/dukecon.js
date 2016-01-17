@@ -141,7 +141,7 @@ var dukeconDateUtils = {
 //widgets
 ko.components.register('header-widget', {
     viewModel : function(params) {
-        this.active = languageUtils.getResource(params.value);
+        this.active = params.value;
         this.icon = languageUtils.getLanguageIconUrl();
         this.talks = 'Talks';
         this.speakers = languageUtils.getResource('speaker');
@@ -167,9 +167,9 @@ ko.components.register('header-widget', {
 		+ ' <span id="pagetitle" data-bind="text: active"></span>'
 		+ ' <div id="mainmenu-button" data-bind="click: toggleMenu"><img src="img/menu_24px.svg"></div>'
 		+ ' <div id="mainmenu-items">'
-		+ '	 <a href="index.html" data-bind="text: talks, attr: {class: getCssClass(talks)}"></a>'
-		+ '	 <a href="speakers.html" data-bind="text: speakers, attr: {class: getCssClass(speakers)}"></a>'
-		+ '	 <a href="feedback.html" data-bind="text: feedback, attr: {class: getCssClass(feedback)}"></a>'
+		+ '	 <a href="index.html" data-bind="text: talks, attr: {class: getCssClass(\'talks\')}"></a>'
+		+ '	 <a href="speakers.html" data-bind="text: speakers, attr: {class: getCssClass(\'speakers\')}"></a>'
+		+ '	 <a href="feedback.html" data-bind="text: feedback, attr: {class: getCssClass(\'feedback\')}"></a>'
 		+ '	 <a class="mainmenu" id="language-select" onclick="languageUtils.toggleLanguage();"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
 		+ ' </div>'
 		+ '</h1>'
@@ -192,15 +192,12 @@ ko.components.register('login-widget', {
 });
 
 ko.components.register('footer-widget', {
-    viewModel : function() {
-        this.imprint = languageUtils.getResource('imprint');
-    },
     template:
         '<div class="footer">'
         + '<div style="position: absolute;top:0;left:0;text-align:left;z-index:10;display:inline-block; padding:6px;">'
             + '<span data-bind="visible: dukeconTalkUtils.updateCheck"style="margin-left:5px;">Checking for update...</span>'
         + '</div>'
-            + '<a href="impressum.html" data-bind="text: imprint" data-resource="imprint"></a>'
+            + '<a href="impressum.html" data-bind="resource: \'imprint\'"></a>'
         + '</div>'
 });
 
@@ -377,38 +374,47 @@ var languageUtils = {
 
     init : function() {
         languageUtils.selectedLanguage(dukeconSettings.getSelectedLanguage());
+        // pre-creating computed elements to avoid having it multiple times on a page
+        for (var key in languageUtils.strings) {
+            if (languageUtils.strings.hasOwnProperty(key)) {
+                languageUtils.strings[key].resource = ko.pureComputed(function() {
+                    return this.languageUtils.strings[this.key][this.languageUtils.selectedLanguage()];
+                }, { languageUtils: languageUtils, key: key} );
+            }
+        }
     },
 
     toggleLanguage : function () {
-        var languageImg = $('#language-select img');
         if (languageUtils.selectedLanguage() === 'de') {
             languageUtils.selectedLanguage('en');
         } else {
             languageUtils.selectedLanguage('de');
         }
-        languageUtils.setLanguageStrings();
-        languageImg.attr('src', languageUtils.getLanguageIconUrl());
         dukeconSettings.saveSelectedLanguage(languageUtils.selectedLanguage());
     },
 
     getLanguageIconUrl : function() {
-        return 'img/' + languageUtils.selectedLanguage() + '.png';
+        return ko.pureComputed(function() {
+            return 'img/' + languageUtils.selectedLanguage() + '.png';
+        }, { languageUtils: languageUtils})
     },
 
     getResource : function(resourceKey) {
         return languageUtils.strings[resourceKey] ?
-            languageUtils.strings[resourceKey][languageUtils.selectedLanguage()] :
-            resourceKey;
+            languageUtils.strings[resourceKey].resource  :
+            resourceKey
     },
 
-    setLanguageStrings : function() {
-        $.each($('[data-resource]'), function(index, elem) {
-            var node = $(elem),
-                resourceKey = node.attr('data-resource');
-            if (typeof languageUtils.strings[resourceKey] !== 'undefined') {
-                node.html(languageUtils.getResource(resourceKey));
-            }
-        });
+};
+
+languageUtils.init();
+
+ko.bindingHandlers['resource'] = {
+    init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+        return { 'controlsDescendantBindings': true };
+    },
+    update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+        ko.utils.setHtml(element, languageUtils.getResource(valueAccessor()));
     }
 };
 
