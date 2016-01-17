@@ -68,7 +68,7 @@ function Speaker(data, talks, speakers, metaData, favorites) {
 }
 
 
-var cookiesConfirmed = ko.observable(readCookie('dukecon.cookiesConfirmed') !== '1');
+var cookiesConfirmed = ko.observable();
 var closeCookieDisclaimer = function() {
     createCookie('dukecon.cookiesConfirmed', '1', 1);
     document.getElementById('cookies').style.display="none";
@@ -138,7 +138,7 @@ var dukeconDateUtils = {
     },
 
     getTimeCategory : function(duration) {
-        if (duration === 'undefined' || (duration > 30 && duration <= 60)) {
+        if (typeof duration === 'undefined' || (duration > 30 && duration <= 60)) {
             return "regular";
         }
         if (duration <= 30) {
