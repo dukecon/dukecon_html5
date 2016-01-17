@@ -231,7 +231,7 @@ ko.components.register('alert-window', {
         '<div id="alert-window">'
         + '   <div class="alert-title" data-bind="resource : resourceTitle"></div>'
         + '   <div class="alert-body" data-bind="resource : resourceBody"></div>'
-        + '   <div class="alert-buttons">'
+        + '   <div class="alert-button">'
         + '      <button data-bind="click: function() { hide(); }">OK</button>'
         + '   </div>'
         + '</div>'
