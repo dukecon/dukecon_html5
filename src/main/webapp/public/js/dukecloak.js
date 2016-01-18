@@ -39,17 +39,23 @@ var dukecloak = new function () {
                         dukecloak.auth.username(profile.username);
                         dukeconSettings.saveSetting('keycloak_username', dukecloak.auth.username());
                         console.log("Logged in: " + dukecloak.auth.username());
+                    }).error(function (result) {
+                        console.log("Unable to load user profile");
+                        console.log("result.status: " + (result && result.status));
+                        console.log("result.text: " + (result && result.text));
                     });
                 }
                 dukeconSynch.pull();
             })
-            .error(function () {
+            .error(function (result) {
+                console.log("Unable to update token");
+                console.log("result.status: " + (result && result.status));
+                console.log("result.text: " + (result && result.text));
                 /* load user data is quite close to the initial setup
                  failling an update here might indicate the the saved tokens are no longer valid */
                 dukecloak.auth.loggedIn(false);
                 dukecloak.auth.loggedOut(true);
                 clearTokens();
-                console.log("Unable to update token");
             });
     };
 

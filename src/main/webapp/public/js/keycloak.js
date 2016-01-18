@@ -77,8 +77,8 @@
             initPromise.promise.success(function() {
                 kc.onReady && kc.onReady(kc.authenticated);
                 promise.setSuccess(kc.authenticated);
-            }).error(function() {
-                promise.setError();
+            }).error(function(result) {
+                promise.setError(result);
             });
 
             var configPromise = loadConfig(config);
@@ -90,8 +90,8 @@
                     }
                     kc.login(options).success(function () {
                         initPromise.setSuccess();
-                    }).error(function () {
-                        initPromise.setError();
+                    }).error(function (result) {
+                        initPromise.setError(result);
                     });
                 }
 
@@ -152,8 +152,8 @@
             }
 
             configPromise.success(processInit);
-            configPromise.error(function() {
-                promise.setError();
+            configPromise.error(function(result) {
+                promise.setError(result);
             });
 
             return promise.promise;
@@ -277,7 +277,7 @@
                         kc.profile = JSON.parse(req.responseText);
                         promise.setSuccess(kc.profile);
                     } else {
-                        promise.setError();
+                        promise.setError({ status: req.status, text: req.responseText });
                     }
                 }
             }
@@ -302,7 +302,7 @@
                         kc.userInfo = JSON.parse(req.responseText);
                         promise.setSuccess(kc.userInfo);
                     } else {
-                        promise.setError();
+                        promise.setError({ status: req.status, text: req.responseText });
                     }
                 }
             }
@@ -328,8 +328,13 @@
         kc.updateToken = function(minValidity) {
             var promise = createPromise();
 
-            if (!kc.tokenParsed || !kc.refreshToken) {
-                promise.setError();
+            if (!kc.tokenParsed) {
+                promise.setError({ status: "noparsedtoken", text: "no parsed token"} );
+                return promise.promise;
+            }
+
+            if (!kc.refreshToken) {
+                promise.setError({ status: "norefreshtoken", text: "no refresh token"} );
                 return promise.promise;
             }
 
@@ -374,7 +379,7 @@
                                 } else {
                                     kc.onAuthRefreshError && kc.onAuthRefreshError();
                                     for (var p = refreshQueue.pop(); p != null; p = refreshQueue.pop()) {
-                                        p.setError(true);
+                                        p.setError({ status: req.status, text: "unable to refresh token, " + req.responseText });
                                     }
                                 }
                             }
@@ -389,8 +394,8 @@
                 var iframePromise = checkLoginIframe();
                 iframePromise.success(function() {
                     exec();
-                }).error(function() {
-                    promise.setError();
+                }).error(function(result) {
+                    promise.setError(result);
                 });
             } else {
                 exec();
@@ -435,7 +440,7 @@
             if (error) {
                 if (prompt != 'none') {
                     kc.onAuthError && kc.onAuthError();
-                    promise && promise.setError();
+                    promise && promise.setError({ status: "invalidprompt", text: "prompt needs to be set to 'none'" });
                 } else {
                     promise && promise.setSuccess();
                 }
@@ -470,7 +475,7 @@
                             authSuccess(tokenResponse['access_token'], tokenResponse['refresh_token'], tokenResponse['id_token'], kc.flow === 'standard');
                         } else {
                             kc.onAuthError && kc.onAuthError();
-                            promise && promise.setError();
+                            promise && promise.setError({ status: req.status, text: "unsuccessful auth, " + req.responseText });
                         }
                     }
                 };
@@ -489,7 +494,7 @@
 
                     console.log('invalid nonce!');
                     kc.clearToken();
-                    promise && promise.setError();
+                    promise && promise.setError({ status: "invalidnonce", text: "invalid nonce" });
                 } else {
                     kc.timeSkew = Math.floor(timeLocal / 1000) - kc.tokenParsed.iat;
 
@@ -529,7 +534,7 @@
 
                             promise.setSuccess();
                         } else {
-                            promise.setError();
+                            promise.setError({ status: req.status, text: "unable to load config, " + req.responseText });
                         }
                     }
                 };
@@ -777,7 +782,7 @@
                     promise.setSuccess();
                 } else {
                     kc.clearToken();
-                    promise.setError();
+                    promise.setError({ status: "eventnotmached", text: "unable verify session or not logged in, session: " + kc.sessionId + ", event: " + event.data });
                 }
             };
             window.addEventListener('message', messageCallback, false);
