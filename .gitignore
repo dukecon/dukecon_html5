@@ -2,3 +2,4 @@
 .project
 *.iml
 target/
+src/main/webapp/public/test/coverage
