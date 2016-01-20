@@ -4,7 +4,7 @@
 
     <groupId>org.dukecon</groupId>
     <artifactId>dukecon-html5-client</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.2.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>DukeCon HTML5 Client</name>
@@ -12,7 +12,7 @@
     <scm>
         <url>https://github.com/dukecon/dukecon_html5</url>
         <connection>scm:git:https://github.com/dukecon/dukecon_html5.git</connection>
-      <tag>release/1.1</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
