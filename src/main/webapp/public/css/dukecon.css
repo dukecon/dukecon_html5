@@ -6,7 +6,7 @@ html, body {
 }
 
 body  {
-    font-family: Arial, Sans-Serif;
+    font-family: Arial, Ubuntu, Helvetica, Nimbus Sans L, Droid Sans, FreeSans, Liberation Sans, Trebuchet MS, Sans-Serif;
     text-align:left;
 }
 
@@ -558,7 +558,11 @@ div.room span, div.time span {
     padding: 5px;
 }
 .alert-body, .alert-button {
-    padding: 0.5em;
+    padding: 10px;
+}
+.alert-button {
+	margin-top: 10px;
+	border-top: 1px solid #ddd;
 }
 
 #alert-window.shown {
