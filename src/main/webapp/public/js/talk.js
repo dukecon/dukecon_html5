@@ -3,10 +3,6 @@ function TalkViewModel() {
     var self = this;
     self.talk = ko.observable(new Talk({}, [], {}, false));
 
-    dukeconTalkUtils.getData(jsonUrl, function(allData) {
-        self.initializeData(allData);
-    });
-
     self.initializeData = function(allData) {
         var talkId = self.getParameterByName("talkId");
         if(talkId) {
@@ -36,4 +32,12 @@ function TalkViewModel() {
     };
 }
 
-ko.applyBindings(new TalkViewModel());
+var talkModel;
+
+function initializeTalks() {
+    talkModel = new TalkViewModel();
+    dukeconTalkUtils.getData(jsonUrl, talkModel.initializeData);
+    ko.applyBindings(talkModel);
+}
+
+initializeTalks();

@@ -40,6 +40,7 @@ img/lock_24px.svg
 img/menu_24px.svg
 # Js
 js/dukecon.js
+js/dukecondb.js
 js/dukecloak.js
 js/keycloak.js
 js/empty-model.js
