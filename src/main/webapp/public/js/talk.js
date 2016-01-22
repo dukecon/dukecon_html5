@@ -3,17 +3,14 @@ function TalkViewModel() {
     var self = this;
     self.talk = ko.observable(new Talk({}, [], {}, false));
 
-    dukeconTalkUtils.getData(jsonUrl, function(allData) {
-        self.initializeData(allData);
-    });
-
     self.initializeData = function(allData) {
         var talkId = self.getParameterByName("talkId");
         if(talkId) {
             var filtered = _.filter(allData.events, function (t) {
                 return t.id === talkId
             });
-            self.talk(new Talk(filtered[0], allData.speakers, allData.metaData, false));
+            var talk = filtered[0];
+            self.talk(new Talk(talk, allData.speakers, allData.metaData, dukeconSettings.isFavourite(talk.id)));
             document.title = self.talk().title + " - " + document.title;
         }
         (function(history){
@@ -34,6 +31,20 @@ function TalkViewModel() {
         var results = regex.exec(location.hash);
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     };
+
+    self.toggleFavourite = function(viewModel) {
+        var favourites = dukeconSettings.toggleFavourite(viewModel.talk().id);
+        viewModel.talk().toggleFavourite();
+        dukeconSynch.push();
+    };
 }
 
-ko.applyBindings(new TalkViewModel());
+var talkModel;
+
+function initializeTalks() {
+    talkModel = new TalkViewModel();
+    dukeconTalkUtils.getData(jsonUrl, talkModel.initializeData);
+    ko.applyBindings(talkModel);
+}
+
+initializeTalks();

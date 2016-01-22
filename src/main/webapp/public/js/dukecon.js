@@ -244,7 +244,7 @@ ko.components.register('talk-widget', {
     template:
         '<div data-bind="attr : {class: \'talk-cell \' + talk.timeCategory}">'
             + '<div class="title">'
-                + '<img style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="click: dukeconSettings.toggleFavourite, attr:{src: talk.favicon}"/>'
+                + '<img style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="click: dukeconUtils.toggleFavourite, attr:{src: talk.favicon}"/>'
                 + '<a style="padding: 0px" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a>'
             + '</div>'
             + '<div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
@@ -332,6 +332,12 @@ var dukeconUtils = {
             });
            return talk ? new Talk(talk, speakers, metaData, favourites.indexOf(talk.id) !== -1) : null;
         });
+    },
+
+    toggleFavourite : function(talkObject) {
+        var favourites = dukeconSettings.toggleFavourite(talkObject.talk.id);
+        talkObject.talk.toggleFavourite();
+        dukeconSynch.push();
     }
 };
 

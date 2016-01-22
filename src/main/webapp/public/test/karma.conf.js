@@ -12,6 +12,7 @@ module.exports = function(config) {
             '../js/jquery-2.1.4.min.js',
             '../js/knockout-min-3.3.0.js',
             '../js/underscore-min.js',
+            '../js/dukecondb.js',
             '../js/dukecon.js',
             '../js/offline.js',
             '../js/talklist.js',
