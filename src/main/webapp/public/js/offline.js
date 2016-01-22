@@ -176,8 +176,7 @@ var dukeconSettings = {
         return result == null ? false : result;
     },
 
-    toggleFavourite : function(talkObject) {
-        var id = talkObject.talk.id;
+    toggleFavourite : function(id) {
         var favourites = dukeconSettings.getFavourites();
         var pos = favourites.indexOf(id);
         if (pos === -1) {
@@ -186,9 +185,7 @@ var dukeconSettings = {
         else {
             favourites.splice(pos, 1);
         }
-        talkObject.talk.toggleFavourite();
         dukeconSettings.saveSetting(dukeconSettings.fav_key, favourites);
-        dukeconSynch.push();
     },
 
     saveSelectedFilters : function(filters) {

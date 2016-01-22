@@ -20,7 +20,10 @@
 <header-widget params="value: 'none'"></header-widget>
 <div class="content-wrapper">
     <div class="content talk-content">
-        <h2 data-bind="text: talk().title"></h2>
+        <div style="margin:5px;">
+            <img style="cursor:pointer; margin-right: 2px; vertical-align: middle" title="Add to Favourites" data-bind="click: toggleFavourite, attr:{src: talk().favicon}"/>
+            <span style="font-size:110%; font-weight:bold;" data-bind="text: talk().title"></span>
+        </div>
         <table id="talkinfo">
             <tr>
                 <td class="talk-details">

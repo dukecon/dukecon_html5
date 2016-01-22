@@ -9,7 +9,8 @@ function TalkViewModel() {
             var filtered = _.filter(allData.events, function (t) {
                 return t.id === talkId
             });
-            self.talk(new Talk(filtered[0], allData.speakers, allData.metaData, false));
+            var talk = filtered[0];
+            self.talk(new Talk(talk, allData.speakers, allData.metaData, dukeconSettings.isFavourite(talk.id)));
             document.title = self.talk().title + " - " + document.title;
         }
         (function(history){
@@ -29,6 +30,12 @@ function TalkViewModel() {
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
         var results = regex.exec(location.hash);
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    };
+
+    self.toggleFavourite = function(viewModel) {
+        var favourites = dukeconSettings.toggleFavourite(viewModel.talk().id);
+        viewModel.talk().toggleFavourite();
+        dukeconSynch.push();
     };
 }
 
