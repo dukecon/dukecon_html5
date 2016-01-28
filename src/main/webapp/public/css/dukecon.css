@@ -63,6 +63,13 @@ button:hover, button:focus, .button:hover, .button:focus {
 button.selected {
     background-color:#ddee55;
 }
+button.day-widescreen {
+    display: inline-block;
+}
+button.day-smallscreen {
+    display: none;
+}
+
 th {
     color: #1AA3B1;
     background-color:#fff;
@@ -597,7 +604,8 @@ div.room span, div.time span {
 		display:inline-block;
 		padding-right: 5px;
 	}
-	.talk-cell div.room {
+	.talk-cell div.room, .talk-cell div.room {
+	    display: block;
 		max-width: 100px;
 		overflow: visible;
 		white-space:nowrap;
@@ -662,6 +670,12 @@ div.room span, div.time span {
 	h2 {
 	  margin-left:5px;
 	}
+    button.day-widescreen {
+        display: none;
+    }
+    button.day-smallscreen {
+        display: inline-block;
+    }
 
     .mainmenu {
     	display: block;
