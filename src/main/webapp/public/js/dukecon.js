@@ -213,23 +213,15 @@ ko.components.register('header-widget', {
 ko.components.register('login-widget', {
     viewModel : function(params) {
     	this.hideLoginButton = params.allowLogin === false;
-
-    	var realm = dukeconSettings.getSetting('keycloak_realm');
-    	if (realm != null) {
-        	this.keycloakProfileUrl = "https://keycloak.dukecon.org/auth/realms/" + realm +"/account/";
-    	} else {
-        	this.keycloakProfileUrl = "";
-    	}
-
     },
     template:
     	'<div id="login-area" data-bind="visible: dukecloak">'
 		+ '     <div>'
-		+ '         <a class="username" data-bind="text: dukecloak.auth.username, visible: dukecloak.auth.loggedIn && dukecloak.auth.username, attr : {href : keycloakProfileUrl}"></a>'
+		+ '         <a href="#" class="username" data-bind="text: dukecloak.auth.username, click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"></a>'
 		+ '         <a class="button" data-bind="click: dukecloak.login, visible: !hideLoginButton && dukecloak.auth.loggedOut" name="login"><img alt="Sign in/Register" title="Sign in/Register" src="img/unlock_24px.svg"></a>'
 		+ '         <a class="button" data-bind="click: dukecloak.logout, visible: !hideLoginButton && dukecloak.auth.loggedIn" name="logout"><img alt="Sign Out" title="Sign Out" src="img/lock_24px.svg"></a>'
 		+ '     </div>'
-		+ ' </div>'
+		+ '</div>'
 });
 
 ko.components.register('footer-widget', {
