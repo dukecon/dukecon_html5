@@ -81,6 +81,11 @@ var dukeconDateUtils = {
          'en' : ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     },
 
+    weekDaysShort : {
+         'de' : ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+         'en' : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    },
+
     sortDays : function(dayString1, dayString2) {
         var day1 = dayString1 ? dayString1.split(',')[0] : '';
         var day2 = dayString2 ? dayString2.split(',')[0] : '';
@@ -93,15 +98,25 @@ var dukeconDateUtils = {
     },
 
     getDisplayDate : function(datetimeString) {
+        return this.getFullDate(datetimeString, true);
+    },
+
+    getDisplayDateShort : function(datetimeString) {
+        return this.getFullDate(datetimeString, false);
+    },
+
+    getFullDate : function(datetimeString, useLongDay) {
         if (!datetimeString) {
             return '';
         }
         var date = new Date(datetimeString);
-        var weekday = this.weekDays[languageUtils.selectedLanguage()][date.getDay()];
-        return weekday + ", " + this.getDisplayDateShort(datetimeString);
+        var weekday = useLongDay ?
+            this.weekDays[languageUtils.selectedLanguage()][date.getDay()] :
+            this.weekDaysShort[languageUtils.selectedLanguage()][date.getDay()];
+        return weekday + ", " + this.getNumericDate(datetimeString);
     },
 
-    getDisplayDateShort : function(datetimeString) {
+    getNumericDate : function(datetimeString) {
         if (!datetimeString) {
             return '';
         }

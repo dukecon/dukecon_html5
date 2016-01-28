@@ -65,9 +65,10 @@
     </div>
 
     <div id="content">
-        <div>
+        <div id="swipeable">
             <div id="days_filter" data-bind="foreach: days">
-                <button type="button" data-bind="text: $data.displayDay, click: $parent.updateDay, attr: { class: ($index() == $parent.selectedDayIndex() ? 'selected' : '')}"></button>
+                <button type="button" data-bind="text: $data.displayDay, click: $parent.updateDay, attr: { class: 'day-widescreen' + ($index() == $parent.selectedDayIndex() ? ' selected' : '')}"></button>
+                <button class="day-smallscreen" type="button" data-bind="text: $data.displayDayShort, click: $parent.updateDay, attr: { class: 'day-smallscreen' + ($index() == $parent.selectedDayIndex() ? ' selected' : '')}"></button>
             </div>
         </div>
         <div id="nothingtoshow" class="hidden"><span data-bind="resource: 'notalksfound'"></span>

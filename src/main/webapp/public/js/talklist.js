@@ -131,7 +131,7 @@ function TalkListViewModel() {
         var dates = [];
         _.each(_.keys(daysAndTalks).sort(), function(day) {
             var talk = daysAndTalks[day][0];
-            dates.push({ "day" : day, "displayDay" : talk.day})
+            dates.push({ "day" : day, "displayDay" : talk.day, "displayDayShort" : talk.dayshort})
         });
         return dates;
     };
