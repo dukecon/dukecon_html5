@@ -38,6 +38,10 @@ table, th, td {
 	margin-right:0.5em;
 	color: #FFFFFF;
 }
+a.username:hover {
+	color: #FFFFFF;
+    text-decoration: underline;
+}
 
 button, .button {
     background-color: #eee;

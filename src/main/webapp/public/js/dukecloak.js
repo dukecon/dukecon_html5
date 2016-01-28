@@ -18,6 +18,7 @@ var dukecloak = new function () {
         dukeconSettings.saveSetting('keycloak_refreshToken', dukecloak.keycloakAuth.refreshToken);
         dukeconSettings.saveSetting('keycloak_idToken', dukecloak.keycloakAuth.idToken);
         dukeconSettings.saveSetting('keycloak_timeSkew', dukecloak.keycloakAuth.timeSkew);
+        dukeconSettings.saveSetting('keycloak_realm', dukecloak.keycloakAuth.realm);
     }
 
     function clearTokens() {
@@ -26,6 +27,7 @@ var dukecloak = new function () {
         dukeconSettings.clearSetting('keycloak_idToken');
         dukeconSettings.clearSetting('keycloak_timeSkew');
         dukeconSettings.clearSetting('keycloak_username');
+        dukeconSettings.clearSetting('keycloak_realm');
     }
 
     self.loadUserData = function () {
