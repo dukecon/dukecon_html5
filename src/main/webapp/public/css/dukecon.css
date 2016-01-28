@@ -18,7 +18,7 @@ table, th, td {
 
 #login-area {
 	position: fixed;
-	right: 23em;
+	right: 33em;
 	top: 6px;
 	z-index: 1010;
 }
