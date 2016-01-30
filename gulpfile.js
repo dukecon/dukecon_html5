@@ -69,11 +69,11 @@ gulp.task('assets', function () {
 
 // ZIP
 gulp.task('zip', function () {
-    var build = process.env.BUILD_NUMBER || 'a';
-    build =+ (build) ? '-' : '';
+    var build = process.env.BUILD_NUMBER || '';
+    build = ((build) ? '-' : '') + build;
     return gulp.src(
         [dest + '/public/**/*'],
-        {base: '.'})
+        {base: 'target'})
         .pipe(zip(dest + '/' + pkg.name + build + '.zip'))
         .pipe(gulp.dest('.'));
 });
