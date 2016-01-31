@@ -6,7 +6,7 @@
 - Install Gulp globally (if not already existing):  
   `npm install -g gulp`
 - Install Karma globally (if not already existing):  
-  `npm install -g karma karm-coverage jasmine-core karma-jasmine karma-chrome-launcher`
+  `npm install -g karma karma-coverage jasmine-core karma-jasmine karma-chrome-launcher`
 - Install dependencies: `npm install`
 
 ## Build the Artifact
