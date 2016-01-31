@@ -6,6 +6,7 @@ var sourcemaps = require('gulp-sourcemaps');
 //var uglify = require('gulp-uglify');
 //var concat = require('gulp-concat');
 var del = require('del');
+var maven = require('gulp-maven-deploy');
 var proxyMiddleware = require('http-proxy-middleware');
 var historyApiFallback = require('connect-history-api-fallback');
 var runSequence = require('run-sequence');
@@ -99,4 +100,35 @@ gulp.task('zip', function () {
 
 gulp.task('clean', function () {
     return del([dest]);
+});
+
+// MAVEN
+gulp.task('deploy', function() {
+    gulp.src('.')
+        .pipe(maven.deploy({
+            'config': {
+                'groupId': 'org.dukecon',
+                'type': 'zip',
+                'version': pkg.version,
+                'buildDir': 'target',
+                'repositories': [
+                    {
+                        'id': 'dukecon',
+                        'url': 'http://dev.dukecon.org/nexus/content/groups/public'
+                    }
+                ]
+            }
+        }))
+});
+
+gulp.task('deploy-local', function(){
+    gulp.src('.')
+        .pipe(maven.install({
+            'config': {
+                'groupId': 'org.dukecon',
+                'type': 'zip',
+                'version': pkg.version,
+                'buildDir': 'target'
+            }
+        }))
 });
