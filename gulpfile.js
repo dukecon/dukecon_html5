@@ -15,7 +15,7 @@ var dest = './target',
 
 
 var backendurl = (argv.backendurl === undefined || argv.backendurl == '') ?
-    (argv.local === undefined) ? 'https://dev.dukecon.org/latest/rest/talks' : 'http://localhost:8080' :
+    (argv.local === undefined) ? 'https://dev.dukecon.org/latest' : 'http://localhost:8080' :
     argv.backendurl;
 
 // proxy all spring-boot service requests to a server
