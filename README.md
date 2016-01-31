@@ -1,15 +1,23 @@
-# dukecon_html5
+# DukeCon HTML5 Client
+
+## Install the Dependencies
+
+- Install Node/NPM >= 5.x (from https://nodejs.org/)
+- Install Gulp globally (if not already existing):  
+  `npm install -g gulp`
+- Install Karma globally (if not already existing):  
+  `npm install -g karma karm-coverage jasmine-core karma-jasmine karma-chrome-launcher`
+- Install dependencies: `npm install`
+
 
 ## Run the Jasmine Tests
 
 ### Execute them in a browser
-Open the SpecRunner.html in a browser of your choice -  the tests are directly executed
+
+Open the `SpecRunner.html` in a browser of your choice -  the tests are directly executed
 
 ### Run them with Karma
-1. Download and install nodejs from https://nodejs.org/
-2. Install the required modules: 
-npm install -g karma karma-coverage karma-jasmine karma-chrome-launcher --save-dev
-3. Navigate to the test directory and start the execution:
-karma start karma.conf.js
 
+- Run `npm test` from base directory.
+^
 This runs the test and generates a test coverage report in a new folder coverage/
