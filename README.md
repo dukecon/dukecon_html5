@@ -5,7 +5,7 @@
 - Install Node/NPM >= 5.x (from https://nodejs.org/)
 - Install Gulp globally (if not already existing):  
   `npm install -g gulp`
-- Install Karma globally (if not already existing):  
+- For being able to run the tests (not needed to build the app), install Karma globally (if not already existing):  
   `npm install -g karma karma-coverage jasmine-core karma-jasmine karma-chrome-launcher`
 - Install dependencies: `npm install`
 
