@@ -9,6 +9,17 @@
   `npm install -g karma karm-coverage jasmine-core karma-jasmine karma-chrome-launcher`
 - Install dependencies: `npm install`
 
+## Build the Artifact
+
+Run `gulp build`. You will find the zip file in the `target` directory.
+
+## Run the Application
+
+Type `gulp watch` - this will start the local browser sync and proxy middleware to redirect all rest calls to the "latest" backend.
+This can be overridden by passing command line attributes:
+- `gulp watch --local` redirects rest calls to `http://localhost:8080`
+- `gulp watch --backendurl=http://somehost` redirects rest calls to `http://somehost`
+
 
 ## Run the Jasmine Tests
 
