@@ -1,0 +1,48 @@
+/* SPEAKER */
+
+.speakertalks .speaker {
+  display:none;
+}
+#speakers, #talkinfo {
+  border-spacing: 5px;
+  border-collapse: separate;
+  background: $almost-white;
+  border:none;
+  padding:0;
+}
+#speakers .speakerinfo .talk-cell {
+  min-width: 80px;
+  width:90%;
+  padding: 12px;
+  background:transparent;
+  white-space: normal;
+}
+#speakers .speakertalks .talk-cell {
+  min-width: 120px;
+}
+.speakerinfo .title {
+  color: $grey;
+
+}
+
+
+/* RESPONSIVE TWEAKS for small screens */
+@media (max-width: 47.9em) {
+  #speakers {
+    table-layout: fixed;
+    width: 100%;
+  }
+  #speakers .speakerinfo {
+    width: 95px;
+  }
+  #speakers .speakertalks {
+    width: 90%;
+  }
+  #speakers .speakerinfo .talk-cell {
+    width:90px;
+    padding: 0;
+  }
+  #speakers .speakerinfo .talk-cell .title {
+    white-space: normal;
+  }
+}

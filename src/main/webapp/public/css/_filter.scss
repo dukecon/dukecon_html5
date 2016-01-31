@@ -1,0 +1,85 @@
+/* FILTER */
+
+.filter-box {
+  padding:0;
+  position:relative;
+}
+
+.filter-settings {
+  padding:0;
+  margin-bottom:5px;
+}
+
+.filter-box > * {
+  display:block;
+}
+
+#filter-veil {
+  top:0;
+  position: absolute;
+  height:100%;
+  width:100%;
+  background-color:rgba(0, 0, 0, 0.1);
+  z-index: 0;
+  visibility: hidden;
+}
+#filter-veil.shown {
+  z-index: 2000;
+  visibility: visible;
+}
+
+.filter-category {
+  font-weight:bold;
+  display: block;
+  padding: 5px;
+  margin: 0 0 5px 0;
+  color: $white;
+  background: $turquois;
+}
+
+.filter-category button {
+  vertical-align:middle;
+  float:right;
+  padding:0.4em;
+  margin:0 5px 0 0;
+  font-size:smaller;
+
+}
+
+.filter-values {
+  margin-left: 5px;
+  margin-right:5px;
+  margin-bottom:5px;
+  font-size:smaller;
+  line-height:1.5em;
+}
+
+.filter-values input[type=checkbox] {
+  display:none;
+}
+
+.filter-values input[type="checkbox"] + label {
+  padding: 2px;
+  margin-left: 0;
+  display:block;
+  vertical-align:middle;
+  cursor:pointer;
+}
+input[type="checkbox"]:checked + label:before {
+  content: url('../img/checkbox_checked.png');
+}
+
+input[type="checkbox"] + label:before {
+  content: url('../img/checkbox.png');
+  padding-right:3px;
+  vertical-align:middle;
+}
+
+
+#days_filter {
+  margin-bottom: 2px;
+}
+
+.filter-values div:hover {
+  background: $smokey;
+}

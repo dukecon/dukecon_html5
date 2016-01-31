@@ -1,6 +1,8 @@
 var browserSync = require('browser-sync');
 var gulp = require('gulp');
 var zip = require('gulp-zip');
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
 //var uglify = require('gulp-uglify');
 //var concat = require('gulp-concat');
 var del = require('del');
@@ -29,36 +31,53 @@ var config = {
         server: {
             // We're serving the src folder as well
             // for sourcemap linking
-            baseDir: [dest, src],
+            baseDir: [dest + '/public', src],
             middleware: [proxy, historyApiFallback()]
         },
         files: [
             dest + '/public/**/*'
         ]
     },
+    sass: {
+        src: [src + '/**/*.scss'],
+        includePaths: [],
+        dest: dest + '/public'
+    },
     assets: {
-        src: src + '/**/*',
+        src: [src + '/**/*', '!' + src + '/**/*.scss'],
         dest: dest + '/public'
     }
 };
+
+gulp.task('default', ['watch']);
 
 // BUILD
 gulp.task('build', function () {
     return runSequence(
         ['clean'],
-        ['assets'],
+        ['sass', 'assets'],
         ['zip']
     );
 });
 
 // WATCH
 gulp.task('watch', ['browserSync'], function () {
+    gulp.watch(config.sass.src, ['sass']);
     gulp.watch(config.assets.src, ['assets']);
 });
 
 // BROWSER SYNC
 gulp.task('browserSync', ['build'], function () {
     browserSync(config.browserSync);
+});
+
+// SASS
+gulp.task('sass', function () {
+    return gulp.src(config.sass.src)
+        .pipe(sourcemaps.init())
+        .pipe(sass({includePaths: config.sass.includePaths}).on('error', sass.logError))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(config.sass.dest));
 });
 
 // ASSETS

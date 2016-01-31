@@ -1,0 +1,428 @@
+/* BASE */
+
+html, body {
+  width: 100%;
+  height: 99%;
+  margin: 0;
+  color: $grey;
+}
+
+body {
+  font-family: $font-family;
+  text-align: left;
+}
+
+table, th, td {
+  border: 1px solid $smokey;
+  vertical-align: top;
+  padding: 5px;
+}
+
+#login-area {
+  position: fixed;
+  right: 33em;
+  top: 6px;
+  z-index: 1010;
+}
+
+#login-area img {
+  color: $white;
+}
+
+#login-area .button, #login-area .username {
+  font-size: 80%;
+  vertical-align: middle;
+}
+
+#login-area .button {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.username {
+  margin-right: 0.5em;
+  color: $white;
+}
+
+a.username:hover {
+  color: $white;
+  text-decoration: underline;
+}
+
+button, .button {
+  background-color: $almost-white;
+  border: 0 none rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  font-size: smaller;
+  line-height: normal;
+  text-align: center;
+  padding: 0.7em;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+button:active, .button:active {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+
+button:hover, button:focus, .button:hover, .button:focus {
+  background-color: $almost-white;
+}
+
+button.selected {
+  background-color: $yello;
+}
+
+button.day-widescreen {
+  display: inline-block;
+}
+
+button.day-smallscreen {
+  display: none;
+}
+
+th {
+  color: $turquois;
+  background-color: $white;
+}
+
+td {
+  background-color: $white;
+}
+
+.header img {
+  height: 1.8em;
+  margin: 0;
+}
+
+#language-select {
+  margin-left: 5px;
+}
+
+#language-select img {
+  cursor: pointer;
+  float: none;
+  vertical-align: middle;
+  height: 1.5em;
+}
+
+/* remove: */
+.main-menu {
+  margin-top: 0.5em;
+  display: inline-block;
+  float: left;
+}
+
+a {
+  color: $turquois;
+  font-weight: normal;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  display: inline;
+  transition: background 0.7s
+}
+
+a:hover {
+  color: $turquois-light;
+}
+
+.mainmenu {
+}
+
+.mainmenu.active {
+  background: $white;
+  color: $turquois;
+  cursor: default;
+}
+
+h1 {
+  height: 2em;
+  overflow: hidden;
+  margin-bottom: 0;
+  margin-top: 0;
+  clear: both;
+  font-size: 120%;
+  line-height: 1.9em;
+  text-align: right;
+  color: $white;
+  background: $turquois;
+}
+
+h1 #mainmenu-items {
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+h1 #mainmenu-items, h1 #mainmenu-button {
+  height: 2em;
+  overflow: hidden;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+h1 #pagetitle, h1 #mainmenu-button {
+  display: none;
+}
+
+h1 a, h1 span {
+  vertical-align: top;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 2em;
+  display: inline-block;
+  color: $white;
+  margin: 0;
+}
+
+h1 a:hover {
+  color: $white;
+  background: $turquois-light;
+}
+
+h1 a#logo {
+  float: left;
+  height: 2em;
+  overflow: hidden;
+  padding: 0 10px 0 5px;
+}
+
+h2 {
+  font-size: 110%;
+  text-align: left;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.content-wrapper {
+  min-height: 80%;
+}
+
+#content {
+  margin-left: 5px;
+  min-width: 250px;
+}
+
+.content {
+  margin-top: 3em;
+  margin-bottom: 2.5em;
+}
+
+.content * {
+  transition: height 0.5s ease, width 0.5s ease;
+  vertical-align: text-top;
+}
+
+#nav {
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: $white;
+  padding: 0;
+  width: 96%;
+  border: 1px solid $smokey;
+}
+
+#nav h2 {
+  margin: 5px 5px 15px 5px;
+  color: $turquois;
+}
+
+.header {
+  background: $white;
+  top: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 1005; /* side-menu has 1000 */
+  box-shadow: 0 0 4px 2px $dark-grey;
+}
+
+.footer {
+  background: $white;
+  bottom: 0;
+  font-size: smaller;
+  padding: 0.5em;
+  margin: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 1005; /* side-menu has 1000 */
+  box-shadow: 0 0 4px -2px $black;
+}
+
+#update-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+  z-index: 10;
+  display: inline-block;
+  padding: 6px;
+}
+
+/* IMPRINT */
+.imprint {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+
+.imprint p {
+  font-size: 11pt;
+  line-height: 15pt;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+#loading {
+  background: url('../img/ajax-circle.gif') no-repeat center 20%;
+  height: 150%;
+  width: 100%;
+}
+
+#nothingtoshow {
+  color: $red;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: top;
+  padding: 5em 0;
+  width: 100%;
+}
+
+#nothingtoshow a {
+  font-weight: bold;
+  padding: 0;
+}
+
+#cookies {
+  z-index: 2000;
+  border: 1px solid $turquois;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 7px;
+  width: 99%;
+  text-align: center;
+  background: $white;
+  box-shadow: 0 2px 3px 0 $dark-grey;
+}
+
+#cookies a {
+  padding: 0;
+  margin: 0;
+}
+
+#alert-window {
+  border: 1px solid $turquois;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 350px;
+  text-align: center;
+  background: $white;
+  box-shadow: 0 2px 3px 0 $dark-grey;
+  visibility: hidden;
+}
+
+.alert-title {
+  background: $turquois;
+  color: $white;
+  margin: 0;
+  padding: 5px;
+}
+
+.alert-body, .alert-button {
+  padding: 10px;
+}
+
+.alert-button {
+  margin-top: 10px;
+  border-top: 1px solid $smokey;
+}
+
+#alert-window.shown {
+  z-index: 2000;
+  visibility: visible;
+}
+
+/* RESPONSIVE TWEAKS for small screens */
+@media (max-width: 47.9em) {
+  .content {
+    font-size: 95%;
+    padding: 0;
+    width: 98%
+  }
+  h1 {
+    text-align: left;
+  }
+  h1 #pagetitle {
+    display: inline-block;
+  }
+  h1 #mainmenu-button {
+    display: inline-block;
+    float: right;
+    padding-right: 5px;
+    font-size: smaller;
+    cursor: pointer;
+  }
+  h1 #mainmenu-button img {
+    vertical-align: middle;
+  }
+  h1 #mainmenu-items {
+    height: auto;
+    font-size: smaller;
+    background: $turquois;
+    width: 200px;
+    position: fixed;
+    display: none;
+    top: 40px;
+    right: 0;
+  }
+  h1 #mainmenu-items.shown {
+    display: block;
+    box-shadow: 0 2px 3px 0 $dark-grey;
+  }
+  h2 {
+    margin-left: 5px;
+  }
+  button.day-widescreen {
+    display: none;
+  }
+  button.day-smallscreen {
+    display: inline-block;
+  }
+  .mainmenu {
+    display: block;
+    border-bottom: 1px solid $white;
+  }
+  .mainmenu:last-child {
+    display: block;
+    border-bottom: none;
+    padding-bottom: 5px;
+  }
+  #language-select {
+    margin-left: 0;
+  }
+  #login-area {
+    right: 2.5em;
+  }
+  #alert-window {
+    width: 240px;
+  }
+  #cookies {
+    width: 94%;
+  }
+}

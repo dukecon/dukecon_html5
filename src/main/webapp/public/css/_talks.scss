@@ -1,0 +1,193 @@
+/* TALKS */
+
+
+.talk-info {
+  background: $white;
+}
+
+.talk-content {
+  overflow: auto;
+  padding-bottom: 30px;
+}
+
+#talks-grid {
+  background-color: $almost-white;
+}
+
+#talks-grid table {
+  border-collapse:separate;
+  border-color:transparent;
+  width: 100%;
+  table-layout: fixed;
+}
+#talks-grid td:first-child {
+  padding-top:5px;
+  width:36px;
+}
+div.time-cell {
+  transform: rotate(-90deg);
+  position: relative;
+  top: 25px;
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+div.talk-widget  {
+  border-bottom: none;
+  display: inline-block;
+  width: 30%;
+  margin: 5px;
+  padding: 5px;
+}
+div.talk-cell {
+  background-color: $white;
+  vertical-align:top;
+  display: inline-block;
+  min-width:200px;
+  width: 100%;
+  line-height:1.1em;
+  border-bottom: none;
+}
+div.title {
+  font-weight:bold;
+  color: $turquois;
+  width:100%;
+}
+
+div.track {
+  font-weight:bold;
+  font-size:smaller;
+  font-style:italic;
+  display:block
+}
+div.track span {
+  font-style:italic;
+  font-weight: normal;
+}
+div.room {
+  font-weight:bold;
+  font-size: smaller;
+  display:block;
+}
+div.speaker span {
+  font-size: smaller;
+  font-weight:bold;
+}
+div.time {
+  display:inline-block;
+  font-weight: bold;
+  font-size: smaller;
+}
+div.room span, div.time span {
+  font-weight: normal;
+}
+.time, .track, .room, .time *, .track *, .room * {
+  vertical-align: middle;
+}
+
+.time-extra {
+  color: $red;
+  font-weight: bold;
+  font-size: smaller;
+  display:block;
+}
+
+.time-extra * {
+  vertical-align: middle;
+}
+
+/* TALK DETAIL PAGE */
+#talkinfo .talk-details {
+  width:25%;
+  min-width:300px;
+}
+#talkinfo .label {
+  font-weight: bold;
+  display: inline-block;
+}
+#talkinfo .title {
+  display: inline-block;
+  width:auto;
+}
+#talkinfo .speaker-list {
+  margin-bottom: 15px;
+}
+#talkinfo div.talk-abstract {
+  margin-top:15px;
+}
+#talkinfo td {
+  padding: 1em;
+}
+
+/* FAVOURITES */
+.fav {
+  margin-left:5px;
+  display:inline-block;
+}
+.fav:hover {
+  color: $turquois-light;
+}
+
+.day-short {
+  display:none;
+}
+.day-long {
+  display:inline;
+}
+.talk-cell .speaker {
+  display:block;
+}
+
+
+/* RESPONSIVE TWEAKS for small screens */
+@media (max-width: 47.9em) {
+  div.talk-widget  {
+    display:block;
+    width:95%;
+    border-bottom: 1px solid $smokey;
+  }
+  div.time-cell {
+    top: 7px;
+  }
+  div.talk-widget:last-child  {
+    border-bottom: none;
+  }
+  .talk-cell div.room, .talk-cell div.time, .talk-cell div.time-extra  {
+    display:inline-block;
+    padding-right: 5px;
+  }
+  .talk-cell div.room, .talk-cell div.room {
+    display: block;
+    max-width: 100px;
+    overflow: visible;
+    white-space:nowrap;
+  }
+  .talk-cell div.track {
+    display:none
+  }
+  .day-short {
+    display:inline;
+  }
+  .day-long {
+    display:none;
+  }
+  .talk-cell .title {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+  }
+  .talk-cell .speaker {
+    display:none;
+  }
+  #talkpage h1 #pagetitle {
+    display: none;
+  }
+  #talkinfo, #talkinfo td, #talkinfo .talk-details {
+    display:block;
+    min-width:0;
+    width:auto;
+    margin:5px;
+  }
+}
