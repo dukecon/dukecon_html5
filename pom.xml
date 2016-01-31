@@ -5,7 +5,6 @@
     <groupId>org.dukecon</groupId>
     <artifactId>dukecon-html5-client</artifactId>
     <version>1.2.0-SNAPSHOT</version>
-    <packaging>war</packaging>
 
     <name>DukeCon HTML5 Client</name>
 
@@ -101,30 +100,36 @@
             </plugin>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
-                    <webResources>
-                        <resource>
-                            <directory>src/main/webapp</directory>
-                            <filtering>true</filtering>
-                            <includes>
-                                <include>**/*.txt</include>
-                                <include>**/cache.manifest</include>
-                            </includes>
-                        </resource>
-                    </webResources>
-                    <archive>
-                        <manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                        </manifest>
-                        <manifestEntries>
-                            <Implementation-Build>${project.artifactId}-${project.version}-r${buildNumber}</Implementation-Build>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>0.0.27</version>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>v5.0.0</nodeVersion>
+                            <npmVersion>3.3.6</npmVersion>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>gulp build</id>
+                        <goals>
+                            <goal>gulp</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
