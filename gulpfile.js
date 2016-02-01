@@ -47,6 +47,12 @@ var config = {
     assets: {
         src: [src + '/**/*', '!' + src + '/**/*.scss'],
         dest: dest + '/public'
+    },
+    maven: {
+        groupId: 'org.dukecon',
+        type: 'zip',
+        version: pkg.version,
+        buildDir: dest
     }
 };
 
@@ -103,32 +109,23 @@ gulp.task('clean', function () {
 });
 
 // MAVEN
-gulp.task('deploy', function() {
+gulp.task('deploy', function () {
     gulp.src('.')
         .pipe(maven.deploy({
-            'config': {
-                'groupId': 'org.dukecon',
-                'type': 'zip',
-                'version': pkg.version,
-                'buildDir': 'target',
-                'repositories': [
+            config: Object.assign({}, config.maven, {
+                repositories: [
                     {
-                        'id': 'dukecon',
-                        'url': 'http://dev.dukecon.org/nexus/content/groups/public'
+                        id: 'dukecon',
+                        url: 'http://dev.dukecon.org/nexus/content/groups/public'
                     }
                 ]
-            }
+            })
         }))
 });
 
-gulp.task('deploy-local', function(){
+gulp.task('deploy-local', function () {
     gulp.src('.')
         .pipe(maven.install({
-            'config': {
-                'groupId': 'org.dukecon',
-                'type': 'zip',
-                'version': pkg.version,
-                'buildDir': 'target'
-            }
+            config: config.maven
         }))
 });
