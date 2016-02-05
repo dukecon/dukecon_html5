@@ -12,6 +12,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
         viewModel : function(params) {
             this.active = params.value;
             this.icon = languageUtils.getLanguageIconUrl();
+            this.toggleLanguage = languageUtils.toggleLanguage;
             this.getCssClass = function(item) {
                 return (item === this.active ? "mainmenu active" : "mainmenu inactive");
             };
@@ -37,7 +38,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '	 <a href="speakers.html" data-bind="resource: \'speaker\', attr: {class: getCssClass(\'speaker\')}"></a>'
             + '	 <a href="feedback.html" data-bind="resource: \'feedback\', attr: {class: getCssClass(\'feedback\')}"></a>'
             + '	 <a href="http://www.javaland.eu" target="new" class="mainmenu inactive">Javaland Home</a>'
-            + '	 <a class="mainmenu" id="language-select" onclick="languageUtils.toggleLanguage();"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
+            + '	 <a class="mainmenu" id="language-select" data-bind="click: toggleLanguage"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
             + ' </div>'
             + '</h1>'
             + '</div>'
