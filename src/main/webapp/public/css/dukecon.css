@@ -330,9 +330,11 @@ div.time-cell {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 .uparrow {
+	display:block;
+	height:1px;
 	position: relative;
-	top: 0;
-	left: -2px;
+	top: -20px;
+	left: -49px;
 }
 div.talk-widget  {
 	border-bottom: none;
@@ -604,10 +606,6 @@ div.room span, div.time span {
 	}
 	div.time-cell {
 		top: 7px;
-	}
-	.uparrow {
-		top: -10px;
-		left: -3px;
 	}
 	div.talk-widget:last-child  {
 		border-bottom: none;

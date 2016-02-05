@@ -84,13 +84,13 @@
                         <div class="time-cell title" data-bind="text: start">
                         </div>
                         <a data-bind="attr: {name: 'time_' + start, id: 'time_' + start}">&nbsp;</a>
-                        <a class="uparrow" data-bind="attr : { title: languageUtils.getResource('uparrow') }" href="#top" style="font-weight:bold;font-size:150%">&uArr;</a>
                     </td>
                     <td>
                         <div data-bind="foreach: talks">
                             <!-- changed from <talk-widget...> so that we can style it with CSS -->
                             <div class="talk-widget" data-bind='component: { name: "talk-widget", params: { value: $data } }'></div>
                         </div>
+                        <a class="uparrow" data-bind="attr : { title: languageUtils.getResource('uparrow') }" href="#top" style="font-weight:bold;font-size:150%">&uArr;</a>
                     </td>
                 </tr>
             </table>
