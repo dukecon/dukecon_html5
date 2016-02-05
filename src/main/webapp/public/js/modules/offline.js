@@ -37,13 +37,13 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             console.log('Error opening indexeddb; browser seems to be in private mode');
             dukecondb.privateMode = true;
             if (typeof dukeconTalklistModel !== 'undefined') {
-                dukeconTalkUtils.getData(jsonUrl, dukeconTalklistModel.initialize);
+                getData(jsonUrl, dukeconTalklistModel.initialize);
             }
             if (typeof speakerModel !== 'undefined') {
-                dukeconTalkUtils.getData(jsonUrl, speakerModel.initializeData);
+                getData(jsonUrl, speakerModel.initializeData);
             }
             if (typeof talkModel !== 'undefined') {
-                dukeconTalkUtils.getData(jsonUrl, talkModel.initializeData);
+                getData(jsonUrl, talkModel.initializeData);
             }
             return true;
         }
@@ -60,7 +60,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             console.log("We are online - starting timer to check for updates");
             dukeconsettings.saveSetting(dukeconsettings.keys.previously_offline, dukeconsettings.getSetting(dukeconsettings.keys.offline));
             dukeconsettings.saveSetting(dukeconsettings.keys.offline, false);
-            dukeconTalkUtils.checkNewDataOnServer();
+            checkNewDataOnServer();
             setInterval(function() {
                 dukeconTalkUtils.checkNewDataOnServer();
             }, 300000);
