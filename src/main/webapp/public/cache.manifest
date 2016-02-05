@@ -46,7 +46,7 @@ js/modules/dukecondb.js
 js/modules/dukeconsettings.js
 js/modules/languageutils.js
 js/modules/offline.js
-js/modules/app-speakers.js
+js/modules/speakers.js
 js/modules/synch.js
 js/modules/talk.js
 js/modules/talklist.js
