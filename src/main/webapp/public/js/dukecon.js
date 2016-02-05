@@ -423,6 +423,10 @@ var languageUtils = {
             'de' : 'Aktiv',
             'en' : 'Active'
         },
+        uparrow : {
+            'de' : 'nach oben',
+            'en' : 'back to top'
+        },
         // imprint
         imprint : {
             'de' : 'Impressum',

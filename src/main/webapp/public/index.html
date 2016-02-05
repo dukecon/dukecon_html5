@@ -23,7 +23,7 @@
     <div class="alert-button"><button data-bind="resource: 'cookieDisclaimerOK', click : function() { closeCookieDisclaimer(); }"></button></div>
 </div>
 <login-widget></login-widget>
-<header-widget params="value: 'talks'"></header-widget>
+<header-widget params="value: 'talks'"></header-widget><a name="top" id="top">&npsp</a>
 
 <div id="loading">&nbsp;</div>
 <div id="layout" class="content hidden">
@@ -84,6 +84,7 @@
                         <div class="time-cell title" data-bind="text: start">
                         </div>
                         <a data-bind="attr: {name: 'time_' + start, id: 'time_' + start}">&nbsp;</a>
+                        <a class="uparrow" data-bind="attr : { title: languageUtils.getResource('uparrow') }" href="#top" style="font-weight:bold;font-size:150%">&uArr;</a>
                     </td>
                     <td>
                         <div data-bind="foreach: talks">
