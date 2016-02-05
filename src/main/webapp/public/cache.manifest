@@ -52,7 +52,6 @@ js/modules/talk.js
 js/modules/talklist.js
 js/modules/widgets.js
 js/keycloak.js
-js/empty-model.js
 js/jquery-2.1.4.min.js
 js/knockout-min-3.3.0.js
 js/scrollfix.js
