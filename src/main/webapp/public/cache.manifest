@@ -58,6 +58,7 @@ js/knockout-min-3.3.0.js
 js/scrollfix.js
 js/underscore-min.js
 js/ui.js
+app-feedback.js
 app-speakers.js
 app-talk.js
 app-talklist.js
