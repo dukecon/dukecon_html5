@@ -157,8 +157,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         }
     };
 
-    languageUtils.init();
-
     return {
        Talk : Talk,
        Speaker : Speaker,

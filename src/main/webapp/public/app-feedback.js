@@ -6,7 +6,10 @@ require.config({
     }
 });
 
-require(['js/modules/speakers', 'js/modules/languageutils', 'js/modules/widgets'], function(speakers, languageUtils) {
+require(['knockout', 'js/modules/languageutils' ,'js/modules/widgets'], function(ko, languageUtils) {
     languageUtils.init();
-    speakers.initializeSpeakers();
+    //Initialize knockout
+    ko.applyBindings(new function() {
+        //nothing to do
+    });
 });

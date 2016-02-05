@@ -6,7 +6,8 @@ require.config({
     }
 });
 
-require(['js/modules/talklist', 'js/modules/dukecon', 'js/modules/widgets', 'js/modules/dukecloak'], function(talk, dukecon) {
+require(['js/modules/talklist', 'js/modules/dukecon', 'js/modules/languageutils', 'js/modules/widgets', 'js/modules/dukecloak'], function(talk, dukecon, languageUtils) {
+    languageUtils.init();
     talk.initializeTalkList();
     dukecon.cookiesConfirmed(readCookie('dukecon.cookiesConfirmed') !== '1');
 });

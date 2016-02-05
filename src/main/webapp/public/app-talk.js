@@ -6,6 +6,7 @@ require.config({
     }
 });
 
-require(['js/modules/talk', 'js/modules/widgets'], function(talk) {
+require(['js/modules/talk', 'js/modules/languageutils', 'js/modules/widgets'], function(talk, languageUtils) {
+    languageUtils.init();
     talk.initializeTalks();
 });
