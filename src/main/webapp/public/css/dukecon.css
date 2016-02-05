@@ -361,7 +361,7 @@ div.title {
 div.track {
     font-weight:bold;
     font-size:smaller;
-    font-style:italic
+    font-style:italic;
     display:block
 }
 div.track span {

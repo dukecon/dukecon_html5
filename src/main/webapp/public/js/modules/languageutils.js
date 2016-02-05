@@ -64,6 +64,10 @@ define(['knockout', 'js/modules/dukeconsettings'], function(ko, dukeconSettings)
             'de' : 'Aktiv',
             'en' : 'Active'
         },
+        uparrow : {
+            'de' : 'nach oben',
+            'en' : 'back to top'
+        },
         // imprint
         imprint : {
             'de' : 'Impressum',

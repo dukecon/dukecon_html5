@@ -21,6 +21,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             self.allTalks = [];
             self.metaData = {};
             self.dukecon = dukecon;
+            self.getResource = languageUtils.getResource;
 
             self.filters = [
                 {title: ko.observable(''), filterKey: 'level', filtervalues : ko.observableArray([])},
@@ -234,6 +235,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
         }
 
         return {
-            initializeTalkList : initializeTalkList,
+            initializeTalkList : initializeTalkList
         };
     });
