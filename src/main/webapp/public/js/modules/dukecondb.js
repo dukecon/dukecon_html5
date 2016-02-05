@@ -1,6 +1,5 @@
 define([], function() {
 
-    var privateMode = false;
     var db_name = 'dukecon';
     var talk_store = 'talks';
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.msIndexedDB || window.mozIndexedDB;
@@ -11,7 +10,7 @@ define([], function() {
     };
 
     var get = function(storeKey, callback) {
-        if (privateMode) {
+        if (duke_privatemode) {
             callback(null);
             return;
         }
@@ -46,7 +45,7 @@ define([], function() {
 
     var createDatabase = function(storeKey, callback) {
         //this.indexedDB.deleteDatabase(this.db_name); //please keep this line for debugging
-        if (privateMode || !indexedDB) {
+        if (duke_privatemode || !indexedDB) {
             console.log("Cannot store in indexedDB");
             return;
         }

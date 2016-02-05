@@ -1,5 +1,7 @@
+//global variables
 var duke_cachestatus;
 var duke_status;
+var duke_privatemode = false;
 
 // Check if a new cache is available on page load.
 window.addEventListener('load', function(e) {

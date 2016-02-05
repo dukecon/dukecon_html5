@@ -17,11 +17,12 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             // Data
             var self = this;
 
+            self.dukecon = dukecon;
+            self.getResource = languageUtils.getResource;
+
             self.groupedTalks = ko.observableArray([]);
             self.allTalks = [];
             self.metaData = {};
-            self.dukecon = dukecon;
-            self.getResource = languageUtils.getResource;
 
             self.filters = [
                 {title: ko.observable(''), filterKey: 'level', filtervalues : ko.observableArray([])},
@@ -230,6 +231,11 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
 
         function initializeTalkList() {
             dukeconTalklistModel = new TalkListViewModel();
+            dukeconTalkUtils.reloadInPrivateMode.subscribe(function(value) {
+                if (value) {
+                    dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalklistModel.initialize);
+                }
+            });
             dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalklistModel.initialize);
             ko.applyBindings(dukeconTalklistModel);
         }

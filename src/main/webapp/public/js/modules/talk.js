@@ -46,6 +46,11 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
 
         function initializeTalks() {
             talkModel = new TalkViewModel();
+            dukeconTalkUtils.reloadInPrivateMode.subscribe(function(value) {
+                if (value) {
+                    dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, talkModel.initializeData);
+                }
+            });
             dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, talkModel.initializeData);
             ko.applyBindings(talkModel);
         }

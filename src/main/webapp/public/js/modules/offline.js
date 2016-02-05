@@ -1,6 +1,8 @@
 define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecloak'], function(_, $, ko, dukecondb, dukeconsettings, dukecloak) {
     var jsonUrl = "rest/conferences/499959";
 
+    var reloadInPrivateMode = ko.observable(false);
+
     var init = function() {
         // These variables are set when the application cache events are triggered before the init method
         if (duke_cachestatus === 'updateready') {
@@ -33,16 +35,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         window.onerror = function(msg, url, linenumber) {
             if (msg === 'InvalidStateError' && url.indexOf('dukecondb.js') != -1) {
                 console.log('Error opening indexeddb; browser seems to be in private mode');
-                dukecondb.privateMode = true;
-                if (typeof dukeconTalklistModel !== 'undefined') {
-                    getData(jsonUrl, dukeconTalklistModel.initialize);
-                }
-                if (typeof speakerModel !== 'undefined') {
-                    getData(jsonUrl, speakerModel.initializeData);
-                }
-                if (typeof talkModel !== 'undefined') {
-                    getData(jsonUrl, talkModel.initializeData);
-                }
+                duke_privatemode = true;
+                reloadInPrivateMode(true);
                 return true;
             }
             return false;
@@ -162,6 +156,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
     return {
         init : init,
+        reloadInPrivateMode : reloadInPrivateMode,
         jsonUrl : jsonUrl,
         updateCheck : updateCheck,
         getData : getData
