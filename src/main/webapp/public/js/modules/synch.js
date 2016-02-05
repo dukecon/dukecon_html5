@@ -5,18 +5,18 @@ define(['jquery', 'underscore', 'js/modules/dukeconsettings'], function($, _, du
         };
     };
 
-    var push = function(token, updateTokenFunction) {
-        //if (!dukecloak.keycloakAuth.authenticated) {
-          //  return;
-        //}
+    var push = function(dukecloak) {
+        if (!dukecloak.keycloakAuth.authenticated) {
+            return;
+        }
         var favourites = _.map(dukeconsettings.getFavourites(), function (fav) {
             return {"eventId": fav, "version": "1"};
         });
-        updateTokenFunction()
+        dukecloak.keycloakAuth.updateToken()
             .success(function () {
                 $.ajax({
                     method: 'POST',
-                    beforeSend: setToken,
+                    beforeSend: setToken(dukecloak.keycloakAuth.token),
                     contentType: "application/json",
                     data: JSON.stringify(favourites),
                     url: "rest/preferences",
@@ -33,10 +33,10 @@ define(['jquery', 'underscore', 'js/modules/dukeconsettings'], function($, _, du
             });
     };
 
-    var pull = function (token, updateTokenFunction) {
+    var pull = function (dukecloak) {
         $.ajax({
             method: 'GET',
-            beforeSend: setToken,
+            beforeSend: setToken(dukecloak.keycloakAuth.token),
             dataType: "json",
             url: "rest/preferences",
             success: function (data) {
@@ -49,8 +49,8 @@ define(['jquery', 'underscore', 'js/modules/dukeconsettings'], function($, _, du
                     var previouslyOffline = dukeconsettings.getSetting(dukeconsettings.keys.previously_offline);
                     console.log("Taking local favourites: " + previouslyOffline);
                     dukeconsettings.saveSetting(dukeconsettings.keys.fav_key, previouslyOffline ? localFavourites : _.union(favouritesFromServer, localFavourites));
-                    push(token, updateTokenFunction);
-                    if (dukeconTalklistModel) {
+                    push(dukecloak);
+                    if (typeof dukeconTalklistModel !== 'undefined') {
                         dukeconTalklistModel.updateFavourites();
                     }
                 }

@@ -46,7 +46,7 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch'],
                             console.log("result.text: " + (result && result.text));
                         });
                     }
-                    dukeconSynch.pull(dukecloak.keycloakAuth.token, dukecloak.keycloakAuth.updateToken);
+                    dukeconSynch.pull(dukecloak);
                 })
                 .error(function (result) {
                     console.log("Unable to update token");

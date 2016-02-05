@@ -1,5 +1,5 @@
-define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offline', 'js/modules/dukecon'],
-    function(_, ko, dukeconSettings, dukeconTalkUtils, dukecon) {
+define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offline', 'js/modules/dukecon', 'js/modules/dukecloak', 'js/modules/synch'],
+    function(_, ko, dukeconSettings, dukeconTalkUtils, dukecon, dukecloak, synch) {
 
         function TalkViewModel() {
             // Data
@@ -35,11 +35,10 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
                 return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
             };
 
-            //ANNATODO: fix
             self.toggleFavourite = function (viewModel) {
                 var favourites = dukeconSettings.toggleFavourite(viewModel.talk().id);
                 viewModel.talk().toggleFavourite();
-                //dukeconSynch.push();
+                synch.push(dukecloak.dukecloak);
             };
         }
 

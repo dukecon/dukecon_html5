@@ -1,4 +1,4 @@
-define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak'], function(ko, languageUtils, dukeconTalkUtils, dukecloak) {
+define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/dukecon'], function(ko, languageUtils, dukeconTalkUtils, dukecloak, dukecon) {
     ko.bindingHandlers['resource'] = {
         init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
             return {'controlsDescendantBindings': true};
@@ -94,8 +94,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
     ko.components.register('talk-widget', {
         viewModel: function(data) {
             this.talk = data.value;
-            //ANNATODO: fix
-            this.toggleFavourite = function() {}; //dukeconUtils.toggleFavourite
+            this.toggleFavourite = dukecon.toggleFavourite;
         },
         template:
             '<div data-bind="attr : {class: \'talk-cell \' + talk.timeCategory}">'

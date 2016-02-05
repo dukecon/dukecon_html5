@@ -1,5 +1,5 @@
-define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecondateutils', 'js/modules/languageutils'],
-    function(_, $, ko, dukeconDb, dukeconSettings, dukeconDateUtils, languageUtils) {
+define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecondateutils', 'js/modules/languageutils', 'js/modules/dukecloak', 'js/modules/synch'],
+    function(_, $, ko, dukeconDb, dukeconSettings, dukeconDateUtils, languageUtils, dukecloak, synch) {
 
     // PLEASE! PLEASE! PLEASE! DO NEVER EVER CHANGE THIS LINE and check it into Git!!!
     var jsonUrl = "rest/conferences/499959";
@@ -41,7 +41,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         this.showAlertWindow = function () {
             // requires scrollfix.js for cookie handling:
             var alreadySeen = readCookie('dukecon.favouriteAlertSeen');
-            if (!dukecloak.auth.loggedIn() && !alreadySeen) {
+            if (!dukecloak.dukecloak.auth.loggedIn() && !alreadySeen) {
                 var alertWin = document.getElementById('alert-window');
                 if (alertWin) {
                     var position = getScrollXY();
@@ -149,17 +149,17 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             });
         },
 
-        //ANNATODO: fix
         toggleFavourite: function (talkObject) {
             var favourites = dukeconSettings.toggleFavourite(talkObject.talk.id);
             talkObject.talk.toggleFavourite();
-            //dukeconSynch.push();
+            synch.push(dukecloak.dukecloak);
         }
     };
 
     return {
-       Talk : Talk,
-       Speaker : Speaker,
+        Talk : Talk,
+        Speaker : Speaker,
+        toggleFavourite : toggleFavourite,
         cookiesConfirmed : cookiesConfirmed
     };
 });
