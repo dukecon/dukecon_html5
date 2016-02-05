@@ -42,6 +42,12 @@ function readCookie(name) {
 	}
 	return null;
 }
+
+var closeCookieDisclaimer = function () {
+	createCookie('dukecon.cookiesConfirmed', '1', 1);
+	document.getElementById('cookies').style.display = "none";
+};
+
 function loadP(pageref){
 	x=readCookie(pageref+'x');
 	y=readCookie(pageref+'y');
@@ -52,3 +58,14 @@ function unloadP(pageref){
 	createCookie(pageref+'x',s[0],0.1);
 	createCookie(pageref+'y',s[1],0.1);
 }
+
+var hideLoading = function (delayMs) {
+	var loadingDiv = $('#loading'), contentDiv = $('.content');
+	// tried knockout-event-catching (ko.bindingHandlers...) but it doesn't work, so adding a minimal timeout here to avoid watching the screen render
+	setTimeout(function () {
+		contentDiv.removeClass('hidden');
+		if (!loadingDiv.hasClass('hidden')) {
+			loadingDiv.addClass('hidden');
+		}
+	}, delayMs ? delayMs : 5);
+};

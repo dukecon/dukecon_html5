@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <META name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <script type='text/javascript' src='js/scrollfix.js'></script>
-    <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
-    <script type='text/javascript' src='js/underscore-min.js'></script>
-    <script type='text/javascript' src='js/knockout-min-3.3.0.js'></script>
-    <!-- Temporarily use a local keycloak.js file for debugging purposes -->
     <script type='text/javascript' src='js/keycloak.js'></script>
-    <!--<script type='text/javascript' src='https://keycloak.dukecon.org/auth/js/keycloak.js'></script>-->
+    <script src="js/require.js" data-main="app-talklist"></script>
     <link rel="stylesheet" href="css/pure-min.css"/>
     <link rel="stylesheet" href="css/side-menu.css">
     <link rel="stylesheet" href="css/dukecon.css"/>
@@ -18,7 +14,7 @@
 </head>
 <body onunload="unloadP('dukeConMain')" onload="loadP('dukeConMain')">
 <noscript><br><br>&nbsp;Please enable Javascript to use this site.</noscript>
-<div id="cookies" data-bind="visible: cookiesConfirmed">
+<div id="cookies" data-bind="visible: dukecon.cookiesConfirmed">
     <div data-bind="resource: 'cookieDisclaimer'"></div>
     <div class="alert-button"><button data-bind="resource: 'cookieDisclaimerOK', click : function() { closeCookieDisclaimer(); }"></button></div>
 </div>
@@ -99,15 +95,9 @@
 <footer-widget></footer-widget>
 <alert-window params="{resourceTitle : 'favoriteAlertTitle', resourceBody : 'favoriteAlertBody'}"></alert-window>
 
-<script type='text/javascript' src='js/dukecloak.js'></script>
-<script type='text/javascript' src='js/dukecondb.js'></script>
-<script type='text/javascript' src='js/offline.js'></script>
-<script type='text/javascript' src='js/dukecon.js'></script>
-<script type='text/javascript' src='js/talklist.js'></script>
 <script type='text/javascript' src='js/ui.js'></script>
 <script type='text/javascript'>
-    initializeTalkList();
-    cookiesConfirmed(readCookie('dukecon.cookiesConfirmed') !== '1');
+
 </script>
 </body>
 </html>

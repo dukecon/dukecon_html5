@@ -39,20 +39,28 @@ img/unlock_24px.svg
 img/lock_24px.svg
 img/menu_24px.svg
 # Js
-js/dukecon.js
-js/dukecondb.js
-js/dukecloak.js
+js/modules/dukecloak.js
+js/modules/dukecon.js
+js/modules/dukecondateutils.js
+js/modules/dukecondb.js
+js/modules/dukeconsettings.js
+js/modules/languageutils.js
+js/modules/offline.js
+js/modules/app-speakers.js
+js/modules/synch.js
+js/modules/talk.js
+js/modules/talklist.js
+js/modules/widgets.js
 js/keycloak.js
 js/empty-model.js
 js/jquery-2.1.4.min.js
 js/knockout-min-3.3.0.js
-js/offline.js
 js/scrollfix.js
-js/speakers.js
-js/talk.js
-js/talklist.js
 js/underscore-min.js
 js/ui.js
+app-speakers.js
+app-talk.js
+app-talklist.js
 # Rest
 rest/keycloak.json
 
