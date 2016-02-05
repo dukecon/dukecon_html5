@@ -6,7 +6,7 @@ require.config({
     }
 });
 
-require(['js/modules/talk', 'js/modules/languageutils', 'js/modules/widgets'], function(talk, languageUtils) {
-    languageUtils.init();
+require(['js/modules/talk', 'js/modules/dukecon', 'js/modules/widgets'], function(talk, dukecon) {
+    dukecon.initializeApp();
     talk.initializeTalks();
 });

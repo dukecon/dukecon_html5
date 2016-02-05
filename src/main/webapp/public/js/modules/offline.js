@@ -1,54 +1,72 @@
-define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings'], function(_, $, ko, dukecondb, dukeconsettings) {
+define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecloak'], function(_, $, ko, dukecondb, dukeconsettings, dukecloak) {
     var jsonUrl = "rest/conferences/499959";
 
-    // Check if a new cache is available on page load.
-    window.addEventListener('load', function(e) {
-        window.applicationCache.addEventListener('updateready', function(e) {
-            var doPageReload = dukeconsettings.getSetting(dukeconsettings.keys.offline);
-            setOfflineStatus(false);
-            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-                console.log("Loading new version of page");
-                // Browser downloaded a new app cache.
-                // Swap it in and reload the page to get the new hotness.
-                window.applicationCache.swapCache();
-                window.location.reload();
-            }
-            else if (doPageReload) {
-                console.log ("Back online - reload page in case there is new data");
-                window.location.reload();
-            }
-            else {
-                console.log ("The manifest did not change!");
-            }
-        }, false);
-        window.applicationCache.addEventListener("error", function(e) {
-           setOfflineStatus(true);
-        });
-        window.applicationCache.addEventListener("cached", function(e) {
-            setOfflineStatus(false);
-        });
-        window.applicationCache.addEventListener("noupdate", function(e) {
-            setOfflineStatus(false);
-        });
-    }, false);
-
-    window.onerror = function(msg, url, linenumber) {
-        if (msg === 'InvalidStateError' && url.indexOf('dukecondb.js') != -1) {
-            console.log('Error opening indexeddb; browser seems to be in private mode');
-            dukecondb.privateMode = true;
-            if (typeof dukeconTalklistModel !== 'undefined') {
-                getData(jsonUrl, dukeconTalklistModel.initialize);
-            }
-            if (typeof speakerModel !== 'undefined') {
-                getData(jsonUrl, speakerModel.initializeData);
-            }
-            if (typeof talkModel !== 'undefined') {
-                getData(jsonUrl, talkModel.initializeData);
-            }
-            return true;
+    var init = function() {
+        // These variables are set when the application cache events are triggered before the init method
+        if (duke_cachestatus === 'updateready') {
+            onUpdateReady(duke_status);
         }
-        return false;
+        else if (duke_cachestatus === 'error') {
+            setOfflineStatus(true)
+        }
+        else if (duke_cachestatus === 'cached' || duke_cachestatus === 'noupdate') {
+            setOfflineStatus(false)
+        }
+
+        // In case these events are triggered after the init method, we add a listener
+        window.addEventListener('load', function(e) {
+            window.applicationCache.addEventListener('updateready', function(e) {
+                onUpdateReady(window.applicationCache.status);
+            }, false);
+            window.applicationCache.addEventListener("error", function(e) {
+                setOfflineStatus(true);
+            });
+            window.applicationCache.addEventListener("cached", function(e) {
+                setOfflineStatus(false);
+            });
+            window.applicationCache.addEventListener("noupdate", function(e) {
+                setOfflineStatus(false);
+            });
+        }, false);
+
+
+        window.onerror = function(msg, url, linenumber) {
+            if (msg === 'InvalidStateError' && url.indexOf('dukecondb.js') != -1) {
+                console.log('Error opening indexeddb; browser seems to be in private mode');
+                dukecondb.privateMode = true;
+                if (typeof dukeconTalklistModel !== 'undefined') {
+                    getData(jsonUrl, dukeconTalklistModel.initialize);
+                }
+                if (typeof speakerModel !== 'undefined') {
+                    getData(jsonUrl, speakerModel.initializeData);
+                }
+                if (typeof talkModel !== 'undefined') {
+                    getData(jsonUrl, talkModel.initializeData);
+                }
+                return true;
+            }
+            return false;
+        };
     };
+
+    function onUpdateReady(status) {
+        var doPageReload = dukeconsettings.getSetting(dukeconsettings.keys.offline);
+        setOfflineStatus(false);
+        if (window.applicationCache.UPDATEREADY === status) {
+            console.log("Loading new version of page");
+            // Browser downloaded a new app cache.
+            // Swap it in and reload the page to get the new hotness.
+            window.applicationCache.swapCache();
+            window.location.reload();
+        }
+        else if (doPageReload) {
+            console.log("Back online - reload page in case there is new data");
+            window.location.reload();
+        }
+        else {
+            console.log("The manifest did not change!");
+        }
+    }
 
     function setOfflineStatus(offline) {
         if (offline) {
@@ -64,9 +82,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             setInterval(function() {
                 dukeconTalkUtils.checkNewDataOnServer();
             }, 300000);
-            if(typeof dukecloak !== 'undefined') {
-                dukecloak.nowOnline();
-            }
+            dukecloak.dukecloak.nowOnline();
         }
     }
 
@@ -145,6 +161,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
     };
 
     return {
+        init : init,
         jsonUrl : jsonUrl,
         updateCheck : updateCheck,
         getData : getData

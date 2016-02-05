@@ -6,7 +6,7 @@ require.config({
     }
 });
 
-require(['js/modules/speakers', 'js/modules/languageutils', 'js/modules/widgets'], function(speakers, languageUtils) {
-    languageUtils.init();
+require(['js/modules/speakers', 'js/modules/dukecon', 'js/modules/widgets'], function(speakers, dukecon) {
+    dukecon.initializeApp();
     speakers.initializeSpeakers();
 });

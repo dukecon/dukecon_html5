@@ -6,8 +6,8 @@ require.config({
     }
 });
 
-require(['knockout', 'js/modules/languageutils' ,'js/modules/widgets'], function(ko, languageUtils) {
-    languageUtils.init();
+require(['knockout', 'js/modules/dukecon' ,'js/modules/widgets'], function(ko, dukecon) {
+    dukecon.initializeApp();
     //Initialize knockout
     ko.applyBindings(new function() {
         //nothing to do

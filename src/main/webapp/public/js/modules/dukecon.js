@@ -1,5 +1,5 @@
-define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecondateutils', 'js/modules/languageutils', 'js/modules/dukecloak', 'js/modules/synch'],
-    function(_, $, ko, dukeconDb, dukeconSettings, dukeconDateUtils, languageUtils, dukecloak, synch) {
+define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecondateutils', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/synch'],
+    function(_, $, ko, dukeconDb, dukeconSettings, dukeconDateUtils, languageUtils, offline, dukecloak, synch) {
 
     // PLEASE! PLEASE! PLEASE! DO NEVER EVER CHANGE THIS LINE and check it into Git!!!
     var jsonUrl = "rest/conferences/499959";
@@ -156,7 +156,13 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         }
     };
 
+    function initializeApp() {
+        languageUtils.init();
+        offline.init();
+    }
+
     return {
+        initializeApp : initializeApp,
         Talk : Talk,
         Speaker : Speaker,
         toggleFavourite : toggleFavourite,
