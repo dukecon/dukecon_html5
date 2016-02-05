@@ -329,7 +329,13 @@ div.time-cell {
     /* Internet Explorer */
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
-
+.uparrow {
+	display:block;
+	height:1px;
+	position: relative;
+	top: -20px;
+	left: -49px;
+}
 div.talk-widget  {
 	border-bottom: none;
     display: inline-block;
