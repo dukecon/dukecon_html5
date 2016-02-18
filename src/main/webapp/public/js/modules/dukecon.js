@@ -31,7 +31,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         this.speakersWithCompanies = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, true);
         this.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
         this.language = data.languageId || '';
-        this.fullAbstract = data.abstractText || '';
+        this.fullAbstract = (data.abstractText || '').replace(/\n/g, "<br />");
         this.timeCategory = dukeconDateUtils.getTimeCategory(this.duration);
         this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra';
         this.favourite = ko.observable(isFavourite);
