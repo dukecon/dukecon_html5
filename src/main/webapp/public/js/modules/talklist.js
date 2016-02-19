@@ -241,6 +241,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
         }
 
         return {
-            initializeTalkList : initializeTalkList
+            initializeTalkList : initializeTalkList,
+            TalkListViewModel : TalkListViewModel,
+            FilterValue : FilterValue
         };
     });

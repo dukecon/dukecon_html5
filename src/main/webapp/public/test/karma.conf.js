@@ -22,7 +22,9 @@ module.exports = function(config) {
             'test/spec/dukeconSettingsSpec.js',
             'test/spec/dukeconSynchSpec.js',
             'test/spec/dukeconDbSpec.js',
-            'test/spec/dukeconDateUtilsSpec.js'
+            'test/spec/dukeconDateUtilsSpec.js',
+            'test/spec/talklistFilterSpec.js',
+            'test/spec/talklistSpec.js'
         ],
         shim: {
             jasmine: {

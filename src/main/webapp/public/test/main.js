@@ -27,7 +27,9 @@ require(requiredModules, function(){
         'test/spec/dukeconSettingsSpec',
         'test/spec/dukeconSynchSpec',
         'test/spec/dukeconDbSpec',
-        'test/spec/dukeconDateUtilsSpec'
+        'test/spec/dukeconDateUtilsSpec',
+        'test/spec/talklistFilterSpec',
+        'test/spec/talklistSpec'
     ];
 
     require(specs, function(){
