@@ -19,7 +19,8 @@ module.exports = function(config) {
             'js/modules/offline.js',
             'js/modules/talklist.js',
             'js/ui.js',
-            'test/spec/dukeconSettingsSpec.js'
+            'test/spec/dukeconSettingsSpec.js',
+            'test/spec/dukeconSynchSpec.js'
         ],
         shim: {
             jasmine: {

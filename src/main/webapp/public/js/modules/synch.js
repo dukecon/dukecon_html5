@@ -4,34 +4,36 @@ define(['jquery', 'underscore', 'js/modules/dukeconsettings'], function($, _, du
             request.setRequestHeader("Authorization", 'Bearer ' + token);
         };
     };
-
-    var push = function(dukecloak) {
-        if (!dukecloak.keycloakAuth.authenticated) {
-            return;
-        }
-        var favourites = _.map(dukeconsettings.getFavourites(), function (fav) {
-            return {"eventId": fav, "version": "1"};
-        });
-        dukecloak.keycloakAuth.updateToken()
-            .success(function () {
-                $.ajax({
-                    method: 'POST',
-                    beforeSend: setToken(dukecloak.keycloakAuth.token),
-                    contentType: "application/json",
-                    data: JSON.stringify(favourites),
-                    url: "rest/preferences",
-                    success: function () {
-                        console.log("Pushed favourites to server");
-                    },
-                    error: function () {
-                        console.log("Error pushing favourites to server");
-                    }
-                });
-            })
-            .error(function () {
-                console.log("Error!");
+    var visibleForTesting = {
+        push : function(dukecloak) {
+            if (!dukecloak.keycloakAuth.authenticated) {
+                return;
+            }
+            var favourites = _.map(dukeconsettings.getFavourites(), function (fav) {
+                return {"eventId": fav, "version": "1"};
             });
+            dukecloak.keycloakAuth.updateToken()
+                .success(function () {
+                    $.ajax({
+                        method: 'POST',
+                        beforeSend: setToken(dukecloak.keycloakAuth.token),
+                        contentType: "application/json",
+                        data: JSON.stringify(favourites),
+                        url: "rest/preferences",
+                        success: function () {
+                            console.log("Pushed favourites to server");
+                        },
+                        error: function () {
+                            console.log("Error pushing favourites to server");
+                        }
+                    });
+                })
+                .error(function () {
+                    console.log("Error!");
+                });
+        }
     };
+
 
     var pull = function (dukecloak) {
         $.ajax({
@@ -49,7 +51,7 @@ define(['jquery', 'underscore', 'js/modules/dukeconsettings'], function($, _, du
                     var previouslyOffline = dukeconsettings.getSetting(dukeconsettings.keys.previously_offline);
                     console.log("Taking local favourites: " + previouslyOffline);
                     dukeconsettings.saveSetting(dukeconsettings.keys.fav_key, previouslyOffline ? localFavourites : _.union(favouritesFromServer, localFavourites));
-                    push(dukecloak);
+                    visibleForTesting.push(dukecloak);
                     if (typeof dukeconTalklistModel !== 'undefined') {
                         dukeconTalklistModel.updateFavourites();
                     }
@@ -62,7 +64,8 @@ define(['jquery', 'underscore', 'js/modules/dukeconsettings'], function($, _, du
     };
 
     return {
-        push : push,
-        pull : pull
+        push : visibleForTesting.push,
+        pull : pull,
+        visibleForTesting : visibleForTesting //TODO: ugly as hell, find better solution?
     }
 });
