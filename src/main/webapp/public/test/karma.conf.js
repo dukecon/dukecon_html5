@@ -20,7 +20,8 @@ module.exports = function(config) {
             'js/modules/talklist.js',
             'js/ui.js',
             'test/spec/dukeconSettingsSpec.js',
-            'test/spec/dukeconSynchSpec.js'
+            'test/spec/dukeconSynchSpec.js',
+            'test/spec/dukeconDbSpec.js'
         ],
         shim: {
             jasmine: {

@@ -25,7 +25,8 @@ require(requiredModules, function(){
     jasmineEnv.updateInterval = 1000;
     var specs = [
         'test/spec/dukeconSettingsSpec',
-        'test/spec/dukeconSynchSpec'
+        'test/spec/dukeconSynchSpec',
+        'test/spec/dukeconDbSpec'
     ];
 
     require(specs, function(){
