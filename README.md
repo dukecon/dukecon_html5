@@ -8,7 +8,7 @@ Open the SpecRunner.html in a browser of your choice -  the tests are directly e
 ### Run them with Karma
 1. Download and install nodejs from https://nodejs.org/
 2. Install the required modules: 
-npm install -g karma karma-coverage karma-jasmine karma-chrome-launcher --save-dev
+npm install -g karma karma-coverage karma-jasmine karma-chrome-launcher jasmine-core --save-dev
 3. Navigate to the test directory and start the execution:
 karma start karma.conf.js
 
