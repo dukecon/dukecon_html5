@@ -51,7 +51,7 @@ define(['underscore'], function() {
         return result == null ? false : result;
     };
 
-    toggleFavourite = function(id) {
+    var toggleFavourite = function(id) {
         var favourites = getFavourites();
         var pos = favourites.indexOf(id);
         if (pos === -1) {
