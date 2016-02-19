@@ -156,6 +156,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         }
     };
 
+    var cookiesConfirmed = ko.observable();
+
     function initializeApp() {
         languageUtils.init();
         offline.init();
@@ -165,7 +167,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         initializeApp : initializeApp,
         Talk : Talk,
         Speaker : Speaker,
-        toggleFavourite : toggleFavourite,
+        toggleFavourite : dukeconUtils.toggleFavourite,
         cookiesConfirmed : cookiesConfirmed
     };
 });
