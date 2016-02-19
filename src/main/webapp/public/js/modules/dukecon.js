@@ -84,7 +84,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             "5": "img/track_ide-tools.jpg",
             "1": "img/track_microservices.jpg",
             "6": "img/track_internet-of-things.jpg",
-            "8": "img/track_newcomer.jpg"
+            "8": "img/track_newcomer.jpg",
+            "9": "img/track_community.jpg"
         },
 
         getTrack: function (metaData, trackId) {
@@ -155,8 +156,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             synch.push(dukecloak.dukecloak);
         }
     };
-
-    var cookiesConfirmed = ko.observable();
 
     function initializeApp() {
         languageUtils.init();
