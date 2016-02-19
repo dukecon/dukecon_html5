@@ -26,7 +26,8 @@ require(requiredModules, function(){
     var specs = [
         'test/spec/dukeconSettingsSpec',
         'test/spec/dukeconSynchSpec',
-        'test/spec/dukeconDbSpec'
+        'test/spec/dukeconDbSpec',
+        'test/spec/dukeconDateUtilsSpec'
     ];
 
     require(specs, function(){

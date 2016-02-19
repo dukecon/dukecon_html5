@@ -21,7 +21,8 @@ module.exports = function(config) {
             'js/ui.js',
             'test/spec/dukeconSettingsSpec.js',
             'test/spec/dukeconSynchSpec.js',
-            'test/spec/dukeconDbSpec.js'
+            'test/spec/dukeconDbSpec.js',
+            'test/spec/dukeconDateUtilsSpec.js'
         ],
         shim: {
             jasmine: {

@@ -103,6 +103,9 @@ define(['js/modules/languageutils'], function(languageUtils) {
         getNumericDate : getNumericDate,
         getDisplayTime : getDisplayTime,
         getDurationInMinutes : getDurationInMinutes,
-        getTimeCategory : getTimeCategory
+        getTimeCategory : getTimeCategory,
+        sortDays : sortDays,
+        addLeadingZero : addLeadingZero,
+        weekDays : weekDays
     };
 });
