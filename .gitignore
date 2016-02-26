@@ -3,3 +3,4 @@
 *.iml
 target/
 src/main/webapp/public/test/coverage
+node_modules

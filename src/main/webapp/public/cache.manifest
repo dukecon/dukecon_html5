@@ -44,6 +44,7 @@ js/modules/dukecon.js
 js/modules/dukecondateutils.js
 js/modules/dukecondb.js
 js/modules/dukeconsettings.js
+js/modules/gravatar.js
 js/modules/languageutils.js
 js/modules/offline.js
 js/modules/speakers.js

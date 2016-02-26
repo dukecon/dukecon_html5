@@ -1,0 +1,31 @@
+{
+  "name": "dukecon_html5",
+  "version": "1.2.0",
+  "description": "DukeCon HTML5 Client",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp watch",
+    "clean": "rm -rf node_modules",
+    "test": "karma start src/main/webapp/public/test/karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dukecon/dukecon_html5.git"
+  },
+  "author": "Niko Köbler, niko@n-k.de, @dasniko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dukecon/dukecon_html5/issues"
+  },
+  "homepage": "http://dukecon.org",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "connect-history-api-fallback": "^1.1.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-zip": "^3.1.0",
+    "http-proxy-middleware": "^0.10.0",
+    "run-sequence": "^1.1.5",
+    "yargs": "^4.1.0"
+  }
+}

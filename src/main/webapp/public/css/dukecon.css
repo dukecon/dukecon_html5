@@ -43,6 +43,14 @@ a.username:hover {
     text-decoration: underline;
 }
 
+img.gravatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
 button, .button {
     background-color: #eee;
     border: 0 none rgba(0, 0, 0, 0);

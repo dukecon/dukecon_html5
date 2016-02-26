@@ -1,4 +1,4 @@
-define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch'], function($, ko, dukeconSettings, dukeconSynch) {
+define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch', 'js/modules/gravatar'], function($, ko, dukeconSettings, dukeconSynch, gravatar) {
 
     var keycloakUrl = "rest/keycloak.json";
     var dukecloak = new function () {
@@ -9,6 +9,7 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch'],
 
         self.auth = {
             username: ko.observable(""),
+            gravatar: ko.observable(""),
             loggedIn: ko.observable(false),
             loggedOut: ko.observable(true)
         };
@@ -34,10 +35,12 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch'],
                     var username = dukeconSettings.getSetting('keycloak_username');
                     if (username) {
                         dukecloak.auth.username(username);
+                        dukecloak.auth.gravatar(gravatar.url(username));
                     } else {
                         dukecloak.keycloakAuth.loadUserProfile().success(function (profile) {
                             dukecloak.auth.username(profile.username);
                             dukecloak.auth.username(profile.username);
+                            dukecloak.auth.gravatar(gravatar.url(profile.username));
                             dukeconSettings.saveSetting('keycloak_username', dukecloak.auth.username());
                             console.log("Logged in: " + dukecloak.auth.username());
                         }).error(function (result) {
@@ -106,6 +109,7 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch'],
                 dukecloak.auth.loggedIn(false);
                 dukecloak.auth.loggedOut(true);
                 dukecloak.auth.username("");
+                dukecloak.auth.gravatar("");
             }).error(function () {
                 console.log("WTF");
             });
