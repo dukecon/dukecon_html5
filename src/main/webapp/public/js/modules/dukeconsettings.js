@@ -6,7 +6,6 @@ define(['underscore'], function() {
         favs_active: "dukeconfavs_active",
         selected_language_key: "dukecon_language",
         day_key: "dukeconday",
-        last_updated_hash: "dukecon_last_updated_hash",
         offline: "dukecon_offline",
         previously_offline: "dukecon_previously_offline"
     };

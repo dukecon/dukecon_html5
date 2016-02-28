@@ -3,6 +3,10 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
     var reloadInPrivateMode = ko.observable(false);
 
+    var etag;
+
+    var callbackOnNewData;
+
     var init = function() {
         // These variables are set when the application cache events are triggered before the init method
         if (duke_cachestatus === 'updateready') {
@@ -72,9 +76,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             console.log("We are online - starting timer to check for updates");
             dukeconsettings.saveSetting(dukeconsettings.keys.previously_offline, dukeconsettings.getSetting(dukeconsettings.keys.offline));
             dukeconsettings.saveSetting(dukeconsettings.keys.offline, false);
-            checkNewDataOnServer();
             setInterval(function() {
-                dukeconTalkUtils.checkNewDataOnServer();
+                checkNewDataOnServer();
             }, 300000);
             dukecloak.dukecloak.nowOnline();
         }
@@ -83,49 +86,54 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
     var updateCheck = ko.observable(false);
 
     var getData = function(url, callback) {
-        var offline = dukeconsettings.getSetting(dukeconsettings.keys.offline);
-        var dataHash = dukeconsettings.getSetting(dukeconsettings.keys.last_updated_hash);
-        if (!offline && !dataHash) {
-            getDataFromServer(url, callback);
-        }
-        else {
-            dukecondb.get(dukecondb.talk_store, function(data) {
-                if (data) {
-                    callback(data);
+        callbackOnNewData = callback;
+
+        dukecondb.get(dukecondb.talk_store, function (data) {
+            var offline = dukeconsettings.getSetting(dukeconsettings.keys.offline);
+            if (data) {
+                etag = data.etag;
+                callback(data);
+                if(!offline) {
+                    checkNewDataOnServer();
                 }
-                else if (!offline) {
-                    getDataFromServer(url, callback);
-                }
-            });
-        }
+            }
+            else if (!offline) {
+                getDataFromServer(url, callback);
+            }
+        });
     };
 
     var checkNewDataOnServer = function() {
-        updateCheck(true);
-        console.log('Check for new data on server');
-        var oldCacheHash = dukeconsettings.getSetting(dukeconsettings.keys.last_updated_hash);
-        //var oldCacheHash = Math.random().toString(36).slice(2);
+        if (callbackOnNewData) {
+            updateCheck(true);
+            console.log('Check for new data on server');
+            var oldCacheHash = etag;
+            // var oldCacheHash = Math.random().toString(36).slice(2);
 
-        var successCallback = function(data, status, xhr) {
-            if (data) {
-                console.log("New Data on server; replacing old data in store");
-                dukecondb.save(dukecondb.talk_store, data);
-                dukeconsettings.saveSetting(dukeconsettings.keys.last_updated_hash, xhr.getResponseHeader("ETag"));
-            }
-            updateCheck(false);
-        };
-        doServerRequest(jsonUrl, successCallback, function(error) {
-            console.log('No connection to server');
-            updateCheck(false);
-        }, { "If-None-Match": oldCacheHash });
+            var successCallback = function (data, status, xhr) {
+                if (data) {
+                    data.etag = xhr.getResponseHeader("ETag");
+                    etag = data.etag;
+                    console.log("New Data on server; replacing old data in store");
+                    dukecondb.save(dukecondb.talk_store, data);
+                    callbackOnNewData(data)
+                }
+                updateCheck(false);
+            };
+            doServerRequest(jsonUrl, successCallback, function (error) {
+                console.log('No connection to server');
+                updateCheck(false);
+            }, {"If-None-Match": oldCacheHash});
+        }
     };
 
     var getDataFromServer = function(url, callback) {
         console.log("Retrieving data from server");
         var successCallback = function(data, status, xhr) {
             if (data) {
+                data.etag = xhr.getResponseHeader("ETag");
+                etag = data.etag;
                 dukecondb.save(dukecondb.talk_store, data);
-                dukeconsettings.saveSetting(dukeconsettings.keys.last_updated_hash, xhr.getResponseHeader("ETag"));
                 callback(data);
             }
         };
@@ -133,6 +141,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             console.log('No connection to server, retrieving data from local storage');
             dukecondb.get(dukecondb.talk_store, function(data) {
                 if (data) {
+                    etag = data.etag;
                     callback(data);
                 }
                 else {

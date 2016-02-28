@@ -1,6 +1,10 @@
 define([], function() {
 
-    var db_name = 'dukecon';
+    // strip the file name from the URL to get the context (i.e. '/latest/speakers.html' -> '/latest')
+    // so that all pages of the app use the same context
+    var context = window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/"));
+
+    var db_name = 'dukecon' + context;
     var talk_store = 'talks';
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.msIndexedDB || window.mozIndexedDB;
 
