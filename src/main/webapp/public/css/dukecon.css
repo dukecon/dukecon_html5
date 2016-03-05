@@ -28,6 +28,7 @@ table, th, td {
 #login-area .button, #login-area .username {
 	font-size:80%;
 	vertical-align:middle;
+	display: inline-block;
 }
 #login-area .button {
 	background: transparent;
@@ -35,15 +36,19 @@ table, th, td {
 	margin:0;
 }
 .username {
-	margin-right:0.5em;
+	margin-right:0em;
 	color: #FFFFFF;
 }
 a.username:hover {
 	color: #FFFFFF;
     text-decoration: underline;
 }
-
-img.gravatar {
+.gravatar {
+    margin:0;
+    padding:0;
+    vertical-align: top;
+}
+.gravatar img {
     height: 30px;
     width: 30px;
     border-radius: 5px;
@@ -660,6 +665,9 @@ div.room span, div.time span {
     }
     #talkpage h1 #pagetitle {
     	display: none;
+    }
+    #login-area .username {
+        display:none;
     }
     h1 #mainmenu-button {
     	display: inline-block;
