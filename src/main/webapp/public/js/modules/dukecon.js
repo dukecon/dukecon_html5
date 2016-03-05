@@ -31,7 +31,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         this.speakersWithCompanies = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, true);
         this.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
         this.language = data.languageId || '';
-        this.fullAbstract = (data.abstractText || '').replace(/\n/g, "<br />");
+        this.fullAbstract = dukeconUtils.getSaveAbstractHtml(data.abstractText || '');
         this.timeCategory = dukeconDateUtils.getTimeCategory(this.duration);
         this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra';
         this.favourite = ko.observable(isFavourite);
@@ -154,6 +154,16 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             var favourites = dukeconSettings.toggleFavourite(talkObject.talk.id);
             talkObject.talk.toggleFavourite();
             synch.push(dukecloak.dukecloak);
+        },
+
+        getSaveAbstractHtml: function(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;")
+                .replace(/\n/g, "<br />");
         }
     };
 
