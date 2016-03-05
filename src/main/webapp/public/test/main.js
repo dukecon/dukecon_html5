@@ -25,8 +25,11 @@ var specs = [
 ];
 
 
+/* jasmine boot.js will trigger the jasmine tests in onload.
+   The following code ensures that the specs have been loaded before
+   the original onload is triggered.
+ */
 var currentWindowOnload = window.onload;
-
 window.onload = function() {
     require(specs, function () {
         if (currentWindowOnload) {

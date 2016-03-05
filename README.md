@@ -3,13 +3,18 @@
 ## Run the Jasmine Tests
 
 ### Execute them in a browser
-Open the SpecRunner.html in a browser of your choice -  the tests are directly executed
 
-### Run them with Karma
-1. Download and install nodejs from https://nodejs.org/
-2. Install the required modules: 
-npm install -g karma karma-coverage karma-jasmine karma-chrome-launcher jasmine-core --save-dev
-3. Navigate to the test directory and start the execution:
-karma start karma.conf.js
+Run
 
-This runs the test and generates a test coverage report in a new folder coverage/
+    mvn jasmine:bdd
+
+Open [http://localhost:8234](http://localhost:8234) to run the specs.
+Once you have changed any javascript resources, press reload in your browser.
+
+### Run them on the command line
+
+Run
+
+    mvn jasmine:test
+
+This will run the tests using PhantomJS. Iterate until `BUILD SUCCESS` appears.
