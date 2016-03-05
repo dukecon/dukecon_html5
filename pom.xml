@@ -87,6 +87,39 @@
                     </items>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- configuration properties will go here -->
+                    <jsSrcDir>${project.basedir}/src/main/webapp/public</jsSrcDir>
+                    <jsTestSrcDir>${project.basedir}/src/main/webapp/public/test/spec</jsTestSrcDir>
+                    <preloadSources>
+                        <source>/test/jasmine/mock-ajax.js</source>
+                        <source>/js/scrollfix.js</source>
+                        <source>/js/keycloak.js</source>
+                        <source>/js/require.js</source>
+                        <source>/test/main.js</source>
+                    </preloadSources>
+                    <srcDirectoryName>js/modules</srcDirectoryName>
+                    <sourceExcludes>
+                        <exclude>**/*</exclude>
+                    </sourceExcludes>
+                    <specExcludes>
+                        <exclude>**/*</exclude>
+                    </specExcludes>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>

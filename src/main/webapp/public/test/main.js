@@ -1,6 +1,6 @@
 require.config({
     // to set the default folder
-    baseUrl: '../',
+    baseUrl: 'js/modules',
     // paths: maps ids with paths (no extension)
     paths: {
         'jquery': "js/jquery-2.1.4.min",
@@ -13,27 +13,18 @@ require.config({
     },
 });
 
-var requiredModules = [
-    'jasmine',
-    'jasmine-html',
-    'boot',
-    'mock-ajax'
+var jasmineEnv = jasmine.getEnv();
+jasmineEnv.updateInterval = 1000;
+var specs = [
+    'test/spec/dukeconSettingsSpec',
+    'test/spec/dukeconSynchSpec',
+    'test/spec/dukeconDbSpec',
+    'test/spec/dukeconDateUtilsSpec',
+    'test/spec/talklistFilterSpec',
+    'test/spec/talklistSpec'
 ];
 
-require(requiredModules, function(){
-    var jasmineEnv = jasmine.getEnv();
-    jasmineEnv.updateInterval = 1000;
-    var specs = [
-        'test/spec/dukeconSettingsSpec',
-        'test/spec/dukeconSynchSpec',
-        'test/spec/dukeconDbSpec',
-        'test/spec/dukeconDateUtilsSpec',
-        'test/spec/talklistFilterSpec',
-        'test/spec/talklistSpec'
-    ];
-
-    require(specs, function(){
-        window.onload();
-    });
-
+require(specs, function () {
+    window.onload();
+    jasmine.getEnv().execute();
 });
