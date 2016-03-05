@@ -6,7 +6,7 @@ define(['js/modules/dukecondb'], function(dukeconDb) {
         var storeKey = dukeconDb.talk_store;
         var data = {"hoi": "hoi"};
 
-        beforeAll(function (done) {
+        beforeEach(function (done) {
             dukeconDb.save(storeKey, data);
             dukeconDb.get(storeKey, function (d) {
                 flag = d.hoi && d.hoi === "hoi";
@@ -14,13 +14,12 @@ define(['js/modules/dukecondb'], function(dukeconDb) {
             });
         }, 10000);
 
-        afterAll(function () {
+        afterEach(function () {
             dukeconDb.clear(storeKey);
         });
 
-        it("Happy path", function (done) {
+        it("Happy path", function () {
             expect(flag).toEqual(true);
-            done();
         });
     });
 });
