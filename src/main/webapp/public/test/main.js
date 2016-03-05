@@ -24,7 +24,15 @@ var specs = [
     'test/spec/talklistSpec'
 ];
 
-require(specs, function () {
-    window.onload();
-    jasmine.getEnv().execute();
-});
+
+var currentWindowOnload = window.onload;
+
+window.onload = function() {
+    require(specs, function () {
+        if (currentWindowOnload) {
+            currentWindowOnload();
+        }
+    });
+};
+
+
