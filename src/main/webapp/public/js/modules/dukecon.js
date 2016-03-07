@@ -69,6 +69,13 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
     function Speaker(data, talks, speakers, metaData, favorites) {
         this.name = data.name || '';
         this.company = data.company || '';
+        this.twitterHandle = '';
+        this.twitterLink = '';
+        if (data.twitter && data.twitter.length > 1) {
+            this.twitterHandle = data.twitter;
+            this.twitterLink = "http://www.twitter.com/" + data.twitter.substr(1);
+        }
+
         this.talks = dukeconUtils.getTalks(data.eventIds, talks, speakers, metaData, favorites);
     };
 
