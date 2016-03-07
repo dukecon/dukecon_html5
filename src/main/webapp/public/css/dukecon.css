@@ -701,6 +701,7 @@ div.room span, div.time span {
     }
     button.day-smallscreen {
         display: inline-block;
+        padding: 10px 3px;
     }
 
     .mainmenu {
