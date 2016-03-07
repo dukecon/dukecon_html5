@@ -370,6 +370,10 @@ div.title {
     color: #1AA3B1;
     width:100%;
 }
+.talk-info {
+    display:block;
+    width: 100%;
+}
 
 div.track {
     font-weight:bold;
@@ -513,6 +517,12 @@ div.room span, div.time span {
 .fav:hover {
     color: #00c3d7;
 }
+.fav-smallscreen {
+    display: none;
+}
+.fav-largescreen {
+    display: inline;
+}
 
 /* IMPRINT */
 .imprint {
@@ -623,6 +633,25 @@ div.room span, div.time span {
 	div.talk-widget:last-child  {
 		border-bottom: none;
 	}
+    #talks-grid td:first-child {
+        width:15px;
+    }
+    .uparrow {
+        left: -37px;
+    }
+    .fav-smallscreen {
+        display: inline-block;
+        height:3em;
+        width: 10%;
+        float: left;
+    }
+    .fav-largescreen {
+        display: none;
+    }
+    .talk-info {
+        display:inline-block;
+        width: 90%;
+    }
 	.talk-cell div.room, .talk-cell div.time, .talk-cell div.time-extra  {
 		display:inline-block;
 		padding-right: 5px;
