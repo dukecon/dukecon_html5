@@ -73,10 +73,12 @@ var closeCookieDisclaimer = function () {
 function loadP(pageref){
 	x=readCookie(pageref+'x');
 	y=readCookie(pageref+'y');
-	setScrollXY(x,y)
+	console.log("Scrolling to x=" + x + " and y=" + y);
+	setScrollXY(x,y);
 }
 function unloadP(pageref){
-	s=getScrollXY()
+	s=getScrollXY();
+	console.log("Current scroll position x=" + s[0] + " and y=" + s[1]);
 	createCookie(pageref+'x',s[0],0.1);
 	createCookie(pageref+'y',s[1],0.1);
 }
@@ -89,5 +91,6 @@ var hideLoading = function (delayMs) {
 		if (!loadingDiv.hasClass('hidden')) {
 			loadingDiv.addClass('hidden');
 		}
+		loadP('dukeConMain');
 	}, delayMs ? delayMs : 5);
 };
