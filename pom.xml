@@ -63,6 +63,11 @@
     </distributionManagement>
     
     <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/webapp/public/less</directory>
+            </resource>
+        </resources>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -76,6 +81,23 @@
             <plugin>
                 <groupId>com.github.danielflower.mavenplugins</groupId>
                 <artifactId>multi-module-maven-release-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.lesscss</groupId>
+                <artifactId>lesscss-maven-plugin</artifactId>
+                <version>1.7.0.1.1</version>
+                <configuration>
+                    <sourceDirectory>${project.basedir}/src/main/webapp/public/less</sourceDirectory>
+                    <outputDirectory>${project.basedir}/src/main/webapp/public/css</outputDirectory>
+                    <compress>true</compress>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -130,14 +152,6 @@
                     <specExcludes>
                         <exclude>**/*</exclude>
                     </specExcludes>
-                    <phantomjs>
-                        <version>2.1.1</version>
-                        <checkSystemPath>true</checkSystemPath>
-                        <enforceVersion>true</enforceVersion>
-                        <source>REPOSITORY</source>
-                        <baseUrl></baseUrl>
-                        <outputDirectory>target/phantomjs</outputDirectory>
-                    </phantomjs>
                 </configuration>
             </plugin>
 
