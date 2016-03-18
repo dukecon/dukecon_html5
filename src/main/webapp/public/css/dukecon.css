@@ -36,7 +36,7 @@ table, th, td {
 	margin:0;
 }
 .username {
-	margin-right:0em;
+	margin-right:0;
 	color: #FFFFFF;
 }
 a.username:hover {
@@ -190,10 +190,39 @@ h1 a:hover {
     background: #00c3d7;
 }
 h1 a#logo {
+    display: inline-block;
 	float: left;
 	height: 2em;
 	overflow: hidden;
 	padding: 0 10px 0 5px;
+}
+h1 #backbutton_before {
+    display: none;
+    border-radius: 4px;
+    border-style: none none solid solid;
+    border-width: medium medium 1px 1px;
+    content: " ";
+    height: 1em;
+    transform: rotate(45deg);
+    width: 1em;
+    float:left;
+    position:relative;
+    top: 8px;
+    left: 8px;
+}
+h1 a#backbutton {
+    display:none;
+    border-radius: 4px;
+    float: left;
+    font-size:smaller;
+    font-weight: bold;
+    overflow: hidden;
+    margin: 5px 10px 5px -5px;
+    height: 1.5em;
+    line-height: 1.5em;
+    padding: 0 4px;
+    border: 1px solid;
+    border-left: none;
 }
 
 h2 {
@@ -237,7 +266,7 @@ h2 {
     font-weight:bold;
     display: block;
     padding: 5px;
-    margin: 0px 0px 5px 0px;
+    margin: 0 0 5px 0;
     color: #FFFFFF;
     background: #1AA3B1;
 }
@@ -246,7 +275,7 @@ h2 {
     vertical-align:middle;
     float:right;
     padding:0.4em;
-    margin:0px 5px 0px 0px;
+    margin:0 5px 0 0;
     font-size:smaller;
 
 }
@@ -265,7 +294,7 @@ h2 {
 
 .filter-values input[type="checkbox"] + label {
     padding: 2px;
-    margin-left: 0em;
+    margin-left: 0;
     display:block;
     vertical-align:middle;
     cursor:pointer;
@@ -312,7 +341,7 @@ input[type="checkbox"] + label:before {
     margin-left:5px;
     margin-right: 5px;
     background-color: #ffffff;
-    padding:0px;
+    padding:0;
     width:96%;
     border: 1px solid #dddddd;
 }
@@ -426,7 +455,7 @@ div.room span, div.time span {
     border-collapse: separate;
     background: #eee;
     border:none;
-    padding:0px;
+    padding:0;
 }
 #speakers .speakerinfo .talk-cell {
     min-width: 80px;
@@ -482,7 +511,7 @@ div.room span, div.time span {
     text-align: center;
     width: 100%;
     z-index: 1005; /* side-menu has 1000 */
-    box-shadow: 0px 0px 4px 2px #666666;
+    box-shadow: 0 0 4px 2px #666666;
 }
 
 .footer {
@@ -495,7 +524,7 @@ div.room span, div.time span {
     text-align: center;
     width: 100%;
     z-index: 1005; /* side-menu has 1000 */
-    box-shadow: 0px 0px 4px -2px #000000;
+    box-shadow: 0 0 4px -2px #000000;
 }
 
 #update-info {
@@ -567,13 +596,13 @@ div.room span, div.time span {
     z-index: 2000;
     border: 1px solid #1AA3B1;
     position: absolute;
-    top : 0px;
-    left: 0px;
+    top : 0;
+    left: 0;
     padding: 7px;
     width: 99%;
     text-align: center;
     background: #FFFFFF;
-  	box-shadow: 0px 2px 3px 0px #666666;
+  	box-shadow: 0 2px 3px 0 #666666;
 }
 #cookies a {
     padding: 0;
@@ -588,7 +617,7 @@ div.room span, div.time span {
     width: 350px;
     text-align: center;
     background: #FFFFFF;
-  	box-shadow: 0px 2px 3px 0px #666666;
+  	box-shadow: 0 2px 3px 0 #666666;
     visibility: hidden;
 }
 .alert-title {
@@ -698,6 +727,17 @@ div.room span, div.time span {
     #login-area .username {
         display:none;
     }
+
+    h1 a#logo {
+        display: none;
+    }
+    h1 #backbutton_before {
+        display:inline-block;
+    }
+    h1 a#backbutton {
+        display:inline-block;
+    }
+
     h1 #mainmenu-button {
     	display: inline-block;
     	float: right;
@@ -716,11 +756,11 @@ div.room span, div.time span {
     	position: fixed;
     	display: none;
     	top: 40px;
-    	right: 0px;
+    	right: 0;
     }
     h1 #mainmenu-items.shown {
     	display: block;
-    	box-shadow: 0px 2px 3px 0px #666666;
+    	box-shadow: 0 2px 3px 0 #666666;
     }
 	h2 {
 	  margin-left:5px;
@@ -760,14 +800,14 @@ div.room span, div.time span {
     }
     #speakers .speakerinfo .talk-cell {
         width:90px;
-        padding: 0px;
+        padding: 0;
     }
     #speakers .speakerinfo .talk-cell .title {
 		white-space: normal;
     }
     #talkinfo, #talkinfo td, #talkinfo .talk-details {
         display:block;
-        min-width:0px;
+        min-width:0;
         width:auto;
         margin:5px;
     }
@@ -781,5 +821,7 @@ div.room span, div.time span {
 
 /* PURE CSS overrides */
 .pure-g {
-    letter-spacing: 0em;
+    letter-spacing: 0;
 }
+
+

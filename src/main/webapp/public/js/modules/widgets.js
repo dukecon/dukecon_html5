@@ -18,7 +18,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             };
             this.toggleMenu = function() {
                 var menu = document.getElementById('mainmenu-items');
-                if (menu) {
+                if (menu && $('#mainmenu-button').is(':visible')) {
                     if (menu.className === "") {
                         menu.className = "shown";
                     } else {
@@ -31,6 +31,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             '<div class="header">'
             + '<h1 id="headertitle">'
             + '	<a id="logo" href="index.html"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
+            + '	<span id="backbutton_before"></span><a id="backbutton" onclick="window.history.back();" data-bind="resource: \'backbutton\'"></a>'
             + ' <span id="pagetitle" data-bind="resource: active"></span>'
             + ' <div id="mainmenu-button" data-bind="click: toggleMenu"><img src="img/menu_24px.svg"></div>'
             + ' <div id="mainmenu-items">'
@@ -38,7 +39,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '	 <a href="speakers.html" data-bind="resource: \'speaker\', attr: {class: getCssClass(\'speaker\')}"></a>'
             + '	 <a href="feedback.html" data-bind="resource: \'feedback\', attr: {class: getCssClass(\'feedback\')}"></a>'
             + '	 <a href="http://www.javaland.eu" target="new" class="mainmenu inactive">Javaland Home</a>'
-            + '	 <a class="mainmenu" id="language-select" data-bind="click: toggleLanguage"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
+            + '	 <a class="mainmenu" id="language-select" data-bind="click: function() {toggleLanguage(); toggleMenu(); }"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
             + ' </div>'
             + '</h1>'
             + '</div>'
@@ -67,7 +68,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
         template:
             '<div class="footer">'
             + '<div id="#update-info">'
-            + '<span data-bind="visible: updateCheck"style="margin-left:5px;">Checking for update...</span>'
+            + '<span data-bind="visible: updateCheck" style="margin-left:5px;">Checking for update...</span>'
             + '</div>'
             + '<a href="impressum.html" data-bind="resource: \'imprint\'"></a>'
             + '</div>'
@@ -103,7 +104,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '<div class="talk-info">'
             + ' <div class="title">'
             + ' <img class="fav-largescreen" style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="click: toggleFavourite, attr:{src: talk.favicon}"/>'
-            + ' <a style="padding: 0px" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a>'
+            + ' <a style="padding: 0" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a>'
             + ' </div>'
             + ' <div class="speaker" data-bind="click : function() {window.location.href=\'talk.html#talk?talkId=\' + talk.id; }"><span data-bind="text: talk.speakerString" /></div>'
             + ' <div data-bind="attr: {class: talk.timeClass}, click : function() {window.location.href=\'talk.html#talk?talkId=\' + talk.id; }">'

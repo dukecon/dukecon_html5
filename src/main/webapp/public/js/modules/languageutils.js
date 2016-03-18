@@ -3,6 +3,11 @@ define(['knockout', 'js/modules/dukeconsettings'], function(ko, dukeconSettings)
     var selectedLanguage = ko.observable("de");
 
     var strings = {
+        // back button
+        backbutton : {
+            'de' : 'Zurück',
+            'en' : 'Back'
+        },
         // talks page
         filterOptions : {
             'de' : 'Filter-Optionen',
@@ -100,11 +105,11 @@ define(['knockout', 'js/modules/dukeconsettings'], function(ko, dukeconSettings)
         // feedback page
         feedback_content : {
             'de' : '<span>Rückmeldungen zur Javaland Talks Webseite bitte per Mail an</span>'
-                + '<a href="mailto:feedback@dukecon.org">feedback@dukecon.org</a><span> oder direkt</span>'
-                + '<a href="https://github.com/dukecon/dukecon/issues" alt="Isssuetracker">hier</a><span>ein Ticket erfassen!</span>',
+                + '<a href="mailto:feedback@dukecon.org" title="email">feedback@dukecon.org</a><span> oder direkt</span>'
+                + '<a href="https://github.com/dukecon/dukecon/issues" title="Isssuetracker">hier</a><span>ein Ticket erfassen!</span>',
             'en' : '<span>Please send any feedback about the Javaland Talks website via mail to</span>'
                 + '<a href="mailto:feedback@dukecon.org">feedback@dukecon.org</a><span>or</span>'
-                + '<a href="https://github.com/dukecon/dukecon/issues" alt="Isssuetracker">create a ticket here</a><span>!</span>'
+                + '<a href="https://github.com/dukecon/dukecon/issues" title="Isssuetracker">create a ticket here</a><span>!</span>'
         }
     };
 
