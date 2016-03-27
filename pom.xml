@@ -202,6 +202,11 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.versioneye</groupId>
+                <artifactId>versioneye-maven-plugin</artifactId>
+                <version>3.9.1</version>
+            </plugin>
         </plugins>
     </build>
 </project>
