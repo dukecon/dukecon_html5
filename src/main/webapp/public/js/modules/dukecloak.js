@@ -122,7 +122,9 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch', 
                 self.init(true);
                 return;
             }
-            dukecloak.keycloakAuth.login().success(function () {
+            dukecloak.keycloakAuth.login(
+                { scope: 'offline_access' }
+            ).success(function () {
                 dukecloak.auth.loggedIn(true);
                 dukecloak.auth.loggedOut(false);
             }).error(function () {
@@ -156,6 +158,7 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch', 
 
             dukecloak.keycloakAuth.init({
                 onLoad: login ? "login-required" : "check-sso",
+                scope: 'offline_access',
                 token: dukeconSettings.getSetting('keycloak_token'),
                 idToken: dukeconSettings.getSetting('keycloak_idToken'),
                 refreshToken: dukeconSettings.getSetting('keycloak_refreshToken')
