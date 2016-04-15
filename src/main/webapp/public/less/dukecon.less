@@ -1,46 +1,65 @@
+/************************************************************************************
+/* Automatically generated css file; do not edit!! (instead go to /less/index.less) *
+ ************************************************************************************/
+//--------------------------- GLOBALS ---------------------------------------------------
+
+@mediumGray: #777;
+@lightGray: #ddd;
+@offWhite: #eee;
+@boxShadowColor: #666;
+@white: #fff;
+
+@fontFamily: Arial, Ubuntu, Helvetica, Nimbus Sans L, Droid Sans, FreeSans, Liberation Sans, Trebuchet MS, Sans-Serif;
+
+@customColorDark: #1aa3b1;
+@customColorHover: #00c3d7;
+@customColorReverse: #fff;
+@customColorHighlight: #ddee55;
+@customColorAlternate: #bf5a00;
+
 html, body {
     width:100%;
     height:99%;
     margin:0;
-    color: #777777;
+    color: @mediumGray;
 }
 
 body  {
-    font-family: Arial, Ubuntu, Helvetica, Nimbus Sans L, Droid Sans, FreeSans, Liberation Sans, Trebuchet MS, Sans-Serif;
+    font-family: @fontFamily;
     text-align:left;
 }
 
 table, th, td {
-    border: 1px solid #ddd;
+    border: 1px solid @lightGray;
     vertical-align: top;
     padding: 5px;
 }
 
 #login-area {
-	position: fixed;
-	right: 33em;
-	top: 6px;
-	z-index: 1010;
+    position: fixed;
+    right: 33em;
+    top: 6px;
+    z-index: 1010;
 }
 #login-area img {
-	color: #ffffff;
+    color: @white;
 }
 #login-area .button, #login-area .username {
-	font-size:80%;
-	vertical-align:middle;
-	display: inline-block;
+    font-size:80%;
+    vertical-align:middle;
+    display: inline-block;
 }
 #login-area .button {
-	background: transparent;
-	padding:0;
-	margin:0;
+    background: transparent;
+    padding:0;
+    margin:0;
 }
 .username {
-	margin-right:0em;
-	color: #FFFFFF;
+    margin-right:0;
+    color: white;
 }
 a.username:hover {
-	color: #FFFFFF;
+    color: @white;
     text-decoration: underline;
 }
 .gravatar {
@@ -56,16 +75,8 @@ a.username:hover {
     margin-top: -2px;
 }
 
-.speakerinfo {
-    vertical-align: middle;
-}
-
-span.twitter a {
-    vertical-align: bottom;
-}
-
 button, .button {
-    background-color: #eee;
+    background-color: @offWhite;
     border: 0 none rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0.8);
     font-weight:bold;
@@ -83,10 +94,10 @@ button:active, .button:active  {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
 }
 button:hover, button:focus, .button:hover, .button:focus {
-    background-color:#eee;
+    background-color:@offWhite;
 }
 button.selected {
-    background-color:#ddee55;
+    background-color:@customColorHighlight;
 }
 button.day-widescreen {
     display: inline-block;
@@ -96,12 +107,12 @@ button.day-smallscreen {
 }
 
 th {
-    color: #1AA3B1;
-    background-color:#fff;
+    color: @customColorDark;
+    background-color:@customColorReverse;
 }
 
 td {
-    background-color:#ffffff;
+    background-color:@white;
 }
 
 .header img {
@@ -128,7 +139,7 @@ td {
 }
 
 a {
-    color: #1AA3B1;
+    color: @customColorDark;
     font-weight:normal;
     padding-right:0.5em;
     padding-left:0.5em;
@@ -140,73 +151,103 @@ a {
 }
 
 a:hover {
-    color:#00c3d7;
+    color: @customColorHover;
 }
 
 
 .mainmenu {
 }
 .mainmenu.active {
-	background: #FFFFFF;
-	color: #1AA3B1;
-	cursor: default;
+    background: @customColorReverse;
+    color: @customColorDark;
+    cursor: default;
 }
 
 h1 {
     height: 2em;
     overflow: hidden;
-	margin-bottom: 0;
-	margin-top: 0;
+    margin-bottom: 0;
+    margin-top: 0;
     clear:both;
     font-size:120%;
     line-height:1.9em;
     text-align: right;
-    color: #FFFFFF;
-    background: #1AA3B1;
+    color: @customColorReverse;
+    background: @customColorDark;
 }
 
 h1 #mainmenu-items {
-   	position: relative;
-   	top: 0;
-   	right: 0;
+    position: relative;
+    top: 0;
+    right: 0;
 }
 
 h1 #mainmenu-items, h1 #mainmenu-button {
-	height: 2em;
-	overflow: hidden;
-	display: inline-block;
-	margin:0;
-	padding: 0;
+    height: 2em;
+    overflow: hidden;
+    display: inline-block;
+    margin:0;
+    padding: 0;
 }
 
 h1 #pagetitle, h1 #mainmenu-button {
-	display: none;
+    display: none;
 }
 
 h1 a, h1 span {
-	vertical-align: top;
-	padding-top: 0;
-	padding-bottom: 0;
-	height: 2em;
-	display: inline-block;
-    color: #FFFFFF;
+    vertical-align: top;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 2em;
+    display: inline-block;
+    color: @white;
     margin: 0;
 }
 
 h1 a:hover {
-	color: #FFFFFF;
-    background: #00c3d7;
+    color: @white;
+    background: @customColorHover;
 }
 h1 a#logo {
-	float: left;
-	height: 2em;
-	overflow: hidden;
-	padding: 0 10px 0 5px;
+    display: inline-block;
+    float: left;
+    height: 2em;
+    overflow: hidden;
+    padding: 0 10px 0 5px;
+}
+h1 #backbutton_before {
+    display: none;
+    border-radius: 4px;
+    border-style: none none solid solid;
+    border-width: medium medium 1px 1px;
+    content: " ";
+    height: 1em;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 1em;
+    float:left;
+    position:relative;
+    top: 8px;
+    left: 8px;
+}
+h1 a#backbutton {
+    display:none;
+    border-radius: 4px;
+    float: left;
+    font-size:smaller;
+    font-weight: bold;
+    overflow: hidden;
+    margin: 5px 10px 5px -5px;
+    height: 1.5em;
+    line-height: 1.5em;
+    padding: 0 4px;
+    border: 1px solid;
+    border-left: none;
 }
 
 h2 {
-  font-size:110%;
-  text-align: left;
+    font-size:110%;
+    text-align: left;
 }
 
 .clickable {
@@ -245,16 +286,16 @@ h2 {
     font-weight:bold;
     display: block;
     padding: 5px;
-    margin: 0px 0px 5px 0px;
-    color: #FFFFFF;
-    background: #1AA3B1;
+    margin: 0 0 5px 0;
+    color: @customColorReverse;
+    background: @customColorDark;
 }
 
 .filter-category button {
     vertical-align:middle;
     float:right;
     padding:0.4em;
-    margin:0px 5px 0px 0px;
+    margin:0 5px 0 0;
     font-size:smaller;
 
 }
@@ -273,7 +314,7 @@ h2 {
 
 .filter-values input[type="checkbox"] + label {
     padding: 2px;
-    margin-left: 0em;
+    margin-left: 0;
     display:block;
     vertical-align:middle;
     cursor:pointer;
@@ -294,11 +335,11 @@ input[type="checkbox"] + label:before {
 }
 
 .filter-values div:hover {
-    background: #DDDDDD;
+    background: @lightGray;
 }
 
 .talk-info {
-    background: #ffffff;
+    background: @white;
 }
 
 #content {
@@ -307,7 +348,7 @@ input[type="checkbox"] + label:before {
 }
 
 .content{
-	margin-top: 3em;
+    margin-top: 3em;
     margin-bottom:2.5em;
 }
 
@@ -319,18 +360,18 @@ input[type="checkbox"] + label:before {
 #nav {
     margin-left:5px;
     margin-right: 5px;
-    background-color: #ffffff;
-    padding:0px;
+    background-color: @white;
+    padding:0;
     width:96%;
-    border: 1px solid #dddddd;
+    border: 1px solid @lightGray;
 }
 
 #nav h2 {
     margin:5px 5px 15px 5px;
-    color: #1AA3B1;
+    color: @customColorDark;
 }
 #talks-grid {
-    background-color: #eeeeee;
+    background-color: @offWhite;
 }
 
 #talks-grid table {
@@ -345,37 +386,38 @@ input[type="checkbox"] + label:before {
 }
 div.time-cell {
     transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
     position: relative;
     top: 25px;
     /* Internet Explorer */
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 .uparrow {
-	display:block;
-	height:1px;
-	position: relative;
-	top: -20px;
-	left: -49px;
+    display:block;
+    height:1px;
+    position: relative;
+    top: -20px;
+    left: -49px;
 }
 div.talk-widget  {
-	border-bottom: none;
+    border-bottom: none;
     display: inline-block;
     width: 30%;
     margin: 5px;
     padding: 5px;
 }
 div.talk-cell {
-    background-color: #ffffff;
+    background-color: @white;
     vertical-align:top;
     display: inline-block;
     min-width:200px;
     width: 100%;
     line-height:1.1em;
-	border-bottom: none;
+    border-bottom: none;
 }
 div.title {
     font-weight:bold;
-    color: #1AA3B1;
+    color: @customColorDark;
     width:100%;
 }
 .talk-info {
@@ -414,8 +456,16 @@ div.room span, div.time span {
     vertical-align: middle;
 }
 
+span.twitter a {
+    vertical-align: top;
+}
+
+.speakerinfo {
+    vertical-align: middle;
+}
+
 .time-extra {
-    color: #BF5A00;
+    color: @customColorAlternate;
     font-weight: bold;
     font-size: smaller;
     display:block;
@@ -432,9 +482,9 @@ div.room span, div.time span {
 #speakers, #talkinfo {
     border-spacing: 5px;
     border-collapse: separate;
-    background: #eee;
+    background: @offWhite;
     border:none;
-    padding:0px;
+    padding:0;
 }
 #speakers .speakerinfo .talk-cell {
     min-width: 80px;
@@ -447,7 +497,7 @@ div.room span, div.time span {
     min-width: 120px;
 }
 .speakerinfo .title {
-    color: #777;
+    color: @mediumGray;
 
 }
 /* TALK DETAIL PAGE */
@@ -490,7 +540,7 @@ div.room span, div.time span {
     text-align: center;
     width: 100%;
     z-index: 1005; /* side-menu has 1000 */
-    box-shadow: 0px 0px 4px 2px #666666;
+    box-shadow: 0 0 4px 2px @boxShadowColor;
 }
 
 .footer {
@@ -503,7 +553,7 @@ div.room span, div.time span {
     text-align: center;
     width: 100%;
     z-index: 1005; /* side-menu has 1000 */
-    box-shadow: 0px 0px 4px -2px #000000;
+    box-shadow: 0 0 4px -2px #000000;
 }
 
 #update-info {
@@ -523,7 +573,7 @@ div.room span, div.time span {
     display:inline-block;
 }
 .fav:hover {
-    color: #00c3d7;
+    color: @customColorHover;
 }
 .fav-smallscreen {
     display: none;
@@ -541,10 +591,10 @@ div.room span, div.time span {
 }
 
 .imprint p {
-     font-size: 11pt;
-     line-height: 15pt;
-     margin: 0;
-     padding: 0;
+    font-size: 11pt;
+    line-height: 15pt;
+    margin: 0;
+    padding: 0;
 }
 
 .hidden {
@@ -558,7 +608,7 @@ div.room span, div.time span {
 }
 
 #nothingtoshow {
-    color: #BF5A00;
+    color: @customColorAlternate;
     font-weight: bold;
     text-align:center;
     vertical-align:top;
@@ -573,15 +623,15 @@ div.room span, div.time span {
 
 #cookies {
     z-index: 2000;
-    border: 1px solid #1AA3B1;
+    border: 1px solid @customColorDark;
     position: absolute;
-    top : 0px;
-    left: 0px;
+    top : 0;
+    left: 0;
     padding: 7px;
     width: 99%;
     text-align: center;
-    background: #FFFFFF;
-  	box-shadow: 0px 2px 3px 0px #666666;
+    background: @white;
+    box-shadow: 0 2px 3px 0 @boxShadowColor;
 }
 #cookies a {
     padding: 0;
@@ -589,19 +639,19 @@ div.room span, div.time span {
 }
 
 #alert-window {
-    border: 1px solid #1AA3B1;
+    border: 1px solid @customColorDark;
     position: absolute;
     top : 1px;
     left: 1px;
     width: 350px;
     text-align: center;
-    background: #FFFFFF;
-  	box-shadow: 0px 2px 3px 0px #666666;
+    background: @white;
+    box-shadow: 0 2px 3px 0 @boxShadowColor;
     visibility: hidden;
 }
 .alert-title {
-    background: #1AA3B1;
-    color: #FFFFFF;
+    background: @customColorDark;
+    color: @customColorReverse;
     margin: 0;
     padding: 5px;
 }
@@ -609,8 +659,8 @@ div.room span, div.time span {
     padding: 10px;
 }
 .alert-button {
-	margin-top: 10px;
-	border-top: 1px solid #ddd;
+    margin-top: 10px;
+    border-top: 1px solid @lightGray;
 }
 
 #alert-window.shown {
@@ -619,28 +669,28 @@ div.room span, div.time span {
 }
 
 .day-short {
-	display:none;
+    display:none;
 }
 .day-long {
-	display:inline;
+    display:inline;
 }
 .talk-cell .speaker {
-	display:block;
+    display:block;
 }
 
 /* RESPONSIVE TWEAKS for small screens */
 @media (max-width: 47.9em) {
-	div.talk-widget  {
-		display:block;
-		width:95%;
-		border-bottom: 1px solid #ddd;
-	}
-	div.time-cell {
-		top: 7px;
-	}
-	div.talk-widget:last-child  {
-		border-bottom: none;
-	}
+    div.talk-widget  {
+        display:block;
+        width:95%;
+        border-bottom: 1px solid @lightGray;
+    }
+    div.time-cell {
+        top: 7px;
+    }
+    div.talk-widget:last-child  {
+        border-bottom: none;
+    }
     #talks-grid td:first-child {
         width:15px;
     }
@@ -660,79 +710,90 @@ div.room span, div.time span {
         display:inline-block;
         width: 90%;
     }
-	.talk-cell div.room, .talk-cell div.time, .talk-cell div.time-extra  {
-		display:inline-block;
-		padding-right: 5px;
-	}
-	.talk-cell div.room, .talk-cell div.room {
-	    display: block;
-		max-width: 100px;
-		overflow: visible;
-		white-space:nowrap;
-	}
-	.talk-cell div.track {
-		display:none
-	}
-	.day-short {
-		display:inline;
-	}
-	.day-long {
-		display:none;
-	}
-	.talk-cell .title {
-		display: block;
-		overflow: hidden;
-		white-space: nowrap;
-		width: 100%;
-		text-overflow: ellipsis;
-	}
-	.talk-cell .speaker {
-		display:none;
-	}
+    .talk-cell div.room, .talk-cell div.time, .talk-cell div.time-extra  {
+        display:inline-block;
+        padding-right: 5px;
+    }
+    .talk-cell div.room, .talk-cell div.room {
+        display: block;
+        max-width: 100px;
+        overflow: visible;
+        white-space:nowrap;
+    }
+    .talk-cell div.track {
+        display:none
+    }
+    .day-short {
+        display:inline;
+    }
+    .day-long {
+        display:none;
+    }
+    .talk-cell .title {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+        text-overflow: ellipsis;
+    }
+    .talk-cell .speaker {
+        display:none;
+    }
     .content {
         font-size: 95%;
         padding: 0;
         width:98%
     }
     h1 {
-    	text-align: left;
+        text-align: left;
     }
     h1 #pagetitle {
-    	display: inline-block;
+        display: inline-block;
     }
     #talkpage h1 #pagetitle {
-    	display: none;
+        display: none;
     }
     #login-area .username {
         display:none;
     }
+
+    h1 a#logo {
+        display: none;
+    }
+    h1 #backbutton_before {
+        display:inline-block;
+    }
+    h1 a#backbutton {
+        display:inline-block;
+    }
+
     h1 #mainmenu-button {
-    	display: inline-block;
-    	float: right;
-    	padding-right: 5px;
-    	font-size: smaller;
-    	cursor: pointer;
+        display: inline-block;
+        float: right;
+        padding-right: 5px;
+        font-size: smaller;
+        cursor: pointer;
     }
     h1 #mainmenu-button img {
-       	vertical-align: middle;
-	}
+        vertical-align: middle;
+    }
     h1 #mainmenu-items {
-    	height: auto;
-    	font-size: smaller;
-    	background: #1aa3b1;
-    	width: 200px;
-    	position: fixed;
-    	display: none;
-    	top: 40px;
-    	right: 0px;
+        height: auto;
+        font-size: smaller;
+        background: @customColorDark;
+        width: 200px;
+        position: fixed;
+        display: none;
+        top: 40px;
+        right: 0;
     }
     h1 #mainmenu-items.shown {
-    	display: block;
-    	box-shadow: 0px 2px 3px 0px #666666;
+        display: block;
+        box-shadow: 0 2px 3px 0 @boxShadowColor;
     }
-	h2 {
-	  margin-left:5px;
-	}
+    h2 {
+        margin-left:5px;
+    }
     button.day-widescreen {
         display: none;
     }
@@ -742,40 +803,40 @@ div.room span, div.time span {
     }
 
     .mainmenu {
-    	display: block;
-    	border-bottom: 1px solid #FFFFFF;
+        display: block;
+        border-bottom: 1px solid @white;
     }
     .mainmenu:last-child {
-    	display: block;
-    	border-bottom: none;
-    	padding-bottom: 5px;
+        display: block;
+        border-bottom: none;
+        padding-bottom: 5px;
     }
     #language-select {
         margin-left:0;
     }
-	#login-area {
-		right: 2.5em;
-	}
-   	#speakers {
-    	table-layout: fixed;
-    	width: 100%;
+    #login-area {
+        right: 2.5em;
+    }
+    #speakers {
+        table-layout: fixed;
+        width: 100%;
     }
     #speakers .speakerinfo {
-    	width: 95px;
+        width: 95px;
     }
     #speakers .speakertalks {
-    	width: 90%;
+        width: 90%;
     }
     #speakers .speakerinfo .talk-cell {
         width:90px;
-        padding: 0px;
+        padding: 0;
     }
     #speakers .speakerinfo .talk-cell .title {
-		white-space: normal;
+        white-space: normal;
     }
     #talkinfo, #talkinfo td, #talkinfo .talk-details {
         display:block;
-        min-width:0px;
+        min-width:0;
         width:auto;
         margin:5px;
     }
@@ -789,5 +850,5 @@ div.room span, div.time span {
 
 /* PURE CSS overrides */
 .pure-g {
-    letter-spacing: 0em;
+    letter-spacing: 0;
 }
