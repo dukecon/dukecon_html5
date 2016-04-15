@@ -29,7 +29,11 @@
                 <td class="talk-details">
                     <div class="speaker-list" data-bind="foreach: talk().speakersWithCompanies">
                         <div class="label">
-                            <span data-bind="text: $data"/>
+                            <div>
+                                <span class="speakerinfo" data-bind="text: $data.name"></span>
+                                <span class="speakerinfo" data-bind="text: $data.company"></span>
+                                <span class="twitter"><a data-bind="attr: { href: $data.twitterLink }, text: $data.twitterHandle"></a></span>
+                            </div>
                         </div>
                     </div>
 

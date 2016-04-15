@@ -1,65 +1,46 @@
-/************************************************************************************
-/* Automatically generated css file; do not edit!! (instead go to /less/index.less) *
- ************************************************************************************/
-//--------------------------- GLOBALS ---------------------------------------------------
-
-@mediumGray: #777;
-@lightGray: #ddd;
-@offWhite: #eee;
-@boxShadowColor: #666;
-@white: #fff;
-
-@fontFamily: Arial, Ubuntu, Helvetica, Nimbus Sans L, Droid Sans, FreeSans, Liberation Sans, Trebuchet MS, Sans-Serif;
-
-@customColorDark: #1aa3b1;
-@customColorHover: #00c3d7;
-@customColorReverse: #fff;
-@customColorHighlight: #ddee55;
-@customColorAlternate: #bf5a00;
-
 html, body {
     width:100%;
     height:99%;
     margin:0;
-    color: @mediumGray;
+    color: #777777;
 }
 
 body  {
-    font-family: @fontFamily;
+    font-family: Arial, Ubuntu, Helvetica, Nimbus Sans L, Droid Sans, FreeSans, Liberation Sans, Trebuchet MS, Sans-Serif;
     text-align:left;
 }
 
 table, th, td {
-    border: 1px solid @lightGray;
+    border: 1px solid #ddd;
     vertical-align: top;
     padding: 5px;
 }
 
 #login-area {
-    position: fixed;
-    right: 33em;
-    top: 6px;
-    z-index: 1010;
+	position: fixed;
+	right: 33em;
+	top: 6px;
+	z-index: 1010;
 }
 #login-area img {
-    color: @white;
+	color: #ffffff;
 }
 #login-area .button, #login-area .username {
-    font-size:80%;
-    vertical-align:middle;
-    display: inline-block;
+	font-size:80%;
+	vertical-align:middle;
+	display: inline-block;
 }
 #login-area .button {
-    background: transparent;
-    padding:0;
-    margin:0;
+	background: transparent;
+	padding:0;
+	margin:0;
 }
 .username {
-    margin-right:0;
-    color: white;
+	margin-right:0em;
+	color: #FFFFFF;
 }
 a.username:hover {
-    color: @white;
+	color: #FFFFFF;
     text-decoration: underline;
 }
 .gravatar {
@@ -76,7 +57,7 @@ a.username:hover {
 }
 
 button, .button {
-    background-color: @offWhite;
+    background-color: #eee;
     border: 0 none rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0.8);
     font-weight:bold;
@@ -94,10 +75,10 @@ button:active, .button:active  {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
 }
 button:hover, button:focus, .button:hover, .button:focus {
-    background-color:@offWhite;
+    background-color:#eee;
 }
 button.selected {
-    background-color:@customColorHighlight;
+    background-color:#ddee55;
 }
 button.day-widescreen {
     display: inline-block;
@@ -107,12 +88,12 @@ button.day-smallscreen {
 }
 
 th {
-    color: @customColorDark;
-    background-color:@customColorReverse;
+    color: #1AA3B1;
+    background-color:#fff;
 }
 
 td {
-    background-color:@white;
+    background-color:#ffffff;
 }
 
 .header img {
@@ -139,7 +120,7 @@ td {
 }
 
 a {
-    color: @customColorDark;
+    color: #1AA3B1;
     font-weight:normal;
     padding-right:0.5em;
     padding-left:0.5em;
@@ -151,103 +132,73 @@ a {
 }
 
 a:hover {
-    color: @customColorHover;
+    color:#00c3d7;
 }
 
 
 .mainmenu {
 }
 .mainmenu.active {
-    background: @customColorReverse;
-    color: @customColorDark;
-    cursor: default;
+	background: #FFFFFF;
+	color: #1AA3B1;
+	cursor: default;
 }
 
 h1 {
     height: 2em;
     overflow: hidden;
-    margin-bottom: 0;
-    margin-top: 0;
+	margin-bottom: 0;
+	margin-top: 0;
     clear:both;
     font-size:120%;
     line-height:1.9em;
     text-align: right;
-    color: @customColorReverse;
-    background: @customColorDark;
+    color: #FFFFFF;
+    background: #1AA3B1;
 }
 
 h1 #mainmenu-items {
-    position: relative;
-    top: 0;
-    right: 0;
+   	position: relative;
+   	top: 0;
+   	right: 0;
 }
 
 h1 #mainmenu-items, h1 #mainmenu-button {
-    height: 2em;
-    overflow: hidden;
-    display: inline-block;
-    margin:0;
-    padding: 0;
+	height: 2em;
+	overflow: hidden;
+	display: inline-block;
+	margin:0;
+	padding: 0;
 }
 
 h1 #pagetitle, h1 #mainmenu-button {
-    display: none;
+	display: none;
 }
 
 h1 a, h1 span {
-    vertical-align: top;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 2em;
-    display: inline-block;
-    color: @white;
+	vertical-align: top;
+	padding-top: 0;
+	padding-bottom: 0;
+	height: 2em;
+	display: inline-block;
+    color: #FFFFFF;
     margin: 0;
 }
 
 h1 a:hover {
-    color: @white;
-    background: @customColorHover;
+	color: #FFFFFF;
+    background: #00c3d7;
 }
 h1 a#logo {
-    display: inline-block;
-    float: left;
-    height: 2em;
-    overflow: hidden;
-    padding: 0 10px 0 5px;
-}
-h1 #backbutton_before {
-    display: none;
-    border-radius: 4px;
-    border-style: none none solid solid;
-    border-width: medium medium 1px 1px;
-    content: " ";
-    height: 1em;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    width: 1em;
-    float:left;
-    position:relative;
-    top: 8px;
-    left: 8px;
-}
-h1 a#backbutton {
-    display:none;
-    border-radius: 4px;
-    float: left;
-    font-size:smaller;
-    font-weight: bold;
-    overflow: hidden;
-    margin: 5px 10px 5px -5px;
-    height: 1.5em;
-    line-height: 1.5em;
-    padding: 0 4px;
-    border: 1px solid;
-    border-left: none;
+	float: left;
+	height: 2em;
+	overflow: hidden;
+	padding: 0 10px 0 5px;
 }
 
 h2 {
-    font-size:110%;
-    text-align: left;
+  font-size:110%;
+  text-align: left;
 }
 
 .clickable {
@@ -286,16 +237,16 @@ h2 {
     font-weight:bold;
     display: block;
     padding: 5px;
-    margin: 0 0 5px 0;
-    color: @customColorReverse;
-    background: @customColorDark;
+    margin: 0px 0px 5px 0px;
+    color: #FFFFFF;
+    background: #1AA3B1;
 }
 
 .filter-category button {
     vertical-align:middle;
     float:right;
     padding:0.4em;
-    margin:0 5px 0 0;
+    margin:0px 5px 0px 0px;
     font-size:smaller;
 
 }
@@ -314,7 +265,7 @@ h2 {
 
 .filter-values input[type="checkbox"] + label {
     padding: 2px;
-    margin-left: 0;
+    margin-left: 0em;
     display:block;
     vertical-align:middle;
     cursor:pointer;
@@ -335,11 +286,11 @@ input[type="checkbox"] + label:before {
 }
 
 .filter-values div:hover {
-    background: @lightGray;
+    background: #DDDDDD;
 }
 
 .talk-info {
-    background: @white;
+    background: #ffffff;
 }
 
 #content {
@@ -348,7 +299,7 @@ input[type="checkbox"] + label:before {
 }
 
 .content{
-    margin-top: 3em;
+	margin-top: 3em;
     margin-bottom:2.5em;
 }
 
@@ -360,18 +311,18 @@ input[type="checkbox"] + label:before {
 #nav {
     margin-left:5px;
     margin-right: 5px;
-    background-color: @white;
-    padding:0;
+    background-color: #ffffff;
+    padding:0px;
     width:96%;
-    border: 1px solid @lightGray;
+    border: 1px solid #dddddd;
 }
 
 #nav h2 {
     margin:5px 5px 15px 5px;
-    color: @customColorDark;
+    color: #1AA3B1;
 }
 #talks-grid {
-    background-color: @offWhite;
+    background-color: #eeeeee;
 }
 
 #talks-grid table {
@@ -386,38 +337,37 @@ input[type="checkbox"] + label:before {
 }
 div.time-cell {
     transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
     position: relative;
     top: 25px;
     /* Internet Explorer */
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 .uparrow {
-    display:block;
-    height:1px;
-    position: relative;
-    top: -20px;
-    left: -49px;
+	display:block;
+	height:1px;
+	position: relative;
+	top: -20px;
+	left: -49px;
 }
 div.talk-widget  {
-    border-bottom: none;
+	border-bottom: none;
     display: inline-block;
     width: 30%;
     margin: 5px;
     padding: 5px;
 }
 div.talk-cell {
-    background-color: @white;
+    background-color: #ffffff;
     vertical-align:top;
     display: inline-block;
     min-width:200px;
     width: 100%;
     line-height:1.1em;
-    border-bottom: none;
+	border-bottom: none;
 }
 div.title {
     font-weight:bold;
-    color: @customColorDark;
+    color: #1AA3B1;
     width:100%;
 }
 .talk-info {
@@ -457,7 +407,7 @@ div.room span, div.time span {
 }
 
 .time-extra {
-    color: @customColorAlternate;
+    color: #BF5A00;
     font-weight: bold;
     font-size: smaller;
     display:block;
@@ -474,9 +424,9 @@ div.room span, div.time span {
 #speakers, #talkinfo {
     border-spacing: 5px;
     border-collapse: separate;
-    background: @offWhite;
+    background: #eee;
     border:none;
-    padding:0;
+    padding:0px;
 }
 #speakers .speakerinfo .talk-cell {
     min-width: 80px;
@@ -489,7 +439,7 @@ div.room span, div.time span {
     min-width: 120px;
 }
 .speakerinfo .title {
-    color: @mediumGray;
+    color: #777;
 
 }
 /* TALK DETAIL PAGE */
@@ -532,7 +482,7 @@ div.room span, div.time span {
     text-align: center;
     width: 100%;
     z-index: 1005; /* side-menu has 1000 */
-    box-shadow: 0 0 4px 2px @boxShadowColor;
+    box-shadow: 0px 0px 4px 2px #666666;
 }
 
 .footer {
@@ -545,7 +495,7 @@ div.room span, div.time span {
     text-align: center;
     width: 100%;
     z-index: 1005; /* side-menu has 1000 */
-    box-shadow: 0 0 4px -2px #000000;
+    box-shadow: 0px 0px 4px -2px #000000;
 }
 
 #update-info {
@@ -565,7 +515,7 @@ div.room span, div.time span {
     display:inline-block;
 }
 .fav:hover {
-    color: @customColorHover;
+    color: #00c3d7;
 }
 .fav-smallscreen {
     display: none;
@@ -583,10 +533,10 @@ div.room span, div.time span {
 }
 
 .imprint p {
-    font-size: 11pt;
-    line-height: 15pt;
-    margin: 0;
-    padding: 0;
+     font-size: 11pt;
+     line-height: 15pt;
+     margin: 0;
+     padding: 0;
 }
 
 .hidden {
@@ -600,7 +550,7 @@ div.room span, div.time span {
 }
 
 #nothingtoshow {
-    color: @customColorAlternate;
+    color: #BF5A00;
     font-weight: bold;
     text-align:center;
     vertical-align:top;
@@ -615,15 +565,15 @@ div.room span, div.time span {
 
 #cookies {
     z-index: 2000;
-    border: 1px solid @customColorDark;
+    border: 1px solid #1AA3B1;
     position: absolute;
-    top : 0;
-    left: 0;
+    top : 0px;
+    left: 0px;
     padding: 7px;
     width: 99%;
     text-align: center;
-    background: @white;
-    box-shadow: 0 2px 3px 0 @boxShadowColor;
+    background: #FFFFFF;
+  	box-shadow: 0px 2px 3px 0px #666666;
 }
 #cookies a {
     padding: 0;
@@ -631,19 +581,19 @@ div.room span, div.time span {
 }
 
 #alert-window {
-    border: 1px solid @customColorDark;
+    border: 1px solid #1AA3B1;
     position: absolute;
     top : 1px;
     left: 1px;
     width: 350px;
     text-align: center;
-    background: @white;
-    box-shadow: 0 2px 3px 0 @boxShadowColor;
+    background: #FFFFFF;
+  	box-shadow: 0px 2px 3px 0px #666666;
     visibility: hidden;
 }
 .alert-title {
-    background: @customColorDark;
-    color: @customColorReverse;
+    background: #1AA3B1;
+    color: #FFFFFF;
     margin: 0;
     padding: 5px;
 }
@@ -651,8 +601,8 @@ div.room span, div.time span {
     padding: 10px;
 }
 .alert-button {
-    margin-top: 10px;
-    border-top: 1px solid @lightGray;
+	margin-top: 10px;
+	border-top: 1px solid #ddd;
 }
 
 #alert-window.shown {
@@ -661,28 +611,28 @@ div.room span, div.time span {
 }
 
 .day-short {
-    display:none;
+	display:none;
 }
 .day-long {
-    display:inline;
+	display:inline;
 }
 .talk-cell .speaker {
-    display:block;
+	display:block;
 }
 
 /* RESPONSIVE TWEAKS for small screens */
 @media (max-width: 47.9em) {
-    div.talk-widget  {
-        display:block;
-        width:95%;
-        border-bottom: 1px solid @lightGray;
-    }
-    div.time-cell {
-        top: 7px;
-    }
-    div.talk-widget:last-child  {
-        border-bottom: none;
-    }
+	div.talk-widget  {
+		display:block;
+		width:95%;
+		border-bottom: 1px solid #ddd;
+	}
+	div.time-cell {
+		top: 7px;
+	}
+	div.talk-widget:last-child  {
+		border-bottom: none;
+	}
     #talks-grid td:first-child {
         width:15px;
     }
@@ -702,90 +652,79 @@ div.room span, div.time span {
         display:inline-block;
         width: 90%;
     }
-    .talk-cell div.room, .talk-cell div.time, .talk-cell div.time-extra  {
-        display:inline-block;
-        padding-right: 5px;
-    }
-    .talk-cell div.room, .talk-cell div.room {
-        display: block;
-        max-width: 100px;
-        overflow: visible;
-        white-space:nowrap;
-    }
-    .talk-cell div.track {
-        display:none
-    }
-    .day-short {
-        display:inline;
-    }
-    .day-long {
-        display:none;
-    }
-    .talk-cell .title {
-        display: block;
-        overflow: hidden;
-        white-space: nowrap;
-        width: 100%;
-        text-overflow: ellipsis;
-    }
-    .talk-cell .speaker {
-        display:none;
-    }
+	.talk-cell div.room, .talk-cell div.time, .talk-cell div.time-extra  {
+		display:inline-block;
+		padding-right: 5px;
+	}
+	.talk-cell div.room, .talk-cell div.room {
+	    display: block;
+		max-width: 100px;
+		overflow: visible;
+		white-space:nowrap;
+	}
+	.talk-cell div.track {
+		display:none
+	}
+	.day-short {
+		display:inline;
+	}
+	.day-long {
+		display:none;
+	}
+	.talk-cell .title {
+		display: block;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 100%;
+		text-overflow: ellipsis;
+	}
+	.talk-cell .speaker {
+		display:none;
+	}
     .content {
         font-size: 95%;
         padding: 0;
         width:98%
     }
     h1 {
-        text-align: left;
+    	text-align: left;
     }
     h1 #pagetitle {
-        display: inline-block;
+    	display: inline-block;
     }
     #talkpage h1 #pagetitle {
-        display: none;
+    	display: none;
     }
     #login-area .username {
         display:none;
     }
-
-    h1 a#logo {
-        display: none;
-    }
-    h1 #backbutton_before {
-        display:inline-block;
-    }
-    h1 a#backbutton {
-        display:inline-block;
-    }
-
     h1 #mainmenu-button {
-        display: inline-block;
-        float: right;
-        padding-right: 5px;
-        font-size: smaller;
-        cursor: pointer;
+    	display: inline-block;
+    	float: right;
+    	padding-right: 5px;
+    	font-size: smaller;
+    	cursor: pointer;
     }
     h1 #mainmenu-button img {
-        vertical-align: middle;
-    }
+       	vertical-align: middle;
+	}
     h1 #mainmenu-items {
-        height: auto;
-        font-size: smaller;
-        background: @customColorDark;
-        width: 200px;
-        position: fixed;
-        display: none;
-        top: 40px;
-        right: 0;
+    	height: auto;
+    	font-size: smaller;
+    	background: #1aa3b1;
+    	width: 200px;
+    	position: fixed;
+    	display: none;
+    	top: 40px;
+    	right: 0px;
     }
     h1 #mainmenu-items.shown {
-        display: block;
-        box-shadow: 0 2px 3px 0 @boxShadowColor;
+    	display: block;
+    	box-shadow: 0px 2px 3px 0px #666666;
     }
-    h2 {
-        margin-left:5px;
-    }
+	h2 {
+	  margin-left:5px;
+	}
     button.day-widescreen {
         display: none;
     }
@@ -795,40 +734,40 @@ div.room span, div.time span {
     }
 
     .mainmenu {
-        display: block;
-        border-bottom: 1px solid @white;
+    	display: block;
+    	border-bottom: 1px solid #FFFFFF;
     }
     .mainmenu:last-child {
-        display: block;
-        border-bottom: none;
-        padding-bottom: 5px;
+    	display: block;
+    	border-bottom: none;
+    	padding-bottom: 5px;
     }
     #language-select {
         margin-left:0;
     }
-    #login-area {
-        right: 2.5em;
-    }
-    #speakers {
-        table-layout: fixed;
-        width: 100%;
+	#login-area {
+		right: 2.5em;
+	}
+   	#speakers {
+    	table-layout: fixed;
+    	width: 100%;
     }
     #speakers .speakerinfo {
-        width: 95px;
+    	width: 95px;
     }
     #speakers .speakertalks {
-        width: 90%;
+    	width: 90%;
     }
     #speakers .speakerinfo .talk-cell {
         width:90px;
-        padding: 0;
+        padding: 0px;
     }
     #speakers .speakerinfo .talk-cell .title {
-        white-space: normal;
+		white-space: normal;
     }
     #talkinfo, #talkinfo td, #talkinfo .talk-details {
         display:block;
-        min-width:0;
+        min-width:0px;
         width:auto;
         margin:5px;
     }
@@ -842,7 +781,5 @@ div.room span, div.time span {
 
 /* PURE CSS overrides */
 .pure-g {
-    letter-spacing: 0;
+    letter-spacing: 0em;
 }
-
-

@@ -27,8 +27,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         this.levelDisplay = ko.observable(dukeconUtils.getLevel(metaData, data.audienceId));
         this.level = data.audienceId || '';
         this.title = data.title || '';
-        this.speakerString = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, false).join(', ');
-        this.speakersWithCompanies = dukeconUtils.getSpeakerNames(data.speakerIds, speakers, true);
+        this.speakerString = dukeconUtils.getSpeakerNames(data.speakerIds, speakers).join(', ');
+        this.speakersWithCompanies = dukeconUtils.getSpeakerInfo(data.speakerIds, speakers);
         this.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
         this.language = data.languageId || '';
         this.fullAbstract = dukeconUtils.getSaveAbstractHtml(data.abstractText || '');
@@ -125,7 +125,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             return value ? value.order : 0;
         },
 
-        getSpeakerNames: function (speakerIds, speakers, withCompany) {
+        getSpeakerInfo: function (speakerIds, speakers) {
             if (!speakerIds || speakerIds.length === 0) {
                 return [];
             }
@@ -137,9 +137,27 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                         return s.id === speakerId;
                     }
                 );
-                if (withCompany) {
-                    return speaker.name + (speaker.company ? ", " + speaker.company : '');
+                var twitterHandle, twitterLink;
+                if (speaker.twitter && speaker.twitter.length > 1) {
+                    twitterHandle = "(" + speaker.twitter + ")";
+                    twitterLink = "http://www.twitter.com/" + speaker.twitter.substr(1);
                 }
+                return { name: speaker.name, company: (speaker.company ? ", " + speaker.company : ''), twitterHandle: twitterHandle, twitterLink: twitterLink };
+            });
+        },
+
+        getSpeakerNames: function (speakerIds, speakers) {
+            if (!speakerIds || speakerIds.length === 0) {
+                return [];
+            }
+            var filteredSpeakers = _.filter(speakers, function (speaker) {
+                return speaker && speaker.name;
+            });
+            return _.map(speakerIds, function (speakerId) {
+                var speaker = _.find(speakers, function (s) {
+                        return s.id === speakerId;
+                    }
+                );
                 return speaker.name;
             });
         },
