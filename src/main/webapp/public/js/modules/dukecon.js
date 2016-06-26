@@ -41,7 +41,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         this.showAlertWindow = function () {
             // requires scrollfix.js for cookie handling:
             var alreadySeen = readCookie('dukecon.favouriteAlertSeen');
-            if (!dukecloak.dukecloak.auth.loggedIn() && !alreadySeen) {
+            // TODO: temporarily disabled
+            if (false && !dukecloak.dukecloak.auth.loggedIn() && !alreadySeen) {
                 var alertWin = document.getElementById('alert-window');
                 if (alertWin) {
                     var position = getScrollXY();

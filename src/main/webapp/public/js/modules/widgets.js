@@ -52,7 +52,8 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             this.dukecloak = dukecloak.dukecloak;
         },
         template:
-            '<div id="login-area" data-bind="visible: dukecloak">'
+            // TODO: temporarily disabled with display:none!
+            '<div id="login-area" data-bind_disabled="visible: dukecloak" style="display:none">'
             + '     <div>'
             + '         <a href="#" class="username" data-bind="text: dukecloak.auth.username, click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"></a>'
             + '         <a href="#" class="gravatar" data-bind="click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"><img data-bind="attr: {src: dukecloak.auth.gravatar}, visible: !hideLoginButton && dukecloak.auth.loggedIn"/></a>'
