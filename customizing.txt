@@ -1,0 +1,6 @@
+- Colors (potentially shadows)
+- Logo
+- Icons (checkboxes, loader, streams, login/out, ...)
+- Imprint
+- Link to homepage
+- Occurences of conference name other than logo: try to avoid

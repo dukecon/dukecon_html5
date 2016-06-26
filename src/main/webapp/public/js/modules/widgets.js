@@ -30,7 +30,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
         template:
             '<div class="header">'
             + '<h1 id="headertitle">'
-            + '	<a id="logo" href="index.html"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
+            + '	<a id="logo" href="index.html"><img src="img/logo_jfs.png" alt="Java Forum Stutgart 2016" title="Java Forum Stutgart 2016"/></a>'
             + '	<span id="backbutton_before"></span><a id="backbutton" onclick="window.history.back();" data-bind="resource: \'backbutton\'"></a>'
             + ' <span id="pagetitle" data-bind="resource: active"></span>'
             + ' <div id="mainmenu-button" data-bind="click: toggleMenu"><img src="img/menu_24px.svg"></div>'
