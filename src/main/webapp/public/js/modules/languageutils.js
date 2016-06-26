@@ -104,10 +104,10 @@ define(['knockout', 'js/modules/dukeconsettings'], function(ko, dukeconSettings)
         },
         // feedback page
         feedback_content : {
-            'de' : '<span>Rückmeldungen zur Javaland Talks Webseite bitte per Mail an</span>'
+            'de' : '<span>Rückmeldungen zur Conference Planner Webseite bitte per Mail an</span>'
                 + '<a href="mailto:feedback@dukecon.org" title="email">feedback@dukecon.org</a><span> oder direkt</span>'
                 + '<a href="https://github.com/dukecon/dukecon/issues" title="Isssuetracker">hier</a><span>ein Ticket erfassen!</span>',
-            'en' : '<span>Please send any feedback about the Javaland Talks website via mail to</span>'
+            'en' : '<span>Please send any feedback about the Conference Planner website via mail to</span>'
                 + '<a href="mailto:feedback@dukecon.org">feedback@dukecon.org</a><span>or</span>'
                 + '<a href="https://github.com/dukecon/dukecon/issues" title="Isssuetracker">create a ticket here</a><span>!</span>'
         }

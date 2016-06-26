@@ -2,5 +2,6 @@
 - Logo
 - Icons (checkboxes, loader, streams, login/out, ...)
 - Imprint
-- Link to homepage
+- Link to / Title of homepage
+- ^ this messes up absolute placement of login button
 - Occurences of conference name other than logo: try to avoid

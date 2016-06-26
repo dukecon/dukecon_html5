@@ -1,4 +1,5 @@
 define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/dukecon'], function(ko, languageUtils, dukeconTalkUtils, dukecloak, dukecon) {
+    //noinspection JSUnusedLocalSymbols
     ko.bindingHandlers['resource'] = {
         init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
             return {'controlsDescendantBindings': true};
@@ -38,7 +39,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '	 <a href="index.html" data-bind="resource: \'talks\', attr: {class: getCssClass(\'talks\')}"></a>'
             + '	 <a href="speakers.html" data-bind="resource: \'speaker\', attr: {class: getCssClass(\'speaker\')}"></a>'
             + '	 <a href="feedback.html" data-bind="resource: \'feedback\', attr: {class: getCssClass(\'feedback\')}"></a>'
-            + '	 <a href="http://www.javaland.eu" target="new" class="mainmenu inactive">Javaland Home</a>'
+            + '	 <a href="http://www.java-forum-stuttgart.de/" target="new" class="mainmenu inactive">JFS Home</a>'
             + '	 <a class="mainmenu" id="language-select" data-bind="click: function() {toggleLanguage(); toggleMenu(); }"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
             + ' </div>'
             + '</h1>'
