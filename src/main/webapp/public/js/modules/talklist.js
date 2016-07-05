@@ -194,7 +194,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
 
             self.groupTalks = function(talks) {
                 var grouped = _.groupBy(talks, function(talk) {
-                    return talk.startDisplayed.substring(0,2) + ':00';
+                    return talk.startDisplayed;
                 });
                 return _.map(_.keys(grouped), function(time) {
                     return {"start" : time, "talks" : self.sortTalksForTime(grouped[time])};
