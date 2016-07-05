@@ -7,3 +7,4 @@
 - ^ this messes up absolute placement of login button
 - Occurences of conference name other than logo: try to avoid
 - Keycloak enabled/disabled; target KC server
+- Time-table: don't generate automatically (hour-slots, breaks etc.)
