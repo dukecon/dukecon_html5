@@ -136,13 +136,13 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 var speaker = _.find(speakers, function (s) {
                         return s.id === speakerId;
                     }
-                );
-                var twitterHandle, twitterLink;
+                ) || {};
+                var twitterHandle = "", twitterLink = "";
                 if (speaker.twitter && speaker.twitter.length > 1) {
                     twitterHandle = "(" + speaker.twitter + ")";
                     twitterLink = "http://www.twitter.com/" + speaker.twitter.substr(1);
                 }
-                return { name: speaker.name, company: (speaker.company ? ", " + speaker.company : ''), twitterHandle: twitterHandle, twitterLink: twitterLink };
+                return { name: speaker.name || "", company: (speaker.company ? ", " + speaker.company : ''), twitterHandle: twitterHandle, twitterLink: twitterLink };
             });
         },
 
@@ -157,8 +157,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 var speaker = _.find(speakers, function (s) {
                         return s.id === speakerId;
                     }
-                );
-                return speaker.name;
+                ) || {};
+                return speaker.name || "";
             });
         },
 
