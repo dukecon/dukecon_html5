@@ -1,0 +1,10 @@
+- Colors (potentially shadows)
+- Logo
+- favicon
+- Images (checkboxes, loader, streams, login/out, ...)
+- Imprint (get text from somewhere? OKay for DOAG, for now)
+- Link to / Title of homepage
+- ^ this messes up absolute placement of login button
+- Occurences of conference name other than logo: try to avoid
+- Keycloak enabled/disabled; target KC server
+- Time-table: don't generate automatically (hour-slots, breaks etc.)

@@ -1,4 +1,5 @@
 define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/dukecon'], function(ko, languageUtils, dukeconTalkUtils, dukecloak, dukecon) {
+    //noinspection JSUnusedLocalSymbols
     ko.bindingHandlers['resource'] = {
         init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
             return {'controlsDescendantBindings': true};
@@ -71,6 +72,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '<span data-bind="visible: updateCheck" style="margin-left:5px;">Checking for update...</span>'
             + '</div>'
             + '<a href="impressum.html" data-bind="resource: \'imprint\'"></a>'
+            + '<span>powered by<a href="http://www.dukecon.org" target="_blank">DukeCon</a></span>'
             + '</div>'
     });
 
