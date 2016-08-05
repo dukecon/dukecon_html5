@@ -1322,3 +1322,24 @@ div.vis-color-picker input.vis-range-brightness {
 div.vis-color-picker input.vis-saturation-range {
   width: 289px !important;
 }*/
+
+
+/* added for Dukecon */
+.vis-itemset .vis-group {
+    background: #eee;
+    height: 131px !important;
+}
+.vis-label {
+    height: 131px !important;
+}
+.vis-item.vis-range {
+    z-index: 1;
+    border-raduis: 0;
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+.menu {
+    text-align: right;
+    position: relative;
+}
