@@ -2,81 +2,93 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
     function(_, $, ko, talklist, dukeconSettings, dukeconTalkUtils, dukecon, languageUtils) {
         "use strict";
 
-        var itemsToAdd = [
-            {
-                id: 1,
-                group: 1,
-                content: '<div class="title">Talk 1</div><div>Speaker 1</div><div>additional info</div>',
-                start: "2016-03-08T14:00:00",
-                end: "2016-03-08T15:30:00"
-            },
-            {
-                id: 2,
-                group: 0,
-                content: '<div class="title">Talk 2</div><div>Speaker 2</div><div>additional info</div>',
-                start: "2016-03-08T15:00:00",
-                end: "2016-03-08T17:00:00"
-            },
-            {
-                id: 3,
-                group: 1,
-                content: '<div class="title">Talk 3</div><div>Speaker 1</div><div>additional info</div>',
-                start: "2016-03-08T18:00:00",
-                end: "2016-03-08T20:00:00"
-            },
-            {
-                id: 4,
-                group: 0,
-                content: '<div class="title">Talk 4</div><div>Speaker 1</div><div>additional info</div>',
-                start: "2016-03-08T17:00:00",
-                end: "2016-03-08T19:00:00"
-            },
-            {
-                id: 5,
-                group: 2,
-                content: '<div class="title">Talk 5</div><div>Speaker 3</div><div>additional info</div>',
-                start: "2016-03-08T17:00:00",
-                end: "2016-03-08T19:00:00"
-            },
+        var getTimeTableStart = function(data) {
+            return "2016-03-08T8:00:00";
+        };
 
-            {
-                id: 6,
-                group: 1,
-                content: '<div class="title">Talk 1</div><div>Speaker 1</div><div>additional info</div>',
-                start: "2016-03-09T14:00:00",
-                end: "2016-03-09T15:30:00"
-            },
-            {
-                id: 7,
-                group: 0,
-                content: '<div class="title">Talk 2</div><div>Speaker 2</div><div>additional info</div>',
-                start: "2016-03-09T15:00:00",
-                end: "2016-03-09T17:00:00"
-            },
-            {
-                id: 8,
-                group: 1,
-                content: '<div class="title">Talk 3</div><div>Speaker 1</div><div>additional info</div>',
-                start: "2016-03-09T18:00:00",
-                end: "2016-03-09T20:00:00"
-            },
-            {
-                id: 9,
-                group: 0,
-                content: '<div class="title">Talk 4</div><div>Speaker 1</div><div>additional info</div>',
-                start: "2016-03-09T17:00:00",
-                end: "2016-03-09T19:00:00"
-            },
-            {
-                id: 10,
-                group: 2,
-                content: '<div class="title">Talk 5</div><div>Speaker 3</div><div>additional info</div>',
-                start: "2016-03-09T08:00:00",
-                end: "2016-03-09T19:00:00"
-            }
+        var getTimeTableEnd = function(data) {
+            return "2016-03-09T20:00:00";
+        };
 
+        var generateLocations = function(data) {
+            return ['Room1', 'Room2', 'Room3', 'Broom cabinet'];
+        };
 
-        ];
+        var generateTableItems = function(data) {
+            return [
+                {
+                    id: 1,
+                    group: 1,
+                    content: '<div class="title">Talk 1</div><div>Speaker 1</div><div>additional info</div>',
+                    start: "2016-03-08T14:00:00",
+                    end: "2016-03-08T15:30:00"
+                },
+                {
+                    id: 2,
+                    group: 0,
+                    content: '<div class="title">Talk 2</div><div>Speaker 2</div><div>additional info</div>',
+                    start: "2016-03-08T15:00:00",
+                    end: "2016-03-08T17:00:00"
+                },
+                {
+                    id: 3,
+                    group: 1,
+                    content: '<div class="title">Talk 3</div><div>Speaker 1</div><div>additional info</div>',
+                    start: "2016-03-08T18:00:00",
+                    end: "2016-03-08T20:00:00"
+                },
+                {
+                    id: 4,
+                    group: 0,
+                    content: '<div class="title">Talk 4</div><div>Speaker 1</div><div>additional info</div>',
+                    start: "2016-03-08T17:00:00",
+                    end: "2016-03-08T19:00:00"
+                },
+                {
+                    id: 5,
+                    group: 2,
+                    content: '<div class="title">Talk 5</div><div>Speaker 3</div><div>additional info</div>',
+                    start: "2016-03-08T17:00:00",
+                    end: "2016-03-08T19:00:00"
+                },
+
+                {
+                    id: 6,
+                    group: 1,
+                    content: '<div class="title">Talk 1</div><div>Speaker 1</div><div>additional info</div>',
+                    start: "2016-03-09T14:00:00",
+                    end: "2016-03-09T15:30:00"
+                },
+                {
+                    id: 7,
+                    group: 0,
+                    content: '<div class="title">Talk 2</div><div>Speaker 2</div><div>additional info</div>',
+                    start: "2016-03-09T15:00:00",
+                    end: "2016-03-09T17:00:00"
+                },
+                {
+                    id: 8,
+                    group: 1,
+                    content: '<div class="title">Talk 3</div><div>Speaker 1</div><div>additional info</div>',
+                    start: "2016-03-09T18:00:00",
+                    end: "2016-03-09T20:00:00"
+                },
+                {
+                    id: 9,
+                    group: 0,
+                    content: '<div class="title">Talk 4</div><div>Speaker 1</div><div>additional info</div>',
+                    start: "2016-03-09T17:00:00",
+                    end: "2016-03-09T19:00:00"
+                },
+                {
+                    id: 10,
+                    group: 2,
+                    content: '<div class="title">Talk 5</div><div>Speaker 3</div><div>additional info</div>',
+                    start: "2016-03-09T08:00:00",
+                    end: "2016-03-09T19:00:00"
+                }
+            ];
+        };
 
         var scheduleTalksModel;
 
@@ -93,31 +105,31 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
             console.log("initializing schedule");
 
             // create a data set with groups
-            var locations = ['Room1', 'Room2', 'Room3', 'Broom cabinet'];
+            var locations = generateLocations(scheduleTalksModel);
             var groups = new vis.DataSet();
             for (var g = 0; g < locations.length; g++) {
                 groups.add({id: g, content: locations[g]});
             }
 
             // create a dataset with items
-            var items = new vis.DataSet(itemsToAdd);
+            var items = new vis.DataSet(generateTableItems(scheduleTalksModel));
 
             // create visualization
             var container = document.getElementById('visualization');
             var options = {
                 locale: languageUtils.selectedLanguage(),
                 stack: false,
-                start: "2016-03-08T8:00:00",
-                end: "2016-03-09T20:00:00",
+                start: getTimeTableStart(scheduleTalksModel),
+                end: getTimeTableEnd(scheduleTalksModel),
                 hiddenDates: [
                     {
-                        start: "2016-03-08T00:00:01",
-                        end: "2016-03-08T08:00:00",
+                        start: "2016-01-01T00:00:01",
+                        end: "2016-01-01T08:00:00",
                         repeat: "daily"
                     },
                     {
-                        start: "2016-03-08T21:00:01",
-                        end: "2016-03-09T00:00:00",
+                        start: "2016-01-01T21:00:00",
+                        end: "2016-01-01T00:00:00",
                         repeat: "daily"
                     }
                 ],
@@ -156,17 +168,42 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
 
             function reset () {
                 timeline.setWindow({
-                    start: "2016-03-08T14:00:00",
-                    end: "2016-03-09T21:00:00"
+                    start: options.start,
+                    end: options.end
                 });
             }
 
             // attach events to the navigation buttons
-            document.getElementById('zoomIn').onclick    = function () { zoom(-0.2); };
-            document.getElementById('zoomOut').onclick   = function () { zoom( 0.2); };
-            document.getElementById('moveLeft').onclick  = function () { move( 0.2); };
-            document.getElementById('moveRight').onclick = function () { move(-0.2); };
-            document.getElementById('reset').onclick = function () { reset(); };
+            $('#zoomIn').on(
+                "click",
+                function () {
+                    zoom(-0.2);
+                }
+            );
+            $('#zoomOut').on(
+                "click",
+                function () {
+                    zoom( 0.2);
+                }
+            );
+            $('#moveLeft').on(
+                "click",
+                function () {
+                    move( 0.2);
+                }
+            );
+            $('#moveRight').on(
+                "click",
+                function () {
+                    move(-0.2);
+                }
+            );
+            $('#reset').on(
+                "click",
+                function () {
+                    reset();
+                }
+            );
 
             hideLoading(500, 'dukeConSchedule');
         }
