@@ -25,6 +25,10 @@ define(['knockout', 'js/modules/dukeconsettings'], function(ko, dukeconSettings)
             'de' : 'Talks',
             'en' : 'Talks'
         },
+        schedule : {
+            'de' : 'Stundenplan',
+            'en' : 'Timetable'
+        },
         speaker : {
             'de' : 'Sprecher',
             'en' : 'Speakers'

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head lang="de">
+    <meta charset="UTF-8">
+    <META name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <script type='text/javascript' src='js/scrollfix.js'></script>
+    <script type='text/javascript' src='js/keycloak.js'></script>
+
+    <script src="js/require.js" data-main="app-talkschedule"></script>
+
+    <link href="css/vis.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/pure-min.css"/>
+    <link rel="stylesheet" href="css/side-menu.css">
+    <link rel="stylesheet" href="css/dukecon.css"/>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <title>DukeCon</title>
+</head>
+<body onunload="unloadP('dukeConMain')">
+<noscript><br><br>&nbsp;Please enable Javascript to use this site.</noscript>
+<div id="cookies" data-bind="visible: dukecon.cookiesConfirmed">
+    <div data-bind="resource: 'cookieDisclaimer'"></div>
+    <div class="alert-button"><button data-bind="resource: 'cookieDisclaimerOK', click : function() { closeCookieDisclaimer(); }"></button></div>
+</div>
+<login-widget></login-widget>
+<header-widget params="value: 'schedule'"></header-widget><a name="top" id="top">&nbsp</a>
+<div id="loading" class="hidden">&nbsp;</div>
+<div id="timetable" class="content">
+
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span>&nbsp;</span>
+    </a>
+
+    <div id="content">
+        <div>Dies ist ein Preview ohne Daten!</div>
+        <div id="nothingtoshow" class="hidden"><span data-bind="resource: 'notalksfound'"></span>
+            <a class="clickable" data-bind="click: deactivateFilters, resource: 'deactivate'"></a> <span data-bind="resource: 'or'"></span>
+            <a class="clickable" data-bind="click: resetFilters, resource: 'reset'"></a><span>!</span><br>
+            <span data-bind="resource: 'disablefavorites'"></span>
+        </div>
+
+        <div id="talks-schedule">
+
+
+            <div id="visualization">
+            </div>
+            <div class="timeline-menu">
+                <input type="button" id="zoomIn" value="+"/>
+                <input type="button" id="zoomOut" value="-"/>
+                <input type="button" id="moveLeft" value="&lt;"/>
+                <input type="button" id="moveRight" value="&gt;"/>
+                <input type="button" id="reset" value="o"/>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<footer-widget></footer-widget>
+<alert-window params="{resourceTitle : 'favoriteAlertTitle', resourceBody : 'favoriteAlertBody'}"></alert-window>
+
+<script type='text/javascript' src='js/ui.js'></script>
+<script type='text/javascript'>
+
+</script>
+</body>
+</html>

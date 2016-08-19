@@ -64,7 +64,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             self.locationDisplay(dukeconUtils.getLocation(metaData, data.locationId));
         });
 
-    };
+    }
 
     function Speaker(data, talks, speakers, metaData, favorites) {
         this.name = data.name || '';
@@ -77,7 +77,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         }
 
         this.talks = dukeconUtils.getTalks(data.eventIds, talks, speakers, metaData, favorites);
-    };
+    }
 
     var cookiesConfirmed = ko.observable();
 

@@ -18,7 +18,7 @@ define([], function() {
             callback(null);
             return;
         }
-        console.log("Retrieve data from indexeddb");
+        console.log("Retrieve data from indexeddb for key " + storeKey);
         createDatabase(storeKey, function(store) {
             var cursor = store.openCursor();
             cursor.onsuccess = function(event) {
@@ -102,6 +102,7 @@ define([], function() {
             });
         }
     };
+
     return {
         get: get,
         save : save,
