@@ -8,6 +8,11 @@
     <script type='text/javascript' src='js/scrollfix.js'></script>
     <script type='text/javascript' src='js/keycloak.js'></script>
 
+    <!-- these ought to be encapsulated with require.js, but vis will not load the correct moments library unless we include both here, in the correct order -->
+    <script src="js/moment-with-locales-2.11.2.js"></script>
+    <script src="js/vis.js"></script>
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
     <script src="js/require.js" data-main="app-talkschedule"></script>
 
     <link href="css/vis.css" rel="stylesheet" type="text/css" />
@@ -17,7 +22,7 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <title>DukeCon</title>
 </head>
-<body onunload="unloadP('dukeConMain')">
+<body onunload="unloadP('dukeConSchedule')">
 <noscript><br><br>&nbsp;Please enable Javascript to use this site.</noscript>
 <div id="cookies" data-bind="visible: dukecon.cookiesConfirmed">
     <div data-bind="resource: 'cookieDisclaimer'"></div>
@@ -25,8 +30,8 @@
 </div>
 <login-widget></login-widget>
 <header-widget params="value: 'schedule'"></header-widget><a name="top" id="top">&nbsp</a>
-<div id="loading" class="hidden">&nbsp;</div>
-<div id="timetable" class="content">
+<div id="loading">&nbsp;</div>
+<div id="timetable" class="content hidden">
 
     <a href="#menu" id="menuLink" class="menu-link">
         <!-- Hamburger icon -->

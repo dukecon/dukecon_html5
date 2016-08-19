@@ -83,7 +83,7 @@ function unloadP(pageref){
 	createCookie(pageref+'y',s[1],0.1);
 }
 
-var hideLoading = function (delayMs) {
+var hideLoading = function (delayMs, pageId) {
 	var loadingDiv = $('#loading'), contentDiv = $('.content');
 	// tried knockout-event-catching (ko.bindingHandlers...) but it doesn't work, so adding a minimal timeout here to avoid watching the screen render
 	setTimeout(function () {
@@ -91,6 +91,6 @@ var hideLoading = function (delayMs) {
 		if (!loadingDiv.hasClass('hidden')) {
 			loadingDiv.addClass('hidden');
 		}
-		loadP('dukeConMain');
+		loadP(pageId || 'dukeConMain');
 	}, delayMs ? delayMs : 5);
 };

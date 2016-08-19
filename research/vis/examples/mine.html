@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Dukecon table view test</title>
 
   <style>
@@ -17,7 +18,7 @@
   </style>
 
   <!-- note: moment.js must be loaded before vis.js, else vis.js uses its embedded version of moment.js -->
-  <script src="../../../src/main/webapp/public/js/moment.min.js"></script>
+  <script src="../../../src/main/webapp/public/js/moment-with-locales-2.11.2.js"></script>
 
   <script src="../dist/vis.js"></script>
   <link href="../dist/vis.css" rel="stylesheet" type="text/css" />
@@ -92,8 +93,10 @@
 
   // create visualization
   var container = document.getElementById('visualization');
+  console.log("bla");
   var options = {
     //groupOrder: 'content',  // groupOrder can be a property name or a sorting function
+    locale: "de",
     stack: false,
     start: "2016-03-08T14:00:00",
     end: "2016-03-08T23:00:00",

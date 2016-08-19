@@ -58,7 +58,7 @@ js/modules/widgets.js
 js/keycloak.js
 js/jquery-2.1.4.min.js
 js/knockout-min-3.3.0.js
-js/moment.min.js
+js/moment-with-locales-2.11.2.js
 js/scrollfix.js
 js/underscore-min.js
 js/ui.js

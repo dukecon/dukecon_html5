@@ -1,5 +1,5 @@
 define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/dukeconsettings', 'js/modules/offline', 'js/modules/dukecon', 'js/modules/languageutils', 'moment', 'vis'],
-    function(_, $, ko, talklist, dukeconSettings, dukeconTalkUtils, dukecon, languageUtils, moment, vis) {
+    function(_, $, ko, talklist, dukeconSettings, dukeconTalkUtils, dukecon, languageUtils) {
         "use strict";
 
         var itemsToAdd = [
@@ -37,7 +37,44 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
                 content: '<div class="title">Talk 5</div><div>Speaker 3</div><div>additional info</div>',
                 start: "2016-03-08T17:00:00",
                 end: "2016-03-08T19:00:00"
+            },
+
+            {
+                id: 6,
+                group: 1,
+                content: '<div class="title">Talk 1</div><div>Speaker 1</div><div>additional info</div>',
+                start: "2016-03-09T14:00:00",
+                end: "2016-03-09T15:30:00"
+            },
+            {
+                id: 7,
+                group: 0,
+                content: '<div class="title">Talk 2</div><div>Speaker 2</div><div>additional info</div>',
+                start: "2016-03-09T15:00:00",
+                end: "2016-03-09T17:00:00"
+            },
+            {
+                id: 8,
+                group: 1,
+                content: '<div class="title">Talk 3</div><div>Speaker 1</div><div>additional info</div>',
+                start: "2016-03-09T18:00:00",
+                end: "2016-03-09T20:00:00"
+            },
+            {
+                id: 9,
+                group: 0,
+                content: '<div class="title">Talk 4</div><div>Speaker 1</div><div>additional info</div>',
+                start: "2016-03-09T17:00:00",
+                end: "2016-03-09T19:00:00"
+            },
+            {
+                id: 10,
+                group: 2,
+                content: '<div class="title">Talk 5</div><div>Speaker 3</div><div>additional info</div>',
+                start: "2016-03-09T08:00:00",
+                end: "2016-03-09T19:00:00"
             }
+
 
         ];
 
@@ -68,18 +105,18 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
             // create visualization
             var container = document.getElementById('visualization');
             var options = {
-                //groupOrder: 'content',  // groupOrder can be a property name or a sorting function
+                locale: languageUtils.selectedLanguage(),
                 stack: false,
-                start: "2016-03-08T14:00:00",
-                end: "2016-03-08T20:00:00",
+                start: "2016-03-08T8:00:00",
+                end: "2016-03-09T20:00:00",
                 hiddenDates: [
                     {
-                        start: "2016-03-08T00:00:00",
+                        start: "2016-03-08T00:00:01",
                         end: "2016-03-08T08:00:00",
                         repeat: "daily"
                     },
                     {
-                        start: "2016-03-08T21:00:00",
+                        start: "2016-03-08T21:00:01",
                         end: "2016-03-09T00:00:00",
                         repeat: "daily"
                     }
@@ -120,7 +157,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
             function reset () {
                 timeline.setWindow({
                     start: "2016-03-08T14:00:00",
-                    end: "2016-03-08T23:00:00"
+                    end: "2016-03-09T21:00:00"
                 });
             }
 
@@ -131,6 +168,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
             document.getElementById('moveRight').onclick = function () { move(-0.2); };
             document.getElementById('reset').onclick = function () { reset(); };
 
+            hideLoading(500, 'dukeConSchedule');
         }
 
         return {

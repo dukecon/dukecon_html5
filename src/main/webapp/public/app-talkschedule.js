@@ -3,7 +3,7 @@ require.config({
         "jquery": "js/jquery-2.1.4.min",
         "underscore": "js/underscore-min",
         "knockout": "js/knockout-min-3.3.0",
-        "moment": "js/moment.min",
+        "moment": "js/moment-with-locales-2.11.2",
         "vis": "js/vis"
     }
 });

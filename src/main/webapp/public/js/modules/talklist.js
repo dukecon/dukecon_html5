@@ -67,7 +67,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
                 self.initializeFilters(allData.metaData);
                 self.filterTalks();
                 self.toggleFilterMenu(self.filtersActive());
-                hideLoading(200);
+                hideLoading(200, 'dukeConMain');
             };
 
             self.updateFavourites = function() {

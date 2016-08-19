@@ -1348,6 +1348,9 @@ div.vis-color-picker input.vis-saturation-range {
     border: 1px solid #777;
     font-weight: bold;
     background: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
 }
 .timeline-menu input:hover {
     background: #ddd;

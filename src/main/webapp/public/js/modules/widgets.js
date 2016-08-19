@@ -49,7 +49,6 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
 
     ko.components.register('login-widget', {
         viewModel : function(params) {
-            console.log("login-widget");
             this.hideLoginButton = params.allowLogin === false;
             this.dukecloak = dukecloak.dukecloak;
         },
