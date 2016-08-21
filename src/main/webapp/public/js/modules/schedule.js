@@ -10,11 +10,14 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
             return "2016-03-09T20:00:00";
         };
 
-        var generateLocations = function(data) {
-            return ['Room1', 'Room2', 'Room3', 'Broom cabinet'];
+        var generateLocations = function(data, visGroup) {
+            for (var g = 0; g < data.length; g++) {
+                visGroup.add({id: data[g].id, content: data[g].names[languageUtils.selectedLanguage()]});
+            }
         };
 
         var generateTableItems = function(data) {
+            console.log(JSON.stringify(data, null, " "));
             return [
                 {
                     id: 1,
@@ -25,7 +28,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
                 },
                 {
                     id: 2,
-                    group: 0,
+                    group: 3,
                     content: '<div class="title">Talk 2</div><div>Speaker 2</div><div>additional info</div>',
                     start: "2016-03-08T15:00:00",
                     end: "2016-03-08T17:00:00"
@@ -39,7 +42,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
                 },
                 {
                     id: 4,
-                    group: 0,
+                    group: 3,
                     content: '<div class="title">Talk 4</div><div>Speaker 1</div><div>additional info</div>',
                     start: "2016-03-08T17:00:00",
                     end: "2016-03-08T19:00:00"
@@ -61,7 +64,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
                 },
                 {
                     id: 7,
-                    group: 0,
+                    group: 3,
                     content: '<div class="title">Talk 2</div><div>Speaker 2</div><div>additional info</div>',
                     start: "2016-03-09T15:00:00",
                     end: "2016-03-09T17:00:00"
@@ -75,7 +78,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
                 },
                 {
                     id: 9,
-                    group: 0,
+                    group: 3,
                     content: '<div class="title">Talk 4</div><div>Speaker 1</div><div>additional info</div>',
                     start: "2016-03-09T17:00:00",
                     end: "2016-03-09T19:00:00"
@@ -90,26 +93,9 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
             ];
         };
 
-        var scheduleTalksModel;
-
-        function initializeSchedule() {
-            scheduleTalksModel = new talklist.TalkListViewModel();
-            dukeconTalkUtils.reloadInPrivateMode.subscribe(function(value) {
-                if (value) {
-                    dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, scheduleTalksModel.initialize);
-                }
-            });
-            dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, scheduleTalksModel.initialize);
-            ko.applyBindings(scheduleTalksModel);
-
-            console.log("initializing schedule");
-
-            // create a data set with groups
-            var locations = generateLocations(scheduleTalksModel);
+        function drawTimeTable(scheduleTalksModel) {
             var groups = new vis.DataSet();
-            for (var g = 0; g < locations.length; g++) {
-                groups.add({id: g, content: locations[g]});
-            }
+            generateLocations(scheduleTalksModel.metaData.locations, groups);
 
             // create a dataset with items
             var items = new vis.DataSet(generateTableItems(scheduleTalksModel));
@@ -129,7 +115,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
                     },
                     {
                         start: "2016-01-01T21:00:00",
-                        end: "2016-01-01T00:00:00",
+                        end: "2016-01-01T23:59:59",
                         repeat: "daily"
                     }
                 ],
@@ -204,8 +190,31 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
                     reset();
                 }
             );
+        }
 
-            hideLoading(500, 'dukeConSchedule');
+        function initializeSchedule() {
+            var dukeconTalklistModel = new talklist.TalkListViewModel();
+
+            dukeconTalklistModel.initialize = function(allData) {
+                var favourites = dukeconSettings.getFavourites();
+                var mappedTalks = $.map(allData.events, function(talk) {
+                    return new dukecon.Talk(talk, allData.speakers, allData.metaData, favourites.indexOf(talk.id) !== -1)
+                }).sort(self.sortTalk);
+                dukeconTalklistModel.metaData = allData.metaData;
+                dukeconTalklistModel.allTalks = mappedTalks;
+                drawTimeTable(dukeconTalklistModel);
+                hideLoading(200, 'dukeConSchedule');
+            };
+
+            dukeconTalkUtils.reloadInPrivateMode.subscribe(function(value) {
+                if (value) {
+                    dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalklistModel.initialize);
+                }
+            });
+
+            dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalklistModel.initialize);
+            ko.applyBindings(dukeconTalklistModel);
+
         }
 
         return {

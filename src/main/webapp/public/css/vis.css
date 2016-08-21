@@ -1342,6 +1342,7 @@ div.vis-color-picker input.vis-saturation-range {
 .timeline-menu {
     text-align: right;
     position: relative;
+    padding: 5px 0;
 }
 
 .timeline-menu input {
