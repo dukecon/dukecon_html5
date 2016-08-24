@@ -84,15 +84,15 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 //not sure where else to put
     var dukeconUtils = {
         talkIcons: {
-            "7": "img/track_7.jpg",
-            "2": "img/track_2.jpg",
-            "3": "img/track_3.jpg",
-            "4": "img/track_4.jpg",
-            "5": "img/track_5.jpg",
-            "1": "img/track_1.jpg",
-            "6": "img/track_6.jpg",
-            "8": "img/track_8.jpg",
-            "9": "img/track_9.jpg"
+            "7": "img/track_architecture.jpg",
+            "2": "img/track_jvm-languages.jpg",
+            "3": "img/track_enterprise-java-cloud.jpg",
+            "4": "img/track_frontend-mobile.jpg",
+            "5": "img/track_ide-tools.jpg",
+            "1": "img/track_microservices.jpg",
+            "6": "img/track_internet-of-things.jpg",
+            "8": "img/track_newcomer.jpg",
+            "9": "img/track_community.jpg"
         },
 
         getTrack: function (metaData, trackId) {
