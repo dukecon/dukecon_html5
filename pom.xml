@@ -220,13 +220,11 @@
                     </archive>
                 </configuration>
             </plugin>
-            <!-- FIXME: Deactivated due to ssl certificate problems -->
-            <!--plugin>
+            <plugin>
                 <groupId>com.versioneye</groupId>
                 <artifactId>versioneye-maven-plugin</artifactId>
                 <version>3.10.2</version>
-            </plugin-->
-
+            </plugin>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
