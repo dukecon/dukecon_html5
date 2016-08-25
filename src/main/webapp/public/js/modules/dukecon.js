@@ -2,8 +2,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
     function(_, $, ko, dukeconDb, dukeconSettings, dukeconDateUtils, languageUtils, offline, dukecloak, synch) {
 
     // PLEASE! PLEASE! PLEASE! DO NEVER EVER CHANGE THIS LINE and check it into Git!!!
-    var jsonUrl = "rest/conferences/499959.json";
-    var slicedEventsJsonUrl = "rest/conferences/499959/slicedEvents";
+    var jsonUrl = "${dukecon.server.jsonUrl}";
 
     function Talk(data, speakers, metaData, isFavourite) {
         var self = this;
