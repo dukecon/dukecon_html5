@@ -67,7 +67,7 @@ app-feedback.js
 app-speakers.js
 app-talk.js
 app-talklist.js
-app-schedule.js
+app-talkschedule.js
 # Rest
 rest/keycloak.json
 
