@@ -27,7 +27,20 @@
         <nexus.repository.host>dev.dukecon.org</nexus.repository.host>
         <nexus.repository.port />
         <nexus.repository.base>/nexus</nexus.repository.base>
+
+        <dukecon.server.jsonUrl>rest/conferences/499959</dukecon.server.jsonUrl>
+        <dukecon.server.slicedEventsJsonUrl>rest/conferences/499959/slicedEvents</dukecon.server.slicedEventsJsonUrl>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>develop</id>
+            <properties>
+                <dukecon.server.jsonUrl>wasganzanderes</dukecon.server.jsonUrl>
+                <dukecon.server.slicedEventsJsonUrl>nochmalsehrvielandersalsdieandere</dukecon.server.slicedEventsJsonUrl>
+            </properties>
+        </profile>
+    </profiles>
     
     <repositories>
         <repository>
@@ -195,6 +208,7 @@
                             <includes>
                                 <include>**/*.txt</include>
                                 <include>**/cache.manifest</include>
+                                <include>**/js/modules/dukecon.js</include>
                             </includes>
                         </resource>
                     </webResources>
