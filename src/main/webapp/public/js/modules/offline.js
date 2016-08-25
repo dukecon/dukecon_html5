@@ -1,5 +1,5 @@
 define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecloak'], function(_, $, ko, dukecondb, dukeconsettings, dukecloak) {
-    var jsonUrl = "rest/conferences/499959.json";
+    var jsonUrl = "${dukecon.server.jsonUrl}";
 
     var reloadInPrivateMode = ko.observable(false);
 
