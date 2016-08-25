@@ -28,16 +28,14 @@
         <nexus.repository.port />
         <nexus.repository.base>/nexus</nexus.repository.base>
 
-        <dukecon.server.jsonUrl>rest/conferences/499959</dukecon.server.jsonUrl>
-        <dukecon.server.slicedEventsJsonUrl>rest/conferences/499959/slicedEvents</dukecon.server.slicedEventsJsonUrl>
+        <dukecon.server.jsonUrl>rest/conferences/499959.json</dukecon.server.jsonUrl>
     </properties>
 
     <profiles>
         <profile>
             <id>develop</id>
             <properties>
-                <dukecon.server.jsonUrl>wasganzanderes</dukecon.server.jsonUrl>
-                <dukecon.server.slicedEventsJsonUrl>nochmalsehrvielandersalsdieandere</dukecon.server.slicedEventsJsonUrl>
+                <dukecon.server.jsonUrl>https://dev.dukecon.org/latest/rest/conferences/499959</dukecon.server.jsonUrl>
             </properties>
         </profile>
     </profiles>
