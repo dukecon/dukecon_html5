@@ -25,6 +25,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
     
         var getTimeTableStart = function(data) {
             if (data.length > 0) {
+                // TODO: start at current day?
                 data.sort(sortTalksByStart);
                 return data[0].startSortable;
             }
@@ -32,6 +33,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
         };
 
         var getTimeTableEnd = function(data) {
+            // var start = getTimeTableStart(data);
+            // return moment(start).add(8, 'hours').format();
             if (data.length > 0) {
                 data.sort(sortTalksByStart);
                 var lastTalk = data[data.length - 1];
