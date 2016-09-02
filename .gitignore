@@ -6,3 +6,4 @@ src/main/webapp/public/test/coverage
 node_modules
 src/main/webapp/public/css/dukecon.css
 *.log
+settings.xml
