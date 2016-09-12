@@ -69,7 +69,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         this.twitterLink = '';
         if (data.twitter && data.twitter.length > 1) {
             this.twitterHandle = data.twitter;
-            this.twitterLink = "http://www.twitter.com/" + data.twitter.substr(1);
+            this.twitterLink = "http://www.twitter.com/" + data.twitter.startsWith('@') ? data.twitter.substr(1) : data.twitter;
         }
 
         this.talks = dukeconUtils.getTalks(data.eventIds, talks, speakers, metaData, favorites);
@@ -136,7 +136,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 var twitterHandle = "", twitterLink = "";
                 if (speaker.twitter && speaker.twitter.length > 1) {
                     twitterHandle = "(" + speaker.twitter + ")";
-                    twitterLink = "http://www.twitter.com/" + speaker.twitter.substr(1);
+                    twitterLink = "http://www.twitter.com/" + speaker.twitter.startsWith('@') ? speaker.twitter.substr(1) : speaker.twitter;
                 }
                 return { name: speaker.name || "", company: (speaker.company ? ", " + speaker.company : ''), twitterHandle: twitterHandle, twitterLink: twitterLink };
             });
