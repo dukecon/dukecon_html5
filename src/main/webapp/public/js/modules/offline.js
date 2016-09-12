@@ -7,7 +7,25 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
     var callbackOnNewData;
 
+    // temporarely for retrieving conference id from url parameter for switching between conferences,
+    // can be removed when conference switch is implemented in html5 client
+    var getUrlVar = function(name) {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+            function(m,key,value) {
+                vars[key] = value;
+            });
+        return vars[name];
+    }
+
+
     var init = function() {
+        // temporarely for retrieving conference id from url parameter for switching between conferences,
+        // can be removed when conference switch is implemented in html5 client
+        if (getUrlVar("conference") != undefined) {
+            jsonUrl = jsonUrl.replace(/\d+$/g, getUrlVar("conference"))
+        }
+
         // These variables are set when the application cache events are triggered before the init method
         if (duke_cachestatus === 'updateready') {
             onUpdateReady(duke_status);
