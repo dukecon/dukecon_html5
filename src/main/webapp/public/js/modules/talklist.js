@@ -41,22 +41,22 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             //temporarily pause filter update actions
             self.updateFiltersPaused = false;
 
-            self.onlyFavourites.subscribe(function(val) {
+            self.onlyFavourites.subscribe(function() {
                 dukeconSettings.saveSetting(dukeconSettings.keys.favs_active, self.onlyFavourites());
                 self.filterTalks();
             });
 
-            self.filtersActive.subscribe(function(val) {
+            self.filtersActive.subscribe(function() {
                 self.toggleFilterMenu(self.filtersActive());
                 dukeconSettings.saveSetting(dukeconSettings.keys.filter_active_key, self.filtersActive());
                 self.filterTalks();
             });
 
-            languageUtils.selectedLanguage.subscribe(function(language) {
+            languageUtils.selectedLanguage.subscribe(function() {
                 self.initializeFilters(self.metaData);
             });
 
-            self.initialize = function(allData) {
+            self.commonInitializations = function(allData) {
                 var favourites = dukeconSettings.getFavourites();
                 var mappedTalks = $.map(allData.events, function(talk) {
                     return new dukecon.Talk(talk, allData.speakers, allData.metaData, favourites.indexOf(talk.id) !== -1)
@@ -67,7 +67,11 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
                 self.initializeFilters(allData.metaData);
                 self.filterTalks();
                 self.toggleFilterMenu(self.filtersActive());
-                hideLoading(200, 'dukeConMain');
+            };
+            
+            self.initialize = function(allData) {
+                self.commonInitializations(allData);
+                hideLoading(200, "dukeConMain");
             };
 
             self.updateFavourites = function() {
@@ -109,7 +113,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
                 var values = metaData[key];
                 return _.map(values, function(value) {
                     var filterValue = new FilterValue(key, value, selectedValues.indexOf(value.id) > -1);
-                    filterValue.selected.subscribe(function (s) {
+                    filterValue.selected.subscribe(function () {
                         if (!self.updateFiltersPaused) {
                             self.filterTalks();
                         }

@@ -2,95 +2,77 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
     function(_, $, ko, talklist, dukeconSettings, dukeconTalkUtils, dukecon, languageUtils) {
         "use strict";
 
+        // helper for debug output
+        var log = function(obj, extraText) {
+            console.log((extraText || "") + JSON.stringify(obj, null, " "));
+        };
+    
+        var sortTalksByStart = function(t1, t2) {
+            if (t1.startSortable < t2.startSortable) {
+                return -1;
+            }
+            return t1.startSortable > t2.startSortable ? 1 : 0;
+        };
+        
+        var generateFromTemplate = function(talk, callback) {
+            var tempNode = $('<talk-widget params="value: talk"></talk-widget>');
+            ko.applyBindings({ talk: talk}, tempNode[0]);
+            setTimeout(function() {
+                // applyBindings takes time, unfortunately. UGH
+                callback(tempNode.html(), talk);
+            }, 20);
+        };
+    
         var getTimeTableStart = function(data) {
-            return "2016-03-08T8:00:00";
+            if (data.length > 0) {
+                // TODO: start at current day?
+                data.sort(sortTalksByStart);
+                return data[0].startSortable;
+            }
+            return "2016-01-01T8:00:00";
         };
 
         var getTimeTableEnd = function(data) {
-            return "2016-03-09T20:00:00";
+            // var start = getTimeTableStart(data);
+            // return moment(start).add(8, 'hours').format();
+            if (data.length > 0) {
+                data.sort(sortTalksByStart);
+                var lastTalk = data[data.length - 1];
+                var lastEnd = moment(lastTalk.startSortable).add(moment.duration(lastTalk.duration || 0, 'minutes'));
+                return lastEnd.format();
+            }
+            return "2016-01-01T20:00:00";
         };
 
         var generateLocations = function(data, visGroup) {
+            // sort the rooms by their "order" field
+            data.sort(function(a, b) {
+                return a.order - b.order;
+            });
             for (var g = 0; g < data.length; g++) {
                 visGroup.add({id: data[g].id, content: data[g].names[languageUtils.selectedLanguage()]});
             }
         };
 
-        var generateTableItems = function(data) {
-            console.log(JSON.stringify(data, null, " "));
-            return [
-                {
-                    id: 1,
-                    group: 1,
-                    content: '<div class="title">Talk 1</div><div>Speaker 1</div><div>additional info</div>',
-                    start: "2016-03-08T14:00:00",
-                    end: "2016-03-08T15:30:00"
-                },
-                {
-                    id: 2,
-                    group: 3,
-                    content: '<div class="title">Talk 2</div><div>Speaker 2</div><div>additional info</div>',
-                    start: "2016-03-08T15:00:00",
-                    end: "2016-03-08T17:00:00"
-                },
-                {
-                    id: 3,
-                    group: 1,
-                    content: '<div class="title">Talk 3</div><div>Speaker 1</div><div>additional info</div>',
-                    start: "2016-03-08T18:00:00",
-                    end: "2016-03-08T20:00:00"
-                },
-                {
-                    id: 4,
-                    group: 3,
-                    content: '<div class="title">Talk 4</div><div>Speaker 1</div><div>additional info</div>',
-                    start: "2016-03-08T17:00:00",
-                    end: "2016-03-08T19:00:00"
-                },
-                {
-                    id: 5,
-                    group: 2,
-                    content: '<div class="title">Talk 5</div><div>Speaker 3</div><div>additional info</div>',
-                    start: "2016-03-08T17:00:00",
-                    end: "2016-03-08T19:00:00"
-                },
-
-                {
-                    id: 6,
-                    group: 1,
-                    content: '<div class="title">Talk 1</div><div>Speaker 1</div><div>additional info</div>',
-                    start: "2016-03-09T14:00:00",
-                    end: "2016-03-09T15:30:00"
-                },
-                {
-                    id: 7,
-                    group: 3,
-                    content: '<div class="title">Talk 2</div><div>Speaker 2</div><div>additional info</div>',
-                    start: "2016-03-09T15:00:00",
-                    end: "2016-03-09T17:00:00"
-                },
-                {
-                    id: 8,
-                    group: 1,
-                    content: '<div class="title">Talk 3</div><div>Speaker 1</div><div>additional info</div>',
-                    start: "2016-03-09T18:00:00",
-                    end: "2016-03-09T20:00:00"
-                },
-                {
-                    id: 9,
-                    group: 3,
-                    content: '<div class="title">Talk 4</div><div>Speaker 1</div><div>additional info</div>',
-                    start: "2016-03-09T17:00:00",
-                    end: "2016-03-09T19:00:00"
-                },
-                {
-                    id: 10,
-                    group: 2,
-                    content: '<div class="title">Talk 5</div><div>Speaker 3</div><div>additional info</div>',
-                    start: "2016-03-09T08:00:00",
-                    end: "2016-03-09T19:00:00"
-                }
-            ];
+        var generateTableItems = function(data, callback) {
+//            log(data);
+            var tableItems = [];
+            for (var i = 0; i < data.length; i++) {
+                generateFromTemplate(data[i], function(markup, talk) {
+                    var tableItem = {
+                        id: talk.id,
+                        group: talk.location,
+                        content: markup,
+                        start: talk.startSortable,
+                        end:  moment(talk.startSortable).add(moment.duration(talk.duration || 0, 'minutes')).format()
+                    };
+                    tableItems.push(tableItem);
+                    if (tableItems.length === data.length) {
+                        console.log("DONE");
+                        callback(tableItems);
+                    }
+                });
+            }
         };
 
         function drawTimeTable(scheduleTalksModel) {
@@ -98,16 +80,15 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
             generateLocations(scheduleTalksModel.metaData.locations, groups);
 
             // create a dataset with items
-            var items = new vis.DataSet(generateTableItems(scheduleTalksModel));
-
             // create visualization
             var container = document.getElementById('visualization');
             var options = {
                 locale: languageUtils.selectedLanguage(),
-                stack: false,
-                start: getTimeTableStart(scheduleTalksModel),
-                end: getTimeTableEnd(scheduleTalksModel),
+                stack: true,
+                start: getTimeTableStart(scheduleTalksModel.allTalks),
+                end: getTimeTableEnd(scheduleTalksModel.allTalks),
                 hiddenDates: [
+                    // these don't normally need to change because of the "repeat", so leave it hard-coded
                     {
                         start: "2016-01-01T00:00:01",
                         end: "2016-01-01T08:00:00",
@@ -121,8 +102,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
                 ],
                 editable: false,
                 margin: {
-                    item: 5, // minimal margin between items
-                    axis: 5   // minimal margin between items and the axis
+                    item: 1, // minimal margin between items
+                    axis: 1   // minimal margin between items and the axis
                 },
                 orientation: 'top'
             };
@@ -130,7 +111,10 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
             var timeline = new vis.Timeline(container);
             timeline.setOptions(options);
             timeline.setGroups(groups);
-            timeline.setItems(items);
+    
+            generateTableItems(scheduleTalksModel.allTalks, function(itemArray) {
+                timeline.setItems(new vis.DataSet(itemArray));
+            });
 
             function move (percentage) {
                 var range = timeline.getWindow();
@@ -193,27 +177,24 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
         }
 
         function initializeSchedule() {
-            var dukeconTalklistModel = new talklist.TalkListViewModel();
+            var dukeconTalkscheduleModel = new talklist.TalkListViewModel();
 
-            dukeconTalklistModel.initialize = function(allData) {
-                var favourites = dukeconSettings.getFavourites();
-                var mappedTalks = $.map(allData.events, function(talk) {
-                    return new dukecon.Talk(talk, allData.speakers, allData.metaData, favourites.indexOf(talk.id) !== -1)
-                }).sort(self.sortTalk);
-                dukeconTalklistModel.metaData = allData.metaData;
-                dukeconTalklistModel.allTalks = mappedTalks;
-                drawTimeTable(dukeconTalklistModel);
-                hideLoading(200, 'dukeConSchedule');
+            dukeconTalkscheduleModel.initializeForSchedule = function(allData) {
+                console.log("TODO: re-insert filters, foldable like for mobile");
+                dukeconTalkscheduleModel.commonInitializations(allData);
+                drawTimeTable(dukeconTalkscheduleModel);
+                hideLoading(200, "dukeConSchedule");
             };
-
+    
+    
             dukeconTalkUtils.reloadInPrivateMode.subscribe(function(value) {
                 if (value) {
-                    dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalklistModel.initialize);
+                    dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalkscheduleModel.initializeForSchedule);
                 }
             });
 
-            dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalklistModel.initialize);
-            ko.applyBindings(dukeconTalklistModel);
+            dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalkscheduleModel.initializeForSchedule);
+            ko.applyBindings(dukeconTalkscheduleModel);
 
         }
 
