@@ -430,6 +430,29 @@ div.title {
         font-weight: bold;
     }
 }
+
+#visualization {
+    .vis-item-content {
+        width: 100%;
+    }
+    div.talk-cell {
+        overflow: hidden;
+        width: 100%;
+        min-width: 1px;
+        div.title {
+            overflow: hidden;
+            width: 100%;
+            a {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                display: inline-block;
+                width: 90%;
+            }
+        }
+    }
+}
+
 .talk-info {
     display:block;
     width: 100%;
@@ -747,10 +770,14 @@ span.twitter a {
     }
     .talk-cell .title {
         display: block;
-        overflow: hidden;
-        white-space: nowrap;
         width: 100%;
-        text-overflow: ellipsis;
+        a {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            width: 100%;
+        }
     }
     .talk-cell .speaker {
         display:none;

@@ -107,7 +107,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '<div class="talk-info">'
             + ' <div class="title">'
             + ' <img class="fav-largescreen" style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="click: toggleFavourite, attr:{src: talk.favicon}"/>'
-            + ' <a style="padding: 0" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id }"></a>'
+            + ' <a style="padding: 0" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id, title: talk.title }"></a>'
             + ' </div>'
             + ' <div class="speaker" data-bind="click : function() {window.location.href=\'talk.html#talk?talkId=\' + talk.id; }"><span data-bind="text: talk.speakerString" /></div>'
             + ' <div data-bind="attr: {class: talk.timeClass}, click : function() {window.location.href=\'talk.html#talk?talkId=\' + talk.id; }">'
