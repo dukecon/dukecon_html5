@@ -1332,6 +1332,15 @@ div.vis-color-picker input.vis-saturation-range {
 .vis-label {
     min-height: 97px;
 }
+.vis-left {
+    width: 120px;
+    white-space: normal;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
 .vis-item.vis-range {
     z-index: 1;
     border-raduis: 0;

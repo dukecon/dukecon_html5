@@ -23,25 +23,33 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
             }, 20);
         };
     
-        var getTimeTableStart = function(data) {
+        var getFirstStartAsMoment = function(data) {
             if (data.length > 0) {
-                // TODO: start at current day?
                 data.sort(sortTalksByStart);
-                return data[0].startSortable;
+                return moment(data[0].startSortable);
             }
-            return "2016-01-01T8:00:00";
+            return moment("2016-01-01T8:00:00");
         };
-
-        var getTimeTableEnd = function(data) {
-            // var start = getTimeTableStart(data);
-            // return moment(start).add(8, 'hours').format();
+    
+        var getLastEndAsMoment = function(data) {
             if (data.length > 0) {
                 data.sort(sortTalksByStart);
                 var lastTalk = data[data.length - 1];
-                var lastEnd = moment(lastTalk.startSortable).add(moment.duration(lastTalk.duration || 0, 'minutes'));
-                return lastEnd.format();
+                return moment(lastTalk.startSortable).add(moment.duration(lastTalk.duration || 0, 'minutes'));
             }
-            return "2016-01-01T20:00:00";
+            return moment("2016-01-01T20:00:00");
+        };
+    
+        var getTimeTableStart = function(data) {
+            var startTime = getFirstStartAsMoment(data);
+            var endTime = getLastEndAsMoment(data);
+            var currentTime = moment("2016-03-08T10:00:00"); // for testing, remove string arg later!
+            
+            return currentTime.isBetween(startTime, endTime) ?  currentTime.format(): startTime.format();
+        };
+        
+        var getTimeTableEnd = function(timetableStart, offsetHours) {
+             return moment(timetableStart).add(offsetHours || 4, 'hours').format();
         };
 
         var generateLocations = function(data, visGroup) {
@@ -68,7 +76,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
                     };
                     tableItems.push(tableItem);
                     if (tableItems.length === data.length) {
-                        console.log("DONE");
                         callback(tableItems);
                     }
                 });
@@ -82,20 +89,26 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/talklist', 'js/modules/d
             // create a dataset with items
             // create visualization
             var container = document.getElementById('visualization');
+            var timetableStart = getTimeTableStart(scheduleTalksModel.allTalks);
+            var timetableEnd = getTimeTableEnd(timetableStart);
             var options = {
                 locale: languageUtils.selectedLanguage(),
                 stack: true,
-                start: getTimeTableStart(scheduleTalksModel.allTalks),
-                end: getTimeTableEnd(scheduleTalksModel.allTalks),
+                min: timetableStart,
+                start: timetableStart,
+                end: timetableEnd,
+                max: timetableEnd,
+                zoomMax: 8 * 60 * 60 *1000, // 1 work day
+                zoomMin: 60 * 60 * 1000, // 1 hr
                 hiddenDates: [
                     // these don't normally need to change because of the "repeat", so leave it hard-coded
                     {
-                        start: "2016-01-01T00:00:01",
-                        end: "2016-01-01T08:00:00",
+                        start: "2016-01-01T00:00:00",
+                        end: "2016-01-01T07:59:59",
                         repeat: "daily"
                     },
                     {
-                        start: "2016-01-01T21:00:00",
+                        start: "2016-01-01T21:00:01",
                         end: "2016-01-01T23:59:59",
                         repeat: "daily"
                     }
