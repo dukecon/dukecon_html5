@@ -16,6 +16,7 @@ define(['jquery', 'knockout', 'js/modules/talklist', 'js/modules/dukeconsettings
 			ko.applyBindings({talk: talk}, tempNode[0]);
 			setTimeout(function () {
 				// applyBindings takes time, unfortunately. UGH
+				// TODO: toggling favorites does not work. No idea how to solve it, click events to not get registered
 				callback(tempNode.html(), talk);
 			}, 20);
 		};

@@ -2,7 +2,7 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils) {
 	"use strict";
 	
 	var getTimeTableStart = function (startTimeAsMoment, endTimeAsMoment) {
-		var currentTime = moment("2016-03-08T10:00:00"); // for testing, remove string arg later!
+		var currentTime = moment(/*"2016-03-08T10:00:00"*/); // for testing, remove string arg in production!
 		return currentTime.isBetween(startTimeAsMoment, endTimeAsMoment) ? currentTime : startTimeAsMoment;
 	};
 	
