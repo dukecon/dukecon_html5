@@ -147,6 +147,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
                 });
                 self.updateFiltersPaused = false;
                 self.filterTalks();
+                self.searchTerm("");
                 self.filtersActive(true);
             };
 
