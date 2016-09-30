@@ -30,6 +30,22 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
                 {title: ko.observable(''), filterKey: 'track', filtervalues : ko.observableArray([])},
                 {title: ko.observable(''), filterKey: 'location', filtervalues : ko.observableArray([])}
             ];
+            self.searchTerm = ko.observable("");
+            self.searchTerm.subscribe(function(val) {
+                if (val === '') {
+                    self.filtersActive(true);
+                    self.filterTalks();
+                }
+                else if(val.length > 2) {
+                    self.filtersActive(false);
+                    var filtered = _.filter(self.allTalks, function (talk) {
+                        return talk.title.toLowerCase().includes(val) ||
+                            talk.speakerString.toLowerCase().includes(val) ||
+                            talk.fullAbstract.toLowerCase().includes(val);
+                    });
+                    self.groupedTalks(self.groupTalks(filtered));
+                }
+            });
 
             self.days = ko.observableArray([]);
             self.selectedDayIndex = ko.observable(dukeconSettings.getSelectedDay());
@@ -153,14 +169,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             self.filterTalks = function() {
                 dukeconSettings.saveSelectedFilters(self.filters);
                 var filtered = self.getFilteredTalks();
-                $('#nothingtoshow').addClass('hidden');
-                $('#talks-grid').removeClass('hidden');
                 if (self.onlyFavourites() == true) {
                     filtered = self.getFavouriteTalks(filtered);
-                }
-                if (filtered.length === 0) {
-                    $('#nothingtoshow').removeClass('hidden');
-                    $('#talks-grid').addClass('hidden');
                 }
                 self.groupedTalks(self.groupTalks(filtered));
             };
