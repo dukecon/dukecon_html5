@@ -16,7 +16,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 vars[key] = value;
             });
         return vars[name];
-    }
+    };
 
 
     var init = function() {

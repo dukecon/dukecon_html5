@@ -107,6 +107,13 @@ define(['underscore'], function() {
         }
     };
 
+    var purge = function() {
+        if (localStorage) {
+            localStorage.clear();
+        }
+
+    };
+
     return {
         keys : keys,
         getFavourites : getFavourites,
@@ -123,6 +130,7 @@ define(['underscore'], function() {
         getSettingOrEmptyArray : getSettingOrEmptyArray,
         getSetting : getSetting,
         saveSetting : saveSetting,
-        clearSetting : clearSetting
+        clearSetting : clearSetting,
+        purge: purge
     };
 });

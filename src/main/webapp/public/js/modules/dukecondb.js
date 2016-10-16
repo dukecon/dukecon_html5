@@ -83,6 +83,17 @@ define([], function() {
         }
     };
 
+    var deleteDatabase = function() {
+        if (indexedDB) {
+            try {
+                indexedDB.deleteDatabase(this.db_name);
+            }
+            catch(e) {
+                console.log("Deleting database throws error: " + e);
+            }
+        }
+    };
+
     var openTransaction = function(storeKey, db) {
         var trans = db.transaction(storeKey, 'readwrite');
         if (!trans) {
@@ -108,6 +119,7 @@ define([], function() {
         save : save,
         clear : clear,
         add : add,
+        purge: deleteDatabase,
         talk_store : talk_store,
         db_name : db_name
     };

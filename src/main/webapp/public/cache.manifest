@@ -5,6 +5,7 @@ CACHE:
 # Html
 feedback.html
 index.html
+reset.html
 schedule.html
 speakers.html
 talk.html
@@ -68,6 +69,7 @@ app-speakers.js
 app-talk.js
 app-talklist.js
 app-talkschedule.js
+app-reset.js
 # Rest
 rest/keycloak.json
 
