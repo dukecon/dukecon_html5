@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="css/pure-min.css"/>
     <link rel="stylesheet" href="css/side-menu.css">
     <link rel="stylesheet" href="css/dukecon.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <title>DukeCon</title>
 </head>
 <body onunload="unloadP('dukeConMain')">
 <noscript><br><br>&nbsp;Please enable Javascript to use this site.</noscript>
-<div id="cookies" data-bind="visible: dukecon.cookiesConfirmed">
+<div id="cookies" class="dark" data-bind="visible: dukecon.cookiesConfirmed">
     <div data-bind="resource: 'cookieDisclaimer'"></div>
     <div class="alert-button"><button data-bind="resource: 'cookieDisclaimerOK', click : function() { closeCookieDisclaimer(); }"></button></div>
 </div>
@@ -34,7 +35,7 @@
     <div id="menu">
         <div class="pure-menu custom-restricted-width" id="nav">
             <div class="filter-settings">
-                <span class="filter-category"><span data-bind="resource: 'filterOptions'"></span>
+                <span class="filter-category darkBack reverse"><span data-bind="resource: 'filterOptions'"></span>
                     <button data-bind="click: resetFilters, resource: 'reset'">Zurücksetzen</button></span>
                 <div class="filter-values">
                     <input type="text" placeholder="Filter" data-bind="textInput: searchTerm"/>
@@ -50,7 +51,7 @@
             </div>
             <div class="filter-box">
                 <div  data-bind="foreach: filters">
-                    <span class="filter-category" data-bind="text:title"></span>
+                    <span class="filter-category darkBack reverse" data-bind="text:title"></span>
                     <div class="filter-values" data-bind="foreach: filtervalues">
                         <div>
                             <input type="checkbox" data-bind="checkedValue: $data, checked: $data.selected, attr:{id: $data.ui_id}" />
@@ -66,11 +67,11 @@
     <div id="content">
         <div id="swipeable" data-bind="visible: searchTerm().length <= 2">
             <div id="days_filter" data-bind="foreach: days">
-                <button type="button" data-bind="text: $data.displayDay, click: $parent.updateDay, attr: { class: 'day-widescreen' + ($index() == $parent.selectedDayIndex() ? ' selected' : '')}"></button>
-                <button type="button" data-bind="text: $data.displayDayShort, click: $parent.updateDay, attr: { class: 'day-smallscreen' + ($index() == $parent.selectedDayIndex() ? ' selected' : '')}"></button>
+                <button type="button" data-bind="text: $data.displayDay, click: $parent.updateDay, attr: { class: 'day-widescreen' + ($index() == $parent.selectedDayIndex() ? ' highlightBack' : '')}"></button>
+                <button type="button" data-bind="text: $data.displayDayShort, click: $parent.updateDay, attr: { class: 'day-smallscreen' + ($index() == $parent.selectedDayIndex() ? ' highlightBack' : '')}"></button>
             </div>
         </div>
-        <div id="nothingtoshow" data-bind="visible: groupedTalks().length === 0"><span data-bind="resource: 'notalksfound'"></span>
+        <div id="nothingtoshow" class="alternate" data-bind="visible: groupedTalks().length === 0"><span data-bind="resource: 'notalksfound'"></span>
             <a class="clickable" data-bind="click: deactivateFilters, resource: 'deactivate'"></a> <span data-bind="resource: 'or'"></span>
             <a class="clickable" data-bind="click: resetFilters, resource: 'reset'"></a><span>!</span><br>
             <span data-bind="resource: 'disablefavorites'"></span>
@@ -79,7 +80,7 @@
         <div id="talks-grid" data-bind="foreach: groupedTalks, visible: groupedTalks().length > 0">
             <table>
                 <tr>
-                    <td>
+                    <td data-bind="visible: $root.searchTerm().length <= 2">
                         <div class="time-cell title" data-bind="text: start">
                         </div>
                         <a data-bind="attr: {name: 'time_' + start, id: 'time_' + start}">&nbsp;</a>

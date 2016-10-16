@@ -29,7 +29,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         this.language = data.languageId || '';
         this.fullAbstract = dukeconUtils.getSaveAbstractHtml(data.abstractText || '');
         this.timeCategory = dukeconDateUtils.getTimeCategory(this.duration);
-        this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra';
+        this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra alternate';
         this.favourite = ko.observable(isFavourite);
         this.favicon = ko.computed(function () {
             return this.favourite() ? "img/StarFilled.png" : "img/StarLine.png";
