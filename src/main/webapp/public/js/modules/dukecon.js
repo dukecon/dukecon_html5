@@ -193,7 +193,13 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         offline.init();
     }
 
-    return {
+        // insert the custom style into the html, if not already done
+        if ($('#styleCssNode').length === 0) {
+            $('head').append($('<link id="styleCssNode" rel="stylesheet" href="' + offline.customCssUrl + '"/>'));
+        }
+
+
+        return {
         initializeApp : initializeApp,
         Talk : Talk,
         Speaker : Speaker,

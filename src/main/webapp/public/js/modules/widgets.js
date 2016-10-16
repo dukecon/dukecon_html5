@@ -69,7 +69,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
         },
         template:
             '<div class="footer">'
-            + '<div id="#update-info">'
+            + '<div id="update-info">'
             + '<span data-bind="visible: updateCheck" style="margin-left:5px;">Checking for update...</span>'
             + '</div>'
             + '<a href="impressum.html" data-bind="resource: \'imprint\'"></a>'

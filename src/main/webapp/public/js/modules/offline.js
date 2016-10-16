@@ -1,5 +1,6 @@
 define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecloak'], function(_, $, ko, dukecondb, dukeconsettings, dukecloak) {
     var jsonUrl = "${dukecon.server.jsonUrl}";
+    var customCssUrl = "${dukecon.server.jsonUrl}/styles.css";
 
     var reloadInPrivateMode = ko.observable(false);
 
@@ -24,6 +25,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         // can be removed when conference switch is implemented in html5 client
         if (getUrlVar("conference") != undefined) {
             jsonUrl = jsonUrl.replace(/\d+$/g, getUrlVar("conference"))
+            customCssUrl = customCssUrl.replace(/\d+$/g, getUrlVar("conference"))
         }
 
         // These variables are set when the application cache events are triggered before the init method
@@ -185,6 +187,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         init : init,
         reloadInPrivateMode : reloadInPrivateMode,
         jsonUrl : jsonUrl,
+        customCssUrl : customCssUrl,
         updateCheck : updateCheck,
         getData : getData
     }
