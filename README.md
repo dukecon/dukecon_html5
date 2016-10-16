@@ -18,6 +18,11 @@ Customize used REST service url with an environment variable:
     
     mvn tomcat7:run-war -Ddukecon.server.jsonUrl=https://dev.dukecon.org/latest/rest/conferences/499959
 
+## Reset IndexDB and Localstore
+
+To remove all local settings, including the latest talks, offline status, filters and favorties, open [dukeon-url]/reset.html
+CAUTION: this currently does not force purging of the HTML5-cache (i.e. reload files listed in cache.manifest)
+
 ## Run the Jasmine Tests
 
 ### Execute them in a browser

@@ -11,7 +11,9 @@ require(['jquery', 'js/modules/dukecondb', 'js/modules/dukeconsettings'], functi
     db.purge();
     console.log("Clearing DB done; resetting localstore");
     settings.purge();
-    console.log("Resetting localstore done!");
+    console.log("Resetting localstore done; clearing the cache");
+    window.parent.caches.delete("call");
+    console.log("Clearing the cache done");
     $('#loading').hide();
     $('#layout').show();
 });
