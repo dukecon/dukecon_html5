@@ -1,33 +1,11 @@
-define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecloak'], function(_, $, ko, dukecondb, dukeconsettings, dukecloak) {
-    var jsonUrl = "${dukecon.server.jsonUrl}";
-    var customCssUrl = "${dukecon.server.jsonUrl}/styles.css";
-
+define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecloak'], function(_, $, ko, urlprovider, dukecondb, dukeconsettings, dukecloak) {
     var reloadInPrivateMode = ko.observable(false);
 
     var etag;
 
     var callbackOnNewData;
 
-    // temporarely for retrieving conference id from url parameter for switching between conferences,
-    // can be removed when conference switch is implemented in html5 client
-    var getUrlVar = function(name) {
-        var vars = {};
-        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-            function(m,key,value) {
-                vars[key] = value;
-            });
-        return vars[name];
-    };
-
-
     var init = function() {
-        // temporarely for retrieving conference id from url parameter for switching between conferences,
-        // can be removed when conference switch is implemented in html5 client
-        if (getUrlVar("conference") != undefined) {
-            jsonUrl = jsonUrl.replace(/\d+$/g, getUrlVar("conference"))
-            customCssUrl = customCssUrl.replace(/\d+$/g, getUrlVar("conference"))
-        }
-
         // These variables are set when the application cache events are triggered before the init method
         if (duke_cachestatus === 'updateready') {
             onUpdateReady(duke_status);
@@ -105,7 +83,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
     var updateCheck = ko.observable(false);
 
-    var getData = function(url, callback) {
+    var getData = function(callback) {
         callbackOnNewData = callback;
 
         dukecondb.get(dukecondb.talk_store, function (data) {
@@ -118,7 +96,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 }
             }
             else if (!offline) {
-                getDataFromServer(url, callback);
+                getDataFromServer(urlprovider.jsonUrl, callback);
             }
         });
     };
@@ -140,7 +118,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 }
                 updateCheck(false);
             };
-            doServerRequest(jsonUrl, successCallback, function (error) {
+            doServerRequest(urlprovider.jsonUrl, successCallback, function (error) {
                 console.log('No connection to server');
                 updateCheck(false);
             }, {"If-None-Match": oldCacheHash});
@@ -186,8 +164,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
     return {
         init : init,
         reloadInPrivateMode : reloadInPrivateMode,
-        jsonUrl : jsonUrl,
-        customCssUrl : customCssUrl,
         updateCheck : updateCheck,
         getData : getData
     }

@@ -1,5 +1,5 @@
-define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'js/modules/dukecondateutils', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/synch'],
-    function(_, $, ko, dukeconDb, dukeconSettings, dukeconDateUtils, languageUtils, offline, dukecloak, synch) {
+define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/urlprovider', 'js/modules/dukeconsettings', 'js/modules/dukecondateutils', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/synch'],
+    function(_, $, ko, dukeconDb, urlprovider, dukeconSettings, dukeconDateUtils, languageUtils, offline, dukecloak, synch) {
 
     function Talk(data, speakers, metaData, isFavourite) {
         var self = this;
@@ -195,7 +195,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
         // insert the custom style into the html, if not already done
         if ($('#styleCssNode').length === 0) {
-            $('head').append($('<link id="styleCssNode" rel="stylesheet" href="' + offline.customCssUrl + '"/>'));
+            $('head').append($('<link id="styleCssNode" rel="stylesheet" href="' + urlprovider.customCssUrl + '"/>'));
         }
 
 

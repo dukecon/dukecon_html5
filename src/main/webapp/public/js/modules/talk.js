@@ -21,7 +21,7 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
                     var replaceState = history.replaceState;
                     history.replaceState = function (data, title, url) {
                         var r = replaceState.apply(history, [data, title, url]);
-                        dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, function (allData) {
+                        dukeconTalkUtils.getData(function (allData) {
                             self.initializeData(allData);
                         });
                         return r;
@@ -48,10 +48,10 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
             talkModel = new TalkViewModel();
             dukeconTalkUtils.reloadInPrivateMode.subscribe(function(value) {
                 if (value) {
-                    dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, talkModel.initializeData);
+                    dukeconTalkUtils.getData(talkModel.initializeData);
                 }
             });
-            dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, talkModel.initializeData);
+            dukeconTalkUtils.getData(talkModel.initializeData);
             ko.applyBindings(talkModel);
         }
 

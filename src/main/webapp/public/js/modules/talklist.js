@@ -32,7 +32,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             ];
             self.searchTerm = ko.observable("");
             self.searchTerm.subscribe(function(val) {
-                if (val === '') {
+                if (val.length <= 2) {
                     self.filtersActive(true);
                     self.filterTalks();
                 }
@@ -248,10 +248,10 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             dukeconTalklistModel = new TalkListViewModel();
             dukeconTalkUtils.reloadInPrivateMode.subscribe(function(value) {
                 if (value) {
-                    dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalklistModel.initialize);
+                    dukeconTalkUtils.getData(dukeconTalklistModel.initialize);
                 }
             });
-            dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalklistModel.initialize);
+            dukeconTalkUtils.getData(dukeconTalklistModel.initialize);
             ko.applyBindings(dukeconTalklistModel);
         }
 

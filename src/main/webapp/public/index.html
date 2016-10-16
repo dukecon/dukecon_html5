@@ -38,7 +38,7 @@
                 <span class="filter-category darkBack reverse"><span data-bind="resource: 'filterOptions'"></span>
                     <button data-bind="click: resetFilters, resource: 'reset'">Zurücksetzen</button></span>
                 <div class="filter-values">
-                    <input type="text" placeholder="Filter" data-bind="textInput: searchTerm"/>
+                    <input class="quicksearch" type="search" placeholder="Quick Filter" data-bind="textInput: searchTerm"/>
                     <div>
                         <input type="checkbox" data-bind="checked: filtersActive, attr:{id: 'active'}"/>
                         <label data-bind="resource: 'active', attr:{for: 'active'}"></label>

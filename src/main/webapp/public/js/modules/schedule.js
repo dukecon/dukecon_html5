@@ -105,11 +105,11 @@ define(['jquery', 'knockout', 'js/modules/talklist', 'js/modules/dukeconsettings
 			
 			dukeconTalkUtils.reloadInPrivateMode.subscribe(function (value) {
 				if (value) {
-					dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalkscheduleModel.initializeForSchedule);
+					dukeconTalkUtils.getData(dukeconTalkscheduleModel.initializeForSchedule);
 				}
 			});
 			
-			dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, dukeconTalkscheduleModel.initializeForSchedule);
+			dukeconTalkUtils.getData(dukeconTalkscheduleModel.initializeForSchedule);
 			ko.applyBindings(dukeconTalkscheduleModel);
 			
 		}

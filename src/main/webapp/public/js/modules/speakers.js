@@ -26,10 +26,10 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
             speakerModel = new SpeakerViewModel();
             dukeconTalkUtils.reloadInPrivateMode.subscribe(function(value) {
                 if (value) {
-                    dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, speakerModel.initializeData);
+                    dukeconTalkUtils.getData(speakerModel.initializeData);
                 }
             });
-            dukeconTalkUtils.getData(dukeconTalkUtils.jsonUrl, speakerModel.initializeData);
+            dukeconTalkUtils.getData(speakerModel.initializeData);
             ko.applyBindings(speakerModel);
         }
     return {
