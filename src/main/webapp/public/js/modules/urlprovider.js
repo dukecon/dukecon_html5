@@ -23,14 +23,14 @@ define(
 
         // TODO refactor to use async instead of deprecated synchronuous call
         var idFromInitCall = $.ajax({
-                url: window.location.href + '/init.json',
+                url: window.location.href + 'init.json',
                 async: false,
                 dataType: 'json'
-            }).responseJSON
+            }).responseJSON.id
 
         if(idFromInitCall != undefined) {
-            jsonUrl = jsonUrl.replace(/\d+$/g, idFromInitCall.id);
-            console.log('detected conference id from init call: ' + idFromInitCall.id)
+            jsonUrl = jsonUrl.replace(/\d+$/g, idFromInitCall);
+            console.log('detected conference id from init call: ' + idFromInitCall)
         }
 
         return {
