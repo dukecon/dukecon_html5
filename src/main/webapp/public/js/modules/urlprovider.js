@@ -38,8 +38,10 @@ define(
             url: currentBaseUrl + 'init.json',
             dataType: 'json',
             success: function (data) {
-                result.setJsonUrl(result.jsonUrl.replace(/\d+$/g, data.id));
-                console.log('detected conference id from init call: ' + data.id)
+                if (data.id != undefined) {
+                    result.setJsonUrl(result.jsonUrl.replace(/\d+$/g, data.id));
+                    console.log('detected conference id from init call: ' + data.id)
+                }
             }
         });
 
