@@ -1,8 +1,7 @@
 define(
-    [],
+    ['jquery'],
     function() {
         var jsonUrl = "${dukecon.server.jsonUrl}";
-        var customCssUrl = "${dukecon.server.jsonUrl}/styles.css";
 
         // temporarely for retrieving conference id from url parameter for switching between conferences,
         // can be removed when conference switch is implemented in html5 client
@@ -19,12 +18,24 @@ define(
         // can be removed when conference switch is implemented in html5 client
         if (getUrlVar("conference") != undefined) {
             jsonUrl = jsonUrl.replace(/\d+$/g, getUrlVar("conference"));
-            customCssUrl = jsonUrl + "/styles.css";
+            console.log('detected conference id from url parameter: ' + getUrlVar("conference"))
+        }
+
+        // TODO refactor to use async instead of deprecated synchronuous call
+        var idFromInitCall = $.ajax({
+                url: window.location.href + '/init.json',
+                async: false,
+                dataType: 'json'
+            }).responseJSON
+
+        if(idFromInitCall != undefined) {
+            jsonUrl = jsonUrl.replace(/\d+$/g, idFromInitCall.id);
+            console.log('detected conference id from init call: ' + idFromInitCall.id)
         }
 
         return {
             jsonUrl : jsonUrl,
-            customCssUrl : customCssUrl
+            customCssUrl : jsonUrl + "/styles.css"
         };
     }
 ); 
