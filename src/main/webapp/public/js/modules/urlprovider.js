@@ -1,7 +1,20 @@
 define(
     ['jquery'],
     function() {
-        var jsonUrl = "${dukecon.server.jsonUrl}";
+        var currentBaseUrl = window.location.href;
+
+        var ConferenceUrls = (function () {
+            function ConferenceUrls(jsonUrl) {
+                this.setJsonUrl(jsonUrl);
+            }
+            ConferenceUrls.prototype.setJsonUrl = function (jsonUrl) {
+                this.jsonUrl = jsonUrl;
+                this.customCssUrl = this.jsonUrl + "/styles.css";
+            };
+            return ConferenceUrls;
+        }());
+
+        var result = new ConferenceUrls("${dukecon.server.jsonUrl}");
 
         // temporarely for retrieving conference id from url parameter for switching between conferences,
         // can be removed when conference switch is implemented in html5 client
@@ -17,25 +30,19 @@ define(
         // temporarely for retrieving conference id from url parameter for switching between conferences,
         // can be removed when conference switch is implemented in html5 client
         if (getUrlVar("conference") != undefined) {
-            jsonUrl = jsonUrl.replace(/\d+$/g, getUrlVar("conference"));
+            result.setJsonUrl(result.jsonUrl.replace(/\d+$/g, getUrlVar("conference")));
             console.log('detected conference id from url parameter: ' + getUrlVar("conference"))
         }
 
-        // TODO refactor to use async instead of deprecated synchronuous call
-        var idFromInitCall = $.ajax({
-                url: window.location.href + 'init.json',
-                async: false,
-                dataType: 'json'
-            }).responseJSON.id
+        $.ajax({
+            url: currentBaseUrl + 'init.json',
+            dataType: 'json',
+            success: function (data) {
+                result.setJsonUrl(result.jsonUrl.replace(/\d+$/g, data.id));
+                console.log('detected conference id from init call: ' + data.id)
+            }
+        });
 
-        if(idFromInitCall != undefined) {
-            jsonUrl = jsonUrl.replace(/\d+$/g, idFromInitCall);
-            console.log('detected conference id from init call: ' + idFromInitCall)
-        }
-
-        return {
-            jsonUrl : jsonUrl,
-            customCssUrl : jsonUrl + "/styles.css"
-        };
+        return result;
     }
 ); 
