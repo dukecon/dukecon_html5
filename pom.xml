@@ -35,7 +35,7 @@
         <profile>
             <id>develop</id>
             <properties>
-                <dukecon.server.jsonUrl>rest/conferences/499959.json</dukecon.server.jsonUrl>
+                <dukecon.server.jsonUrl>rest/conferences/522447.json</dukecon.server.jsonUrl>
             </properties>
         </profile>
     </profiles>

@@ -16,7 +16,7 @@ define(
 
         var result = new ConferenceUrls("${dukecon.server.jsonUrl}");
 
-        // temporarely for retrieving conference id from url parameter for switching between conferences,
+        // temporarily for retrieving conference id from url parameter for switching between conferences,
         // can be removed when conference switch is implemented in html5 client
         var getUrlVar = function(name) {
             var vars = {};
@@ -27,7 +27,7 @@ define(
             return vars[name];
         };
 
-        // temporarely for retrieving conference id from url parameter for switching between conferences,
+        // temporarily for retrieving conference id from url parameter for switching between conferences,
         // can be removed when conference switch is implemented in html5 client
         if (getUrlVar("conference") != undefined) {
             result.setJsonUrl(result.jsonUrl.replace(/\d+$/g, getUrlVar("conference")));
@@ -35,7 +35,7 @@ define(
         }
 
         $.ajax({
-            url: currentBaseUrl + 'init.json',
+            url: currentBaseUrl + 'rest/init.json',
             dataType: 'json',
             success: function (data) {
                 if (data.id != undefined) {
