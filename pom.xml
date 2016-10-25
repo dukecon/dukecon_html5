@@ -28,7 +28,7 @@
         <nexus.repository.port />
         <nexus.repository.base>/nexus</nexus.repository.base>
 
-        <dukecon.server.jsonUrl>rest/conferences/499959</dukecon.server.jsonUrl>
+        <dukecon.server.jsonUrl>rest/conferences/522447</dukecon.server.jsonUrl>
     </properties>
 
     <profiles>
