@@ -6,31 +6,58 @@ define(
         
         var currentBaseUrl = window.location.href.replace(/\/[^\/]+\.html/ig, "");
         var jsonUrl, customCssUrl;
-    
-        // temporarily for retrieving conference id from url parameter for switching between conferences,
-        // can be removed when conference switch is implemented in html5 client
-        var getUrlVar = function(name) {
+        var allQueryParams;
+
+        function getQueryParams() {
             var vars = {};
             var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
                 function(m,key,value) {
-                    vars[key] = value;
+                    vars[key] = decodeURIComponent(value);
+                    console.log(vars[key]);
                 });
-            return vars[name];
+            allQueryParams = vars;
+        }
+        
+        var getUrlVar = function(name) {
+            if (!allQueryParams) {
+                getQueryParams();
+            }
+            return allQueryParams[name];
         };
 
-        var setUrls = function(newUrl, allowOverride) {
+        var setUrlVar = function(name, value) {
+            if (!allQueryParams) {
+                getQueryParams();
+            }
+            allQueryParams[name] = value;
+            var newUrl = window.location.href.replace(/\?\S*/g, "");
+            var first = true;
+            for (paramName in allQueryParams) {
+                if (allQueryParams[paramName]) {
+                    newUrl += first ? "?" : "&";
+                    first = false;
+                    newUrl += paramName + "=" + encodeURIComponent(allQueryParams[paramName]);
+                }
+            }
+            // write modified querystring without reloading the page
+            if (history.pushState) {
+                window.history.pushState({path:newUrl},'',newUrl);
+            }
+        };
+
+        function setUrls(newUrl, allowOverride) {
              jsonUrl = newUrl;
              if (allowOverride && getUrlVar("conference") != undefined) {
                  jsonUrl = jsonUrl.replace(/\d+$/g, getUrlVar("conference"));
                  console.log('detected conference id from url parameter: ' + getUrlVar("conference"))
              }
              customCssUrl = jsonUrl + cssFile;
-         };
+         }
 
         // temporarily for retrieving conference id from url parameter for switching between conferences,
         // can be removed when conference switch is implemented in html5 client
 
-        var loadInitData = function(callback) {
+        function loadInitData(callback) {
             $.ajax({
                 url: currentBaseUrl + '/rest/init.json',
                 dataType: 'json',
@@ -46,7 +73,7 @@ define(
                 error: function() {
                 }
             });
-        };
+        }
 
         setUrls("${dukecon.server.jsonUrl}", true);
         loadInitData();
@@ -74,7 +101,8 @@ define(
                     callback(customCssUrl);
                 }
             },
-            getUrlParam: getUrlVar
+            getUrlParam: getUrlVar,
+            setUrlParam: setUrlVar
         };
     }
 ); 

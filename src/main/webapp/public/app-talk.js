@@ -9,4 +9,5 @@ require.config({
 require(['js/modules/talk', 'js/modules/dukecon', 'js/modules/widgets'], function(talk, dukecon) {
     dukecon.initializeApp();
     talk.initializeTalks();
+    hideLoading(10, "dukeConTalk");
 });

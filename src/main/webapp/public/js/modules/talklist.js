@@ -1,5 +1,5 @@
-define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offline', 'js/modules/dukecon', 'js/modules/languageutils'],
-    function(_, $, ko, dukeconSettings, dukeconTalkUtils, dukecon, languageUtils) {
+define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offline', 'js/modules/dukecon', 'js/modules/languageutils', 'js/modules/urlprovider'],
+    function(_, $, ko, dukeconSettings, dukeconTalkUtils, dukecon, languageUtils, urlHelper) {
 
         function FilterValue(key, value, isSelected) {
             var filterValue = this;
@@ -30,6 +30,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
                 {title: ko.observable(''), filterKey: 'track', filtervalues : ko.observableArray([])},
                 {title: ko.observable(''), filterKey: 'location', filtervalues : ko.observableArray([])}
             ];
+
             self.searchTerm = ko.observable("");
             self.searchTerm.subscribe(function(val) {
                 if (val.length <= 2) {
@@ -45,6 +46,15 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
                     });
                     self.groupedTalks(self.groupTalks(filtered));
                 }
+            });
+            self.searchTerm.subscribe(function(val) {
+                setTimeout(function() {
+                    if (val.length > 2) {
+                        urlHelper.setUrlParam("search", val);
+                    } else {
+                        urlHelper.setUrlParam("search", null);
+                    }
+                }, 500);
             });
 
             self.days = ko.observableArray([]);
@@ -253,6 +263,12 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             });
             dukeconTalkUtils.getData(dukeconTalklistModel.initialize);
             ko.applyBindings(dukeconTalklistModel);
+            
+            if (urlHelper.getUrlParam("search")) {
+                setTimeout(function() {
+                    dukeconTalklistModel.searchTerm(urlHelper.getUrlParam("search") || "");
+                }, 500);  // timeout needed to allow for ko-rendering
+            }
         }
 
         return {
