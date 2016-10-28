@@ -195,9 +195,10 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
         // insert the custom style into the html, if not already done
         if ($('#styleCssNode').length === 0) {
-            $('head').append($('<link id="styleCssNode" rel="stylesheet" href="' + urlprovider.customCssUrl + '"/>'));
+            urlprovider.getCustomCssUrl(function(url) {
+                $('head').append($('<link id="styleCssNode" rel="stylesheet" href="' + url + '"/>'));
+            });
         }
-
 
         return {
         initializeApp : initializeApp,

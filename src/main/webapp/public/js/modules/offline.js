@@ -96,7 +96,9 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                 }
             }
             else if (!offline) {
-                getDataFromServer(urlprovider.jsonUrl, callback);
+                urlprovider.getJsonUrl(function(url) {
+                    getDataFromServer(url, callback);
+                });
             }
         });
     };
@@ -118,10 +120,12 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                 }
                 updateCheck(false);
             };
-            doServerRequest(urlprovider.jsonUrl, successCallback, function (error) {
-                console.log('No connection to server');
-                updateCheck(false);
-            }, {"If-None-Match": oldCacheHash});
+            urlprovider.getJsonUrl(function(url) {
+                doServerRequest(url, successCallback, function () {
+                    console.log('No connection to server');
+                    updateCheck(false);
+                }, {"If-None-Match": oldCacheHash});
+            });
         }
     };
 

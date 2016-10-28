@@ -2,6 +2,7 @@
 var duke_cachestatus;
 var duke_status;
 var duke_privatemode = false;
+var globalLoadTimeout = 500;
 
 // Check if a new cache is available on page load.
 window.addEventListener('load', function(e) {
@@ -84,10 +85,10 @@ function unloadP(pageref){
 }
 
 var hideLoading = function (delayMs, pageId) {
-	var loadingDiv = $('#loading'), contentDiv = $('.content');
 	// tried knockout-event-catching (ko.bindingHandlers...) but it doesn't work, so adding a minimal timeout here to avoid watching the screen render
 	setTimeout(function () {
-		contentDiv.removeClass('hidden');
+		var loadingDiv = $('#loading'), contentDivs = $('.header, .footer, .content, #login-area');
+		contentDivs.removeClass('hidden');
 		if (!loadingDiv.hasClass('hidden')) {
 			loadingDiv.addClass('hidden');
 		}

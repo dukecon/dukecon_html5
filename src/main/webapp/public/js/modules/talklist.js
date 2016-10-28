@@ -87,7 +87,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             
             self.initialize = function(allData) {
                 self.commonInitializations(allData);
-                hideLoading(200, "dukeConMain");
+                hideLoading(globalLoadTimeout, "dukeConMain");
             };
 
             self.updateFavourites = function() {

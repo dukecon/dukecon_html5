@@ -12,4 +12,5 @@ require(['knockout', 'js/modules/dukecon' ,'js/modules/widgets'], function(ko, d
     ko.applyBindings(new function() {
         //nothing to do
     });
+    hideLoading(10, "dukeConStaticContent");
 });

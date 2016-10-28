@@ -55,3 +55,19 @@ button.highlightBack:hover {
     background-color: #aaa;
 }
 
+/* custom styles sometimes take a while longer to load; smooth out the color change a little */
+.dark,
+.darkBack,
+.darkLink,
+.darkLinkBack,
+.reverse,
+.reverseBack,
+.highlight,
+.highlightBack,
+.alternate,
+.alternateBack,
+a {
+    transition: color 0.3s, background-color 0.3s;
+}
+
+

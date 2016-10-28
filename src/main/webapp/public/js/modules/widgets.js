@@ -29,7 +29,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             };
         },
         template:
-            '<div class="header">'
+            '<div class="header hidden">'
             + '<h1 id="headertitle" class="darkBack reverse">'
             + '	<a id="logo" href="index.html"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
             + '	<span id="backbutton_before"></span><a id="backbutton" onclick="window.history.back();" data-bind="resource: \'backbutton\'"></a>'
@@ -53,7 +53,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             this.dukecloak = dukecloak.dukecloak;
         },
         template:
-            '<div id="login-area" data-bind="visible: dukecloak">'
+            '<div id="login-area" class="hidden" data-bind="visible: dukecloak">'
             + '     <div>'
             + '         <a href="#" class="username" data-bind="text: dukecloak.auth.username, click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"></a>'
             + '         <a href="#" class="gravatar" data-bind="click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"><img data-bind="attr: {src: dukecloak.auth.gravatar}, visible: !hideLoginButton && dukecloak.auth.loggedIn"/></a>'
@@ -68,7 +68,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             this.updateCheck = dukeconTalkUtils.updateCheck;
         },
         template:
-            '<div class="footer">'
+            '<div class="footer hidden">'
             + '<div id="update-info">'
             + '<span data-bind="visible: updateCheck" style="margin-left:5px;">Checking for update...</span>'
             + '</div>'
