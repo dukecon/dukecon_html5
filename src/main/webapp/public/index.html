@@ -23,6 +23,7 @@
 </div>
 <login-widget></login-widget>
 <header-widget params="value: 'talks'"></header-widget><a name="top" id="top">&nbsp;</a>
+<search-widget params="searchTerm: searchTerm"></search-widget>
 
 <div id="loading">&nbsp;</div>
 <div id="layout" class="content hidden">
@@ -38,7 +39,6 @@
                 <span class="filter-category darkBack reverse"><span data-bind="resource: 'filterOptions'"></span>
                     <button data-bind="click: resetFilters, resource: 'reset'">Zurücksetzen</button></span>
                 <div class="filter-values">
-                    <input class="quicksearch" type="search" placeholder="Quick Filter" data-bind="textInput: searchTerm"/>
                     <div>
                         <input type="checkbox" data-bind="checked: filtersActive, attr:{id: 'active'}"/>
                         <label data-bind="resource: 'active', attr:{for: 'active'}"></label>

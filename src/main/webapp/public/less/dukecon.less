@@ -29,24 +29,39 @@ table, th, td {
     padding: 5px;
 }
 
+#search-area {
+    position: fixed;
+    right: 44em;
+    top: 6px;
+    z-index: 1010;
+    img {
+        color: @white;
+        height: 32px;
+        margin-top: -3px;
+    }
+    input {
+        vertical-align: top;
+        width: 70%;
+    }
+}
 #login-area {
     position: fixed;
     right: 41em;
     top: 6px;
     z-index: 1010;
-}
-#login-area img {
-    color: @white;
-}
-#login-area .button, #login-area .username {
-    font-size:80%;
-    vertical-align:middle;
-    display: inline-block;
-}
-#login-area .button {
-    background: transparent;
-    padding:0;
-    margin:0;
+    img {
+        color: @white;
+    }
+    .button, .username {
+        font-size:80%;
+        vertical-align:middle;
+        display: inline-block;
+    }
+    .button {
+        background: transparent;
+        padding:0;
+        margin:0;
+    }
 }
 .username {
     margin-right:0;
@@ -756,10 +771,6 @@ span.twitter a {
     #talkpage h1 #pagetitle {
         display: none;
     }
-    #login-area .username {
-        display:none;
-    }
-
     h1 a#logo {
         display: none;
     }
@@ -816,8 +827,14 @@ span.twitter a {
     #language-select {
         margin-left:0;
     }
+    #search-area {
+        right: 3.7em;
+    }
     #login-area {
         right: 2.5em;
+        .username {
+            display:none;
+        }
     }
     #speakers {
         table-layout: fixed;

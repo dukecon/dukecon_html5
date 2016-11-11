@@ -63,6 +63,17 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '</div>'
     });
 
+    ko.components.register('search-widget', {
+        viewModel : function(params) {
+            this.searchTerm = params.searchTerm;
+        },
+        template:
+            '<div id="search-area">\n'
+            + '   <input class="quicksearch" type="search" placeholder="Quick Filter" data-bind="textInput: searchTerm"/>\n'
+            + '   <img src="img/search.png" alt="search">\n'
+            + '</div>\n'
+    });
+
     ko.components.register('footer-widget', {
         viewModel : function() {
             this.updateCheck = dukeconTalkUtils.updateCheck;
