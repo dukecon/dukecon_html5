@@ -31,8 +31,9 @@ table, th, td {
 
 #search-area {
     position: fixed;
-    right: 44em;
-    top: 6px;
+    left: 5em;
+    top: 5px;
+    width: 30%;
     z-index: 1010;
     img {
         color: @white;
@@ -41,7 +42,10 @@ table, th, td {
     }
     input {
         vertical-align: top;
-        width: 70%;
+        width: calc(100% - 40px);
+        border: 1px solid;
+        border-radius: 4px;
+        height: 1.5em;
     }
 }
 #login-area {
@@ -779,6 +783,7 @@ span.twitter a {
     }
     h1 a#backbutton {
         display:inline-block;
+        width: 55px;
     }
 
     h1 #mainmenu-button {
@@ -828,7 +833,10 @@ span.twitter a {
         margin-left:0;
     }
     #search-area {
-        right: 3.7em;
+        width: auto;
+        input {
+            width: 60%;
+        }
     }
     #login-area {
         right: 2.5em;

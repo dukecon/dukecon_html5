@@ -9,6 +9,20 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
         }
     };
 
+    ko.bindingHandlers['attrResource'] = {
+        init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+            return {'controlsDescendantBindings': true};
+        },
+        update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+            var keys = Object.keys(valueAccessor());
+            var i, key;
+            for (i = 0; i < keys.length; i++) {
+                key = keys[i];
+                element.setAttribute(key, languageUtils.getResource(valueAccessor()[key])());
+            }
+        }
+    };
+
     ko.components.register('header-widget', {
         viewModel : function(params) {
             this.active = params.value;
@@ -68,9 +82,9 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             this.searchTerm = params.searchTerm;
         },
         template:
-            '<div id="search-area">\n'
-            + '   <input class="quicksearch" type="search" placeholder="Quick Filter" data-bind="textInput: searchTerm"/>\n'
-            + '   <img src="img/search.png" alt="search">\n'
+            '<div id="search-area" class="hidden">\n'
+            + '   <input class="quicksearch" type="search" data-bind="textInput: searchTerm, attrResource: {\'placeholder\' : \'search\'}"/>\n'
+            + '   <img src="img/search.png">\n'
             + '</div>\n'
     });
 

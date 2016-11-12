@@ -8,6 +8,11 @@ define(['knockout', 'js/modules/dukeconsettings'], function(ko, dukeconSettings)
             'de' : 'Zurück',
             'en' : 'Back'
         },
+        // search
+        search : {
+            'de' : 'Suchen',
+            'en' : 'Search'
+        },
         // talks page
         filterOptions : {
             'de' : 'Filter-Optionen',
