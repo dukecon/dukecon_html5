@@ -1,5 +1,11 @@
 define(['js/modules/dukecondateutils'], function(dukeconDateUtils) {
     describe("dukecon - Date Utils", function () {
+        beforeEach(function(done) {
+            require(['js/modules/languageutils'], function(lang) {
+                lang.selectedLanguage("de");
+                done();
+            });
+        });
         it("weekdays", function () {
             expect(dukeconDateUtils.weekDays.de).toEqual(["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]);
             expect(dukeconDateUtils.weekDays.en).toEqual(["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]);
