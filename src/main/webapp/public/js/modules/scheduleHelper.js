@@ -65,7 +65,6 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils, moment) {
 				break;
 			}
 		}
-		if (newMoment)
 		return newMoment;
 	};
 	
@@ -80,7 +79,6 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils, moment) {
 	};
 	
 	var zoom = function(percentage, timeline) {
-		// TODO: fix "zoom" function - does not factor in the hidden time slots!
 		var range = timeline.getWindow();
 		var interval = range.end - range.start;
 		

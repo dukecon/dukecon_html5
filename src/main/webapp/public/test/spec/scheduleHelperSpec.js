@@ -8,18 +8,6 @@ define(['js/modules/scheduleHelper', 'moment'], function(scheduleHelper, moment)
 		var startTime = moment("2016-03-08T08:00:00+01:00");
         var endTime = moment("2016-03-09T20:00:00+01:00");
         
-        var timeLineMock = function() {
-            var me = this;
-            me.start = null;
-            me.end = null;
-            return {
-                setWindow: function(params) {
-                    start = params.start;
-                    end = params.end;
-                }
-            }
-        };
-        
         it("sets correct min, max, start and end time if current time in range", function () {
         	var options = scheduleHelper.getOptions(startTime, endTime, currentTimeInRange);
         	expect(options.min).toBe(startTime.format());
@@ -56,10 +44,6 @@ define(['js/modules/scheduleHelper', 'moment'], function(scheduleHelper, moment)
         it("calculates time point, across days, backward", function () {
 			var result = scheduleHelper.getNewTimePoint(currentTimeInRange.format(), -4);
 			expect(result.format()).toBe("2016-03-07T17:00:00+01:00");
-        });
-        xit("zooms in", function () {
-        });
-        xit("zooms out", function () {
         });
     });
 });
