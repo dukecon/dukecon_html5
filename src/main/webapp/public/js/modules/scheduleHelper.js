@@ -1,8 +1,8 @@
-define(['js/modules/languageutils', 'moment'], function(languageUtils) {
+define(['js/modules/languageutils', 'moment'], function(languageUtils, moment) {
 	"use strict";
 	
-	var getTimeTableStart = function (startTimeAsMoment, endTimeAsMoment) {
-		var currentTime = moment(/*"2016-03-08T10:00:00"*/); // for testing, remove string arg in production!
+	var getTimeTableStart = function (startTimeAsMoment, endTimeAsMoment, currentTimeForTesting) {
+		var currentTime = currentTimeForTesting ? moment(currentTimeForTesting) : moment();
 		return currentTime.isBetween(startTimeAsMoment, endTimeAsMoment) ? currentTime : startTimeAsMoment;
 	};
 	
@@ -14,11 +14,21 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils) {
 		}
 		return endTime.add(offset, 'hours');
 	};
+
+	var hiddenDates =  [
+		// these don't normally need to change because of the "repeat", so leave it hard-coded
+		{
+			start: "2016-01-01T20:00:00",
+			end: "2016-01-02T09:00:00",
+			repeat: "daily"
+		}
+	];
+	var talkOptions;
 	
-	var getOptions = function (firstStart, lastEnd) {
-		var timetableStart = getTimeTableStart(firstStart, lastEnd);
+	var getOptions = function (firstStart, lastEnd, currentTimeForTesting) {
+		var timetableStart = getTimeTableStart(firstStart, lastEnd, currentTimeForTesting);
 		var timetableEnd = getTimeTableEnd(timetableStart);
-		return {
+		talkOptions = {
 			locale: languageUtils.selectedLanguage(),
 			stack: true,
 			min: firstStart.format(),
@@ -27,14 +37,7 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils) {
 			max: lastEnd.format(),
 			moveable: true,
 			zoomable: false,
-			hiddenDates: [
-				// these don't normally need to change because of the "repeat", so leave it hard-coded
-				{
-					start: "2016-01-01T20:00:00",
-					end: "2016-01-02T09:00:00",
-					repeat: "daily"
-				}
-			],
+			hiddenDates: hiddenDates,
 			editable: false,
 			margin: {
 				item: 1, // minimal margin between items
@@ -42,13 +45,34 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils) {
 			},
 			orientation: 'top'
 		};
+		return talkOptions;
+	};
+	
+	var getNewTimePoint = function(oldTime, hours) {
+		var index, hiddenStart, hiddenEnd, hiddenSpan;
+		var oldMoment = moment(oldTime);
+		var newMoment = moment(oldTime).add(hours, 'hours');
+		for (index in hiddenDates) {
+			hiddenStart = moment(hiddenDates[index].start);
+			hiddenEnd = moment(hiddenDates[index].end);
+			hiddenSpan = hiddenEnd.diff(hiddenStart, 'hours');
+			if (hours > 0 && (newMoment.hour() > hiddenStart.hour() || oldMoment.day() < newMoment.day())) {
+				newMoment = newMoment.add(hiddenSpan, 'hours');
+				break;
+			}
+			if (hours < 0 && (newMoment.hour() < hiddenEnd.hour() || oldMoment.day() > newMoment.day())) {
+				newMoment = newMoment.subtract(hiddenSpan, 'hours');
+				break;
+			}
+		}
+		if (newMoment)
+		return newMoment;
 	};
 	
 	var move = function(hours, timeline) {
-		// TODO: fix "move" function - does not factor in the hidden time slots!
 		var range = timeline.getWindow();
-		var newStart = hours > 0 ? moment(range.start).add(hours, 'hours') : moment(range.start).subtract(hours, 'hours');
-		var newEnd = hours > 0 ? moment(range.end).add(hours, 'hours') : moment(range.end).subtract(hours, 'hours');
+		var newStart = getNewTimePoint(range.start, hours);
+		var newEnd =   getNewTimePoint(range.end, hours);
 		timeline.setWindow({
 			start: newStart,
 			end: newEnd
@@ -91,13 +115,13 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils) {
 		$('#moveLeft').on(
 			"click",
 			function () {
-				move(2, timeline);
+				move(-2, timeline);
 			}
 		);
 		$('#moveRight').on(
 			"click",
 			function () {
-				move(-2, timeline);
+				move(2, timeline);
 			}
 		);
 		$('#reset').on(
@@ -110,6 +134,11 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils) {
 	
 	return {
 		registerButtonEvents: registerButtonEvents,
-		getOptions: getOptions
-	}
+		getOptions: getOptions,
+		
+		// visible for testing
+		getNewTimePoint: getNewTimePoint,
+		move: move,
+		zoom: zoom
+	};
 });

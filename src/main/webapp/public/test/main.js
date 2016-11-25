@@ -6,11 +6,12 @@ require.config({
         'jquery': "js/jquery-2.1.4.min",
         'underscore': "js/underscore-min",
         'knockout': "js/knockout-min-3.3.0",
+        'moment': "js/moment-with-locales-2.11.2",
         'jasmine' : 'test/jasmine/jasmine',
         'jasmine-html' : 'test/jasmine/jasmine-html',
         'boot' : 'test/jasmine/boot',
-        'mock-ajax' : 'test/jasmine/mock-ajax',
-    },
+        'mock-ajax' : 'test/jasmine/mock-ajax'
+    }
 });
 
 var jasmineEnv = jasmine.getEnv();
@@ -21,7 +22,8 @@ var specs = [
     'test/spec/dukeconDbSpec',
     'test/spec/dukeconDateUtilsSpec',
     'test/spec/talklistFilterSpec',
-    'test/spec/talklistSpec'
+    'test/spec/talklistSpec',
+    'test/spec/scheduleHelperSpec'
 ];
 
 
