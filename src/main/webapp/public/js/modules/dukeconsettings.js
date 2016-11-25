@@ -1,4 +1,4 @@
-define(['underscore'], function() {
+define(['js/modules/browserinfo', 'underscore'], function(browserInfo) {
     var keys = {
         fav_key: "dukeconfavs",
         filter_key_prefix: "dukeconfilters_",
@@ -33,8 +33,8 @@ define(['underscore'], function() {
 
     var getSelectedLanguage = function() {
         var language = getSetting(keys.selected_language_key);
-        return language ? language : "de";
-    };
+        return language ? language : browserInfo.getBrowserLanguage();
+	};
 
     var isFavourite = function(id) {
         return getFavourites().indexOf(id) != -1;

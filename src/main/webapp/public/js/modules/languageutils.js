@@ -1,6 +1,9 @@
-define(['knockout', 'js/modules/dukeconsettings'], function(ko, dukeconSettings) {
+define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], function(ko, dukeconSettings, browserInfo) {
+    "use strict";
 
-    var selectedLanguage = ko.observable("de");
+	var browserLanguage = browserInfo.getBrowserLanguage();
+    
+    var selectedLanguage = ko.observable(browserLanguage);
 
     var strings = {
         // back button
@@ -125,11 +128,12 @@ define(['knockout', 'js/modules/dukeconsettings'], function(ko, dukeconSettings)
     var init = function() {
         if (typeof dukeconSettings !== 'undefined') {
             selectedLanguage(dukeconSettings.getSelectedLanguage());
-        } else {
-            selectedLanguage("de");
+		} else {
+            selectedLanguage(browserLanguage);
         }
         // pre-creating computed elements to avoid having it multiple times on a page
-        for (var key in strings) {
+        var key;
+        for (key in strings) {
             if (strings.hasOwnProperty(key)) {
                 strings[key].resource = ko.pureComputed(function() {
                     return strings[this.key][selectedLanguage()];
@@ -164,5 +168,5 @@ define(['knockout', 'js/modules/dukeconsettings'], function(ko, dukeconSettings)
         toggleLanguage : toggleLanguage,
         getLanguageIconUrl : getLanguageIconUrl,
         getResource : getResource
-    }
+    };
 });
