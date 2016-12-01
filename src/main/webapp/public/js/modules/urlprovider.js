@@ -13,7 +13,6 @@ define(
             var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
                 function(m,key,value) {
                     vars[key] = decodeURIComponent(value);
-                    console.log(vars[key]);
                 });
             allQueryParams = vars;
         }
