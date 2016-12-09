@@ -49,13 +49,13 @@ define(['jquery', 'knockout', 'js/modules/talklist', 'js/modules/dukeconsettings
 		};
 		
 		var generateTableItems = function (data, callback) {
-//            log(data);
 			var tableItems = [];
 			for (var i = 0; i < data.length; i++) {
 				generateContentFromTemplate(data[i], function (markup, talk) {
 					var tableItem = {
 						id: talk.id,
 						group: talk.location,
+						tooltip: talk.title,
 						content: markup,
 						start: talk.startSortable,
 						end: moment(talk.startSortable).add(moment.duration(talk.duration || 0, 'minutes')).format()

@@ -39,6 +39,7 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils, moment) {
 			zoomable: false,
 			hiddenDates: hiddenDates,
 			editable: false,
+			dataAttributes: ['tooltip', 'id'],
 			margin: {
 				item: 1, // minimal margin between items
 				axis: 1   // minimal margin between items and the axis
