@@ -3,8 +3,9 @@ define(
     function($) {
         var cssFile = "/styles.css";
         var emtpyFunc = function() {};
-        
-        var currentBaseUrl = window.location.href.replace(/\/[^\/]+\.html/ig, "");
+
+        var currentBaseUrl = window.location.href.replace(/\/[^\/]+\.html/ig, "").replace(/\/$/ig, "");
+        console.log('Using currentBaseUrl: "' + currentBaseUrl + '"');
         var jsonUrl, customCssUrl;
         var allQueryParams;
 
@@ -48,7 +49,7 @@ define(
              jsonUrl = newUrl;
              if (allowOverride && getUrlVar("conference") != undefined) {
                  jsonUrl = jsonUrl.replace(/\d+$/g, getUrlVar("conference"));
-                 console.log('detected conference id from url parameter: ' + getUrlVar("conference"))
+                 console.log('detected conference id from url parameter: ' + getUrlVar("conference"));
              }
              customCssUrl = jsonUrl + cssFile;
          }
