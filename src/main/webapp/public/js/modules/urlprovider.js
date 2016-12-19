@@ -4,7 +4,7 @@ define(
         var cssFile = "/styles.css";
         var emtpyFunc = function() {};
         
-        var currentBaseUrl = window.location.href.replace(/\/[^\/]+\.html/ig, "").replace(/\/$/, "");
+        var currentBaseUrl = window.location.href.replace(/\/[^\/]+\.html/ig, "");
         var jsonUrl, customCssUrl;
         var allQueryParams;
 
