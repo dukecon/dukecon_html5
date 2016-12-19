@@ -44,6 +44,7 @@ img/lock_24px.svg
 img/menu_24px.svg
 img/search.png
 # Js
+js/modules/browserinfo.js
 js/modules/dukecloak.js
 js/modules/dukecon.js
 js/modules/dukecondateutils.js
@@ -52,16 +53,18 @@ js/modules/dukeconsettings.js
 js/modules/gravatar.js
 js/modules/languageutils.js
 js/modules/offline.js
+js/modules/urlprovider.js
+js/modules/schedule.js
 js/modules/speakers.js
 js/modules/synch.js
 js/modules/talk.js
 js/modules/talklist.js
-js/modules/schedule.js
 js/modules/widgets.js
 js/keycloak.js
 js/jquery-2.1.4.min.js
 js/knockout-min-3.3.0.js
 js/moment-with-locales-2.11.2.js
+js/require.js
 js/scrollfix.js
 js/underscore-min.js
 js/ui.js
