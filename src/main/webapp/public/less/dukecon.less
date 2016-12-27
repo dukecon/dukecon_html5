@@ -484,7 +484,19 @@ span.twitter a {
 }
 
 .speakerinfo {
-    vertical-align: middle;
+    vertical-align: top;
+    img {
+        width: 42px;
+        float: left;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+    .title {
+        cursor: pointer;
+    }
+    .track {
+        clear: both;
+    }
 }
 
 .time-extra {
@@ -515,12 +527,14 @@ span.twitter a {
     background:transparent;
     white-space: normal;
 }
+#speakers .speakerdetails {
+    width: 30%;
+}
 #speakers .speakertalks .talk-cell {
     min-width: 120px;
 }
-.speakerinfo .title {
-    color: @mediumGray;
-
+#speakers .speakerdetails {
+    width: 30%;
 }
 /* TALK DETAIL PAGE */
 #talkinfo .talk-details {
@@ -850,6 +864,12 @@ span.twitter a {
     }
     #speakers .speakerinfo {
         width: 95px;
+        img {
+            width: 30px;
+        }
+    }
+    #speakers .speakerdetails {
+        display:none;
     }
     #speakers .speakertalks {
         width: 90%;
