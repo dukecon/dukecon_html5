@@ -54,6 +54,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
         languageUtils.selectedLanguage.subscribe(function () {
             self.day(dukeconDateUtils.getDisplayDate(data.start));
+            self.dayshort(dukeconDateUtils.getDisplayDateShort(data.start));
             self.trackDisplay(dukeconUtils.getTrack(metaData, data.trackId));
             self.levelDisplay(dukeconUtils.getLevel(metaData, data.audienceId));
             self.languageDisplay(dukeconUtils.getLanguage(metaData, data.languageId));
