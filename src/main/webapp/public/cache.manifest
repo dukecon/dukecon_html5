@@ -8,6 +8,7 @@ index.html
 reset.html
 schedule.html
 speakers.html
+speaker.html
 talk.html
 impressum.html
 # Css
@@ -56,6 +57,7 @@ js/modules/offline.js
 js/modules/urlprovider.js
 js/modules/schedule.js
 js/modules/speakers.js
+js/modules/speaker.js
 js/modules/synch.js
 js/modules/talk.js
 js/modules/talklist.js
@@ -71,6 +73,7 @@ js/ui.js
 js/vis.js
 app-feedback.js
 app-speakers.js
+app-speaker.js
 app-talk.js
 app-talklist.js
 app-talkschedule.js

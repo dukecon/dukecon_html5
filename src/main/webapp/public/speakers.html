@@ -26,9 +26,11 @@
         <tr>
             <td class="speakerinfo">
                 <div class="talk-cell">
-                    <div class="title darkLink" data-bind="click: function() { console.log('Speaker info coming soon');}">
-                        <img alt="" src="" data-bind="attr : { src : 'img/Unknown.png' }">
-                        <span data-bind="text: name" />
+                    <div class="title darkLink">
+                        <a data-bind="attr : { href : 'speaker.html#speaker?speakerId=' + id, alt: name }">
+                            <img alt="" src="" data-bind="attr : { src : 'img/Unknown.png' }">
+                            <span data-bind="text: name" />
+                        </a>
                     </div>
                     <div class="track"><span data-bind="text: company" /></div>
                     <div class="room"><a data-bind="attr: { href: twitterLink }, text: twitterHandle" style="padding-left:0px;"></a></div>

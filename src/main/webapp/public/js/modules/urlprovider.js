@@ -2,7 +2,9 @@ define(
     ['jquery'],
     function($) {
         var cssFile = "/styles.css";
-        var currentBaseUrl = window.location.href.replace(/\/[^\/]+\.html/ig, "").replace(/\/$/ig, "");
+        var currentBaseUrl = window.location.href
+            .replace(/\/[^\/]+\.html\S*/ig, "")
+            .replace(/\/$/ig, "");
         console.log('Using currentBaseUrl: "' + currentBaseUrl + '"');
         var jsonUrl, customCssUrl, initialized = false;
         var allQueryParams;
@@ -73,7 +75,8 @@ define(
                     }
                     initialized = true;
                 },
-                error: function() {
+                error: function(err) {
+                    console.log("could not initialize: " + JSON.stringify(err));
                     initialized = true;
                 }
             });
