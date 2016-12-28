@@ -65,26 +65,26 @@ table, th, td {
         padding:0;
         margin:0;
     }
-}
-.username {
-    margin-right:0;
-    color: white;
-}
-a.username:hover {
-    color: @white;
-    text-decoration: underline;
-}
-.gravatar {
-    margin:0;
-    padding:0;
-    vertical-align: top;
-}
-.gravatar img {
-    height: 30px;
-    width: 30px;
-    border-radius: 5px;
-    vertical-align: middle;
-    margin-top: -2px;
+    .username {
+        margin-right:0;
+        color: white;
+    }
+    a.username:hover {
+        color: @white;
+        text-decoration: underline;
+    }
+    .gravatar {
+        margin:0;
+        padding:0;
+        vertical-align: top;
+        img {
+            height: 30px;
+            width: 30px;
+            border-radius: 5px;
+            vertical-align: middle;
+            margin-top: -2px;
+        }
+    }
 }
 
 button, .button {
@@ -101,41 +101,44 @@ button, .button {
     display: inline-block;
     vertical-align: middle;
     white-space: nowrap;
+    &:active {
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+    }
+    &:hover {
+        background-color:@offWhite;
+    }
 }
-button:active, .button:active  {
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
-}
-button:hover, .button:hover {
-    background-color:@offWhite;
-}
-button.highlightBack:hover {
-    cursor: default;
-}
-button.day-widescreen {
-    display: inline-block;
-}
-button.day-smallscreen {
-    display: none;
+button {
+    &.highlightBack:hover {
+        cursor: default;
+    }
+    &.day-widescreen {
+        display: inline-block;
+    }
+    &.day-smallscreen {
+        display: none;
+    }
 }
 
 td {
     background-color:@white;
 }
 
-.header img {
-    height: 1.8em;
-    margin: 0;
+.header {
+    img {
+        height: 1.8em;
+        margin: 0;
+    }
 }
 
 #language-select {
     margin-left:5px;
-}
-
-#language-select img {
-    cursor: pointer;
-    float:none;
-    vertical-align:middle;
-    height: 1.5em;
+    img {
+        cursor: pointer;
+        float:none;
+        vertical-align:middle;
+        height: 1.5em;
+    }
 }
 
 /* remove: */
@@ -156,8 +159,6 @@ a {
     transition: background 0.7s
 }
 
-.mainmenu {
-}
 .mainmenu.active {
     cursor: default;
 }
@@ -171,75 +172,71 @@ h1 {
     font-size:120%;
     line-height:1.9em;
     text-align: right;
-}
 
-h1 #mainmenu-items {
-    position: relative;
-    top: 0;
-    right: 0;
-}
-
-h1 #mainmenu-items, h1 #mainmenu-button {
-    height: 2em;
-    overflow: hidden;
-    display: inline-block;
-    margin:0;
-    padding: 0;
-}
-
-h1 #pagetitle, h1 #mainmenu-button {
-    display: none;
-}
-
-h1 a, h1 span {
-    vertical-align: top;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 2em;
-    display: inline-block;
-    color: @white;
-    margin: 0;
-}
-
-h1 a:hover {
-    color: @white;
-}
-h1 a#logo {
-    display: inline-block;
-    float: left;
-    height: 2em;
-    background: white;
-    overflow: hidden;
-    padding: 0 10px 0 5px;
-}
-h1 #backbutton_before {
-    display: none;
-    border-radius: 4px;
-    border-style: none none solid solid;
-    border-width: medium medium 1px 1px;
-    content: " ";
-    height: 1em;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    width: 1em;
-    float:left;
-    position:relative;
-    top: 8px;
-    left: 8px;
-}
-h1 a#backbutton {
-    display:none;
-    border-radius: 4px;
-    float: left;
-    font-size:smaller;
-    font-weight: bold;
-    overflow: hidden;
-    margin: 5px 10px 5px -5px;
-    height: 1.5em;
-    line-height: 1.5em;
-    padding: 0 4px;
-    border: 1px solid;
-    border-left: none;
+    #mainmenu-items {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+    #mainmenu-items, #mainmenu-button {
+        height: 2em;
+        overflow: hidden;
+        display: inline-block;
+        margin:0;
+        padding: 0;
+    }
+    #pagetitle, #mainmenu-button {
+        display: none;
+    }
+    a, span {
+        vertical-align: top;
+        padding-top: 0;
+        padding-bottom: 0;
+        height: 2em;
+        display: inline-block;
+        color: @white;
+        margin: 0;
+    }
+    a:hover {
+        color: @white;
+    }
+    a#logo {
+        display: inline-block;
+        float: left;
+        height: 2em;
+        background: white;
+        overflow: hidden;
+        padding: 0 10px 0 5px;
+    }
+    #backbutton_before {
+        display: none;
+        border-radius: 4px;
+        border-style: none none solid solid;
+        border-width: medium medium 1px 1px;
+        content: " ";
+        height: 1em;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        width: 1em;
+        float:left;
+        position:relative;
+        top: 8px;
+        left: 8px;
+    }
+    a#backbutton {
+        display:none;
+        border-radius: 4px;
+        float: left;
+        font-size:smaller;
+        font-weight: bold;
+        overflow: hidden;
+        margin: 5px 10px 5px -5px;
+        height: 1.5em;
+        line-height: 1.5em;
+        padding: 0 4px;
+        border: 1px solid;
+        border-left: none;
+    }
 }
 
 h2 {
@@ -273,10 +270,10 @@ h2 {
     background-color:rgba(0, 0, 0, 0.1);
     z-index: 0;
     visibility: hidden;
-}
-#filter-veil.shown {
-    z-index: 2000;
-    visibility: visible;
+    &.shown {
+        z-index: 2000;
+        visibility: visible;
+    }
 }
 
 .filter-category {
@@ -284,15 +281,14 @@ h2 {
     display: block;
     padding: 5px;
     margin: 0 0 5px 0;
-}
+    button {
+        vertical-align:middle;
+        float:right;
+        padding:0.4em;
+        margin:0 5px 0 0;
+        font-size:smaller;
 
-.filter-category button {
-    vertical-align:middle;
-    float:right;
-    padding:0.4em;
-    margin:0 5px 0 0;
-    font-size:smaller;
-
+    }
 }
 
 .filter-values {
@@ -301,27 +297,28 @@ h2 {
     margin-bottom:5px;
     font-size:smaller;
     line-height:1.5em;
-}
+    input[type=checkbox] {
+        display:none;
+    }
+    input[type="checkbox"] + label {
+        padding: 2px;
+        margin-left: 0;
+        display:block;
+        vertical-align:middle;
+        cursor:pointer;
+    }
+    input[type="checkbox"]:checked + label:before {
+        content: url('../img/checkbox_checked.png');
+    }
 
-.filter-values input[type=checkbox] {
-    display:none;
-}
-
-.filter-values input[type="checkbox"] + label {
-    padding: 2px;
-    margin-left: 0;
-    display:block;
-    vertical-align:middle;
-    cursor:pointer;
-}
-input[type="checkbox"]:checked + label:before {
-    content: url('../img/checkbox_checked.png');
-}
-
-input[type="checkbox"] + label:before {
-    content: url('../img/checkbox.png');
-    padding-right:3px;
-    vertical-align:middle;
+    input[type="checkbox"] + label:before {
+        content: url('../img/checkbox.png');
+        padding-right:3px;
+        vertical-align:middle;
+    }
+    div:hover {
+        background: @lightGray;
+    }
 }
 
 .quicksearch {
@@ -330,10 +327,6 @@ input[type="checkbox"] + label:before {
 
 #days_filter {
     margin-bottom: 2px;
-}
-
-.filter-values div:hover {
-    background: @lightGray;
 }
 
 .talk-info {
@@ -352,11 +345,10 @@ input[type="checkbox"] + label:before {
 .content{
     margin-top: 3em;
     margin-bottom:2.5em;
-}
-
-.content * {
-    transition: height 0.5s ease, width 0.5s ease;
-    vertical-align: text-top;
+    * {
+        transition: height 0.5s ease, width 0.5s ease;
+        vertical-align: text-top;
+    }
 }
 
 #nav {
@@ -370,18 +362,18 @@ input[type="checkbox"] + label:before {
 
 #talks-grid {
     background-color: @offWhite;
+    table {
+        border-collapse:separate;
+        border-color:transparent;
+        width: 100%;
+        table-layout: fixed;
+    }
+    td:first-child {
+        padding-top:5px;
+        width:36px;
+    }
 }
 
-#talks-grid table {
-    border-collapse:separate;
-    border-color:transparent;
-    width: 100%;
-    table-layout: fixed;
-}
-#talks-grid td:first-child {
-    padding-top:5px;
-    width:36px;
-}
 div.time-cell {
     transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
@@ -452,11 +444,11 @@ div.track {
     font-weight:bold;
     font-size:smaller;
     font-style:italic;
-    display:block
-}
-div.track span {
-    font-style:italic;
-    font-weight: normal;
+    display:block;
+    span {
+        font-style:italic;
+        font-weight: normal;
+    }
 }
 div.room {
     font-weight:bold;
@@ -781,46 +773,46 @@ span.twitter a {
     }
     h1 {
         text-align: left;
-    }
-    h1 #pagetitle {
-        display: inline-block;
+        #pagetitle {
+            display: inline-block;
+        }
+        a#logo {
+            display: none;
+        }
+        #backbutton_before {
+            display:inline-block;
+        }
+        a#backbutton {
+            display:inline-block;
+            width: 55px;
+        }
+
+        #mainmenu-button {
+            display: inline-block;
+            float: right;
+            padding-right: 5px;
+            font-size: smaller;
+            cursor: pointer;
+            img {
+                vertical-align: middle;
+            }
+        }
+        #mainmenu-items {
+            height: auto;
+            font-size: smaller;
+            width: 200px;
+            position: fixed;
+            display: none;
+            top: 40px;
+            right: 0;
+            &.shown {
+                display: block;
+                box-shadow: 0 2px 3px 0 @boxShadowColor;
+            }
+        }
     }
     #talkpage h1 #pagetitle {
         display: none;
-    }
-    h1 a#logo {
-        display: none;
-    }
-    h1 #backbutton_before {
-        display:inline-block;
-    }
-    h1 a#backbutton {
-        display:inline-block;
-        width: 55px;
-    }
-
-    h1 #mainmenu-button {
-        display: inline-block;
-        float: right;
-        padding-right: 5px;
-        font-size: smaller;
-        cursor: pointer;
-    }
-    h1 #mainmenu-button img {
-        vertical-align: middle;
-    }
-    h1 #mainmenu-items {
-        height: auto;
-        font-size: smaller;
-        width: 200px;
-        position: fixed;
-        display: none;
-        top: 40px;
-        right: 0;
-    }
-    h1 #mainmenu-items.shown {
-        display: block;
-        box-shadow: 0 2px 3px 0 @boxShadowColor;
     }
     h2 {
         margin-left:5px;
