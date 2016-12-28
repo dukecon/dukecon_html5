@@ -2,11 +2,9 @@ define(
     ['jquery'],
     function($) {
         var cssFile = "/styles.css";
-        var emtpyFunc = function() {};
-
         var currentBaseUrl = window.location.href.replace(/\/[^\/]+\.html/ig, "").replace(/\/$/ig, "");
         console.log('Using currentBaseUrl: "' + currentBaseUrl + '"');
-        var jsonUrl, customCssUrl;
+        var jsonUrl, customCssUrl, initialized = false;
         var allQueryParams;
 
         function getQueryParams() {
@@ -45,17 +43,21 @@ define(
             }
         };
 
+        function insertConferenceIdIntoUrl(oldUrl, newId) {
+            if (oldUrl.indexOf(newId) >= 0) {
+                return oldUrl;
+            }
+            return oldUrl.replace(/[^\/]+[\/]?$/g, newId);
+        }
+
         function setUrls(newUrl, allowOverride) {
              jsonUrl = newUrl;
              if (allowOverride && getUrlVar("conference") != undefined) {
-                 jsonUrl = jsonUrl.replace(/\d+$/g, getUrlVar("conference"));
+                 jsonUrl = insertConferenceIdIntoUrl(jsonUrl, getUrlVar("conference"));
                  console.log('detected conference id from url parameter: ' + getUrlVar("conference"));
              }
              customCssUrl = jsonUrl + cssFile;
          }
-
-        // temporarily for retrieving conference id from url parameter for switching between conferences,
-        // can be removed when conference switch is implemented in html5 client
 
         function loadInitData(callback) {
             $.ajax({
@@ -63,25 +65,29 @@ define(
                 dataType: 'json',
                 success: function (data) {
                     if (data.id != undefined) {
-                        setUrls(jsonUrl.replace(/\d+$/g, data.id), false);
+                        setUrls(insertConferenceIdIntoUrl(jsonUrl, data.id), false);
                         console.log('detected conference id from init call: ' + data.id)
                     }
                     if (callback) {
                         callback(jsonUrl, customCssUrl);
                     }
+                    initialized = true;
                 },
                 error: function() {
+                    initialized = true;
                 }
             });
         }
 
         setUrls("${dukecon.server.jsonUrl}", true);
         loadInitData();
-        
+
+        var emtpyFunc = function() {};
+
         return {
             getJsonUrl: function(callback) {
                 callback = callback || emptyFunc;
-                if (!jsonUrl) {
+                if (!initialized) {
                     loadInitData(function(jsonUrl, unused) {
                         callback(jsonUrl);
                     });
@@ -92,7 +98,7 @@ define(
             },
             getCustomCssUrl: function(callback) {
                 callback = callback || emptyFunc;
-                if (!customCssUrl) {
+                if (!initialized) {
                     loadInitData(function(unused, customCssUrl) {
                         callback(customCssUrl);
                     });
