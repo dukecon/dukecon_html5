@@ -485,9 +485,13 @@ span.twitter a {
     }
     .title {
         cursor: pointer;
+        white-space: nowrap;
+        a {
+            padding: 0;
+        }
     }
     .track {
-        clear: both;
+        white-space: nowrap;
     }
 }
 
@@ -501,7 +505,7 @@ span.twitter a {
     vertical-align: middle;
 }
 
-/* SPKEAKER PAGE */
+/* SPEAKERS PAGE */
 .speakertalks .speaker {
     display:none;
 }
@@ -522,11 +526,79 @@ span.twitter a {
 #speakers .speakerdetails {
     width: 30%;
 }
-#speakers .speakertalks .talk-cell {
-    min-width: 120px;
+#speakers .speakertalks {
+    div.talk-widget, .talk-cell {
+        width: 90%;
+        display: block;
+    }
 }
 #speakers .speakerdetails {
     width: 30%;
+}
+/* SPEAKER DETAIL PAGE */
+#speakerpage {
+    .speaker-content {
+        border: 1px solid @lightGray;
+        background: @offWhite;
+        padding: 5px;
+        display: flex;
+        align-items: stretch;
+        flex-direction: row;
+        img.speaker-portrait {
+            width: 40%;
+            padding: 10px 10px 10px 0;
+        }
+        .speaker-contact {
+            background: white;
+            h2 {
+                font-size: 140%;
+                margin-left: 0;
+            }
+            table {
+                border: none;
+                vertical-align: top;
+            }
+            th, td {
+                border: none;
+                font-size: 80%;
+                padding: 5px 0;
+                vertical-align: top;
+                line-height: 1.1em;
+                a {
+                    vertical-align: top;
+                }
+            }
+        }
+        .speaker-function {
+            font-size: 80%;
+            margin-bottom: 20px;
+        }
+    }
+    #speaker-overview {
+        padding: 5px;
+        background: white;
+        border: 1px solid @lightGray;
+        .flexbox {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 10px;
+        }
+    }
+    #speaker-talks {
+        border: 1px solid @lightGray;
+        background: white;
+        padding: 5px;
+        margin-left: 5px;
+        width: 60%;
+        div.talk-widget {
+            width: 99%;
+            display: block;
+            .talk-cell {
+                width: 100%;
+                display: block;
+            }
+        }
+    }
 }
 /* TALK DETAIL PAGE */
 #talkinfo .talk-details {
@@ -853,25 +925,56 @@ span.twitter a {
     #speakers {
         table-layout: fixed;
         width: 100%;
-    }
-    #speakers .speakerinfo {
-        width: 95px;
-        img {
-            width: 30px;
+        .speakerdetails {
+            display:none;
+        }
+        .speakertalks {
+            width: 90%;
+        }
+        .speakerinfo {
+            width: 95px;
+            white-space: normal;
+            img {
+                width: 30px;
+            }
+            .talk-cell {
+                width:90px;
+                padding: 0;
+                .title {
+                    a {
+                        white-space: normal;
+                    }
+                }
+                div.track {
+                    display: block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
         }
     }
-    #speakers .speakerdetails {
-        display:none;
-    }
-    #speakers .speakertalks {
-        width: 90%;
-    }
-    #speakers .speakerinfo .talk-cell {
-        width:90px;
-        padding: 0;
-    }
-    #speakers .speakerinfo .talk-cell .title {
-        white-space: normal;
+    #speakerpage {
+        .speaker-content {
+            padding: 0;
+            display: block;
+        }
+        h1 #pagetitle {
+            display: none;
+        }
+        img.speaker-portrait {
+            width: 100%;
+        }
+        #speaker-overview {
+            display: block;
+            width: auto;
+        }
+        #speaker-talks {
+            margin-left: 0;
+            margin-top: 5px;
+            display: block;
+            width: auto;
+        }
     }
     #talkinfo, #talkinfo td, #talkinfo .talk-details {
         display:block;

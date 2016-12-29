@@ -28,17 +28,16 @@
                 <div class="talk-cell">
                     <div class="title darkLink">
                         <a data-bind="attr : { href : 'speaker.html#speaker?speakerId=' + id, alt: name }">
-                            <img alt="" src="" data-bind="attr : { src : 'img/Unknown.png' }">
+                            <img alt="" src="" data-bind="attr : { src : image }">
                             <span data-bind="text: name" />
                         </a>
                     </div>
-                    <div class="track"><span data-bind="text: company" /></div>
+                    <div class="track" data-bind="attr : { title: company }"><span data-bind="text: company" /></div>
                     <div class="room"><a data-bind="attr: { href: twitterLink }, text: twitterHandle" style="padding-left:0px;"></a></div>
                 </div>
             </td>
             <td class="speakerdetails">
-                <div>
-                    Teaser for Bio here.<br> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+                <div data-bind="text: bioShort">
                 </div>
             </td>
             <td class="speakertalks">

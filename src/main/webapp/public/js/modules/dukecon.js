@@ -74,6 +74,15 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 this.twitterLink = "http://www.twitter.com/" + (data.twitter.indexOf('@') === 0 ? data.twitter.substr(1) : data.twitter);
             }
 
+            this.email = "addme@when.available";
+            this.image = "img/Unknown.png";
+            this.blog = "http://addme.when.available";
+            this.web = "http://addme.when.available";
+            this.fb = "addme_when_avail";
+            this.gplus = "addme_when_avail";
+            this.bio = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+            this.bioShort = this.bio.length > 220 ? this.bio.substring (0, 210) + "..." : this.bio;
+
             this.talks = dukeconUtils.getTalks(data.eventIds, talks, speakers, metaData, favorites);
         }
 

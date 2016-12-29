@@ -122,6 +122,11 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
             'en' : '<span>Please send any feedback about the Conference Planner website via mail to</span>'
                 + '<a href="mailto:feedback@dukecon.org">feedback@dukecon.org</a><span>or</span>'
                 + '<a href="https://github.com/dukecon/dukecon/issues" title="Isssuetracker">create a ticket here</a><span>!</span>'
+        },
+        // Speaker details
+        speakertalks: {
+            'de' : "Talks dieses Sprechers",
+            'en' : "Talks held by this speaker"
         }
     };
 

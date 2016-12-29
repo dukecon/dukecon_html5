@@ -9,14 +9,14 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
             self.initializeData = function (allData) {
                 var speakerId = self.getParameterByName("speakerId");
                 if (speakerId) {
-                    var filtered = _.filter(allData.speakers, function (s) {
+                    var filteredSpeakers = _.filter(allData.speakers, function (s) {
                         return s.id === speakerId;
                     });
-                    var speaker = filtered[0];
-                    self.speaker(new dukecon.Speaker(speaker, allData.events, allData.speakers, allData.metaData, dukeconSettings.getFavourites()));
-                    document.title = self.speaker().name + " - " + document.title;
+                    if (filteredSpeakers.length > 0) {
+                        self.speaker(new dukecon.Speaker(filteredSpeakers[0], allData.events, allData.speakers, allData.metaData, dukeconSettings.getFavourites()));
+                        document.title = self.speaker().name + " - " + document.title;
+                    }
                 }
-                // TODO: get talks held by this speaker
                 (function (history) {
                     // keycloak will issue a redirect, only after that has finished we will know about the
                     var replaceState = history.replaceState;
