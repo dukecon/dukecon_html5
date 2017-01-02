@@ -544,15 +544,18 @@ span.twitter a {
         display: flex;
         align-items: stretch;
         flex-direction: row;
-        img.speaker-portrait {
+        .speaker-portrait {
             width: 40%;
-            padding: 10px 10px 10px 0;
+            padding: 0 10px 10px 0;
+            img {
+                width: 100%;
+            }
         }
         .speaker-contact {
             background: white;
             h2 {
                 font-size: 140%;
-                margin-left: 0;
+                margin: 0;
             }
             table {
                 border: none;
@@ -566,12 +569,30 @@ span.twitter a {
                 line-height: 1.1em;
                 a {
                     vertical-align: top;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
             }
         }
         .speaker-function {
             font-size: 80%;
             margin-bottom: 20px;
+        }
+        .speaker-socialmedia {
+            span {
+                padding: 0;
+                margin: 0;
+            }
+            a {
+                width: 32px;
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+            }
+            img {
+                height: 32px;
+                width: 32px;
+            }
         }
     }
     #speaker-overview {

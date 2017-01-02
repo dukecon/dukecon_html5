@@ -23,7 +23,9 @@
     <div class="content speaker-content">
         <div id="speaker-overview">
             <div class="flexbox">
-                <img class="speaker-portrait" src="" data-bind="attr : { src : speaker().image }">
+                <div class="speaker-portrait">
+                    <img src="" data-bind="attr : { src : speaker().image }">
+                </div>
                 <div class="speaker-contact">
                     <h2 class="darkLink" data-bind="text: speaker().name">
                     </h2>
@@ -45,8 +47,14 @@
                             <td><a data-bind="text: speaker().blog, attr: { href: speaker().blog }"></a></td>
                         </tr>
                     </table>
-                    <div class="speaker-socialmedia" style="display:none">
-                        [icons here]
+                    <div class="speaker-socialmedia">
+                        <!-- ko foreach: socialmedias -->
+                        <span data-bind="visible: $parent.speaker()[$data], attr: { class: 'speaker-' + $data}">
+                            <a href="" data-bind="attr: { href: $parent.speaker()[$data]}">
+                                <img src="" data-bind="attr: {src: 'img/social_' + $data + '.svg', alt: $data}">
+                            </a>
+                        </span>
+                        <!-- /ko -->
                     </div>
                 </div>
             </div>

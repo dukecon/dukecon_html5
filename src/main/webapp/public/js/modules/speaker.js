@@ -5,6 +5,7 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
             // Data
             var self = this;
             self.speaker = ko.observable(new dukecon.Speaker({}, [], {}, {}, []));
+            self.socialmedias = ko.observable(["facebook", "googleplus", "instagram", "linkedin", "pinterest", "twitterLink", "xing", "youtube"]);
 
             self.initializeData = function (allData) {
                 var speakerId = self.getParameterByName("speakerId");
