@@ -74,17 +74,21 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 this.twitterLink = "http://www.twitter.com/" + (data.twitter.indexOf('@') === 0 ? data.twitter.substr(1) : data.twitter);
             }
 
-            this.email = "addme@when.available";
-            this.image = "img/Unknown.png";
+            this.email = data.email || '';
+            if (data.photoId) {
+                this.image = "http://localhost:8080/develop/rest/speaker/images/" + data.photoId
+            } else {
+                this.image = "img/Unknown.png";
+            }
             this.blog = "http://addme.when.available";
-            this.web = "http://addme.when.available";
+            this.web = data.web || '';
 
-            this.facebook = "add_facebook_when_avail";
-            this.googleplus = "add_google_when_avail";
-            this.xing = "add_xing_when_avail";
-            this.linkedin = "add_xing_when_avail";
+            this.facebook = data.facebook || '';
+            this.googleplus = data.gplus || '';
+            this.xing = data.xing || '';
+            this.linkedin = data.linkedin || '';
 
-            this.bio = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+            this.bio = data.bio ? data.bio : "";
             this.bioShort = this.bio.length > 220 ? this.bio.substring (0, 210) + "..." : this.bio;
 
             this.talks = dukeconUtils.getTalks(data.eventIds, talks, speakers, metaData, favorites);
