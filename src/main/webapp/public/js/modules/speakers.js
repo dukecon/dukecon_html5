@@ -12,12 +12,25 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
                 hideLoading(globalLoadTimeout, 'dukeConSpeakers');
             };
         }
-
+        
         var sortSpeaker = function(s1, s2) {
-            if (s1.name < s2.name) {
-                return -1;
+            function sortString(a, b) {
+				if (a < b) {
+					return -1;
+				}
+				return a > b ? 1 : 0;
             }
-            return s1.name > s2.name ? 1 : 0;
+            
+			function sortByFirstAndLastName(a, b) {
+				var name1 = a.lastname + (a.firstname ? a.firstname : "");
+				var name2 = b.lastname + (b.firstname ? b.firstname : "");
+	            return sortString(name1, name2);
+			}
+
+			if (s1.lastname && s2.lastname) {
+                return sortByFirstAndLastName(s1, s2);
+            }
+            return sortString(s1.name, s2.name);
         };
 
         var speakerModel;

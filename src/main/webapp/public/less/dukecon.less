@@ -150,10 +150,7 @@ td {
 
 a {
     font-weight:normal;
-    padding-right:0.5em;
-    padding-left:0.5em;
-    padding-top:0.2em;
-    padding-bottom:0.2em;
+    padding: 0.2em 0.5em;
     text-decoration:none;
     display:inline;
     transition: background 0.7s
@@ -491,7 +488,7 @@ span.twitter a {
         }
     }
     .track {
-        white-space: nowrap;
+        white-space: normal;
     }
 }
 
@@ -611,6 +608,7 @@ span.twitter a {
         padding: 5px;
         margin-left: 5px;
         width: 60%;
+        flex-grow: 1;
         div.talk-widget {
             width: 99%;
             display: block;

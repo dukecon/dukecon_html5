@@ -66,6 +66,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         function Speaker(data, talks, speakers, metaData, favorites) {
             this.id = data.id || 0;
             this.name = data.name || '';
+            this.firstname = data.firstname || '';
+            this.lastname = data.lastname || '';
             this.company = data.company || '';
             this.twitterHandle = '';
             this.twitterLink = '';
@@ -206,7 +208,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
             getSaveAbstractHtml: function (unsafe) {
                 return unsafe
-                    .replace(/&/g, "&amp;")
                     .replace(/</g, "&lt;")
                     .replace(/>/g, "&gt;")
                     .replace(/"/g, "&quot;")

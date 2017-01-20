@@ -127,7 +127,8 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             this.toggleFavourite = dukecon.toggleFavourite;
         },
         template:
-            '<div data-bind="attr : {class: \'talk-cell \' + talk.timeCategory}, visible: talk.title">'
+            '<!-- ko if: talk && talk.title -->'
+            + '<div data-bind="attr : {class: \'talk-cell \' + talk.timeCategory}">'
             + '<div class="fav-smallscreen" data-bind="click: toggleFavourite"><img style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="attr:{src: talk.favicon}"/></div>'
             + '<div class="talk-info">'
             + ' <div class="title darkLink">'
@@ -145,5 +146,6 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + ' <div class="track" data-bind="visible: talk.isTrackVisible, click : function() {window.location.href=\'talk.html#talk?talkId=\' + talk.id; }"><img width="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.trackDisplay" /></div>'
             + ' </div>'
             + '</div>'
+            + '<!-- /ko -->'
     });
 });

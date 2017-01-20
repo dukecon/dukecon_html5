@@ -25,7 +25,8 @@
             <img style="cursor:pointer; margin-right: 2px; vertical-align: middle" title="Add to Favourites" data-bind="click: toggleFavourite, attr:{src: talk().favicon}"/>
             <span style="font-size:110%; font-weight:bold;" data-bind="text: talk().title"></span>
         </div>
-        <table id="talkinfo" data-bind="visible: talk().title">
+        <!-- ko if: talk() && talk().title -->
+        <table id="talkinfo">
             <tr>
                 <td class="talk-details">
                     <div class="speaker-list" data-bind="foreach: talk().speakersWithCompanies">
@@ -54,6 +55,7 @@
                 </td>
             </tr>
         </table>
+        <!-- /ko -->
     </div>
 </div>
 <footer-widget></footer-widget>
