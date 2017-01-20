@@ -127,7 +127,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             this.toggleFavourite = dukecon.toggleFavourite;
         },
         template:
-            '<div data-bind="attr : {class: \'talk-cell \' + talk.timeCategory}">'
+            '<div data-bind="attr : {class: \'talk-cell \' + talk.timeCategory}, visible: talk.title">'
             + '<div class="fav-smallscreen" data-bind="click: toggleFavourite"><img style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="attr:{src: talk.favicon}"/></div>'
             + '<div class="talk-info">'
             + ' <div class="title darkLink">'

@@ -50,7 +50,7 @@
                     <div class="speaker-socialmedia">
                         <!-- ko foreach: socialmedias -->
                         <span data-bind="visible: $parent.speaker()[$data], attr: { class: 'speaker-' + $data}">
-                            <a href="" data-bind="attr: { href: $parent.speaker()[$data]}">
+                            <a target="_blank" href="" data-bind="attr: { href: $parent.speaker()[$data]}">
                                 <img src="" data-bind="attr: {src: 'img/social_' + $data + '.svg', alt: $data}">
                             </a>
                         </span>

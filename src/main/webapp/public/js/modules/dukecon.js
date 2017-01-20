@@ -70,18 +70,21 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             this.twitterHandle = '';
             this.twitterLink = '';
             if (data.twitter && data.twitter.length > 1) {
-                this.twitterHandle = data.twitter;
-                this.twitterLink = "http://www.twitter.com/" + (data.twitter.indexOf('@') === 0 ? data.twitter.substr(1) : data.twitter);
+                if (data.twitter.indexOf("http") === 0) {
+                    var urlRegex = new RegExp(".*/(.+)");
+                    this.twitterLink = data.twitter;
+                    this.twitterHandle = '@' + data.twitter.replace(urlRegex, "\$1");
+                } else {
+					this.twitterHandle = data.twitter;
+					this.twitterLink = "http://www.twitter.com/" + (data.twitter.indexOf('@') === 0 ? data.twitter.substr(1) : data.twitter);
+				}
             }
 
+            
             this.email = data.email || '';
-            if (data.photoId) {
-                this.image = urlprovider.imageBaseUrl + data.photoId
-            } else {
-                this.image = "img/Unknown.png";
-            }
-            this.blog = "http://addme.when.available";
-            this.web = data.web || '';
+            this.image = data.photoId ? urlprovider.imageBaseUrl + data.photoId : "img/Unknown.png";
+            this.blog = data.blog || '';
+            this.web = data.website || '';
 
             this.facebook = data.facebook || '';
             this.googleplus = data.gplus || '';

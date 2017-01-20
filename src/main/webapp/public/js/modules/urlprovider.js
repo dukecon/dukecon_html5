@@ -58,7 +58,7 @@ define(
                  jsonUrl = insertConferenceIdIntoUrl(jsonUrl, getUrlVar("conference"));
                  console.log('detected conference id from url parameter: ' + getUrlVar("conference"));
              }
-             customCssUrl = jsonUrl + cssFile;
+             customCssUrl = jsonUrl.replace(".json", "") + cssFile;
          }
 
         function loadInitData(callback) {
