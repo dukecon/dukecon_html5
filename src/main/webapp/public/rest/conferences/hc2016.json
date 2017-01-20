@@ -1,0 +1,1342 @@
+{
+	"id": "hc2016",
+	"name": "Herbstcampus 2016",
+	"url": "https://herbstcampus.dukecon.org/2016",
+	"metaData": {
+		"audiences": [{
+				"id": "1",
+				"order": 1,
+				"names": {
+					"de": "Einsteiger",
+					"en": "Einsteiger"
+				},
+				"icon": "audience_1.png"
+			}, {
+				"id": "2",
+				"order": 2,
+				"names": {
+					"de": "Experten",
+					"en": "Experten"
+				},
+				"icon": "audience_2.png"
+			}
+		],
+		"eventTypes": [{
+				"id": "1",
+				"order": 1,
+				"names": {
+					"de": "Keynote",
+					"en": "Keynote"
+				},
+				"icon": "eventType_1.png"
+			}, {
+				"id": "2",
+				"order": 2,
+				"names": {
+					"de": "Tutorium",
+					"en": "Tutorium"
+				},
+				"icon": "eventType_2.png"
+			}, {
+				"id": "3",
+				"order": 3,
+				"names": {
+					"de": "Vortrag",
+					"en": "Vortrag"
+				},
+				"icon": "eventType_3.png"
+			}
+		],
+		"languages": [{
+				"id": "1",
+				"code": "de",
+				"order": 1,
+				"names": {
+					"de": "Deutsch",
+					"en": "German"
+				},
+				"icon": "language_de.png"
+			}
+		],
+		"defaultLanguage": {
+			"id": "1",
+			"code": "de",
+			"order": 1,
+			"names": {
+				"de": "Deutsch",
+				"en": "German"
+			},
+			"icon": "language_de.png"
+		},
+		"tracks": [{
+				"id": "1",
+				"order": 1,
+				"names": {
+					"de": "Java",
+					"en": "Java"
+				},
+				"icon": "track_1.png"
+			}, {
+				"id": "2",
+				"order": 2,
+				"names": {
+					"de": ".NET",
+					"en": ".NET"
+				},
+				"icon": "track_2.png"
+			}, {
+				"id": "3",
+				"order": 3,
+				"names": {
+					"de": "JavaScript",
+					"en": "JavaScript"
+				},
+				"icon": "track_3.png"
+			}, {
+				"id": "4",
+				"order": 4,
+				"names": {
+					"de": "andere Sprachen",
+					"en": "andere Sprachen"
+				},
+				"icon": "track_4.png"
+			}, {
+				"id": "5",
+				"order": 5,
+				"names": {
+					"de": "Architektur",
+					"en": "Architektur"
+				},
+				"icon": "track_5.png"
+			}, {
+				"id": "6",
+				"order": 6,
+				"names": {
+					"de": "Testen/Qualität",
+					"en": "Testen/Qualität"
+				},
+				"icon": "track_6.png"
+			}, {
+				"id": "7",
+				"order": 7,
+				"names": {
+					"de": "Infrastruktur",
+					"en": "Infrastruktur"
+				},
+				"icon": "track_7.png"
+			}, {
+				"id": "8",
+				"order": 8,
+				"names": {
+					"de": "Sicherheit",
+					"en": "Sicherheit"
+				},
+				"icon": "track_8.png"
+			}, {
+				"id": "9",
+				"order": 9,
+				"names": {
+					"de": "Agile/Soft Skills",
+					"en": "Agile/Soft Skills"
+				},
+				"icon": "track_9.png"
+			}, {
+				"id": "10",
+				"order": 10,
+				"names": {
+					"de": "Mobile",
+					"en": "Mobile"
+				},
+				"icon": "track_10.png"
+			}, {
+				"id": "11",
+				"order": 11,
+				"names": {
+					"de": "Big Data/Search",
+					"en": "Big Data/Search"
+				},
+				"icon": "track_11.png"
+			}, {
+				"id": "12",
+				"order": 12,
+				"names": {
+					"de": "Diverses",
+					"en": "Diverses"
+				},
+				"icon": "track_12.png"
+			}
+		],
+		"locations": [{
+				"id": "1",
+				"order": 1,
+				"names": {
+					"de": "H1",
+					"en": "H1"
+				},
+				"icon": "location_1.png"
+			}, {
+				"id": "2",
+				"order": 2,
+				"names": {
+					"de": "H2",
+					"en": "H2"
+				},
+				"icon": "location_2.png"
+			}, {
+				"id": "3",
+				"order": 3,
+				"names": {
+					"de": "H3",
+					"en": "H3"
+				},
+				"icon": "location_3.png"
+			}, {
+				"id": "4",
+				"order": 4,
+				"names": {
+					"de": "H4",
+					"en": "H4"
+				},
+				"icon": "location_4.png"
+			}, {
+				"id": "5",
+				"order": 5,
+				"names": {
+					"de": "H5",
+					"en": "H5"
+				},
+				"icon": "location_5.png"
+			}, {
+				"id": "6",
+				"order": 6,
+				"names": {
+					"de": "XX",
+					"en": "XX"
+				},
+				"icon": "location_6.png"
+			}
+		],
+		"defaultIcon": "Unknown.png"
+	},
+	"events": [{
+			"id": "5138",
+			"start": "2016-09-01T11:20:00",
+			"end": "2016-09-01T12:30:00",
+			"title": "Wandelbarkeit wieder herstellen - Refactoring von C#-Legacy-Code",
+			"abstractText": "Die meisten Teams beginnen ihre Projekte nicht auf der sogenannten \"grünen Wiese\", sondern sie arbeiten an Bestandscode. Dieser Code ist häufig schon sehr alt und über die Jahre durch viele Entwicklerhände gegangen. Da mit den Legacy-Systemen nach wie vor Geld verdient wird, ist Abschalten keine Option. Auch Neuschreiben kommt aufgrund des Umfangs nicht in Frage. Um den Code wieder unter die Kontrolle des Teams zu bringen, muss ein Refactoring her. \n\nIn seinem Vortrag gibt Stefan Lieser Antworten auf die Frage, wie man dabei vorgeht. Er zeigt anhand von Beispielen auf, wie mit kleinen toolgestützten Refactoring-Maßnahmen die Lesbarkeit des Codes verbessert werden kann. Ferner zeigt er auf, wie wichtig automatisierte Tests als Sicherheitsnetz sind und wie sie auch bei Legacy-Code ergänzt werden können. Damit ist die Grundlage geschaffen, um mit der Mikado-Methode größere Refactorings umzusetzen, um auf diese Weise die Codebasis wieder wandelbar zu machen und so die hohen Investitionen zu schützen. Alle Beispiele liegen in C# vor, sind aber übertragbar auf andere Sprachen und Plattformen.",
+			"demo": false,
+			"trackId": "2",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": ["-1829577082"],
+			"languageId": "1"
+		}, {
+			"id": "5140",
+			"start": "2016-08-30T09:40:00",
+			"end": "2016-08-30T18:30:00",
+			"title": "Wandelbarkeit wieder herstellen - Komplexe Refactorings umsetzen",
+			"abstractText": "In diesem Workshop führt Stefan Lieser die Teilnehmer anhand zahlreicher Beispiele durch die typischen Herausforderungen von Refactoring-Projekten. Er erläutert, wie mit einfachen toolgestützten Maßnahmen die Lesbarkeit des Codes deutlich verbessert werden kann. \n\nUm auch für größere Veränderungen am Code gewappnet zu sein, lernen die Teilnehmer, wie sie automatisierte Tests ergänzen, um damit ein Sicherheitsnetz für die nachfolgenden großen Refactorings zu schaffen. Im Anschluss lernen die Teilnehmer die Mikado-Methode kennen, mit der große Refactorings durchgeführt werden, um dadurch die Codebasis wieder unter die Kontrolle des Teams zu stellen.\n\nTECHNISCHE VORAUSSETZUNGEN\n\nDie Teilnehmer benötigen einen eigenen Laptop. Auf diesem muss Visual Studio installiert sein, so dass Übungsaufgaben durchgeführt werden können. Die Teilnehmer erhalten vor Ort Beispiele in C# per URL.\n\nEntwickler auf anderen Plattformen, z.B. Java, können sich im Workshop mit C# Entwicklern zusammensetzen und die Aufgaben im Pair durchführen. Der Stoff ist leicht auf andere Sprachen übertragbar.\n\nFalls die Teilnehmer ein Gerät ihrer Firma verwenden, sollte vorher überprüft werden, ob eines der folgenden, gelegentlich vorkommenden Probleme auftreten könnte.\n- Workshop-Teilnehmer hat keine Administrator-Rechte.\n- Corporate Laptops mit übermäßig penibler Sicherheitssoftware\n- Gesetzte Corporate-Proxies, über die man in der Firma kommunizieren muss, die aber in einer anderen Umgebung entsprechend nicht erreicht werden.\n\nEine genaue Agenda seitens des Referenten für die Teilnehmer gibt es erst am Workshoptag.\n",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "2",
+			"typeId": "2",
+			"locationId": "6",
+			"speakerIds": ["-1829577082"],
+			"languageId": "1"
+		}, {
+			"id": "5143",
+			"start": "2016-09-01T11:20:00",
+			"end": "2016-09-01T12:30:00",
+			"title": "The De-Serial Killer - Sicherheitsprobleme beim Deserialisieren",
+			"abstractText": "Ende letzten Jahres war (Spoiler: eigentlich zu Unrecht) die populäre Apache-Common-Collections-Bibliothek in den Schlagzeilen. Manche Magazine titelten sogar reißerisch, dass im Vergleich dazu die Heartbleed getaufte ssh-Sicherheitslücke zahm aussehen würde. Was war da genau passiert? Hinter den Schlagzeilen steckt ein breiteres Feld von Sicherheitsproblemen, nämlich das Deserialisieren von Daten mit verschiedenen Serialisierungs-Bibliotheken. \n\nDieser Vortrag möchte den Vorfall Schritt für Schritt untersuchen und dabei aufzeigen, dass das Problem weder auf diese eine Bibliothek noch auf Java (respektive die Java-VM) beschränkt ist.\n\n",
+			"demo": false,
+			"trackId": "8",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": ["816603017"],
+			"languageId": "1"
+		}, {
+			"id": "5150",
+			"start": "2016-08-30T09:40:00",
+			"end": "2016-08-30T18:30:00",
+			"title": "Ménage à trois - Android- und iOS-Anwendungen mit JavaFX",
+			"abstractText": "Android hat bei gestandenen Java-Entwicklern nicht den besten Ruf: irgendwie Java, aber keine JVM, schicke Benutzeroberfläche, aber eine so gar nicht vertraute API. Und iOS? Von Apple leider als Java-freie Zone vorgesehen. Lässt sich klassisches Java-Wissen also für die beiden bedeutendsten mobilen Plattformen nicht nutzen? \n\nGanz im Gegenteil. Dank des Open-Source-Projekts JavaFXPorts und Plug-ins für mehrere IDEs fällt der Einstieg in die Entwicklung mobiler Anwendungen leicht. Ein bisschen Rüstzeug braucht es freilich schon. Wie konfiguriere ich IDE und Plug-in, wie richte ich die Emulatoren ein, wie strukturiere ich meine Anwendung? All das vermittelt dieser Workshop.\n\nTECHNISCHE ANFORDERUNGEN\n\nDie Teilnehmer benötigen einen eigenen (für die Softwareentwicklung geeigneten) Laptop, der über ausreichend freien Festplattenspeicher für die Installation von Entwicklungswerkzeugen und SDKs verfügt.\nDer Teilnehmer sollte die auf diesem Rechner lokale Administrator-Rechte besitzen. Dies ist nötig, um Software installieren und administrative Funktionen ausführen zu können. Mindestens ein USB-Port sollte freigeschaltet sein und funktionieren.\n\nIm Verlauf des Tutoriums werden die Teilnehmer eigene Apps entwickeln. Das kann direkt auf dem Rechner geschehen (in diesem Fall müssen eine Reihe von Komponenten installiert werden), oder mit Hilfe eines vorkonfigurierten Linux-Images. Möchte der Teilnehmer das Image nutzen, sollte vorab eine aktuelle Version (ideal wäre 5.1) von VirtualBox (https://www.virtualbox.org) installiert werden.\n\nAlternativ können folgende Komponenten installiert werden:\n- Java SE 8 JDK (nicht JRE)\n- Eine der folgenden Entwicklungsumgebungen in möglichst aktueller Version: NetBeans, Eclipse oder IntelliJ IDEA\n- Teilnehmer, die Macs besitzen und Java-Apps unter iOS ausprobieren möchten, laden und installieren bitte Xcode einschließlich der Kommandozeilentools (https://itunes.apple.com/de/app/xcode/id497799835?mt=12). Aus rechtlichen Gründen kann Xcode leider nicht auf einem USB-Stick zur Installation während des Tutoriums zur Verfügung gestellt werden.\n- Teilnehmer, die Java-Apps unter Android ausprobieren möchten, laden und installieren Sie bitte Android Studio einschl. Android SDK (https://developer.android.com/studio/index.html).\n\nSelbstverständlich wird die Installation der Komponenten während des Tutoriums besprochen.\n\nWeitere wichtige Hinweise: \n\n- Der iOS Simulator ist Bestandteil von Apples Entwicklungsumgebung Xcode. Diese ist nur für Mac OS X bzw. macOS verfügbar. Das Betriebssystem wiederum läuft (legal) nur auf Apple-Hardware.\n- Der Bau von iOS-Apps ist nur unter macOS auf Apple-Hardware möglich.\n- Teilnehmer, die Programme nicht im Emulator, sondern auf echter Hardware testen möchten, bringen bitte ein geeignetes Android- oder iOS-Gerät sowie ein passendes Anschlusskabel mit.\n- Für das Entwickeln von Anwendungen für Android wird die Verwendung echter Hardware empfohlen.\n\nAGENDA\n\n9:40: Beginn des Tutoriums\n- Einleitung und Vorstellungsrunde\n- Ein bisschen Geschichte: Java auf mobilen Geräten\n- Ein erster Blick auf die Werkzeuge (Emulatoren, Simulatoren und Virtualisierung)\n- Rechner einrichten #1\n\n10:50 - 11:00: Vormittagskaffeepause\n- Rechner einrichten #2\n- Ein Projekt anlegen\n- Die erste Demo ausführen\n- Blick hinter die Kulissen (Walkthrough)\n\n12:30 - 13:30: Mittagspause\n- Gluon und seine Bestandteile\n- Gerätefunktionen nutzen #1\n- Artefakt-Archeologie: Was landet eigentlich auf dem mobilen Gerät?\n- Gerätefunktionen nutzen #2\n\n15:10 - 15:20: Nachmittagskaffeepause\n- ...wenn was nicht geht... (Debugging)\n- ...was nicht geht... (Nicht vorhandene Funktionen)\n- Was geht? (Profiling)\n\n16:50 - 17:00: kleine Kaffeepause\n- Ein kurzer Blick auf Alternativen (einschl. Demo)\n- Reality Check und gemeinsames Wrap up\n\nca. 18:30 Ende\n\n",
+			"demo": false,
+			"trackId": "10",
+			"audienceId": "1",
+			"typeId": "2",
+			"locationId": "6",
+			"speakerIds": ["557166413"],
+			"languageId": "1"
+		}, {
+			"id": "5155",
+			"start": "2016-08-31T17:20:00",
+			"end": "2016-08-31T18:30:00",
+			"title": "Die Lücke erkannt und geschlossen - Ansible für Devs: Konfigurations&shy;management nicht nur für Ops",
+			"abstractText": "Das automatisierte Konfigurieren von Servern ist dank Orchestrierungswerkzeugen wie Puppet und Chef heute kein Problem mehr. Doch eignen sich diese Werkzeuge wenig für die regelmäßige Softwareverteilung von typischen Java-Webapplikationen. Ansible hat dieses Problem erkannt und liefert Lösungen für das Konfigurationsmanagement und für die Softwareverteilung aus einer Hand. \n\n\n\nDieser Vortrag erklärt am Beispiel einer Infrastruktur für eine Java-Webapplikation die Funktionsweise von Ansible. Dabei wird sowohl auf die Serverkonfiguration wie auch auf das Deployment der Anwendung eingegangen. Zusätzlich wird der Vortrag darauf eingehen, warum Ansible vor allem für Entwickler interessant sein kann. Dabei wird beschrieben, wie Continuous Deployment auch in einer klassischen Unternehmungsstruktur umsetzbar ist.",
+			"demo": false,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "3",
+			"speakerIds": ["1385473993"],
+			"languageId": "1"
+		}, {
+			"id": "5163",
+			"start": "2016-08-31T17:20:00",
+			"end": "2016-08-31T18:30:00",
+			"title": "Die Lust am Coden - Einstieg in Visual Studio Code",
+			"abstractText": "Platz frei auf der Bühne und Vorhänge auf für unseren neuen Star: Visual Studio Code. Zugegeben, das war nicht mein erster Gedanke, als Microsoft einen weiteren Code-Editor veröffentlichte. Ganz im Gegenteil. Als ich allerdings die neue IDE genauer unter die Lupe genommen habe, verliebte ich mich! \n\nDenn Code ist auf die wesentliche Arbeit optimiert und ist nicht überladen. Funktionsumfang ist hingegen umfangreicher als vom großen Bruder Visual Studio und erheblich einfacher zu erweitern. Der Vortrag gibt einen kompletten Einstieg, bis hin zum Schreiben eigener Erweiterungen.",
+			"demo": false,
+			"trackId": "2",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "4",
+			"speakerIds": ["795094020"],
+			"languageId": "1"
+		}, {
+			"id": "5164",
+			"start": "2016-08-30T09:40:00",
+			"end": "2016-08-30T18:30:00",
+			"title": "Einmal für alle - Einstieg in die Cross-Plattform-Entwicklung mit HTML5 und JavaScript",
+			"abstractText": "Die Entwicklung von Apps ist nicht einfach, und jede \"Systemwelt\" hat ihre eigenen Tools und Anforderungen. Ob mit Java und Eclipse für Android, mit Objective-C und Xcode für iOS oder mit den Microsoft-Tools für die Windows-Welt. \n\nBei diesem Vortrag lernen Sie die vielfältigen Möglichkeiten der App-Entwicklung für alle gängigen Plattformen mit nur einer Programmiersprache kennen: HTML5 und JavaScript. Sie steigen mit den Grundlagen von Apache Cordova ein und werden dann mit den wichtigsten Frameworks und Vorgehensweisen vertraut gemacht. Mit diesen Infos steigen Sie rasch zum versierten Cross-Plattform-Entwickler auf.\n\nTECHNISCHE ANFORDERUNGEN\n\nDie Teilnehmer benötigen einen eigenen Rechner mit wahlweise Windows, Mac oder Linux als Betriebssystem.\nIdeal wäre, wenn die Teilnehmer zusätzlich ein Smartphone oder Tablet dabei haben. Auch hier kann es sich um ein Wunschgerät handeln: Android, Windows oder iOS, damit Apps auch auf dem eigenen Gerät getestet werden können.\n ",
+			"demo": false,
+			"trackId": "10",
+			"audienceId": "1",
+			"typeId": "2",
+			"locationId": "6",
+			"speakerIds": ["795094020"],
+			"languageId": "1"
+		}, {
+			"id": "5165",
+			"start": "2016-08-31T15:40:00",
+			"end": "2016-08-31T16:50:00",
+			"title": "Abgesichert - Java Security: Sicherheitsmerkmale von Java SE 8",
+			"abstractText": "Die Sicherheitsmerkmale bieten mit dem Java-Compiler und der JVM eine strenge Typisierung, automatisches Memory-Management und Bytecode-Überprüfung. Java Security bedeutet verschiedene APIs, Werkzeuge, Protokolle und die Implementierung gängiger Sicherheitsalgorithmen. Die Schnittstellen umfassen Kryptographie, Public-Key-Infrastruktur, sichere Kommunikation sowie Authentifizierung und Zugriffskontrolle. \n\nMit Java Security erhält der Entwickler ein Framework zur Anwendungserstellung, dazu Absicherung von signiertem Java-Code mit gültigen Zertifikaten und Zertifikatsketten. Critical Patch Updates, die Sicherheitslücken schließen, unterstützen die Administratoren beim Anwendungsmanagement.",
+			"demo": false,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "5",
+			"speakerIds": ["-1695491290"],
+			"languageId": "1"
+		}, {
+			"id": "5173",
+			"start": "2016-09-01T09:40:00",
+			"end": "2016-09-01T10:50:00",
+			"title": "Swift Gotchas - Was wie und warum in der Programmiersprache Swift gelöst wurde",
+			"abstractText": "Mit der Veröffentlichung der Programmiersprache Swift ist es Apple gelungen, zwei Fliegen mit einer Klappe zu schlagen. So wurde eine moderne Ersetzung für das etwas \"muffig\" anmutende Objective-C geschaffen, ohne die Kompatibilität zu bestehenden Frameworks und Projekten aufzugeben.\n\nDer Vortrag zielt auf interessierte C#-, Java-, etc.-Entwickler, die etwas über die neuen Konzepte in Swift erfahren möchten; wie manche Dinge in Swift übernommen wurden, welche Aspekte eventuell einen Rückfluss auf C# und Java haben könnten. Auch Swift-Entwickler können interessante Aspekte entdecken, warum das eine oder andere Sprachmittel genau so entworfen wurde.",
+			"demo": false,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "3",
+			"speakerIds": ["358314854"],
+			"languageId": "1"
+		}, {
+			"id": "5178",
+			"start": "2016-09-01T11:20:00",
+			"end": "2016-09-01T12:30:00",
+			"title": "For those who missed the hype - JavaFX Basics",
+			"abstractText": "Man kennt das vielleicht: Da beschäftigt man sich ein paar Monate mal nicht mit jedem neuen Thema, schon bekommt man den Anschluss nicht mehr. Plötzlich ist das eben noch Neue der Standard, und man findet nur noch Artikel und Vorträge über Spezialfragen und Detailprobleme. Wie bekommt man jetzt noch kompakt die Grundlagen beigebracht? \n\nIn diesem Vortrag lernen Teilnehmer die wichtigsten Konzepte von JavaFX kennen und bekommen Material für das Selbststudium fortgeschrittener Themen. Es geht unter anderem um folgende Fragen:\n\n* Wie kann ich mit dem SceneBuilder schnell ansprechende Masken bauen?\n* Wie spare ich mit der Binding-API jede Menge Code?\n* Wie binde ich DataModels an meine Komponenten an?\n* Wie helfen mir Transitions und Timelines, coole Effekte zu bauen?",
+			"demo": false,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "5",
+			"speakerIds": ["-709657525"],
+			"languageId": "1"
+		}, {
+			"id": "5187",
+			"start": "2016-08-31T14:00:00",
+			"end": "2016-08-31T15:10:00",
+			"title": "Womit machen wir's denn nun? - MVC 1.0 als alternative Web-Technologie",
+			"abstractText": "Es gibt kaum ein Thema, dass im Enterprise-Umfeld so umstritten ist, wie die Wahl des richtigen Webframeworks. Die perfekte Universallösung gibt es wie so oft nicht, und Unwissenheit über Vor- und Nachteile verschiedener Ansätze führt häufig zu folgenschweren Fehlentscheidungen. Dabei können oftmals einfache grundsätzliche Fragestellungen die Auswahl drastisch minimieren.\n\nDer Vortrag bietet einen praxisnahen Überblick zu existierenden Ansätzen für MVC-Web-Frameworks im Java-Umfeld (Component Oriented vs. Action Oriented) und beleuchtet zusätzlich deren jeweilige Vor- und Nachteile.",
+			"demo": false,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "5",
+			"speakerIds": ["226082496"],
+			"languageId": "1"
+		}, {
+			"id": "5196",
+			"start": "2016-09-01T11:20:00",
+			"end": "2016-09-01T12:30:00",
+			"title": "The Last of Us - Java unter iOS mit Intels Multi-OS Engine",
+			"abstractText": "Java hat es nicht leicht, unter iOS Fuß zu fassen. Die Stand April 2016 als Vorschau-Version verfügbare Multi-OS Engine von Intel könnte das Zeug dazu haben, die nach der Übernahme von Xamarin durch Microsoft eingestellte RoboVM zu beerben. \n\n\n\nDieser Talk stellt die Multi-OS Engine vor und demonstriert, wie Entwickler eine Java-App im iOS-Simulator zum Laufen bekommen. Dabei wird nicht nur bewertet, wie viel Aufwand man hierfür treiben muss. Auch ein kritischer Blick auf den Ressourcenverbrauch und die Performance stehen auf der Agenda.",
+			"demo": false,
+			"trackId": "10",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "3",
+			"speakerIds": ["557166413"],
+			"languageId": "1"
+		}, {
+			"id": "5203",
+			"start": "2016-09-01T15:40:00",
+			"end": "2016-09-01T16:50:00",
+			"title": "Kammerspiele - Hardcore-Docker-Orchestrierung mit Docker Swarm und Docker Compose",
+			"abstractText": "Mit Docker Swarm und Docker Compose stehen nun endlich Werkzeuge zur Verfügung, mit denen stabile Docker-Cluster aufgebaut werden können. Compose kümmert sich dabei um die Bereitstellung der Container in diesem Cluster, Swarm bietet die Grundlage, indem es verschiedene Voraussetzungen hierfür schafft. Mit einer Beispielapplikation werden wir in die Untiefen und Abgründe der Nutzung von Swarm und Compose in einem produktiven Umfeld abtauchen.",
+			"demo": false,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": ["-141781509"],
+			"languageId": "1"
+		}, {
+			"id": "5205",
+			"start": "2016-09-01T14:00:00",
+			"end": "2016-09-01T15:10:00",
+			"title": "Minifliegen im Schwarm - Java EE Microservices mit WIldFly",
+			"abstractText": "Microservices sind in aller Munde. Allerdings wird bei Microservices nur selten an die Enterprise Edition von Java gedacht. Java EE gilt als alte, schwerfällige Technologie, die in Zeiten von Spring Boot und anderen leichtgewichtigen Frameworks überholt ist.\n\nDie Installation und Konfiguration eines Application Server und das anschließende Deployment der Applikation sind zu schwerfällig und aufwendig. Microservices werden am besten \"am Stück\" deployt. Ein Artefakt umfasst den Service und alle benötigten Bibliotheken. Hier kommt WildFly Swarm ins Spiel. Swarm bietet die Möglichkeit, eine Java-EE-Applikation in ein Fat- oder Uber-Jar zu packen. Dieses Jahr beinhaltet die Applikation und alle notwendigen Bibliotheken aus dem Java-EE-Standard, die die Applikation referenziert.",
+			"demo": false,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "5",
+			"speakerIds": ["-1410522578"],
+			"languageId": "1"
+		}, {
+			"id": "5207",
+			"start": "2016-09-01T15:40:00",
+			"end": "2016-09-01T16:50:00",
+			"title": "Klein, aber oho! - Microservices mit JayWire und das Spark Framework",
+			"abstractText": "Die Idee hinter Microservices ist, einfache, wiederverwendbare und entkoppelte Services zu schaffen, die sich leicht kombinieren lassen, um eine spezifische Funktionalität zu implementieren. Diese Services müssen auch einfach zu starten, stoppen, skalieren und zu betreiben sein. Solche Applikationen mit Java Enterprise oder mit ähnlich komplexe Technologien zu implementieren ist wie mit Kanonen auf Spatzen zu schießen.\n\nIn diesem Vortrag implementieren wir eine kleine REST-basierte Applikation von Grund auf mit zwei leichtgewichtige Frameworks: JayWire für Dependency Injection und das Spark Framework als Webframework. Das Endresultat wird ein ausführbares Archiv generieren, das keinen Container zum Laufen braucht, und das alles ganz ohne Annotations, Classpath Scanning, Reflection oder anderen Tricksereien.",
+			"demo": false,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "5",
+			"speakerIds": ["732492802"],
+			"languageId": "1"
+		}, {
+			"id": "5214",
+			"start": "2016-08-30T09:40:00",
+			"end": "2016-08-30T18:30:00",
+			"title": "Drei auf einen Streich - Webframeworks kompakt – Angular 2, Knockout und React",
+			"abstractText": "Die Entscheidungsgrundlagen für das \"richtige\" Webframework war noch nie leicht und ist ständig im Fluss. Derzeit sind clientseitige Webframeworks auf dem Vormarsch, die mit dem Server nur zum Datenaustausch kommunizieren und im Browser ihre Laufzeitumgebung gefunden haben.\n\nIn diesen Workshop blicken Teilnehmer auf nur drei aktuell bekannte Vertreter dieser Art und lernen aktiv bei der Entwicklung einer kleinen Anwendung ihre Grundfunktionen kennen. Er gibt einen Einblick in Angular 2, Knockout und React und ist als Einstieg in das jeweilige Framework konzipiert. Der Workshop bietet einen kompakten Überblick zu den drei Frameworks und leistet, die ersten Schritte unter Anleitung gemeinsam zu gehen.\n\nTECHNISCHE VORAUSSETZUNGEN\n\nDie Teilnehmer benötigen einen Laptop mit Windows, Linux oder Mac OS mit \nAdministrationsrechten und einigermaßen aktuellem Hardwarestand (nicht älter als 10 Jahre).\n\nFalls die Teilnehmer ein Gerät ihrer Firma verwenden, sollte vorher überprüft werden, ob eines der folgenden, gelegentlich vorkommenden Probleme auftreten könnte.\n- Workshop-Teilnehmer hat keine Administrator-Rechte.\n- Corporate Laptops mit übermäßig penibler Sicherheitssoftware\n- Gesetzte Corporate-Proxies, über die man in der Firma kommunizieren muss, die aber in einer anderen Umgebung entsprechend nicht erreicht werden.\n\n\nAGENDA\n\nab 9:00 Registrierung und Begrüßungskaffee\n9:40: Beginn\n9:40 - 10:50:\n- Vorstellungsrunde und organisatorisches\n- Einführung in Webanwendungen früher und aktuell\n- Vorstellung der zu entwickelnden Anwenwendung (3x die gleiche, nur \nmit unterschiedlichen Webframework)    \n- Vorstellung der verwendeten Tools und vorgegebenen Komponenten\n10:50 - 11:00: Vormittagskaffeepause\n11:00 - 12:30:\n- Knockout\n- Einführung\n- Quickstart Anwendung\n- Gemeinsame Entwicklung einer etwas größeren Anwendung\n- Zusammenfassung\n12:30 - 13:30: Mittagspause\n13:30 - 15:10:\n- React\n- Einführung\n- Quickstart Anwendung\n- Gemeinsame Entwicklung einer etwas größeren Anwendung\n- Zusammenfassung\n15:10 - 15:20: Nachmittagskaffeepause\n15:20 - 16:50:\n- Angular\n- Einführung\n- Quickstart Anwendung\n- Gemeinsame Entwicklung einer etwas größeren Anwendung\n- Zusammenfassung\n16:50 - 17:00: kleine Kaffeepause\n- Zusammenfassung und Vergleich der Frameworks\n- Frage-/Diskussionsrunde\n- Feedbackrunde\n- Verabschiedung\nca. 18:30: Ende\n",
+			"demo": false,
+			"trackId": "3",
+			"audienceId": "1",
+			"typeId": "2",
+			"locationId": "6",
+			"speakerIds": ["-1687269926", "-1410892909"],
+			"languageId": "1"
+		}, {
+			"id": "5217",
+			"start": "2016-08-31T11:20:00",
+			"end": "2016-08-31T12:30:00",
+			"title": "Ein Geduldsspiel! Das 1000-Modul-Puzzle für Entwickler - Das neue Modulsystem Jigsaw in Java 9",
+			"abstractText": "Mit Java 9 kommt 2017 das lange angekündigte Modulsystem Jigsaw - eine grundlegende Strukturänderung von Java-Plattform und -Sprache -, mit deren Auswirkungen man sich möglichst früh beschäftigen sollte. Wir erläutern technische Grundlagen, zeigen anhand von Code-Beispielen, wie das Modulsystem aussieht und welche Designentscheidungen getroffen wurden. \n\nWir zeigen Motive und Ziele für die Einführung eines Modulsystems. Weiterhin gehen wir auf Auswirkungen von Modulen zur Compile- und Laufzeit ein, z.B. auf häufig in Frameworks anzutreffende generische Ansätze wie Reflection oder Callbacks. Abschließend behandeln wir fortgeschrittene Themen wie Migrationspfade, Architektur und Komponentenschnitt.",
+			"demo": false,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "5",
+			"speakerIds": ["821132871", "1676651771"],
+			"languageId": "1"
+		}, {
+			"id": "5218",
+			"start": "2016-09-01T14:00:00",
+			"end": "2016-09-01T15:10:00",
+			"title": "Zwischenmenschliches Debugging - Kommunikationsüberwachung mal anders",
+			"abstractText": "Unser menschliches Gegenüber ist wie eine undokumentierte Third-Party Library: Wir müssen erst herausfinden, wie er/sie \"tickt\", um zusammenarbeiten zu können. Und selbst bei bekannten Libraries gibt es immer wieder Überraschungen. Sei es Kollege, Chef oder Kunde: Wir wollen zusammenarbeiten. Mit manchen Zeitgenossen geht das besser, mit anderen weniger gut. Woran liegt das? Und was trage ich selbst dazu bei?\n\nAnhand einiger (Anti-)Patterns aus dem ITler-Leben debuggen wir gemeinsam die Kommunikation zwischen Menschen: Welche etablierten \"Protokolle\" gibt es? Was führt zu Störungen? Welche bekannten IT-Konzepte finden wir wieder? Und vor allem: Wie verhilft uns das zu besserer Kommunikation?",
+			"demo": false,
+			"trackId": "9",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "2",
+			"speakerIds": ["-2109919290"],
+			"languageId": "1"
+		}, {
+			"id": "5222",
+			"start": "2016-08-31T15:40:00",
+			"end": "2016-08-31T16:50:00",
+			"title": "Skale your test environment! - Containerized End-2-End-Testing",
+			"abstractText": "Bei der Konzeption von End-2-End-Tests ist eines der größten Probleme die Frage, wie die Testausführung möglichst robust, reproduzierbar und skalierbar gestaltet werden kann. Diese Hürde lässt sich mit klassischen Ansätzen nicht überwinden. Einen eleganten Ausweg bieten in Container verpackte Testumgebungen. Dadurch wird es möglich, einen definierten Systemstand reproduzierbar aufzurufen und Tests performant auszuführen. \n\nEs wird zeigt, wie z.B. parallele GUI-Tests in verschiedenen Umgebungen zur Qualitätssicherung beitragen. Die Beispiele sind mit dem Open-Source-Tools Sakuli und Docker realisiert und testen Web- und Rich-Client-Applikationen.\n\nDer Vortrag beinhaltet eine großen Anteil an Live-Demo. Die zugehörige Codebasis wird den Zuhören auch zugänglich gemacht.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "3",
+			"speakerIds": ["-1899723914"],
+			"languageId": "1"
+		}, {
+			"id": "5223",
+			"start": "2016-09-01T09:40:00",
+			"end": "2016-09-01T10:50:00",
+			"title": "For Dummies - Virtual Reality für mobile Geräte wie iPhone oder Android",
+			"abstractText": "Überall liest man von Virtual Reality (VR) und Augmented Reality (AR). Aber wie kann man Programme, Apps oder Spiele dafür entwicklen? Für einen schnellen Einstieg gibt es die Unity-Game Engine, die mit verschiedenen Frameworks wie Google Cardboard oder dem VR-One-Framework von Zeiss bestens zusammenarbeitet. \n\nEs wird erläutert, was Assets sind und welche man für VR oder AR benötigt. Und es wird dabei gezeigt, warum einfache Code-Snippets wie \n\n\tvoid Update () {\n\t\ttransform.Rotate(Vector3.up, speed * Time.deltaTime);\n\t}\n\ndas Salz in der Suppe sind und warum es cool ist, diese Code-Snippets mit Objekten und 3D-Modellen per Drag&Drop miteinander zu verbinden.",
+			"demo": false,
+			"trackId": "10",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": ["-1066244551"],
+			"languageId": "1"
+		}, {
+			"id": "5224",
+			"start": "2016-08-30T09:40:00",
+			"end": "2016-08-30T18:30:00",
+			"title": "Machst du schon CDI oder injectest du noch? - CDI jenseits von @Inject und @xxxScoped",
+			"abstractText": "\"Ja, wir machen auch CDI.\" Diesen Satz hört man inzwischen in immer mehr Java-EE-Projekten – eine erfreuliche Entwicklung. Doch auf die Frage, was genau von CDI verwendet wird, kommt meist die Antwort: \"Dependency Injection & Scopes\". Doch Contexts and Dependency Injection ist mehr als das!\n\nDer Workshop stellt anhand praktischer Beispiele die Grundkonzepte von CDI vor und behandelt dabei Features wie Stereotypen, Alternativen, Interceptoren und Events. Zusätzlich werden die deklarativen TX-Steuerung und die Erweiterung des Frameworks mit eigenen Extensions vorgestellt. All das kann am eigenen Rechner nachvollzogen und somit selbst ausprobiert werden, was mit CDI jenseits von @Inject und @xxxScoped alles möglich ist.\n\nTECHNISCHE ANFORDERUNGEN\n\nDie Teilnehmer benötigen einen Laptop mit aktueller Hardwareausstattung. Als Betriebssysteme sind Windows, Linux und Mac OS geeignet, wobei die Teilnehmer ihr Betriebssystem soweit beherrschen sollten, um Software zu installieren und Serverinstallationen zu starten. Tablets sind für die Übungen nicht geeignet. Darüber hinaus sollten die Teilnehmer die Administrator-Rechte auf ihren Rechnern haben, sowie speziell die Möglichkeit die Netzwerkeinstellungen anzupassen und auf die USB Schnittstellen zuzugreifen.\n\nFolgende Hardwarevoraussetzungen sollten gegeben sein:\n- Windows/Linux/MacOS mit Administratorrechte\n- min. 4 besser 8 GB RAM\n- 1GB freier Festplattenplatz\n\nFolgende Installationen sollten vorhanden sein:\n- Java Development Kit 8 akt. Update (JDK, nicht nur ein JRE ,) )\n- Wildfly 10\n- IDE der Wahl (empfohlen: aktuellste eclipse JEE edition)\n- Maven 3\n- Zip-Archiver (winzip, gzip, o.ä)\n- Acrobat Reader\n- Firefox / Chrome\n\n\nAGENDA\n\nab 9:00 Registrierung und Begrüßungskaffee\n\n9:40: Beginn\n* Begrüßung\n* Motivation\n* CDI Grundlagen\n* Aufbau der Umgebung (1. Übung)\n\n10:50 - 11:00: Vormittagskaffeepause\n* Producer & Stereotypes\n* Injections & Qualifier\n* Alternativen\n* 2. Übung\n\n12:30 - 13:30: Mittagspause\n* Interceptoren\n* TX-Hanlding\n* Events\n* 3. Übung\n\n15:10 - 15:20: Nachmittagskaffeepause\n* CDI Extensions\n* 4. Übung\n\n16:50 - 17:00: kleine Kaffeepause\n* Zusammenfassung\n* Zeit zum Spielen\n* Fragen und Antworten\n\nca. 18:30: Ende\n\n\n",
+			"demo": false,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "2",
+			"locationId": "6",
+			"speakerIds": ["-1045300317", "-1354582681"],
+			"languageId": "1"
+		}, {
+			"id": "5226",
+			"start": "2016-08-30T09:40:00",
+			"end": "2016-08-30T18:30:00",
+			"title": "Puzzlespiel - Einführung in Microservices mit Lagom",
+			"abstractText": "\"Gekommen, um zu bleiben\", so oder ähnlich titeln in jüngerer Zeit viele Artikel, die über das Thema Microservices berichten. Der anfängliche Hype ist etwas abgeklungen, inzwischen gibt es einiges an praktischen Erfahrungen und an unterstützenden Werkzeugen, und es zeichnet sich ab, dass uns das Thema Microservices noch längere Zeit begleiten wird.\n\nIn diesem Workshop geht es darum, erste eigene Erfahrungen zu sammeln. Nach einem allgemeinen Überblick über das Thema entwickeln wir basierend auf dem Microservice-Frameworks Lagom einige eigene Services. Schließlich betrachten wir das Deployment mit Docker und schneiden Themen wie Monitoring und zentrales Logging an.\n\nTECHNISCHE ANFORDERUNGEN\n\nDie Teilnehmer benötigen einen eigenen Laptop um an den Programmieraufgaben teilnehmen zu können.\n\n",
+			"demo": false,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "2",
+			"locationId": "6",
+			"speakerIds": ["1855963293", "816603017"],
+			"languageId": "1"
+		}, {
+			"id": "5227",
+			"start": "2016-08-31T17:20:00",
+			"end": "2016-08-31T18:30:00",
+			"title": "Go Mobile! - Von der .NET-Desktopanwendung zur mobilen Welt mit Xamarin",
+			"abstractText": ".NET und C# haben sich im Bereich Desktop und Cloud Computing seit Jahren bewährt. Doch mit C# lassen sich zwischenzeitlich auch ausgereifte Anwendungen und Apps für OS X, iOS und Android herstellen. Mobile Geräte haben längst die Leistungsfähigkeit von Desktopsystemen erreicht. \n\nIn diesem Vortrag erfahren Sie, wie man eine einheitliche Codebasis für Windows, iOS und Android mithilfe von Xamarin unter einen Hut bekommt. Erlernen Sie Migrationspfade und bekommen Sie einen Geschmack für Multiplattformentwicklung unter C#.",
+			"demo": false,
+			"trackId": "10",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "2",
+			"speakerIds": ["1551932761"],
+			"languageId": "1"
+		}, {
+			"id": "5228",
+			"start": "2016-08-31T11:20:00",
+			"end": "2016-08-31T12:30:00",
+			"title": "Fünf Jahre OO-Entzug - Funktionale Programmierung im industriellen Einsatz",
+			"abstractText": "Active Group entwickelt Individualsoftware in sehr unterschiedlichen Bereichen, seit 2011 fast ausschließlich in funktionalen Sprachen, darunter Scala, Clojure, F#, Erlang, OCaml und Haskell. Warum nur? Weil es besser ist, in fast jeder Beziehung. Konsequent funktionale Programmierung bedeutet allerdings große Umstellungen von traditionaller OO-Praxis.  \n\nDer Vortrag resümiert die wichtigsten Unterschiede funktionaler Projekte zu OO-Software und berichtet darüber, wie sich diese in der Praxis ausgewirkt haben.",
+			"demo": false,
+			"trackId": "12",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "3",
+			"speakerIds": ["1550049992"],
+			"languageId": "1"
+		}, {
+			"id": "5234",
+			"start": "2016-08-31T20:00:00",
+			"end": "2016-08-31T21:00:00",
+			"title": "Software engineering through the eyes of a role playing gamer - Fallstricke und deren Vermeidung aus dem Alltag der Softwareentwicklung",
+			"abstractText": "Der Vortrag stellt den Zuhörern typische Situationen aus dem Alltag der Softwareentwicklung vor. Angelehnt an das Setting eines klassischen Pen-and-Paper-Rollenspiels hat das Publikum die Möglichkeit selbst zu entscheiden, wie es in den jeweiligen Situationen reagieren möchte, und bestimmt so den Verlauf des Vortrags maßgeblich mit. Je nach Entscheidung wird anschließend analysiert, welche Auswirkung diese Entscheidung hat, inwiefern sie negative Konsequenzen mit sich bringen kann und wie man diesen entgegenwirkt.\n\nDer Themenbereich dieses Rollenspiels ist naturgemäß sehr weitläufig. So umfasst er zum einen technische Aspekte, wie beispielsweise die Bedeutung von Unit-Tests. Aber auch der Umgang mit organisatorischen Fragestellungen und die Wichtigkeit von Soft Skills werden behandelt. Die Herausforderung, wie auf kleine bis große Änderungen der Anforderungen während eines Sprints reagiert werden kann, ist hierfür nur ein Beispiel.",
+			"demo": false,
+			"trackId": "9",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "5",
+			"speakerIds": ["1019509527", "929293241"],
+			"languageId": "1"
+		}, {
+			"id": "5235",
+			"start": "2016-08-31T14:00:00",
+			"end": "2016-08-31T15:10:00",
+			"title": "Autsch! - Technische Schulden tun weh! Wie man sie erkennt und beseitigt",
+			"abstractText": "Fast jedes Softwaresystem wird mit guten Vorsätzen, aber unter schwierigen Bedingungen entwickelt. Deadlines, unterschiedliche Qualifikationen und Missverständnisse im Entwicklungsteam führen dazu, dass die Architektur des Systems erodiert und Schritt für Schritt technische Schulden aufgebaut werden. In diesem Vortrag zeige ich, wie Sie Ihren Sourcecode organisieren und weiterentwickeln können, um technische Schulden zu verhindern. Dabei werden Sie sehen, welche Tools sich besonders eignen, technische Schulden durch geeignete Refactorings aus der Welt zu schaffen. Basis der Empfehlungen sind Beispiele aus über 100 Analysen in Java, C#, C++, PHP und ABAP.",
+			"demo": false,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": ["-1165736893"],
+			"languageId": "1"
+		}, {
+			"id": "5236",
+			"start": "2016-09-01T09:40:00",
+			"end": "2016-09-01T10:50:00",
+			"title": "It’s all about the domain, honey! - Erfahrungen aus 10 Jahren Domain Driven Design",
+			"abstractText": "Beim Bauen von Software werden tolle Technologien, Programmiersprachen und Tools eingesetzt. Das ist gut und richtig. Aber leider wird dabei oft aus den Augen verloren, dass das Entscheidende nicht die Technik, sondern die \"Fachlichkeit\" ist. Wenn wir in der Software nicht das fachliche Modell abbilden, dann wird sie unseren Anwendern nicht bei Ihrer Arbeit helfen. Davor schützt uns keine Technologie der Welt. Um das zu verhindern, zeigen wir in diesem Vortrag, wie man die Architektur so baut, dass sie die Fachlichkeit darstellt und wie Domain Driven Design (DDD) und Microservices uns dabei helfen können.",
+			"demo": false,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "2",
+			"speakerIds": ["-1165736893", "1439020249"],
+			"languageId": "1"
+		}, {
+			"id": "5237",
+			"start": "2016-08-31T17:20:00",
+			"end": "2016-08-31T18:30:00",
+			"title": "Java on Speed - JRebel - kein Warten auf Redeployments mehr",
+			"abstractText": "Der Alltag von vielen Java-Entwicklern ist von einem Zyklus geprägt - Code, Build, Redeploy, Test. Dabei kann ein Entwickler seine Komponente oft nicht isoliert testen und muss stattdessen das komplette System bauen und deployen. Im Gegensatz dazu bietet das Tool JRebel die Möglichkeit an, Änderungen im Sourcecode zur Laufzeit neu zu laden, ohne die Applikation stoppen zu müssen. Dabei werden Änderungen im Klassenschema und sogar Klassenhierarchien unterstützt. Außerdem stellt JRebel Integration mit vielen Frameworks (Hibernate, JSF, Spring) zur Verfügung. Die Konfiguration und die Features von JRebel lassen sich anhand zahlreicher praktischer Beispiele mit einer Java-EE-Applikation gut veranschaulichen.",
+			"demo": false,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "5",
+			"speakerIds": ["1813644629"],
+			"languageId": "1"
+		}, {
+			"id": "5241",
+			"start": "2016-08-31T17:20:00",
+			"end": "2016-08-31T18:30:00",
+			"title": "Tränen lügen nicht - Dashboards schon! - Ein Einstieg in die Welt der quantitativen Analysen",
+			"abstractText": "\"Und dann war da noch der Mann, der beim Durchqueren eines im Durchschnitt nur 15 cm tiefen Flusses ertrank.\" (W. Gates) - Statistiken können einen leicht in die Irre führen. So ist es auch mit den Ergebnissen aus Code-Analysen. Was nützt mir zum Beispiel eine durchschnittlich hohe Testabdeckung, wenn mein kritischstes Modul wegen hoher Komplexität ungetestet bleibt?\n\nDieser Vortrag gibt eine fundierte Einführung in die Welt der quantitativen Analysen. Welche Aspekte einer Software lassen sich überhaupt durch Messen bewerten? Welche Tools gibt es für welchen Zweck? Sowohl freie als auch kommerzielle Lösungen werden dabei beleuchtet. Ich zeige bewährte Prinzipien, die Projektteams weiterhelfen, wenn es um die Vorbereitung und Begleitung konkreter Verbesserungsmaßnahmen geht. Dazu werden insbesondere bekannte Metriken sinnvoll in Zusammenhang gebracht, wie im Beispiel oben zu Testüberdeckung und Komplexität. Das Ergebnis ist ein wirkungsvoller Umgang mit Code-Analysen, ohne den Tools ein tolles System nur vorzugaukeln!",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": ["-2057561800"],
+			"languageId": "1"
+		}, {
+			"id": "5246",
+			"start": "2016-09-01T14:00:00",
+			"end": "2016-09-01T15:10:00",
+			"title": "Besser etwas größer - Maschinelles Lernen im Umfeld von Big Data - eine Einführung in Apache Spark",
+			"abstractText": "Die Kosten für Speichermedien sinken und das systematische Sammeln von Datenmassen aller Arten wird immer leichter. Big Data ist in den Unternehmen angekommen. Viele Projekte sind bereits über den Pilot- oder Prototypenstatus hinaus. Apache Spark ist ein skalierbares System für die flexible Verarbeitung großer Datenmengen. Es kann helfen, Informationen in den Bergen von Rohdaten zu finden und so zu neuen Einsichten führen. \n\nDer Vortrag stellt Apache Spark vor und beschreibt konkrete Einsatzszenarien mit praxisrelevanten und nachvollziehbaren Beispielen aus dem Bereich des maschinellen Lernens vor.",
+			"demo": false,
+			"trackId": "11",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "4",
+			"speakerIds": ["-1950729847"],
+			"languageId": "1"
+		}, {
+			"id": "5248",
+			"start": "2016-08-31T11:20:00",
+			"end": "2016-08-31T12:30:00",
+			"title": "Endlich Multi-Plattform! - C# everywhere: Ein Code für alle Fälle",
+			"abstractText": "C# ist ausgereift und allerseits bei Entwicklern beliebt. Durch die Entwicklung von .NET Core auf GitHub und mit der Verfügbarkeit von Visual Studio Code als kostenlose IDE für alle Plattformen ist C# wichtiger denn je. Wenn man diese Tatsachen unter dem Gesichtspunkt sieht, dass Serverapplikationen, die auf C# basieren, jetzt auch unter Linux und OS X laufen, und C#-Client-Applikationen auch Device- und plattformübergreifend funktionieren, wird es erst richtig spannend. \n\nIn diesem Vortrag zeigt Daniel Meixner, was mit C# möglich ist und wohin die Reise geht.",
+			"demo": false,
+			"trackId": "2",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "4",
+			"speakerIds": ["1093609814"],
+			"languageId": "1"
+		}, {
+			"id": "5250",
+			"start": "2016-09-01T09:40:00",
+			"end": "2016-09-01T10:50:00",
+			"title": "Russisch unterwegs! - Kotlin für die moderne Android-Entwicklung",
+			"abstractText": "Android-Entwickler können nur sehnsüchtig seufzen: Die neuen Java-8-Möglichkeiten bleiben ihnen vorenthalten. Abhilfe schafft hier die Programmiersprache Kotlin, welche dieses Jahr die 1.0 erreicht hat. Ausdrucksstarke Syntax, nahtlose \"Android Studio\"-Integration, funktionale Features und die vollständige Binär- und Codekompatibilität mit Java 6 machen Kotlin auch unter Android zu einer idealen Alternative.\n\nIn dieser Session erleben wir live, wie es sich anfühlt, die NullpointerException gegen moderne Sprachfeatures einzutauschen. Eine einfache Beispiel-App hilft beim Kennenlernen, sodass auch Neueinsteiger gut folgen können und interessante Einblicke in Kotlin und Android gewinnen.",
+			"demo": false,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "5",
+			"speakerIds": ["-1261269922"],
+			"languageId": "1"
+		}, {
+			"id": "5253",
+			"start": "2016-09-01T11:20:00",
+			"end": "2016-09-01T12:30:00",
+			"title": "Der Kleber unserer digitalen Welt - Architekturelle Bedeutung beim API-Design",
+			"abstractText": "In diesem Vortrag lernen Sie die umfassende Bedeutung von API-Design für moderne Softwarearchitekturen kennen. So wie jedes Softwaresystem eine Architektur hat, so hat auch jedes Objekt, Modul oder Bibliothek eine API. Jeder Softwareentwickler ist automatisch auch ein API-Designer, denn APIs sind allgegenwärtig. Das Spektrum reicht von der objektorientierten API des JDK über die Web-API von Twitter bis zur Chat-API mit XMPP. APIs sollten nicht zufällig entstehen, sondern bewusst entworfen werden. API-Design ist aber auch eine Frage der Priorität, da man typischerweise an Team- oder Systemgrenzen mehr in API-Design investiert als an internen Schnittstellen. \n\nDieser Vortrag stellt die Bedeutung und Vielfältigkeit von APIs vor und geht dabei auf deren architekturelle Bedeutung ein.",
+			"demo": false,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "4",
+			"speakerIds": ["892549146"],
+			"languageId": "1"
+		}, {
+			"id": "5257",
+			"start": "2016-08-31T11:20:00",
+			"end": "2016-08-31T12:30:00",
+			"title": "Auf die Daten kommt es an! - Daten-Architekturen nicht nur für Microservices",
+			"abstractText": "Microservices sollen keine gemeinsame Datenbank haben. Warum eigentlich? Und was ist mit der dabei entstehenden Redundanz? Viele Architekturen kranken an zu großen und inflexiblen Datentöpfen. \n\nDieser Vortrag zeigt die Gründe für die Probleme: die Missachtung von Bounded Context und eine viel zu enge Kopplung der Datenmodelle. Ansätze wie CQRS (Command Query Responsibility Segregation) und Event Sourcing zeigen, wie solche Probleme gelöst werden können - ohne dass dabei zu große Redundanzen bei den Daten entstehen.",
+			"demo": false,
+			"trackId": "5",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "2",
+			"speakerIds": ["443649779"],
+			"languageId": "1"
+		}, {
+			"id": "5262",
+			"start": "2016-09-01T11:20:00",
+			"end": "2016-09-01T12:30:00",
+			"title": "Abstraction, Abstraction, Abstraction - Mit dem Page Object Pattern und Geb zu Test Driven Development für Web-UIs",
+			"abstractText": "Jeder Entwickler weiß, dass er seinen Code testen sollte. Nur das UI gilt gemeinhin, als schwierig zu testen, und die Tests haben den Ruf, fragil zu sein und bei kleinen Änderungen im produktiven Code reihenweise umzufallen. Das 'Browser Automation' Toolkit Geb verspricht mit einer Groovy-basierenden DSL, jQuery-ähnlicher Syntax und einer pragmatischen Abstraktion über dem Selenium WebDriver Abhilfe. Zusammen mit Spock erlaubt Geb es, gut leserliche Tests zu schreiben. Dank dem von Geb tief in seiner Architektur eingebunden Page Object Pattern sind diese Tests außerdem äußerst robust gegenüber Änderungen in der UI.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "2",
+			"speakerIds": ["-356329648"],
+			"languageId": "1"
+		}, {
+			"id": "5267",
+			"start": "2016-09-01T15:40:00",
+			"end": "2016-09-01T16:50:00",
+			"title": "Graphdatenbanken und die \"Panama Papers\" - Warum Islands Premierminister wegen Neo4j zurücktreten musste",
+			"abstractText": "Im Frühjahr 2016 wurden in der Presse die ersten Berichte zu den \"Panama Papers\" veröffentlicht. Mit knapp 3 TByte an Rohdaten war dies das bisher mit Abstand größte Leak an Daten weltweit. Der Vortrag gibt technische Einblicke, wie das ICIJ (International Consortium Of Investigate Journalists) diese riesige Datenmenge verarbeitet und den Journalisten zur Recherche einfach benutzbar bereitgestellt hat. \n\nNeben anderen Technologien kamen dabei auch Graphdatenbanken als Schlüsselkomponente zum Einsatz. Eine Livedemo wird Lesbarkeit und Mächtigkeit der Abfragesprache \"Cypher\" auf dem Panama Paper Dataset deutlich machen.",
+			"demo": false,
+			"trackId": "11",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "4",
+			"speakerIds": ["-1007539910"],
+			"languageId": "1"
+		}, {
+			"id": "5270",
+			"start": "2016-08-31T15:40:00",
+			"end": "2016-08-31T16:50:00",
+			"title": "Sag doch was! - Von der Kunst, nicht zu kommunizieren",
+			"abstractText": "Wo es permanent darum geht, Anforderungen zu formulieren, Probleme zu analysieren und zu lösen, ist die ganzheitliche Kommunikation unter Umständen entscheidend über Erfolg oder Misserfolg eines Projekts. Meistens sind aber doch eher Kommunikationsstau und Konflikt-Hiding an der Tagesordnung, und wir verstecken uns gern hinter dem Alibi des Zeitmangels.\n\nDieser Vortrag bietet einen Exkurs in die Welt der Missverständnisse, der Metakommunikation und Chatverläufe, in die wir tagtäglich eintauchen und trotzdem glauben, wir hätten alles im Griff. Der Risikofaktor Mensch sozusagen einmal anders betrachtet.",
+			"demo": false,
+			"trackId": "9",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": ["-1180186937"],
+			"languageId": "1"
+		}, {
+			"id": "5273",
+			"start": "2016-09-01T15:40:00",
+			"end": "2016-09-01T16:50:00",
+			"title": "Slow go! - Reactive Extensions in C#",
+			"abstractText": "TBA",
+			"demo": false,
+			"trackId": "2",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "2",
+			"speakerIds": ["2026998244"],
+			"languageId": "1"
+		}, {
+			"id": "5274",
+			"start": "2016-08-31T14:00:00",
+			"end": "2016-08-31T15:10:00",
+			"title": "Verteilter Schatz - Git im Umfeld von Visual Studio und TFS",
+			"abstractText": "Schon seit mehr als zehn Jahren gibt es die verteilte Versionsverwaltung Git. Vor allem im Open-Source-Bereich hat sie sich als Quasi-Standard für die Versionsverwaltung etabliert. Dies vor allem auch durch weit verbreitete Plattformen wie GitHub, Bitbucket und auch jüngst Visual Studio Team Services. Spätestens durch die Integration von Git in TFS ist das System auch in den Fokus von Unternehmen und Institutionen gerückt. Ein Wechsel von einem zentralen System wie TFVC oder Subversion zu Git gestaltet sich oft als schwierig, da Git in vielen Punkten einfach anders ist. Ein Erfahrungsbericht über eine Transformation von zentral nach dezentral darf an dieser Stelle natürlich nicht fehlen.\n\nDer Vortrag geht vor allem auf die Integration von Git in TFS/Visual Studio ein und zeigt Beispiele aus der Praxis. Von Pull-Request bis Rebase, in der Kombination TFS/Visual Studio ist schon heute vieles möglich. Branching, Rebasing oder Merge sind weitere Konzepte, die anhand von Beispielen tiefgreifend erklärt werden.",
+			"demo": false,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "4",
+			"speakerIds": ["2026998244"],
+			"languageId": "1"
+		}, {
+			"id": "5277",
+			"start": "2016-08-31T14:00:00",
+			"end": "2016-08-31T15:10:00",
+			"title": "Der Butler von Münchhausen - Continuous Delivery of Continuous Delivery",
+			"abstractText": "Viele Organisationen haben in den letzten Jahren eine Plattform für Continuous Integration oder gar Continuous Delivery aufgebaut. Man kann auch die Plattform selbst nach dem Prinzip \"Infrastructure as Code\" erstellen und kontinuierlich reproduzieren und testen, sie also zum Gegenstand einer Continuous-Delivery-Strategie machen. Damit lässt sich nicht nur die Funktionsfähigkeit der Plattform permanent prüfen und garantieren, sondern es können auch sehr leicht weitergehende Use Cases abgebildet werden, z.B. Weiterentwicklung/Upgrade einer Komponente, Integration neuer Komponenten/Plug-ins, Austausch einer Komponente. Außerdem lassen sich beispielsweise Mitarbeiter oder Entwickler damit schulen oder komplexe CI-/CD-Prozesse testen, beispielsweise das Release von Komponenten.",
+			"demo": false,
+			"trackId": "7",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "3",
+			"speakerIds": ["875600594"],
+			"languageId": "1"
+		}, {
+			"id": "5280",
+			"start": "2016-08-31T15:40:00",
+			"end": "2016-08-31T16:50:00",
+			"title": "Types in the Web - Eine Einführung in TypeScript für .NET- und Java-Entwickler",
+			"abstractText": "TypeScript verspricht, dass mit der fehleranfälligen und unstrukturierten Webentwicklung endlich Schluss ist. Dafür wird JavaScript um sinnvolle Techniken wie Modul-Systeme und eine statische Typisierung erweitert. Für Java-Programmierer entstehen dabei aber auch neue Herausforderungen: Eine neue Syntax muss erlernt und neue Tools sowie Build-Umgebungen müssen integriert werden.\n\nDieser Vortrag führt mit viel Live-Coding durch die wichtigsten TypeScript-Features und zeigt, wie eine TypeScript-basierte Webanwendung in Java integriert werden kann.",
+			"demo": false,
+			"trackId": "3",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "4",
+			"speakerIds": ["-39033607", "916405473"],
+			"languageId": "1"
+		}, {
+			"id": "5281",
+			"start": "2016-09-01T14:00:00",
+			"end": "2016-09-01T15:10:00",
+			"title": "JavaScript goes Mobile - Native Apps mit JavaScript",
+			"abstractText": "Mit Apache Cordova (bzw. PhoneGap) gibt es seit 2009 die Möglichkeit, mobile Anwendungen mit JavaScript zu schreiben, die User Experience (UX) ist jedoch nicht wie vom Anwender erwartet. Mit Facebooks \"React Native\" und Teleriks \"NativeScript\" gibt es seit 2015 einen neuen Ansatz, native Apps mit JavaScript zu entwickeln.\n\nDer Vortrag soll einen Überblick über die aktuellen Möglichkeiten geben und bei folgenden Fragen weiterhelfen:\n\n* Welche Voraussetzungen gibt es für mein Projekt?\n* Wie kann ich eine bestehende Codebasis weiterverwenden?\n* Welches Vorgehen bietet sich bei einer Neuentwicklung an?\n* Welche Vor-/Nachteile gibt es für den Kunden?",
+			"demo": false,
+			"trackId": "10",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "3",
+			"speakerIds": ["-1854535626"],
+			"languageId": "1"
+		}, {
+			"id": "5283",
+			"start": "2016-08-31T14:00:00",
+			"end": "2016-08-31T15:10:00",
+			"title": "Don't be the next Ashley Madison - Penetrationstests für Entwickler",
+			"abstractText": "Sicherheit in Web-Anwendungen ist ein alter Hut. Dazu hat jeder Entwickler schon genug Artikel gelesen und Vorträge gehört. Könnte man meinen. Doch die Realität zeigt uns ein anderes Bild. Fast täglich tauchen neue Meldungen über gehackte Webseiten auf.\n\nWie lassen sich solche Fehler auch ohne ein teures Audit von Spezialisten finden? Wie kann man als Entwickler ein Gespür für Sicherheitskritische Stellen im Code entwickeln?\n\nIn diesem Talk wird gezeigt, wie man die eigene Anwendung einem Security-Check unterziehen kann und wie man sich so mit Hilfe von frei verfügbarem Material langsam an die Denkweise von Hackern herantasten kann.",
+			"demo": false,
+			"trackId": "8",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "2",
+			"speakerIds": ["-810025036"],
+			"languageId": "1"
+		}, {
+			"id": "5285",
+			"start": "2016-09-01T15:40:00",
+			"end": "2016-09-01T16:50:00",
+			"title": "Live-Coding - Was mit Angular 2 in einer Stunde möglich ist",
+			"abstractText": "AngularJS ist derzeit eines der beliebtesten Frameworks für Single-Page-Webandwendungen. Zu Recht, vereint es doch viele bereits seit Jahren in der Native-Richt-Client-Entwicklung etablierte Techniken wie Dependency Injection und Data Binding. Doch auch AngularJS hat seine Schwächen und eine steile Lernkurve. Um diese Situation zu verbessern, wird derzeit an Angular 2 gearbeitet. Was bietet sich da mehr an, als gemeinsam anhand von Code anzuschauen, was da auf uns zukommt.\n\nIn diesem Talk werden anhand eines Live-Codings der Aufbau einer Angular-2-Anwendung gezeigt, die neuen Konzepte vorgestellt und auf die Unterschiede zu AngularJS 1.x eingegangen.",
+			"demo": false,
+			"trackId": "3",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "3",
+			"speakerIds": ["-810025036"],
+			"languageId": "1"
+		}, {
+			"id": "5286",
+			"start": "2016-09-01T09:40:00",
+			"end": "2016-09-01T10:50:00",
+			"title": "Same Same But Different - Product vs. Project Development [Sponsored Talk]",
+			"abstractText": "Bei einem Softwareprojekt kennt man in der Regel schon zu Beginn den Einsatzzweck, die Zielumgebung und die geplanten Mengengerüste und kann die Architektur gezielt darauf ausrichten. Bei einem Produkt wie der kundenzentrierten BPM-Lösung ConSol CM hingegen treffen wir auf unterschiedlichste Umgebungen, breit gestreute Mengengerüste und sind immer wieder überrascht von der Kreativität, mit der die Kunden sie für unterschiedlichste Zwecke einsetzen. Daraus ergeben sich völlig eigene Anforderungen an die Softwarearchitektur, die mit denen eines Projekts kaum vergleichbar sind. \n\nAn einigen Beispielen zeigt dieser Vortrag, welche Erfahrungen ConSol im Laufe der Jahre bei der Entwicklung von ConSol CM gemacht hat und worauf man bei der Architektur von Softwareprodukten generell achten sollte.",
+			"demo": false,
+			"trackId": "3",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "4",
+			"speakerIds": ["894047862"],
+			"languageId": "1"
+		}, {
+			"id": "5287",
+			"start": "2016-08-31T15:40:00",
+			"end": "2016-08-31T16:50:00",
+			"title": "Kontinuierlich und effizient - Agil Softwarearchitektur dokumentieren",
+			"abstractText": "Man kann zwar an vielen Stellen nachlesen, wie man Architekturdokumentation strukturiert. Aber auf der Suche nach einer praktikablen Handhabung zur Erstellung und Pflege enden die meisten Versuche in der WYSIWYG-Hölle einer Textverarbeitung oder im tiefen Schlund eines Wikis. In diesem Vortrag wollen wir uns anschauen, wie aufbauend auf bestehenden Tools und Textformaten eine möglichst redundanzfreie Dokumentation erstellt und für verschiedene Zielgruppen in ansprechenden Formaten ausgeliefert werden kann. Es wird dabei um Begriffe wie Continuous Documentation und Documentation as Code gehen.",
+			"demo": false,
+			"trackId": "3",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "2",
+			"speakerIds": ["2084223119"],
+			"languageId": "1"
+		}, {
+			"id": "5288",
+			"start": "2016-08-31T10:00:00",
+			"end": "2016-08-31T10:50:00",
+			"title": "Designen für alle - Keynote: Softwareentwicklung im Zeichen einer inklusiven Gesellschaft",
+			"abstractText": "In den letzten Jahren hat sich das Bild des Nutzers von Webseiten, Desktopprogrammen und Apps für Smartphone und Tablet stark gewandelt. Waren in den ersten Jahren nach dem Einzug des Internets in unsere Welt hauptsächlich technisch versierte Anwender unterwegs, ist das Web und sind Apps heute längst Massenmarktprodukte, die von einem breiten Spektrum der Bevölkerung genutzt werden. \n\nDies stellt auch neue Anforderungen an das Softwaredesign und die Benutzbarkeit. Konnte man früher von einem gewissen technischen Basiswissen ausgehen, muss man Nutzer heute durch eine einfache Nutzerführung möglichst transparent so mitnehmen, dass sie zum einen keine Eingabefehler machen können, zum anderen sicher vor Schaden sind und trotzdem auf einfache Weise zum Ziel gelangen. Auch die Menge an unterschiedlich befähigten Menschen hat stark zugenommen. Nicht alle Nutzer sind sehend, haben keine motorischen Einschränkungen oder sind auf dem gleichen kognitiven Level wie man als\nSoftwareentwickler selbst. \n\nIn diesem Vortrag möchte ich einige Ansätze eines möglichst inklusiven Designs zeigen, die man über Plattformgrenzen und solche der Programmiersprachen hinweg kennen sollte, um seine Apps so inklusiv wie möglich zu gestalten, um allen Menschen eine gleichberechtigte Teilhabe an seinen Produkten zu ermöglichen.",
+			"demo": false,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "5",
+			"speakerIds": ["1169278463"],
+			"languageId": "1"
+		}, {
+			"id": "5289",
+			"start": "2016-08-31T20:00:00",
+			"end": "2016-08-31T21:00:00",
+			"title": "Stimmt! - Korrekt rechnen mit Unums",
+			"abstractText": "Eigentlich ist weitgehend bekannt, dass man mit Gleitkommazahlen wegen der Rundungseigenschaften nur eingeschränkt rechnen kann. Trotzdem suggeriert deren hohe Auflösung eine Exaktheit, die einfach nicht gegeben ist und so immer wieder zu fatalen – tatsächlich auch tödlichen – Fehlern führt. \n\nDie von John Gustafson vorgeschlagenen Unums sollen einen Ausweg aus diesem Dilemma schaffen. Diese können nämlich zum einen ihre Größe variieren und zum anderen jederzeit darüber Auskunft geben, ob sie exakt sind oder in welchem Bereich sie liegen. Auch wenn eine geeignete Hardware-Unterstützung auf sich warten lässt, so kann man doch schon heute auf damit rechnen. \n\nDieser Vortrag stellt die Unums vor, zeigt wie sie funktionieren und demonstriert, dass und warum diese weit besser als die IEEE-Gleitkommazahlen funktionieren.",
+			"demo": false,
+			"trackId": "5",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "3",
+			"speakerIds": ["1947001483"],
+			"languageId": "1"
+		}, {
+			"id": "5290",
+			"start": "2016-08-31T20:00:00",
+			"end": "2016-08-31T21:00:00",
+			"title": "Keine Tagträumerei - Legacy Code: Refactoring in x einfachen Schritten",
+			"abstractText": "In einer idealen Welt würden wir nur \"neuen\" Code schreiben, der natürlich perfekt und wunderschön ist. Wir müssten nie wieder unseren Code anschauen geschweige denn 10 Jahre alte Projekte warten. Ende des Tagtraums ... Leider ist unsere Welt nicht so ideal, unser Code von gestern ist heute schon Legacy. Diesen im Nachhinein zu verstehen, zu erweitern oder darin Fehler zu beheben ist immer eine Herausforderung, insbesondere wenn Tests fehlen.\n\nTrotzdem gibt es einfache Möglichkeiten, wie man die Qualität von Legacy Code verbessern kann. Das Wichtigste ist das Einziehen von Fangnetzen, sodass man trotz fehlender Tests guten Gewissens Änderungen durchführen kann.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "4",
+			"speakerIds": ["2084223119"],
+			"languageId": "1"
+		}, {
+			"id": "5510",
+			"start": "2016-08-31T08:30:00",
+			"end": "2016-08-31T09:20:00",
+			"title": "20 Jahr, kaum mehr Haar - Keynote: Zwei Dekaden mit JavaScript",
+			"abstractText": "Von Brendan Eich in zwei Wochen hingerotzt, ist JavaScript heute aktueller denn je. Doch warum überhaupt?\n\nWir werfen einen Blick zurück auf die Anfänge: Formularvalidierung, Layers, Browsererkennung mit einer Halbwertszeit von ein paar Monaten, und Laufschriften in der Browser-Statuszeile. Und die Sprache JavaScript an sich ist auch sehr merkwürdig: 1*\"a\" ist nicht dasselbe wie \"a\"*1, und ist das überhaupt sinnvoll? \n\nDer Blick auf schaurige JavaScript-Eigenheiten und auf gruseligen Code der letzten zwanzig Jahre erlaubt es uns, Programmieransätze von damals und heute zu vergleichen. Das erklärt, wieso manche Dinge in JavaScript so sind, wie sie sind, und warum es auch in 20 Jahren noch JavaScript geben könnte.",
+			"demo": false,
+			"locationId": "5",
+			"speakerIds": ["1341509637"],
+			"languageId": "1"
+		}, {
+			"id": "5511",
+			"start": "2016-08-31T14:00:00",
+			"end": "2016-08-31T15:10:00",
+			"title": "[Sponsored Talk] - Komplexe Events im Internet der Dinge [Sponsored Talk]",
+			"abstractText": "Das Internet der Dinge stellt Softwaresysteme vor neue Herausforderungen. So müssen oft große Mengen an Ereignissen verarbeitet werden. Manche Ereignisse werden aber erst in Verbindung mit anderen Ereignissen interessant. Die Meldung eines einzelnen Rauchmelders in einer Stadt mag noch auf einen Grill zurückzuführen sein, dutzende Meldungen dagegen könnten auf einen Großbrand oder eine Smogwolke hindeuten.\n\nMit Drools bietet JBoss eine Open-Source-Regel-Engine, die solch komplexe Events automatisch und performant verarbeiten kann. Noch dazu können die Regeln von Fachanwendern definiert und verändert werden. Innerhalb dieses Vortrags wird ein beispielhaftes System erstellt, das Ereignisse per Rest-Schnittstelle annimmt und regelbasiert verarbeitet.",
+			"demo": false,
+			"trackId": "11",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": ["-624173907", "-812259147"],
+			"languageId": "1"
+		}
+	],
+	"speakers": [{
+			"id": "-1165736893",
+			"name": "Dr. Carola Lilienthal",
+			"company": "WPS - Workplace Solutions",
+			"email": "cl@wps.de",
+			"twitter": "cairolali",
+			"bio": "ist Senior-Softwarearchitektin bei der WPS - Workplace Solutions GmbH - und analysiert seit 2003 regelmäßig im Auftrag ihrer Kunden die Zukunftsfähigkeit von Softwarearchitekturen und spricht auf Konferenzen über dieses Thema. 2015 hat sie ihre Erfahrungen aus über hundert Analysen von 20.000 bis 15 Mio. LOC in dem Buch \"Langlebige Softwarearchitekturen\" zusammengefasst.",
+			"photoId": "4bbcda24b08fec1099fc65ae30a9f1b0",
+			"eventIds": ["5235", "5236"]
+		}, {
+			"id": "-1066244551",
+			"name": "Thomas Michael",
+			"company": "Hch. Perschmann",
+			"email": "thomasmichael@anmi24.de",
+			"twitter": "Kroneker_Delta",
+			"bio": "ist ein Softwareentwickler aus Leidenschaft. Bereits auf dem C64 wurden die ersten Basic-Programme abgetippt. Privat erstellt Thomas Michael diverse kleine Java-Spielchen für das eigene Vergnügen. Mit einer Idee für ein Spiel für eine VR-Brille ist er einer von 20 Early-Bird-Gewinnern der VR-Brille VR One von Zeiss. Beim Umsetzen der Idee lernte er das Unity-Framework kennen.",
+			"photoId": "fcd2c4b473712e129de57d36d34358eb",
+			"eventIds": ["5223"]
+		}, {
+			"id": "-1180186937",
+			"name": "Sabine Zehnder",
+			"company": "Sabine Zehnder Consulting",
+			"email": "post@sabine-zehnder.de",
+			"twitter": "",
+			"bio": "ist Diplom-Informatikerin und ausgebildeter Coach. Nach 10 Jahren als IT-Business-Analystin und Projektmanagerin in großen IT-Projekten ist sie nun selbstständig als IT-Beraterin, Trainerin und Coach für IT-Professionals tätig. Ihre Spezialität ist es, turbulente IT-Projekte wieder in die Bahn zu bringen.",
+			"photoId": "29597d42bfef01a4f15964f4d53e86db",
+			"eventIds": ["5270"]
+		}, {
+			"id": "1551932761",
+			"name": "Markus Müller",
+			"company": "Sivantos",
+			"email": "info@datainfo.de",
+			"twitter": "",
+			"bio": "ist Microsoft-zertifizierter Softwarearchitekt und Trainer. Sein Schwerpunkt liegt im Design verteilter und hochskalierbarer Anwendungen auf heterogenen Plattformen. Aktuell ist er im Bereich Medizintechnik in der Architektur für mobile, medizinische Systeme im Einsatz und unterstützt Unternehmen in der Metropolregion Nürnberg bei neuen Softwareideen.",
+			"photoId": "d050a7111062bb2833e8c5bb02777ed4",
+			"eventIds": ["5227"]
+		}, {
+			"id": "-1007539910",
+			"name": "Stefan Armbruster",
+			"company": "Neo Technology",
+			"email": "stefan.armbruster@neotechnology.com",
+			"twitter": "darthvader42",
+			"bio": "ist seit vier Jahren bei Neo Technology als Field Engineer für den europäischen Raum tätig und hilft, Projekte mit Graphdatenbanken \"in die Spur\" zu bringen. Nach seinem Physik-Studium war er knapp fünfzehn Jahre lang freiberuflicher Consultant im Java-Umfeld tätig. Als Linux-Veteran seit den Tagen des 1.0er-Kernel interessiert er sich auch für alle DevOps-Themen. Seine Freizeit verbringt er mit der Suche nach dem perfekten Espresso und ist seit vielen Jahren Mitglied der freiwilligen Feuerwehr.",
+			"photoId": "df09d238a57bd1e4e49cc065e1908706",
+			"eventIds": ["5267"]
+		}, {
+			"id": "-709657525",
+			"name": "Steven Schwenke",
+			"company": "msg",
+			"email": "steven@stevenschwenke.de",
+			"twitter": "stevenschwenke",
+			"bio": "ist Software Craftsman und liebt seinen Beruf. Deshalb organisiert er auch außerhalb der alltäglichen (Java-)Entwicklungsarbeit Veranstaltungen und hält Vorträge. Er teilt seine Erfahrung gern mit anderen und freut sich auf spannende Gespräche. Steven trinkt Cold Brew und ist Mentee sowie Ju-Jutsuka.",
+			"photoId": "bc8bb4dc3b669390c85d79c8941acd13",
+			"eventIds": ["5178"]
+		}, {
+			"id": "1341509637",
+			"name": "Christian Wenz",
+			"company": "Arrabiata Solutions",
+			"email": "wenz@arrabiata",
+			"twitter": "",
+			"bio": "ist Berater für Web-Technologien und Web-Sicherheit. Er sprich regelmäßig auf Konferenzen im In- und Ausland, seine Bücher wurden in zehn Sprachen übersetzt. Er ist Teilhaber der Digitalagentur Arrabiata Solutions GmbH (www.arrabiata.de).",
+			"photoId": "17b3a6ede8c20e3fff6c95cdf593f7af",
+			"eventIds": ["5510"]
+		}, {
+			"id": "1385473993",
+			"name": "Sandra Parsick",
+			"company": "Freiberuflerin",
+			"email": "info@sandra-parsick.de",
+			"twitter": "SandraParsick",
+			"bio": "ist als freiberufliche Softwareentwicklerin und Consultant im Java-Umfeld tätig. Seit 2008 beschäftigt sie sich mit agiler Softwareentwicklung in verschiedenen Rollen. Ihre Schwerpunkte liegen im Bereich der Java-Enterprise-Anwendungen, agilen Methoden, Software Craftsmanship und in der Automatisierung von Softwareentwicklungsprozessen. In ihrer Freizeit engagiert sie sich in der Softwerkskammer Dortmund.",
+			"photoId": "18f9295a509035eb3d981336e7c0567c",
+			"eventIds": ["5155"]
+		}, {
+			"id": "1676651771",
+			"name": "Dr. Kristine Schaal",
+			"company": "Accso",
+			"email": "kristine.schaal@accso.de",
+			"twitter": "",
+			"bio": "ist als Softwarearchitektin bei der Accso - Accelerated Solutions GmbH - tätig. Sie arbeitet seit fast 20 Jahren in der Softwareentwicklung und ist in Projekten der Individualentwicklung für Kunden verschiedener Branchen unterwegs, technisch überwiegend im Java-Umfeld.",
+			"photoId": "9bd1de88b481d9fde184bc708a9d6a83",
+			"eventIds": ["5217"]
+		}, {
+			"id": "816603017",
+			"name": "Armin Bauer",
+			"company": "BeOne",
+			"email": "armin.bauer@beone-group.com",
+			"twitter": "_skyr",
+			"bio": "Armin Bauer ist Senior Consultant bei der Firma BeOne Stuttgart GmbH und arbeitet dort als Entwickler, Architekt und Trainer im Java-Umfeld. Skalierbare Architekturen und Datenstrukturen sowie das breite Feld verschiedener Webtechnologien gehören zu seinen Schwerpunkten. Daher kennt er sich  mit aktuellen IT-Security Themen gut aus. Er ist in einigen Open Source Projekten aktiv und begeistert sich für alles rund um Technik.",
+			"eventIds": ["5143", "5226"]
+		}, {
+			"id": "-812259147",
+			"name": "Christian Everke",
+			"company": "adesso",
+			"email": "christian.everke@adesso.de",
+			"twitter": "",
+			"bio": "Christian Everke arbeitet in diesem Competence Center an einem regelbasierten System, das es ermöglichen soll, die Luftqualität, wie im obigen Szenario beschrieben, zu überwachen.",
+			"photoId": "50fc76ef0452e821bd1259b31bcb58ad",
+			"eventIds": ["5511"]
+		}, {
+			"id": "226082496",
+			"name": "Sven Kölpin",
+			"company": "open knowledge",
+			"email": "sven.koelpin@openknowledge.de",
+			"twitter": "dskgry",
+			"bio": "ist Enterprise-Entwickler, Referent und Autor bei der open knowledge GmbH in Oldenburg. Schwerpunkt und Leidenschaft sind die Konzeption und Entwicklung von Webanwendungen.",
+			"photoId": "d96bcfa3433f5900b4e9900d977af788",
+			"eventIds": ["5187"]
+		}, {
+			"id": "-2057561800",
+			"name": "Harm Gnoyke",
+			"company": "embarc",
+			"email": "harm.gnoyke@embarc.de",
+			"twitter": "HarmGnoyke",
+			"bio": "ist Berater und Architekt bei embarc in Hamburg. Sein Schwerpunkt liegt in Entwurf, Umsetzung und Bewertung von Softwarelösungen. Mit der Erfahrung aus vielen Jahren als Softwareentwickler und -architekt - u.a. bei Hamburg Süd und Capgemini/sd&m - bringt er Teams durch sein pragmatisches Vorgehen voran.",
+			"photoId": "b189699ca22ae53fba174301d95b9853",
+			"eventIds": ["5241"]
+		}, {
+			"id": "2026998244",
+			"name": "Marko Beelmann",
+			"company": "Philips Medizin Systeme",
+			"email": "marko.beelmann@gmail.com",
+			"twitter": "mbeelman",
+			"bio": "arbeitet seit 15 Jahren in der professionellen Softwareentwicklung und derzeit bei Philips Medizin Systeme in Böblingen. Schwerpunkt liegt hier in der Entwicklung von Software im .NET-Umfeld. Weitere Interessengebiete sind Concurrency, Application Lifecycle Management (ALM), JavaScript/Typescript, Softwarearchitektur, agile Softwareentwicklung sowie Internet of Things (IoT). Als Sprecher auf Konferenzen teilt er sein Wissen mit den interessierten Zuhörern.",
+			"photoId": "53c5caa224bcb3c331624860d4a47c20",
+			"eventIds": ["5273", "5274"]
+		}, {
+			"id": "-1687269926",
+			"name": "Sascha Groß",
+			"company": "Mathema",
+			"email": "sascha.gross@mathema.de",
+			"twitter": "",
+			"bio": "ist als Softwareentwickler, Consultant und Trainer für die Mathema Software GmbH tätig. Seine Spezialgebiete sind die Oberflächen- und Web-Programmierung mit Java. Insbesondere beschäftigt er sich stets mit den Neuerungen der Java-Welt und gibt sein Wissen gerne als Referent auf Konferenzen weiter. Außerdem besitzt er Expertenwissen über XML, das er bereits als Buchautor veröffentlicht hat.",
+			"photoId": "e75484b08b9c32abe1f9f02597eb9660",
+			"eventIds": ["5214"]
+		}, {
+			"id": "-1354582681",
+			"name": "Nikolas May",
+			"company": "Mathema",
+			"email": "nikolas.may@mathema.de",
+			"twitter": "",
+			"bio": "arbeitet als Consultant für die Mathema Software GmbH. Seit 2008 beschäftigt er sich mit der Entwicklung von Softwarelösungen für Unternehmen. Zusätzlich arbeitet er seit 2013 mit Java EE und unterstützt Kunden bei der Entwicklung von Enterprise-Anwendungen. In seiner Freizeit beschäftigt er sich mit IoT und der Maker-Szene.",
+			"photoId": "06832f516b2ade431a1e06ce4bfe8932",
+			"eventIds": ["5224"]
+		}, {
+			"id": "929293241",
+			"name": "Lutz Marquardt",
+			"company": "Method Park",
+			"email": "lutz.marquardt@methodpark.de",
+			"twitter": "",
+			"bio": "hat sein Diplomstudium im Fachbereich Elektrotechnik an der Technischen Universität Kaiserslautern absolviert. Im Anschluss arbeitete er drei Jahre lang als wissenschaftlicher Mitarbeiter der Universität Erlangen-Nürnberg im Bereich der digitalen Audiosignalverarbeitung, sowohl in der Lehre als auch im Rahmen eines EU-geförderten Forschungsprojekts. Drei weitere Jahre entwickelte er am Fraunhofer IIS komplexe Signalverarbeitungsalgorithmen zur akustischen Echounterdrückung für VoIP-Anwendungen. 2013 wechselte er aus dem wissenschaftlichen Umfeld mit Schwerpunkt Prototypen-Entwicklung zu Method Park und unterstützt dort als Software Engineer die industrielle Entwicklung medizintechnischer Produkte, vornehmlich in der Sprache C++. Zu seinen weiteren Tätigkeiten zählt die Ausarbeitung und Durchführung interner Schulungen zum Thema Clean Code.",
+			"photoId": "f501c23c433cd4fe3ca837f355697f03",
+			"eventIds": ["5234"]
+		}, {
+			"id": "-810025036",
+			"name": "Philipp Burgmer",
+			"company": "w11k",
+			"email": "burgmer@w11k.de",
+			"twitter": "philippburgmer",
+			"bio": "ist ein Web-Native. Seit 15 Jahren in der Webprogrammierung unterwegs, gibt er sein angesammeltes und ständig aufgefrischtes Wissen gerne in Schulungen, Vorträgen bei Konferenzen und Blog-Einträgen weiter. Er arbeitet als Entwickler, Berater und Trainer für die w11k GmbH. Philipp bloggt zusammen mit seinen Kollegen unter <a href=\"http://blog.thecodecampus.de\">blog.thecodecampus.de</a>.",
+			"photoId": "c460374715251d4c97ebf1bde9791d4a",
+			"eventIds": ["5283", "5285"]
+		}, {
+			"id": "-624173907",
+			"name": "Markus Merder",
+			"company": "adesso",
+			"email": "markus.merder@adesso.de",
+			"twitter": "",
+			"bio": "Markus Merder beschäftigt sich seit über zehn Jahren mit Java-Enterprise-Software auf Open-Source-Basis. Bei adesso leitet er ein Competence Center, das sich mit dem Internet der Dinge beschäftigt.",
+			"photoId": "7f3d5126ac2d33285a9ff11078b79e61",
+			"eventIds": ["5511"]
+		}, {
+			"id": "443649779",
+			"name": "Eberhard Wolff",
+			"company": "innoQ",
+			"email": "eberhard.wolff@innoq.com",
+			"twitter": "ewolff",
+			"bio": "ist Fellow bei innoQ und arbeitet seit mehr als fünfzehn Jahren als Architekt und Berater. Er ist Autor zahlreicher Artikel und Bücher und trägt als Sprecher auf internationalen Konferenz vor. Sein technologischer Schwerpunkt sind moderne Architektur- und Entwicklungsansätze wie Continuous Delivery, DevOps, Microservices und NoSQL.",
+			"photoId": "5ede954fd56a986305c5b00755af295a",
+			"eventIds": ["5257"]
+		}, {
+			"id": "892549146",
+			"name": "Kai Spichale",
+			"company": "innoQ",
+			"email": "kai.spichale@googlemail.com",
+			"twitter": "kspichale",
+			"bio": "beschäftigt sich leidenschaftlich seit mehr als 10 Jahren mit Softwarearchitekturen verteilter Systeme und sauberem Code. Als IT-Berater arbeitet er für innoQ Deutschland GmbH. Sein technologischer Schwerpunkt liegt auf modernen Architekturansätzen, API-Design und NoSQL. Er ist regelmäßiger Autor in verschiedenen Fachmagazinen und Sprecher auf Konferenzen.",
+			"photoId": "6b67554931a126d0319747b2916a8668",
+			"eventIds": ["5253"]
+		}, {
+			"id": "557166413",
+			"name": "Thomas Künneth",
+			"company": "Mathema",
+			"email": "thomas.kuenneth@mathema.de",
+			"twitter": "tkuenneth",
+			"bio": "ist Senior Consultant bei der Mathema Software GmbH. Die Schwerpunkte des Softwarearchitekten, Testers und Anforderungsanalytikers sind die Architektur von Unternehmensanwendungen, UI/UX und Mobility. Seit 15 Jahren beschäftigt er sich intensiv mit Java. Außerdem ist Thomas Android-Entwickler der ersten Stunde und Autor zahlreicher Artikel und Bücher zu Java, Android und Eclipse.",
+			"photoId": "f2c49003d62a22067c421246c497f12f",
+			"eventIds": ["5150", "5196"]
+		}, {
+			"id": "795094020",
+			"name": "Gregor Biswanger",
+			"company": "CleverSocial.de",
+			"email": "gregor.biswanger@web-enliven.de",
+			"twitter": "BFreakout",
+			"bio": "ist Microsoft MVP, Intel Black Belt & Intel Software Innovator, Gründer von CleverSocial.de sowie freier Dozent, Berater, Trainer, Autor und Sprecher. Er berät große und mittelständische Unternehmen, Organisationen und Agenturen rund um die Themen Softwarearchitektur, agile Prozesse, XAML, Web- und Cross-Plattform-Entwicklung. Er veröffentlichte dazu zahlreiche Video-Trainings bei video2brain und Microsoft. Außerdem schreibt er online als freier Autor für heise Developer und bringt für Fachmagazine auch gerne Artikel aufs Blatt.",
+			"photoId": "02480bb887fadbacfc15e0973d5d8db7",
+			"eventIds": ["5163", "5164"]
+		}, {
+			"id": "1019509527",
+			"name": "Christoph Menzel",
+			"company": "Method Park",
+			"email": "christoph.menzel@methodpark.de",
+			"twitter": "",
+			"bio": "absolvierte an der Georg-Simon-Ohm Hochschule in Nürnberg sein Bachelor-Studium der Informatik. Für den Masterstudiengang International Information Systems wechselte er an die Universität Erlangen-Nürnberg. Für seine beiden Abschlussarbeiten erhielt Menzel Unterstützung von Method Park. So arbeitete er bereits während seines Studiums als Junior Software Engineer, bevor er nach seinem Examen 2014 endgültig als Software Engineer Teil des Method-Park-Teams wurde. Zu seinen Tätigkeiten zählen u.a. Design und Implementierung von Software, die Optimierung von Entwicklungsprozessen und die Durchführung von Schulungen etwa zum Thema Unit-Test sowie zu verschiedenen Aspekten der Softwareentwicklung. Darüber hinaus ist Christoph Menzel in der Start-up-Szene im Großraum Nürnberg-Erlangen-Fürth aktiv.",
+			"photoId": "2e13a5a70aeb693b96f9f85934e52a7a",
+			"eventIds": ["5234"]
+		}, {
+			"id": "-39033607",
+			"name": "Jan Blankenhorn",
+			"company": "theCodeCampus.de",
+			"email": "blankenhorn@w11k.de",
+			"twitter": "jblankenhorn",
+			"bio": "ist Geschäftsführer der w11k GmbH und Trainer bei theCodeCampus.de. Seit über 10 Jahren ist er im Java-Umfeld tätig. Er beschäftigt sich hauptsächlich mit der Entwicklung moderner Webanwendungen und ist dabei immer auf der Suche nach neuen Technologien. Getreu dem Motto \"Form follows Function\" sucht er dabei nicht nur das neue schickste Framework, sondern die für die aktuellen Anforderungen optimalen Technologien.",
+			"photoId": "51d677ad65570cabd1b6f3b9fbeb8897",
+			"eventIds": ["5280"]
+		}, {
+			"id": "916405473",
+			"name": "Roman Roelofsen",
+			"company": "theCodeCampus.de",
+			"email": "roelofsen@w11k.de",
+			"twitter": "romanroe",
+			"bio": "verantwortet als Geschäftsführer die technische Entwicklung der w11k GmbH. Er studierte \"Angewandte Informatik\" (M.Sc.) mit dem Schwerpunkt \"sichere Informationssysteme\" an der FH Hannover in Madrid, Dublin und Hannover. Roman ist Experte für die Entwicklung datenbankgestützter Geschäftsanwendungen im Webumfeld und beschäftigt er sich seit vielen Jahren mit den Vorzügen der funktionalen Programmierung. Seine jahrelange Expertise in diesen Feldern gibt er in Open Source-Projekten, Fachartikeln und Konferenzenbeiträgen wieder. Roman ist Co-Autor des Buches \"Durchstarten mit Scala\" und aktiver Open-Source-Committer.",
+			"photoId": "22f3bdbd362c2078ff2044b6be2f42b2",
+			"eventIds": ["5280"]
+		}, {
+			"id": "-1410892909",
+			"name": "Thomas Bertz",
+			"company": "Mathema",
+			"email": "thomas.bertz@mathema.de",
+			"twitter": "",
+			"bio": "ist Senior Consultant, Entwickler und Trainer bei der Mathema Software GmbH. Von der Elektrotechnik, Automatisierungstechnik und hardwarenahen Entwicklung in C++ kommend, hat er viele Erfahrungen mit relationalen Datenbanken gesammelt und programmiert heute am liebsten objektorientiert in Java. Derzeit unterstützt er namhafte Kunden im Enterprise-Java-Umfeld. Er ist Experte für die Einführung und den Betrieb von Continuous-Integration- und -Delivery-Anwendungen.",
+			"photoId": "be609c102911945aad6fdb728b0fcc5e",
+			"eventIds": ["5214"]
+		}, {
+			"id": "-141781509",
+			"name": "Dr. Halil-Cem Gürsoy",
+			"company": "adesso",
+			"email": "halil-cem.guersoy@adesso.de",
+			"twitter": "hgutwit",
+			"bio": "ist Principal Software Architect bei der adesso AG in Dortmund. Sein Fokus liegt auf verteilten Java-Applikationen, wobei er zugeben muss, im letzten Jahr mehr Zeilen produktiven Infrastruktur-Code in Python, Ruby und Golang implementiert zu haben. Zudem liegt sein Schwerpunkt bei den Herausforderungen der Persistenz in solchen verteilten Applikationen.",
+			"photoId": "1b8faa03b3838a0f3f5ceddadfedd71d",
+			"eventIds": ["5203"]
+		}, {
+			"id": "1855963293",
+			"name": "Dr. Stefan Schlott",
+			"company": "BeOne",
+			"email": "stefan.schlott@beone-group.com",
+			"twitter": "_skyr",
+			"bio": "ist Advisory Consultant bei der Firma BeOne Stuttgart und dort als Entwickler, Architekt und Trainer im Java-Umfeld tätig. Security und Privacy gehören ebenso zu seinen Schwerpunkten wie skalierbare Architekturen und das breite Feld der verschiedenen Webtechnologien. Er begeistert sich für funktionale Programmierung, die Sprache Scala und ist überzeugter Open-Source'ler.",
+			"eventIds": ["5226"]
+		}, {
+			"id": "-1261269922",
+			"name": "Benjamin Schmid",
+			"company": "eXXcellent solutions",
+			"email": "benjamin.schmid@exxcellent.de",
+			"twitter": "bentolor",
+			"bio": "ist Technology Advisor bei der eXXcellent solutions und dort primärer Ansprechpartner in allen technologischen und methodischen Fragestellungen. Zudem ist er stets auf der Suche nach innovativen, soliden und nachhaltigen Lösungen. Seine praxisnahen Erfahrungen und Aha-Momente rund um Java, Web und .NET gibt er dabei immer wieder gerne auf Konferenzen und in Fachartikeln weiter.",
+			"photoId": "5a536cffed79756fd233dc65b79515b8",
+			"eventIds": ["5250"]
+		}, {
+			"id": "1093609814",
+			"name": "Daniel Meixner",
+			"company": "Microsoft",
+			"email": "daniel.meixner@microsoft.com",
+			"twitter": "danielmeixner",
+			"bio": "ist Developer Evangelist bei Microsoft Deutschland und beschäftigt sich mit Windows-App-Entwicklung. Er ist bekennender Fanboy von Visual Studio und hat das \"Gute, Schlechte und Hässliche\" in der Softwareentwicklung zur Genüge und aus unterschiedlichsten Blickwinkeln kennen gelernt. Vor seiner Zeit bei Microsoft war er Consultant und Architekt für Application Lifecycle Management im Enterprise-Umfeld. Daniel bloggt unter www.DevelopersDevelopersDevelopersDevelopers.NET.",
+			"photoId": "6a771c71f0b0d9f7aae8ddcf970e99db",
+			"eventIds": ["5248"]
+		}, {
+			"id": "-1854535626",
+			"name": "Frederik von Berg",
+			"company": "w11k",
+			"email": "vonberg@w11k.de",
+			"twitter": "",
+			"bio": "ist seit 2012 bei der w11k GmbH tätig. Dort beschäftigt er sich mit Projekten rund um Scala und Webentwicklung.\nImmer häufiger sieht er sich in seinem Entwickleralltag mit JavaScript und mobilen Anwendungen konfrontiert. Zusammen mit seinen Kollegen bloggt Frederik über aktuelle Themen aus diesem Umfeld unter blog.thecodecampus.de. Privat tanzt er gerne Salsa.",
+			"photoId": "ceb4463e503427343e9e5d65eadd2b7c",
+			"eventIds": ["5281"]
+		}, {
+			"id": "-1410522578",
+			"name": "Sebastian Hempel",
+			"company": "IT-Consulting Hempel",
+			"email": "shempel@it-hempel.de",
+			"twitter": "ithempel",
+			"bio": "ist selbstständiger IT-Consultant und Trainer aus dem Fichtelgebirge. Seit 2003 unterstützt er Kunden bei der Entwicklung und dem Betrieb von Enterprise-Anwendungen. Seine Schwerpunkte liegen dabei bei Java EE auf Linux-Systemen. In Projekten übernimmt er gerne die Konzeption und den Aufbau der Entwicklungs- und Build-Umgebung.",
+			"photoId": "b0c6ff53ae7f7aa188104ec665eb7070",
+			"eventIds": ["5205"]
+		}, {
+			"id": "1439020249",
+			"name": "Henning Schwentner",
+			"company": "WPS - Workplace Solutions",
+			"email": "hs@wps.de",
+			"twitter": "",
+			"bio": "liebt Programmieren. Diese Leidenschaft lebt er als Softwarearchitekt und Berater bei der WPS aus. Seine Projekte sind agil und in Programmiersprachen wie C# und Java, aber auch ABAP. Ihn interessieren die Evolution von Programmiersprachen, langlebige Softwarearchitekturen und große Refactorings.",
+			"photoId": "22a0f4c27dfd22f1db51c95bd4ed98cb",
+			"eventIds": ["5236"]
+		}, {
+			"id": "1813644629",
+			"name": "Hristiyan Pehlivanov",
+			"company": "Mathema",
+			"email": "hristiyan.pehlivanov@mathema.de",
+			"twitter": "",
+			"bio": "ist als Entwickler und Consultant bei Mathema Software GmbH im Java-Umfeld tätig. Er ist leidenschaftlicher Agilist und Clean-Code-Anhänger, der immer auf der Suche nach neuen Herausforderungen ist. Außerdem glaubt er an die kontinuierliche Evolution von Systemen, die über leichtgewichtige Lösungen und Testautomatisierung ermöglicht wird.",
+			"photoId": "33fef399a57779bdbaf79bf2ae40a42f",
+			"eventIds": ["5237"]
+		}, {
+			"id": "894047862",
+			"name": "Johannes Lechner",
+			"company": "ConSol",
+			"email": "johannes.lechner@consol.de",
+			"twitter": "",
+			"bio": "ist Senior Software Developer bei der ConSol Software GmbH im Javaumfeld und beschäftigt sich dort u.a. mit Performance, Skalierung und Modularisierung klassischer Softwarearchitekturen.",
+			"photoId": "f947cfef78beb0b55598f7509c411b1a",
+			"eventIds": ["5286"]
+		}, {
+			"id": "-1899723914",
+			"name": "Tobias Schneck",
+			"company": "ConSol",
+			"email": "tobias.schneck@consol.de",
+			"twitter": "toschneck",
+			"bio": "sammelt seit 10 Jahren umfassende Erfahrungen von der IT-Administration bis hin zur Entwicklung von IT-Speziallösungen. Er startete das Open-Source-Testing-Framework \"Sakuli\" und ist als Java-Entwickler mit Spezialisierung auf Testautomatisierung tätig. Als Konferenz-Speaker und Organisator des \"Agile Testing @Munich Meetups\" interessiert er sich stets für innovative Technologien.",
+			"photoId": "8520eacc6b5d60026c8915231b6237dd",
+			"eventIds": ["5222"]
+		}, {
+			"id": "-2109919290",
+			"name": "Cosima Laube",
+			"company": "cosima-laube.de",
+			"email": "cosima.laube@gmail.com",
+			"twitter": "gazebo_c",
+			"bio": "ist \"Softwerkerin\" mit mehr als 10 Jahren Berufserfahrung. Weit gereist zwischen Mittelständlern und der Welt von Großkonzernen ist sie nun über Tätigkeiten von Entwicklung bis (Projekt-)Leitung irgendwo zwischen Coding und Menschenführung gelandet. Dabei sind ihre steten Reisebegleiter ihr Psychologie(fern)studium, ein gutes Buch und jederzeit gute Gespräche mit Menschen in der IT.",
+			"photoId": "42123472d8ecf206ff9cefde809a0526",
+			"eventIds": ["5218"]
+		}, {
+			"id": "-1045300317",
+			"name": "Werner Eberling",
+			"company": "Mathema",
+			"email": "werner.eberling@mathema.de",
+			"twitter": "Wer_Eb",
+			"bio": "ist als Principal Consultant und Trainer für die Mathema Software GmbH in Erlangen tätig. Seit 1999 beschäftigt er sich mit verteilten Systemen mit Fokus auf CORBA und Java EE. Sein aktuelles Steckenpferd ist die Entwicklung für mobile Endgeräte und deren Anbindung an Enterprise-Systeme. Neben seiner Projekttätigkeit hält er Technologie-Trainings und ist Autor des Buchs \"Enterprise JavaBeans 3.1 – Das EJB-Praxisbuch für Ein- und Umsteiger\".",
+			"photoId": "c8dc4fcf12cfa2216cfe65c05717af22",
+			"eventIds": ["5224"]
+		}, {
+			"id": "-1950729847",
+			"name": "Heiko Spindler",
+			"company": "Freelancer",
+			"email": "hs@heikospindler.de",
+			"twitter": "",
+			"bio": "ist seit über 17 Jahren als Softwareentwickler und Softwarearchitekt in vielen Projekten unterschiedlicher Branchen tätig. Seine Aufgaben umfassen das Aufsetzen von Projekten sowie die Betreuung über den gesamten Entwicklungszyklus. Er ist seit 2008 zertifizierter Scrum Master (CSM ScrumAlliance) und seit 2012 zertifizierter Softwarearchitekt (iSAQB - Certified Professional for Software Architecture Foundation Level). Heiko Spindler ist seit 2007 Dozent an der Tech. Hochschule Mittelhessen (THM) und schreibt regelmäßig Artikel und präsentiert auf Fachkonferenzen. Im Jahr 2014 erschien sein Buch \"Single-Page-Web-Apps: JavaScript im Einsatz\".",
+			"photoId": "03944489d03a9957cd5be9e45db4d156",
+			"eventIds": ["5246"]
+		}, {
+			"id": "875600594",
+			"name": "Gerd Aschemann",
+			"company": "Freiberufler",
+			"email": "gerd@aschemann.net",
+			"twitter": "GerdAschemann",
+			"bio": "ist als freiberuflicher Berater im Java-Umfeld unterwegs. In den letzten Jahren hat er mehrfach für kleine und große\nUnternehmen Continuous-Integration-/-Delivery-Plattformen aufgebaut. Er berät seine Kunden in grundlegenden Fragen zum Thema Build-/Konfigurations-/Versionsmanagement und hat verschiedene Java-EE-Projekte als ausführender Software-/System-Architekt in Produktion überführt.  Gerd hat an der TU Darmstadt Informatik studiert und im Anschluss dort einige Jahre als wissenschaftlicher Mitarbeiter mit dem Schwerpunkt \"Management verteilter Systeme/Konfigurationsmanagement\"\ngeforscht.",
+			"photoId": "d23bef2a840b2dd74237fa6125cf7a3e",
+			"eventIds": ["5277"]
+		}, {
+			"id": "-1829577082",
+			"name": "Stefan Lieser",
+			"company": "Clean Code Developer",
+			"email": "stefan@lieser-online.de",
+			"twitter": "StefanLieser",
+			"bio": "ist Informatiker aus Leidenschaft und arbeitet als Trainer, Berater, Autor und Entwickler. Er ist \"gerne Lerner\" und sucht ständig nach Verbesserung und neuen Wegen, um die innere Qualität von Software sowie den Entwicklungsprozess zu verbessern. Gemeinsam mit Ralf Westphal hat er die Clean-Code-Developer-Initiative ins Leben gerufen. Mit der CCD School bietet er Trainings und Beratung rund um das Thema Clean Code an.",
+			"photoId": "0368b6ac1e03f227ce45b981a166bdae",
+			"eventIds": ["5138", "5140"]
+		}, {
+			"id": "-356329648",
+			"name": "Stephan Classen",
+			"company": "Canoo Engineering",
+			"email": "stephan.classen@canoo.com",
+			"twitter": "",
+			"bio": "ist ein TDD-Enthusiast, Open-Source-verrückt und liebt es, die Code-Qualität hochzuhalten. Er arbeitet als Senior Software Engineer bei Canoo Engineering in Basel, ist Mitglied beim Apache-Onami-Projekt und regelmäßiger Teilnehmer am Hackergarten. In seiner Freizeit erkundet er mit seinen zwei Kindern die Welt.",
+			"photoId": "5de0a0538aa1a7d558370a03f3f8af40",
+			"eventIds": ["5262"]
+		}, {
+			"id": "732492802",
+			"name": "Robert Bräutigam",
+			"company": "Mathema",
+			"email": "robert@mathema.de",
+			"twitter": "",
+			"bio": "ist seit 1999 Java- und Java-Enterprise-Entwickler mit Rollen von Entwickler in Kleinprojekten bis zu Lead-Architekt auf internationalen Großprojekten. Er sucht nach und argumentiert leidenschaftlich für alternative, leichtgewichtige Lösungen im technischen Bereich sowie im Projektmanagement.",
+			"photoId": "a0bd8aa93594f94c2ea90e8d60cd8ad9",
+			"eventIds": ["5207"]
+		}, {
+			"id": "2084223119",
+			"name": "Falk Sippach",
+			"company": "Orientation in Objects",
+			"email": "falk.sippach@oio.de",
+			"twitter": "",
+			"bio": "hat über 15 Jahre Erfahrung mit Java und ist bei der Mannheimer Firma OIO Orientation in Objects GmbH als Trainer, Software-Entwickler und Projektleiter tätig. Er publiziert regelmäßig in Blogs, Fachartikeln und auf Konferenzen. In seiner Wahlheimat Darmstadt organisiert er mit Anderen die örtliche Java User Group.",
+			"photoId": "712ede5c2d220066cd1593071df2685e",
+			"eventIds": ["5287", "5290"]
+		}, {
+			"id": "-1695491290",
+			"name": "Wolfgang Weigend",
+			"company": "Oracle",
+			"email": "wolfgang.weigend@oracle.com",
+			"twitter": "",
+			"bio": "ist Systemberater für Oracle Fusion Middleware bei der Oracle Deutschland B.V. & Co. KG und zuständig für Java-Technologie und -Architektur in der Entwickler-Community sowie dem Einsatz bei Kunden und Partnern. Er verfügt über langjährige Erfahrung in der Systemberatung und im Bereich objektorientierter Softwareentwicklung mit Java.",
+			"photoId": "47ec026193a7e3874aa0e86081a15c60",
+			"eventIds": ["5165"]
+		}, {
+			"id": "1550049992",
+			"name": "Michael Sperber",
+			"company": "Active Group",
+			"email": "michael.sperber@active-group.de",
+			"twitter": "sperbsen",
+			"bio": "ist CTO der Active Group GmbH. Er ist international anerkannter Experte für funktionale Programmierung und wendet sie seit über 20 Jahren in Forschung, Lehre und industrieller Entwicklung an. Außerdem hat er zahlreiche Fachartikel und einige Bücher zum Thema verfasst. Michael Sperber ist Mitbegründer des Blogs funktionale-programmierung.de.",
+			"photoId": "84e18988de7a1fe5f70989dbda4beb94",
+			"eventIds": ["5228"]
+		}, {
+			"id": "1947001483",
+			"name": "Michael Wiedeking",
+			"company": "Mathema",
+			"email": "michael.wiedeking@mathema.de",
+			"twitter": "",
+			"bio": "ist Gründer von Mathema Software. Er ist Java-Programmierer der ersten Stunde, schreibt regelmäßig Artikel und spricht auf Konferenzen. Am liebsten aber \"sammelt\" er Programmiersprachen und beschäftigt sich mit ihrem Design und ihrer Implementierung.",
+			"photoId": "48d0b3389f27ca083dbd874644903c2e",
+			"eventIds": ["5289"]
+		}, {
+			"id": "821132871",
+			"name": "Martin Lehmann",
+			"company": "Accso",
+			"email": "martin.lehmann@accso.de",
+			"twitter": "",
+			"bio": "ist Diplom-Informatiker und arbeitet als Cheftechnologe und Softwarearchitekt bei der Accso – Accelerated Solutions GmbH. Seit Ende der 90er-Jahre wirkt er als Softwareentwickler und -architekt in der Softwareentwicklung in diversen Projekten der Individualentwicklung für Kunden verschiedener Branchen. Seit den Zeiten von Java 1.0 beschäftigt er sich mit Java als Programmiersprache und als Ökosystem.",
+			"photoId": "05530a195814899aaab8e64b1566981d",
+			"eventIds": ["5217"]
+		}, {
+			"id": "358314854",
+			"name": "Andreas Oetjen",
+			"company": "belox software",
+			"email": "oetjen@belox.de",
+			"twitter": "",
+			"bio": "entwickelt seit über 20 Jahren Software in den unterschiedlichsten Programmiersprachen der C-Familie. Angefangen mit C, über C++, Java und C#, ist er seit 2009 auch als Trainer für iOS-Softwareentwicklung in Objektive-C (und später auch Swift) aktiv. Daneben schreibt er Zeitschriftenartikel und hält Vorträge auf unterschiedlichen Entwicklerkonferenzen.",
+			"photoId": "d86e2ede15e6453d11977f7ab79a2bd6",
+			"eventIds": ["5173"]
+		}, {
+			"id": "1169278463",
+			"name": "Marco Zehe",
+			"company": "Mozilla",
+			"email": "marcozehe@mailbox.org",
+			"twitter": "",
+			"bio": "arbeitet seit 2007 bei der Mozilla Corporation als Qualitätsbeauftragter für Barrierefreiheit und ist im Rahmen dieser\nFunktion für die Zugänglichkeit von Mozilla-Produkten wie Firefox zuständig, damit diese von Menschen mit Behinderung genutzt werden können. Zu seinen weiteren Aufgaben zählen das Vermitteln von Wissen über barrierefreie Techniken von Webseiten und Apps verschiedener Plattformen sowie die Mitarbeit in Standardgremien wie der Web Accessibility Initiative beim W3C. Vor seiner Tätigkeit bei Mozilla arbeitete Marco Zehe bei einem großen Hersteller von Hilfstechnologien für Blinde und Sehbehinderte. Er ist selbst blind und kennt somit sowohl die Sicht des Anwenders als auch die von Entwicklern von Webseiten, Browsern und Hilfstechnologien.",
+			"photoId": "306bec0f277671b69eb3881414382d35",
+			"eventIds": ["5288"]
+		}
+	]
+}

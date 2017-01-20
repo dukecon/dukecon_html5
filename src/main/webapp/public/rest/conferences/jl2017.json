@@ -1,0 +1,2618 @@
+{
+	"id": "jl2017",
+	"name": "JavaLand 2017",
+	"url": "http://javaland.dukecon.org/2017",
+	"metaData": {
+		"audiences": [{
+				"id": "1",
+				"order": 1,
+				"names": {
+					"de": "Anfänger",
+					"en": "Beginners"
+				},
+				"icon": "audience_1.png"
+			}, {
+				"id": "2",
+				"order": 2,
+				"names": {
+					"de": "Fortgeschritten",
+					"en": "Advanced"
+				},
+				"icon": "audience_2.png"
+			}
+		],
+		"eventTypes": [{
+				"id": "1",
+				"order": 1,
+				"names": {
+					"de": "Best Practices",
+					"en": "Best practices"
+				},
+				"icon": "eventType_1.png"
+			}, {
+				"id": "2",
+				"order": 2,
+				"names": {
+					"de": "Community-Aktivität",
+					"en": "Community Activity"
+				},
+				"icon": "eventType_2.png"
+			}, {
+				"id": "3",
+				"order": 3,
+				"names": {
+					"de": "Neuerscheinung oder Feature",
+					"en": "New release or feature"
+				},
+				"icon": "eventType_3.png"
+			}, {
+				"id": "4",
+				"order": 4,
+				"names": {
+					"de": "Newcomer",
+					"en": "newcomer"
+				},
+				"icon": "eventType_4.png"
+			}, {
+				"id": "5",
+				"order": 5,
+				"names": {
+					"de": "Projektbericht",
+					"en": "Project report"
+				},
+				"icon": "eventType_5.png"
+			}, {
+				"id": "6",
+				"order": 6,
+				"names": {
+					"de": "Schulungstag",
+					"en": "Training Day"
+				},
+				"icon": "eventType_6.png"
+			}, {
+				"id": "7",
+				"order": 7,
+				"names": {
+					"de": "Tipps & Tricks",
+					"en": "Tips & tricks"
+				},
+				"icon": "eventType_7.png"
+			}
+		],
+		"languages": [{
+				"id": "1",
+				"code": "de",
+				"order": 1,
+				"names": {
+					"de": "Deutsch",
+					"en": "German"
+				},
+				"icon": "language_de.png"
+			}, {
+				"id": "2",
+				"code": "en",
+				"order": 2,
+				"names": {
+					"de": "Englisch",
+					"en": "English"
+				},
+				"icon": "language_en.png"
+			}
+		],
+		"defaultLanguage": {
+			"id": "1",
+			"code": "de",
+			"order": 1,
+			"names": {
+				"de": "Deutsch",
+				"en": "German"
+			},
+			"icon": "language_de.png"
+		},
+		"tracks": [{
+				"id": "1",
+				"order": 1,
+				"names": {
+					"de": "Container und Microservices",
+					"en": "Container and Microservices"
+				},
+				"icon": "track_1.png"
+			}, {
+				"id": "2",
+				"order": 1,
+				"names": {
+					"de": "Internet der Dinge",
+					"en": "Internet of Things"
+				},
+				"icon": "track_1.png"
+			}, {
+				"id": "3",
+				"order": 1,
+				"names": {
+					"de": "Core Java & JVM-Sprachen",
+					"en": "Core Java & JVM-Languages"
+				},
+				"icon": "track_1.png"
+			}, {
+				"id": "4",
+				"order": 1,
+				"names": {
+					"de": "Enterprise Java & Cloud",
+					"en": "Enterprise Java & Cloud"
+				},
+				"icon": "track_1.png"
+			}, {
+				"id": "5",
+				"order": 1,
+				"names": {
+					"de": "Frontend & Mobile Computing ",
+					"en": "Frontend & Mobile Computing "
+				},
+				"icon": "track_1.png"
+			}, {
+				"id": "6",
+				"order": 1,
+				"names": {
+					"de": "Architektur & Sicherheit",
+					"en": "architecture & security "
+				},
+				"icon": "track_1.png"
+			}, {
+				"id": "7",
+				"order": 1,
+				"names": {
+					"de": "IDE & Tools",
+					"en": "IDE & Tools"
+				},
+				"icon": "track_1.png"
+			}
+		],
+		"locations": [{
+				"id": "1",
+				"order": 1,
+				"names": {
+					"de": "Silverado Theater",
+					"en": "Silverado Theater"
+				},
+				"icon": "location_1.png"
+			}, {
+				"id": "2",
+				"order": 10,
+				"names": {
+					"de": "Quantum 1",
+					"en": "Quantum 1"
+				},
+				"icon": "location_10.png"
+			}, {
+				"id": "3",
+				"order": 11,
+				"names": {
+					"de": "Quantum 2",
+					"en": "Quantum 2"
+				},
+				"icon": "location_11.png"
+			}, {
+				"id": "4",
+				"order": 12,
+				"names": {
+					"de": "Quantum 3",
+					"en": "Quantum 3"
+				},
+				"icon": "location_12.png"
+			}, {
+				"id": "5",
+				"order": 13,
+				"names": {
+					"de": "Quantum 4",
+					"en": "Quantum 4"
+				},
+				"icon": "location_13.png"
+			}, {
+				"id": "6",
+				"order": 14,
+				"names": {
+					"de": "Dambali (Hotel Matamba)",
+					"en": "Dambali (Hotel Matamba)"
+				},
+				"icon": "location_14.png"
+			}, {
+				"id": "7",
+				"order": 15,
+				"names": {
+					"de": "Bambuti (Hotel Matamba)",
+					"en": "Bambuti (Hotel Matamba)"
+				},
+				"icon": "location_15.png"
+			}, {
+				"id": "8",
+				"order": 16,
+				"names": {
+					"de": "Wang Wei (Hotel Ling Bao)",
+					"en": "Wang Wei (Hotel Ling Bao)"
+				},
+				"icon": "location_16.png"
+			}, {
+				"id": "9",
+				"order": 17,
+				"names": {
+					"de": "Konfuzius (Hotel Ling Bao)",
+					"en": "Konfuzius (Hotel Ling Bao)"
+				},
+				"icon": "location_17.png"
+			}, {
+				"id": "10",
+				"order": 18,
+				"names": {
+					"de": "Community Hall",
+					"en": "Community Hall"
+				},
+				"icon": "location_18.png"
+			}, {
+				"id": "11",
+				"order": 19,
+				"names": {
+					"de": "JUG-Café",
+					"en": "JUG-Café"
+				},
+				"icon": "location_19.png"
+			}, {
+				"id": "12",
+				"order": 2,
+				"names": {
+					"de": "Wintergarten",
+					"en": "Wintergarten"
+				},
+				"icon": "location_2.png"
+			}, {
+				"id": "13",
+				"order": 20,
+				"names": {
+					"de": "Quantum EG",
+					"en": "Quantum EG"
+				},
+				"icon": "location_20.png"
+			}, {
+				"id": "14",
+				"order": 22,
+				"names": {
+					"de": "JavaInnovationLab",
+					"en": "JavaInnovationLab"
+				},
+				"icon": "location_22.png"
+			}, {
+				"id": "15",
+				"order": 3,
+				"names": {
+					"de": "Schauspielhaus",
+					"en": "Schauspielhaus"
+				},
+				"icon": "location_3.png"
+			}, {
+				"id": "16",
+				"order": 4,
+				"names": {
+					"de": "Quantum 1+2",
+					"en": "Quantum 1+2"
+				},
+				"icon": "location_4.png"
+			}, {
+				"id": "17",
+				"order": 5,
+				"names": {
+					"de": "Quantum 3+4",
+					"en": "Quantum 3+4"
+				},
+				"icon": "location_5.png"
+			}, {
+				"id": "18",
+				"order": 6,
+				"names": {
+					"de": "Raum 6",
+					"en": "Raum 6"
+				},
+				"icon": "location_6.png"
+			}, {
+				"id": "19",
+				"order": 7,
+				"names": {
+					"de": "Neptun",
+					"en": "Neptun"
+				},
+				"icon": "location_7.png"
+			}, {
+				"id": "20",
+				"order": 8,
+				"names": {
+					"de": "Quantum UG ",
+					"en": "Quantum UG "
+				},
+				"icon": "location_8.png"
+			}
+		],
+		"defaultIcon": "Unknown.png"
+	},
+	"events": [{
+			"id": "531845",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T17:00:00",
+			"title": "JavaInnovationLab",
+			"abstractText": "Anfassen, erleben, mitmachen: Das Innovation Lab ist Ausstellungsfläche und Spielfläche zugleich. Erlebe innovative Java-Projekte, deren Fokus die reale mit der virtuellen Welt verbindet. Entdecke dieses Jahr nebst Drohnen auch die humanoiden Roboter Nao und Pepper. Auch im Lab zu finden: eine 360-Grad-Kamera, die in Kombination mit Oculus-Rift-Brillen das Thema Virtual Reality (VR) noch ein Stück faszinierender gestaltet. Außerdem lohnt sich ein Blick auf den selbstgemachten, aus rund 100 RaspberryPis bestehenden 3D-Drucker.\nVor Ort hast du natürlich jede Menge Möglichkeiten, dich mit den Projekt-Verantwortlichen zu unterhalten.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "14",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529325",
+			"start": "2017-03-28T13:00:00",
+			"end": "2017-03-28T13:40:00",
+			"title": "Serverlose Web-Architekturen mit der AWS-Cloud-Infrastruktur",
+			"abstractText": "Serverlose Cloud-Architekturen ermöglichen es, Anwendungen und (Micro-)Services zu bauen und zu betreiben, ohne eine dedizierte Infrastruktur verwalten zu müssen. Der Code wird natürlich noch auf Servern ausgeführt, aber das gesamte Server-Management wird vom Cloud-Anbieter übernommen. Dieser kümmert sich um Verfügbarkeit, Skalierung, Ressourcen-Management und die entsprechende Mutli-Tenancy-Fähigkeit der Systeme und Infrastruktur. Der Cloud-Benutzer kann sich nur voll und ganz auf die Ausführung und das Monitoring seiner Funktionen und Services konzentrieren.\n\nIn meinem Vortrag zeige ich Beispiele, wie zeitgemäße, aber serverlose Microsservice-Cloud-Architekturen am Beispiel von Amazon Web Services schnell und agil aufgebaut und betrieben werden können. Hierbei beleuchte ich u.a. die Konzepte von AWS Lambda, Amazon API-Gateway und DynamoDB und zeige eine funktionsfähige Anwendung, die auf diesen Konzepten basiert, ohne mich mit dem Server-Management beschäftigen zu müssen.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "16",
+			"speakerIds": ["359390"],
+			"languageId": "1"
+		}, {
+			"id": "529412",
+			"start": "2017-03-28T13:00:00",
+			"end": "2017-03-28T13:40:00",
+			"title": "Bau dir einen SuperPiBoy",
+			"abstractText": "Wer in den 90ern ein Kind war, kennt ihn: den Gameboy. Er ist das Symbol für den Beginn der Handheld-Spielekonsolen und gilt mittlerweile als Kultobjekt. Heute werden Gameboys auf Speichern, in Kellern oder in Kisten gefunden und dann über eBay oder auf dem Flohmarkt verkauft. Und dort fängt die Geschichte an. \n\nMit nur einem Gameboy Gehäuse, einem Raspberry Pi und wenigen anderen Komponenten lässt sich aus dem Gameboy eine Handheld-Retro-Konsole bauen. Auf diese Weise habe ich zwei SuperPiBoys umgebaut und möchte dich zum Nachbau anleiten. In diesem Vortrag erzähle ich, wie aus einem alten Gehäuse ein fertiger SuperPiBoy mit Maus und WLAN werden kann.",
+			"demo": true,
+			"trackId": "2",
+			"audienceId": "1",
+			"typeId": "5",
+			"locationId": "19",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529529",
+			"start": "2017-03-29T15:00:00",
+			"end": "2017-03-29T15:40:00",
+			"title": "Java Memory Model für Fortgeschrittene",
+			"abstractText": "Die Spezifikation des Java Memory Model (JMM) gehört zu der kompliziertesten im Java-Umfeld, deren Verständnis aber in Zeiten von Mehrkernprozessoren unabdingbar ist, um die Java-Applikationen zu schreiben, die Nebenläufigkeit korrekt unterstützen.\n\nIn diesem Vortrag schauen wir uns die wichtigsten Dinge an, die das Java Memory Model regelt, nämlich Atomicity, Ordering und Visibility, und erklären die happens-before- und synchronized-with-Regel. In diesem Kontext schauen wir uns unterschiedliche Hardware-Memory-Modele (HMM) an  und besprechen, wie JMM diese abbildet, welche Memory-Reordering-Typen die unterschiedlichen HMMs erlauben und welche Effekte es je nach HMM haben kann. Außerdem erklären wir die Bedeutung und Semantiken der synchronized-Blöcke und Lock-Implementierung aus dem java.util.concurrent.locks Package, Abstraktionen aus dem java.util.concurrent.atomic Package (inkl. Accumulator-Klassen aus Java 8) und Schlüsselwörter wie volatile und final anhand von konkreten Beispielen. Danach schauen wir uns das Tool jcstress an, dessen Ziel es ist zu überprüfen, ob die Nebenläufigkeit korrekt in JVM, Klassenbibliotheken und Hardware unterstützt wird, und besprechen die Ergebnisse, die dieses Tool liefert, anhand der vorgestellten Beispiele. Abschließend sprechen wir über die Zukunft des Java Memory Model.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531856",
+			"start": "2017-03-28T15:00:00",
+			"end": "2017-03-28T16:00:00",
+			"title": "Der Java Flipper",
+			"abstractText": "Ein Open-Source-Schulungsprojekt\n\nJugendlichen die Java-Programmierung näher zu bringen, ist eine Herausforderung. Die Java User Group Goldstadt (JUG PF) stellt sich dieser Aufgabe unter Zuhilfenahme eines aus \"Schrott\" gebastelten Flippers. Dabei herausgekommen ist ein Open-Source-Projekt (Hardware und Software), das die Goldstädter in der Community Hall anderen live demonstrieren und zur Nutzung in der eigenen Jugendarbeit vorstellen.\n\nWir zeigen euch, wie man mit einfachen Mitteln selbst die notwendige \"Hardware\" aus Holz, Blech und anderen Materialien herstellt. Vor allem aber, wie das ganze mit einer \"Java Flipper API\" zu einem spannenden Spielgerät animiert wird.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529306",
+			"start": "2017-03-28T16:00:00",
+			"end": "2017-03-28T16:40:00",
+			"title": "Microservices mit Spring Boot, Angular 2 und Docker",
+			"abstractText": "In dieser Session wird Kai die Grundlagen von Microservices, Spring Boot und Angular 2 erklären und einen kleinen Microservice bauen. Kai zeigt auch ein paar Tricks, wie man diesen in ein effizientes Docker-Image verpackt und schließlich einen laufenden Docker-Container in einer Cloud-Infrastruktur (AWS) zum Laufen bringt. Natürlich alles mit Live-Demos und viel Sourcecode.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "15",
+			"speakerIds": ["364385"],
+			"languageId": "1"
+		}, {
+			"id": "529421",
+			"start": "2017-03-28T15:00:00",
+			"end": "2017-03-28T15:40:00",
+			"title": "Welcome Alexa, Your Personal Assistant",
+			"abstractText": "What if youre eating and having a discussion about a certain topic? Searching on your phone would mean your food gets cold. Or what if youre lying on the couch without your phone and you want to control the lights?\n\nWelcome Alexa, your new personal assistant. Alexa is a voice service, it will respond to your questions and execute tasks. You can for instance ask Alexa for the weather, or ask her to play a certain radio station. \n\nIn this presentation I will show you how to create your own Alexa device. The setup uses a Raspberry Pi, microphone, speaker and a Java application. Next to that I will show you how to integrate Alexa in your home automation setup. That way you can control your lights and everything else with your voice.",
+			"demo": true,
+			"trackId": "2",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "19",
+			"speakerIds": ["368448"],
+			"languageId": "2"
+		}, {
+			"id": "529524",
+			"start": "2017-03-29T14:00:00",
+			"end": "2017-03-29T14:40:00",
+			"title": "Möglichkeiten dynamischer Software-Updates in Java",
+			"abstractText": "Dynamische Software-Updates (DSU) ermöglichen, Software im laufenden Betrieb durch einen Umbau des Hauptspeicherzustandes zu aktualisieren. Dies ist in gemanagten objektorientierten Sprachen wie Java umsetzbar, da die Klassenzugehörigkeit von Objekten im Hauptspeicher zur Laufzeit eindeutig ist. DSU-Systeme sind für Code-Veränderungen währendsdes Debuggings (z.B. JRebel) zum kurzfristigen Installieren von sicherheitskritischen Fixes oder zum fortlaufenden Aktualisieren von Software auf Release-Ebene geeignet. Für letztere beiden gibt es bisher nur Prototypen in der Forschung/Entwicklung. Davon würde jedoch Software profitieren, die nicht derartig entworfen wurde, um sie im laufenden Betrieb zu fixen/aktualisieren. Weiterhin wird es kostengünstig ermöglicht, bestehende Software um diese Fähigkeit zu erweitern.\n\nDer Vortrag gibt einen Überblick über die Entwicklung von DSU-Systemen und zeigt auf, wie weit der automatisierte Umbau des Hauptspeichers in Java vorangeschritten ist und wie derartige Systeme in Zukunft programmiert werden könnten.\n\nAm Beispiel des in unserer Abteilung entwickelten DSU-Systems demonstrieren wir einen Sicherheitspatch (kommt ohne Hilfe durch den Programmierer aus) und ein Release-Level-Update (benötigt einen durch den Programmierer bereitgestellten Transformer) eines laufenden Datenbankservers, während dieser unter Stress eines TPC-Benchmarks steht.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529278",
+			"start": "2017-03-28T16:00:00",
+			"end": "2017-03-28T16:40:00",
+			"title": "Going forward with Java EE Next?",
+			"abstractText": "Through the years, the Java EE platform has continued to evolve to keep pace as new technologies, methodologies and development trends emerge. Recent paradigms like Microservices Architecture, Cloud native development, and Serverless Computing suggest enhancements to Java EE going forward. But as always, we just need to be cautious, in order to avoid the 'great technology of the day' trap. Care must be taken when we consider adding any new technology to the platform, and to the Java EE standard.\n\nThis session will discuss in details the recently announced efforts around Java EE Next.",
+			"demo": false,
+			"trackId": "4",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "12",
+			"speakerIds": ["368443"],
+			"languageId": "2"
+		}, {
+			"id": "529443",
+			"start": "2017-03-29T12:00:00",
+			"end": "2017-03-29T12:40:00",
+			"title": "Continuous Delivery im Enterprise-Umfeld mit Docker, Ansible und Jenkins",
+			"abstractText": "Docker in Produktion? Im Enterprise-Umfeld? Geht das? \n\nIn diesem Vortrag berichten wir von unseren Erfahrungen aus einem Praxisprojekt bei einem Enterprise-Kunden. Treiber des Projekts war die Migration von IBM WebSphere auf eine JBoss-basierte Plattform. Dafür haben wir eine vollständige Build- und Deployment-Infrastruktur auf Basis von Docker und Ansible gebaut, mit der leichtgewichtige und monolithische Anwendungen parallel betrieben werden können. Alle Enterprise-Anwendungen und die Komponenten der CD-Infrastruktur (Jenkins, Nexus, SonarQube, GitLab) werden als Docker-Container gebaut und mithilfe von Ansible in die Test- und Produktionsumgebungen deployt. \n\nTeil des Vortrages ist eine Demo, in der wir das Zusammenspiel zwischen Ansible, Docker und der CD-Infrastruktur zeigen. Gesammelte Erfahrungen, Probleme und Best Practices werden dabei nicht außen vorgelassen.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "5",
+			"locationId": "12",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531878",
+			"start": "2017-03-29T15:00:00",
+			"end": "2017-03-29T16:45:00",
+			"title": "Coding Dojo",
+			"abstractText": "Programmierkenntnisse durch Wiederholung vertiefen\n\nFür den beruflichen Alltag ist es wichtig, sich ständig fortzubilden und seine Fertigkeiten zu trainieren. Mit Code Katas wollen wir in kleinen Teams überschaubare Programmieraufgaben lösen und voneinander lernen. Dabei zählt weniger das Ergebnis, vielmehr ist der Weg das Ziel.\n\nVoraussetzungen:\nBringt bitte einen Laptop mit, auf dem bereits ein JDK in der Version 7 oder neuer installiert ist. Auch eine Entwicklungsumgebung wie Eclipse, IntelliJ oder ähnliches sollte auf deinem Rechner verfügbar sein.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "13",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529516",
+			"start": "2017-03-29T12:00:00",
+			"end": "2017-03-29T12:40:00",
+			"title": "Everything as code",
+			"abstractText": "Zeitgemäße Entwickler müssen eine Vielzahl an Sprachen sicher beherrschen. Wir definieren unsere Entwicklungsumgebung mit Gradle, wir bauen unsere Software in Java, Kotlin oder sogar JavaScript. Wir verwenden Groovy und Scala, um unsere Software zu testen. Die Build-Pipeline wird per DSL und JSON definiert. Mit YAML und Python beschreiben wir die Infrastruktur und das Deployment unserer Anwendungen. Die Dokumentation unserer Architekturen erledigen wir mit AsciiDoc und JRuby. Willkommen in Babel! Hallo, Softwareindustrialisierung!\n\nUse the right tool for the job! Das ist das Motto dieser Session. Jede Sprache hat Stärken in einer bestimmten Domäne. Diese Stärken gilt es zu nutzen. Aber einfach blind jede gerade angesagte Sprache einzusetzen, ist sicherlich nicht die Lösung. Genau das versuchen wir mit dieser Session zu vermitteln. Stattdessen braucht es eine gut integrierte und abgestimmte Tool-Chain. Wir berichten aus der Praxis: What worked for us and what did not.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529366",
+			"start": "2017-03-28T16:00:00",
+			"end": "2017-03-28T16:40:00",
+			"title": "Mobile Apps mit React Native",
+			"abstractText": "React Native ist ein von Facebook entwickeltes Framework, um mit JavaScript mobile Apps für iOS und Android zu entwickeln. \nAnders als bei vielen anderen HTML5-Cross-Plattform-Frameworks wird hier aber kein HTML in einer WebView eingebettet, \nsondern tatsächlich native Oberflächen für das jeweilige System erzeugt. Dadurch wirken Apps nicht wie Fremdkörper, sondern fügen sich auch visuell in das Zielsystem ein. Für Entwickler besteht der Vorteil, dass auf die gleiche Art und Weise native Apps für verschiedene Plattformen und für den Browser entwickelt werden können, ohne dazu unterschiedliche Programmiersprachen und Konzepte erlernen zu müssen. \n\nDer Vortrag gibt eine Einführung in React Native und zeigt anhand von Beispielen, wie mit dem Framework mobile Apps entwickelt werden können.",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "17",
+			"speakerIds": ["368536"],
+			"languageId": "1"
+		}, {
+			"id": "530111",
+			"start": "2017-03-28T14:00:00",
+			"end": "2017-03-28T14:40:00",
+			"title": "Fast & Efficient Microservices w/ binary protocol - gRPC 101",
+			"abstractText": "gRPC is a high performance, open source, general RPC framework that puts mobile and HTTP/2 first. gRPC is based on many years of Google's experience in building distributed systems - it is designed to be low latency, bandwidth and CPU efficient, to create massively distributed systems that span data centers, as well as power mobile apps, real-time communications, IoT devices and APIs. It's also interoperable between multiple languages.\n\nBut beyond that fact that it's more efficient than REST, we'll look into how to use gRPC's streaming API, where you can establish server-side streaming, client-side streaming, and bidirectional streaming! This allows developers to build sophisticated real-time applications with ease.\n\nIn addition to learning about gRPC and HTTP/2 concepts with code and demonstrations, we'll also deep dive into integration with existing build systems such as Maven and Gradle, but also frameworks such as Spring Boot and RxJava. - Configuring projects to generate gRPC stub code - Writing/using a Spring Boot starter to run gRPC server - Integrating w/ RxJava's observable sequences, which matches very well with gRPC's Stream Observable constructs",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "1",
+			"speakerIds": ["371842"],
+			"languageId": "2"
+		}, {
+			"id": "529632",
+			"start": "2017-03-29T15:00:00",
+			"end": "2017-03-29T15:40:00",
+			"title": "Responsive Testing mit dem Galen Framework",
+			"abstractText": "Gerade beim Einsatz von Responsive Design wird es immer wichtiger, mit einer Automatisierung von Regressionstests für das Layout zu arbeiten. Durch das Bilden von Differenzen zwischen Bildern lassen sich zwar Unterschiede zwischen verschiedenen Ständen ermitteln, aber auf Dauer ist dieses Vorgehen sehr schwierig, weil auch kleine Änderungen große Bildunterschiede herbeiführen können. Hier setzt das Galen Framework an. Mit ihm lassen sich wie in TDD Anforderungen in einer DSL formulieren und im Anschluss prüfen. Dabei setzt die Galen DSL darauf, die Beziehungen zwischen den Elementen zu beschreiben. Für die Ausführung der Tests kommt Selenium zum Einsatz. Dieser Vortrag soll das Galen Framework und Erfahrungen damit vorstellen.",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "19",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529416",
+			"start": "2017-03-28T14:00:00",
+			"end": "2017-03-28T14:40:00",
+			"title": "Avatar - Telepräsenzrobotik mit Nao und Kinect",
+			"abstractText": "Mithilfe von humanoiden Robotern, Virtual-Reality-Brillen und 3D-Kamerasensoren zur Gestenerkennung kann man die Welt aus den Augen eines Roboters erleben und diesen berührungslos fernsteuern. \n\nDas Hardware-Hacking Team der TNG Technology Consulting GmbH hat ein Telepräsenzrobotik-System auf Basis eines Nao-Roboters, einer Oculus Rift und einer Kinect One implementiert, um damit eine immersive Outer-Body-Experience - ähnlich wie im Film \"Avatar\" - zu ermöglichen. \n\nIm Rahmen dieses Vortrags wird durch mehrere interaktive Live-Coding-Beispiele die einfache Programmierung des Roboters mit Programmiersprachen wie Python oder Java nähergebracht. Nach einer Live-Demonstration werden Sie durch den gesamten Programmablauf des Telepräsenzsystems geführt und auch die Herausforderungen kennen lernen, welche sich bei der Implementierung boten. \n\nDie Sprecher geben einen kurzen Einblick in die Welt der Telerobotik und gehen neben einem kurzen historischen Abriss insbesondere auf aktuelle Trends und Anwendungsfälle in der heutigen Zeit ein.",
+			"demo": true,
+			"trackId": "2",
+			"audienceId": "1",
+			"typeId": "5",
+			"locationId": "19",
+			"speakerIds": ["371592", "365280"],
+			"languageId": "1"
+		}, {
+			"id": "529488",
+			"start": "2017-03-29T14:00:00",
+			"end": "2017-03-29T14:40:00",
+			"title": "Config-Management mit Vault und Spring Cloud",
+			"abstractText": "Das Management von Konfigurationseinstellungen ist ein wesentlicher Bestandteil moderner DevOps-Prozesse. Dabei gilt es, nicht nur diese zentral und versioniert zu speichern, sondern auch dafür zu sorgen, dass ausschließlich berechtigte Personen oder Prozesse an diese gelangen können und ebenso Credentials wie Passwörter, Schlüsselpaare oder Zertifikate regelmäßig ausgetauscht werden. Hierzu bietet Vault der Firma HashiCorp eine ideale Lösung, welche nicht nur obige Anforderungen erfüllt, sondern ebenso offen und erweiterbar ist, dass es \"on demand\" neue Zugangs-Credentials wie MySQL User-Passwort-Kombinationen oder SSH One Time Passes generieren kann, sondern auch als Verschlüsselungsfrontend zu anderen Konfigurationsmanagement-Tools dienen kann.\n\nIm Rahmen des Spring-Cloud-Projekts wurden bereits solche schönen Integrationen, wie Zuul oder Hystrix, geschaffen, und aktuell wird daran gearbeitet, Vault als Config-Provider für Spring-Boot- und Spring-Cloud-Projekte zur Verfügung zu stellen.\n\nIn diesem Vortrag soll anhand eines \"praktischen\" Beispiels das Management von Credentials durch Vault demonstriert und die Integration in Spring Boot erklärt werden.",
+			"demo": true,
+			"trackId": "6",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "15",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529329",
+			"start": "2017-03-28T14:00:00",
+			"end": "2017-03-28T14:40:00",
+			"title": "From Pair Programming to Mob Architecting ",
+			"abstractText": "Das Leben von Entwicklern ist heute nicht mehr Neuentwicklung  es ist Wartung. Das größte Problem dabei ist, dass sich Wartung mit der Zeit von architekturkonformer Programmierung hin zu defensiver Programmierung verändert und das Verständnis zwischen Architekten und Entwicklern schwindet. Mob-Architekturverbesserung wird Teams inklusive Architekten helfen, diese Sackgasse zu umgehen. Die Zusammenarbeit zwischen Architekten und Entwickler wird besser, effektiver und macht auch noch Spaß!",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529542",
+			"start": "2017-03-29T10:00:00",
+			"end": "2017-03-29T10:40:00",
+			"title": "\"So, ihr macht dann mal Microservices!\" ... und nu?",
+			"abstractText": "Klar, Microservices auf der grünen Wiese sind einfach: Entwickler frisch vom JavaLand, ein \"fancy\" Java 8/Spring Boot/nginx/ECMAScript6-Technologiestack, noch ein bisschen DevOps und Continuous Delivery, fertig. So wünscht man sich moderne Softwareentwicklung. \n\nDoch konkrete Projekte in der Enterprise-Realität sehen meistens eher anders aus: Entwickler die  'Spring' eher mit 'Schneesturm' denn mit 'Frühling' übersetzen und mit 'git' auch nur bedingt etwas anfangen können. Dazu das typische maximal-regulierte und historisch gewachsene Enterprise-Umfeld - komplett mit Java 6, Internet Explorer 8 und ausführlichsten Compliance- und Regulatorik-Vorgaben. Nicht zu vergessen all die Client-, Middleware- und Backend-Systeme, die aufgrund der hohen Gesamt-Komplexität maximal 2 mal im Jahr live gehen können.\n\nHaben Microservices in so einer Welt überhaupt eine Chance? Und falls ja, wieviel bleibt vom Zauber der modernen, agilen und flexiblen Continuous Delivery Entwicklung eigentlich noch über? \n\nEin Erfahrungsbericht über eine Microservice-Architektur, die nun seit 18 Monaten bei einem unserer größten Enterprise-Kunden im Produktivbetrieb ist: Es soll nicht nur von den Fallstricken der verwendeten Technologien berichtet werden, sondern auch von den Veränderungen innerhalb der Organisation, die notwendig sind, um aus dem Architekturpattern wirklich Vorteile ziehen zu können. Eine bunte Sammlung von \"Lessons Learned\" aus der Welt einer nicht-ganz-so-Standard-Microservice-Architektur, die trotzdem Spaß macht.",
+			"demo": false,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "5",
+			"locationId": "17",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531838",
+			"start": "2017-03-28T09:00:00",
+			"end": "2017-03-28T17:00:00",
+			"title": "JavaInnovationLab",
+			"abstractText": "Anfassen, erleben, mitmachen: Das Innovation Lab ist Ausstellungsfläche und Spielfläche zugleich. Erlebe innovative Java-Projekte, deren Fokus die reale mit der virtuellen Welt verbindet. Entdecke dieses Jahr nebst Drohnen auch die humanoiden Roboter Nao und Pepper. Auch im Lab zu finden: eine 360-Grad-Kamera, die in Kombination mit Oculus-Rift-Brillen das Thema Virtual Reality (VR) noch ein Stück faszinierender gestaltet. Außerdem lohnt sich ein Blick auf den selbstgemachten, aus rund 100 RaspberryPis bestehenden 3D-Drucker.\nVor Ort hast du natürlich jede Menge Möglichkeiten, dich mit den Projekt-Verantwortlichen zu unterhalten.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "14",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529709",
+			"start": "2017-03-28T15:00:00",
+			"end": "2017-03-28T15:40:00",
+			"title": "Combinator als funktionales Entwurfsmuster in Java 8",
+			"abstractText": "Abseits von Streams und Optionals bietet Java 8 neue funktionale Möglichkeiten, um bestehende Probleme zu lösen. Mit dem Combinator-Entwurfsmuster werden kleine fachliche Funktionen situationsgerecht zu komplexer Fachlogik kombiniert. Vorteile sind, neben der klaren Trennung von Verantwortlichkeiten, Erweiterbarkeit, Wiederverwendbarkeit und der deklarative bzw. domänengetriebene Ansatz. \n\nDieser Vortrag beschreibt anhand praktischer Beispiele, wie das Combinator Entwurfsmuster funktioniert und wann der Einsatz sinnvoll ist. Voraussetzung sind ein Interesse an funktionaler Programmierung und erste Erfahrungen mit Lambdas in Java 8.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "4",
+			"locationId": "20",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529480",
+			"start": "2017-03-29T12:00:00",
+			"end": "2017-03-29T12:40:00",
+			"title": "Kontinuierliche Architektur-Dokumentation",
+			"abstractText": "Textverarbeitungsprogramme sind für technische Dokumentation schlecht geeignet, ein Wiki auch nur bedingt. Wir wollen uns anschauen, wie man mit Entwicklerwerkzeugen Dokumentation redundanzfrei erstellt und pflegt, wie man sie validiert und in Teilen generieren kann. Die resultierenden Dokumente müssen natürlich jederzeit in verschiedenen Formaten und für die jeweiligen Zielgruppen angepasst erzeugt werden. \n\nEin effizienter Build-Prozess, dazu schlanke Dokumenten- und Grafikformate und strukturierte Ablage der Quellen inklusive einheitlicher Versionierung, Historisierung und Vergleichbarkeit sind wichtige Komponenten für Continuous Documentation und Documentation as Code. \n\nAm Beispiel einiger Fallbeispiele werden wir die Ideen auf ihre Praxistauglichkeit prüfen.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "15",
+			"speakerIds": ["363284"],
+			"languageId": "1"
+		}, {
+			"id": "529628",
+			"start": "2017-03-29T14:00:00",
+			"end": "2017-03-29T14:40:00",
+			"title": "Getyptes JavaScript mit TypeScript und Flow",
+			"abstractText": "JavaScript ist die natürliche Wahl für die Entwicklung im Browser. Für größere Projekte ist JavaScript im Vergleich zu Java jedoch im Nachteil. TypeScript und Flow sind zwei unterschiedliche Ansätze zum Ausgleich der Nachteile.\n\nFlow ist ein statischer Typen-Checker. Er wurde von Facebook entwickelt, um in deren JavaScript- und insbesondere React-Code Fehler zu finden. Dazu können zusätzliche Typeninformationen hinzugezogen werden.\n\nTypeScript ist eine Spracherweiterung von JavaScript, die durch den TypeScript-Compiler in unterschiedliche JavaScript-Versionen zurückübersetzt werden kann. Hier steht eher die Werkzeug-Unterstützung im Vordergrund. TypeScript wird aktiv von Microsoft entwickelt und ist die primäre Sprache für Googles Angular 2 Framework.\n\nIn diesem Talk werde ich in beide Ansätze einführen und die wesentlichen Gemeinsamkeiten und Unterschiede erläutern. Dazu besprechen wir, welcher Ansatz wann sinnvoll ist.",
+			"demo": false,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "19",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529349",
+			"start": "2017-03-28T12:00:00",
+			"end": "2017-03-28T12:40:00",
+			"title": "Lesbare Tests mit AssertJ",
+			"abstractText": "Wir schreiben seit Jahren unsere Unit-Tests mit JUnit. Die Unterstützung für das Schreiben von Zusicherungen (Assertions) wurde mithilfe von Hamcrest stark verbessert. Es gibt aber auch andere Wege, um Tests ausdrucksstärker zu schreiben. \n\nIn diesem Vortrag wird neben einem Überblick über die Standard JUnit Assertions und Hamcrest ein intensiver Blick auf das Assertion Framework AssertJ geworfen. AssertJ zeichnet sich insbesondere durch die flüssige Schreibweise der Zusicherungen aus, welche das Schreiben von lesbaren Tests fördert.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "7",
+			"locationId": "17",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531890",
+			"start": "2017-03-28T11:00:00",
+			"end": "2017-03-28T12:00:00",
+			"title": "Code-Golf",
+			"abstractText": "Erstelle den kürzesten Code\n\nWer die wenigsten Schläge benötigt, gewinnt  so das Prinzip beim Golfspielen. Beim Code-Golf gelten ähnliche Spielregeln: Löse eine Aufgabe mit dem kürzesten Java-8-Quellcode (wenigste Zeichen, keine Drittbibliotheken) und trage den Sieg davon! Dieses Jahr zum ersten Mal mit einer Online-App, die Euren Code direkt validieren und gegen eine Test-Suite ausführen wird  ihr bekommt also direktes Feedback, ob Eure Lösung funktioniert oder nicht.\n\nDie Siegerehrung findet am Mittwoch um 15 Uhr statt.",
+			"demo": true,
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529599",
+			"start": "2017-03-29T15:00:00",
+			"end": "2017-03-29T15:40:00",
+			"title": "TDD mit JUnit und Mockito",
+			"abstractText": "Testgetriebene Entwicklung (TDD = Test Driven Development) sollte zum Handwerkszeug eines jeden Softwareentwicklers gehören, ob er nun agil entwickelt oder nicht. In dieser Session lernen Sie die Grundlagen der testgetriebenen Entwicklung mithilfe des Java-Frameworks JUnit kennen. Mit dessen Erweiterung Mockito werden Sie in die Lage versetzt, abhängige Komponenten sehr einfach zu mocken, d.h. durch \"vorgetäuschte\" Objekte zu ersetzen, ohne eine komplette Dummy-Implementierung zu schreiben. Anhand viele Praxisbeispiele zeige ich die Möglichkeiten, aber auch die Grenzen auf.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "18",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529316",
+			"start": "2017-03-28T11:00:00",
+			"end": "2017-03-28T11:40:00",
+			"title": "A Reactive Take on Pokémon GO with Spring Reactive",
+			"abstractText": "These last few years Reactive Programming has found the hearts of a significant amount of developers. The fact that Spring 5 will incorporate the possibility of programming Reactive Systems in its core framework through the Spring Reactive project is a very positive development (pun intended) and shows the the paradigm-shift towards declarative programming.\n\nThe session starts with the basics of Reactive Programming (in a nutshell) after which well quickly move on to the specifics of the Spring Reactive project. The revolutionary game Pokémon GO is then used as a practical use case to show the concept and power of Reactive Programming by rebuilding functionality of the game using Spring Reactive. But before we can dive into what we will develop and how, we need to talk about Streams.\n\nA probably familiar phrase in the Reactive Programming context is \"Everything is a Stream.\" So, what is a Stream? If youre familiar with Futures, which abstract the delivery of a single value asynchronously in the future, and Iterables, for accessing a sequence of items which have an unknown length, then you can think of a Stream as essentially being a hybrid of the two: a mechanism for asynchronously receiving multiple items. \n\nStreams are key to Reactive Programming. And as a Pokemon trainer in the game you might not be aware of it, but GPS locations, randomly appearing Pokémons, and throwing pokeballs are just a few examples of some of those Streams. So join us in our adventure of rebuilding Pokémon GO as a Reactive application and we will show you a way of building applications in a declarative way, as opposed to imperatively, resulting in more responsive and resilient applications.",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "529404",
+			"start": "2017-03-28T11:00:00",
+			"end": "2017-03-28T11:40:00",
+			"title": "The RetroPi Reloaded - CNC Milled Java Arcade Machine",
+			"abstractText": "The RetroPi is a custom-designed handheld console using a Raspberry Pi with a pure Java software stack for emulation and graphics. In this rework of the original RetroPi console, we go broader and bigger!\n\nWhile 8-bit consoles like the NES are a lot of fun, the C64 (Commodore 64) was a real hackers machine. And 3D printing is suitable for building a small handheld console, but what if you want to automate prototyping of a full-size arcade console?\n\nIn this talk we update the RetroPi to support C64 applications and emulate the C64 Joystick using the Pi4J library. Also, we convert the design to use a wood enclosure milled with a CNC Router. CNC Routers are the analog of 3D printers with the ability to remove material with full automation and repeatability. They are also available in many different formats allowing detailed engraving or large format cutting to build things in life size.\n\nThis presentation is the most fun you can have while still legitimately \"working\" and will hopefully inspire you to start hacking the real world with Raspberry Pi and Java.",
+			"demo": true,
+			"trackId": "2",
+			"audienceId": "2",
+			"typeId": "5",
+			"locationId": "19",
+			"speakerIds": ["365991"],
+			"languageId": "2"
+		}, {
+			"id": "529500",
+			"start": "2017-03-29T16:00:00",
+			"end": "2017-03-29T16:40:00",
+			"title": "Open Source Identity Management mit Keycloak",
+			"abstractText": "In diesem Vortrag beschäftigen wir uns mit der quelloffenen Identity-Management-Software Keycloak aus dem Hause JBoss. Nach einer grundlegenden Einführung in das Thema Identity Management werfen wir einen Blick auf das Autorisierungsprotokoll OAuth 2.0 sowie den darauf aufbauenden Authentisierungslayer Open ID Connect. Anschließend verschaffen wir uns einen Überblick über die Möglichkeiten von Keycloak und spielen anhand von Beispielen ausgewählte Authentifzierungsszenarien durch.\n\nKeycloak bietet eine Benutzerverwaltung, die sich dank der Verwendung von OAuth 2.0 einfach in\neigene Anwendungen integrieren lässt. Darüber hinaus bringt das Tool von Haus aus bereits viele Funktionen mit, darunter eine Benutzerregistrierung, 2-Faktor-Authentifizierung sowie die Unterstützung externer Identity Provider wie Google, Facebook, Twitter. Auch eine Anbindung an ein Unternehmensverzeichnisse auf Basis von Active Directory bzw. LDAP ist über Federation Provider möglich. Darüber hinaus bietet Keycloak noch ein umfangreiches Erweiterungsmodell, mit dem sich die\nBenutzerauthentifizierung einfach an eigene Bedürfnisse anpassen lässt.",
+			"demo": true,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "5",
+			"locationId": "15",
+			"speakerIds": ["368549"],
+			"languageId": "1"
+		}, {
+			"id": "529612",
+			"start": "2017-03-29T10:00:00",
+			"end": "2017-03-29T10:40:00",
+			"title": "It's all about the domain, honey - Erfahrungen aus 10 Jahren Domain Driven Design",
+			"abstractText": "Beim Bauen von Software werden tolle Technologien, Programmiersprachen und Tools eingesetzt. Das ist gut und richtig. Aber leider wird dabei oft aus den Augen verloren, dass das Entscheidende nicht die Technik, sondern die \"Fachlichkeit\" ist. Wenn wir in der Software nicht das fachliche Modell abbilden, dann wird sie unseren Anwendern nicht bei Ihrer Arbeit helfen. Davor schützt uns keine Technologie der Welt. Um das zu verhindern, zeigen wir in diesem Vortrag, wie man die Architektur so baut, dass sie die Fachlichkeit darstellt und wie Domain Driven Design (DDD) und Microservices uns dabei helfen können.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "19",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529294",
+			"start": "2017-03-28T13:00:00",
+			"end": "2017-03-28T13:40:00",
+			"title": "Railway-oriented Programming mit Java",
+			"abstractText": "Die Behandlung von null-Werten und das Exception-Handling tragen dazu bei, dass viele eigentlich einfache Funktionalitäten in Java in Form langer und unübersichtlicher Methoden voller Boilerplate-Code für die Fehlerbehandlung umgesetzt werden. Der Ansatz des Railway-oriented Programming - eine Idee aus der funktionalen Programmierung mit Implementierung in F# von Scott Wlaschin - vermeidet dies und ermöglicht kurzen und gut lesbaren Code, der sich auf die eigentliche Fachlogik beschränkt und die Fehlerbehandlung ganz nebenbei erledigt. \n\nDieser Vortrag zeigt anhand eines einfachen Beispiels die Idee des Railway-oriented Programming und eine mögliche Implementierung in Java. Einige dafür notwendige Datenstrukturen - wie Optional&lt;T&gt; - sind bereits in Java 8 verfügbar, andere werden passend entwickelt. Den dafür notwendigen kurzen Ausflug in den Bereich der Funktoren und Monaden gibt es gleich dazu, und ein abschließender Ausblick zeigt, wie gut das Konzept zum Domain Driven Design passt.\n\n    public Result&lt;User&gt; changePassword(\n        Username username, Password oldPasswort, Password newPassword)\n    {\n        return Result.combine(\n            Result.of(username, \"Username cannot be empty\"),\n            Result.of(oldPassword, \"Old password cannot be empty\"),\n            Result.of(newPassword, \"New password cannot be empty\"))\n        .onSuccess(() -&gt; userRepo.find(username))\n        .ensure(user -&gt; user.isCorrectPassword(oldPassword), \"Invalid password\")\t\t\t\t\n        .onSuccess(user -&gt; user.changePassword(newPassword))\n        .onSuccess(user -&gt; userRepo.update(user))\n        .onFailure(() -&gt; logger.error(\"Password could not be changed\"))\n        .map(user -&gt; user);\n    }",
+			"demo": false,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "7",
+			"locationId": "15",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529384",
+			"start": "2017-03-28T13:00:00",
+			"end": "2017-03-28T13:40:00",
+			"title": "JUnit 5: Next Generation Testing on the JVM",
+			"abstractText": "Java's most ubiquitous library is getting an update! And this is the time to see what's new and weigh in on its course.\n\nThis talk will...\n\n* show you how to write tests with JUnit 5\n* walk you through the changes compared to JUnit 4\n* expand on dynamic tests and the extension model\n* present the new architecture\n* discuss compatibility with previous JUnit versions, IDEs, and other testing tools\n\nBe careful, though: You might end up with an urge to start using it right away.",
+			"demo": false,
+			"trackId": "3",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "18",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531259",
+			"start": "2017-03-30T09:00:00",
+			"end": "2017-03-30T17:00:00",
+			"title": "Docker for Java Developers (Gupta)\r",
+			"abstractText": "Docker is the developer-friendly container technology that enables creation of your application stack: OS, JVM, app server, app, database and all your custom configuration. So you are a Java developer but do you understand how to containerize your existing application?\nDocker nicely complements Java programming model by allowing to package all your libraries, dependencies and configuration as an image. Are Java containers on Linux the same on Windows containers?\nThis tutorial explains how to get started, package, deploy, and scale Java applications using Docker. Attendees will learn how Docker can be integrated in your toolchain. Different orchestration frameworks will be compared by deploying the same application to each one of them.\nHere are the specific details:\n&#61607; Docker 101\n&#61607; Running first Java application with Docker\n&#61607; Package your Java application with Docker\n&#61607; Sharing your Java application using Docker Hub\n&#61607; Package your Java EE application as Docker multi-container applications\n&#61607; Deploy your Java application using Maven\n&#61607; Kubernetes 101\n&#61607; Deploy your application using Kubernetes\n&#61607; Deploy your first Java application with Kubernetes\n&#61607; Develop/deploy your application using NetBeans, Eclipse and IntelliJ",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "6",
+			"locationId": "5",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "529624",
+			"start": "2017-03-29T13:00:00",
+			"end": "2017-03-29T13:40:00",
+			"title": "Monolithen zähmen leicht gemacht",
+			"abstractText": "Die längste Zeit verbringt ein Projekt in dem Status der Wartung. Jeder, der schon einmal in so einem Wartungsprojekt gearbeitet hat, kennt dieses Phänomen vermutlich. Das Implementieren neuer Features dauert von Sprint zu Sprint immer länger und ist dazu auch noch äußerst fehleranfällig. Die Testabdeckung lässt meistens zu wünschen übrig, und eine einfache Änderung in einer einzigen Klasse führt zu vielen weiteren notwendigen Änderungen in beteiligten Klassen. Wer diese oder eine vergleichbare Situation schon einmal erlebt hat, ist in Besitz des so gefürchteten Big Ball of Mud.\n\nDieser Vortrag ist genau das Richtige für Sie, wenn Sie eine Schlammschlacht lieber umgehen und Ihre PS wieder auf die Straße bringen möchten. Es wird gezeigt, wie Sie das Dependency Inversion Principle und Java Packages als Mittel zur zyklenfreien (Re-)Modularisierung Ihrer Anwendung verwenden und welchen Einfluss das DIP auf Ihre Architektur hat.",
+			"demo": true,
+			"trackId": "6",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "19",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529408",
+			"start": "2017-03-28T12:00:00",
+			"end": "2017-03-28T12:40:00",
+			"title": "Hack deine Zahnbürste!",
+			"abstractText": "\"Wie viele Entwickler braucht man, um eine Glühbirne zu wechseln?\" - \"Keinen, das ist ein Hardwareproblem!\" Ist das immer noch so? Java-Entwickler von heute überwinden ganz locker die Software/Hardware-Barriere. Mit Mini-Computern wie dem Raspberry Pi und modernen IDEs und APIs ist das überraschend einfach geworden. In dieser Session hacken wir alles, was uns in den Weg kommt, die Zahnbürste in der Cloud, Nähmaschinen und sogar einen Badezimmerspiegel.",
+			"demo": true,
+			"trackId": "2",
+			"audienceId": "1",
+			"typeId": "5",
+			"locationId": "19",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531859",
+			"start": "2017-03-29T10:00:00",
+			"end": "2017-03-29T11:00:00",
+			"title": "Der Java Flipper",
+			"abstractText": "Jugendlichen die Java-Programmierung näher zu bringen, ist eine Herausforderung. Die Java User Group Goldstadt (JUG PF) stellt sich dieser Aufgabe unter Zuhilfenahme eines aus \"Schrott\" gebastelten Flippers. Dabei herausgekommen ist ein Open-Source-Projekt (Hardware und Software), das die Goldstädter in der Community Hall anderen live demonstrieren und zur Nutzung in der eigenen Jugendarbeit vorstellen.\n\nWir zeigen euch, wie man mit einfachen Mitteln selbst die notwendige \"Hardware\" aus Holz, Blech und anderen Materialien herstellt. Vor allem aber, wie das ganze mit einer \"Java Flipper API\" zu einem spannenden Spielgerät animiert wird.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529512",
+			"start": "2017-03-29T11:00:00",
+			"end": "2017-03-29T11:40:00",
+			"title": "Hibernate Search und Elasticsearch: Von 0 auf 100 in 40 Minuten",
+			"abstractText": "Eine exzellente Suchfunktionalität ist oft ein \"must-have\" für Enterprise-Anwendungen, allerdings verfügen gängige Datenbanken oft nur über beschränkte Möglichkeiten zur Volltextsuche. Hier setzt Elasticsearch an und bietet ausgereifte, skalierbare und performante Suchfunktionen mittels einer REST API.\n\nDie erforderliche Synchronisation von Domänenmodell, Applikationsdaten und Such-Index in Elasticsearch mag zunächst einfach erscheinen, aber wie so oft steckt der Teufel im Detail. Wie steht es um Typkonvertierungen, wie umgehen mit eingebetteten Entitäten/Assoziationen oder dem Mapping von Suchergebnissen?\n\nAber keine Sorge, Hibernate Search verspricht Abhilfe. Im Vortrag werden die Zuhörer erfahren, wie einfach es ist, ein Entitätenmodell mithilfe weniger Annotationen zu indizieren, via Hibernate Search die Synchronisation von Datenbank und Elasticsearch zu gewährleisten und die Ergebnisse von Volltextsuchen als gemanagte Entitäten zu verarbeiten.\n\nBasierend auf typischen Anwendungsfällen werden wir verschiedene Mapping-Optionen, synchrone und asynchrone Index-Updates, verschiedene Query-Möglichkeiten und vieles andere mehr besprechen. Die Session ist Code-zentriert und präsentiert die leistungsstarke Kombination aus Hibernate Search und Elasticsearch in Aktion.",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529282",
+			"start": "2017-03-28T08:30:00",
+			"end": "2017-03-28T09:10:00",
+			"title": "Hysterie in verteilten Systemen - Hystrix im Einsatz",
+			"abstractText": "Ob ich mich nun in einer modernen Microservice-Architektur bewege oder an bestehende Legacy-Backends binden muss, in beiden Fällen muss ich mit dem Verhalten und den Fehlern dieser Systeme leben und damit umgehen können. Das Hystrix Framework erfreut sich immer größerer Beliebtheit. Service-Aufrufe werden isoliert, um die eigene Anwendung vor den Fehlern ihrer Abhängigkeiten zu schützen. Timeouts und Exceptions, die zum Absturz der eigenen Anwendung führen können, werden verhindert. \n\nIn diesem Vortrag zeige ich anhand einer Demo, in der der bekannte Chaos Monkey sein Unwesen treibt, welchen Nutzen man aus Hystrix und seinen Daten ziehen kann. Die gezeigte Demo besteht aus vier Docker-Containern, in denen jeweils eine Spring-Boot-Anwendung läuft. Dank des Archaius Framework aus dem Hause Netflix können wir dynamisch zur Laufzeit unsere Konfiguration ändern. Wir werfen einen Blick in den Hystrix Stream und sehen uns alternativ die Möglichkeit an, die gewonnenen Informationen mithilfe eines Healthcheck-Service bereitzustellen. So kannst du auch ohne Elasticsearch und Co. auf das Verhalten deiner Anwendung reagieren und aus den Fehlern lernen!\n\nDie gezeigte Demo kannst du dir im Anschluss gerne bei Github herunterladen und erste Erfahrungen im Umgang mit Hystrix, Archaius und einer verteilten Spring Boot Anwendung sammeln.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "15",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529701",
+			"start": "2017-03-28T13:00:00",
+			"end": "2017-03-28T13:40:00",
+			"title": "Caching mit Spring über JCache hinaus",
+			"abstractText": "Die Teilnehmer lernen anhand eines durchgängigen Beispiels die Spring-Cache-Abstraktion analog zu JCache (JSR 107) kennen. Ich werde auf die über JCache hinausgehenden Möglichkeiten des Spring-Cachings eingehen. Dabei beleuchte ich die Vor- und Nachteile eines aop-proxies und demonstriere, wie individuelle Key-Generatoren sinnvoll eingesetzt werden. Anschließend zeige ich, wie der Spring-Context innerhalb eines Aspects verwendet werden kann, sodass die Nachteile eines aop-proxies minimiert werden.\nIm Beispiel werden vor allem Dingen die Spring-Framework-Komponenten spring-context-support, spring-aspects und spring-instrument verwendet.\n\nIm Anschluss verstehen die Teilnehmer die Ziele des JSR 107 und können JCache in einer Java-EE-Umgebung nutzen. Sie kennen einige über den JSR 107 hinausgehende Caching-Möglichkeiten, die in der Spring-Cache-Abstraktion geboten werden, und können diese in einer Spring-Anwendung verwenden. Die Zuhörer wissen den Spring Context zielgerichtet innerhalb ihrer eigenen Aspekte zu nutzen, über Caching hinaus eine interessante Option.\n\nDer Vortrag richtet sich an Java-Entwickler, die Spring- und Jave-EE-Grundkenntnisse haben.",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "2",
+			"typeId": "4",
+			"locationId": "20",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529558",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T09:40:00",
+			"title": "Building a Spring Boot Application: Ask the Audience!",
+			"abstractText": "Spring Boot makes it easy to create stand-alone Spring-based application that you can 'just run'. It uses a 'convention over configuration' approach to get you up and running in no-time, while offering all Spring features that you have grown fond of in the past years. In this session this is demonstrated by live-coding a Spring Boot application that will just work.\n\nBut audience beware, this is not your standard live-coding session'.  Attendees will have a vital say in the session's content by defining the applications requ\tirements. Should it be an app to track your kitchen cupboard contents or do you want a simple task planner? It's up to you! Should it use MongoDB or Couchbase? You decide! Do you want an AngularJS front-end with a RESTful backend or do you prefer a classic web app with Thymeleaf templates? It's your call! Seriously.\n\nDuring the session you get to make these decisions by participating in an online vote. And you will discover that Spring Boot is up to the task no matter what choices you make.\n\nSo what are you waiting for? Bring your own device, help shape the application that we're building and learn lots about Spring Boot in the process.\n\nThis session is intended for Java software engineers with an interest in Spring Boot. Some Spring experience could come in handy, but is not strictly necessary. After this session, you will know enough to start your own Spring Boot project.",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "17",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529321",
+			"start": "2017-03-28T12:00:00",
+			"end": "2017-03-28T12:40:00",
+			"title": "Java EE 8 - Java EE Security API ",
+			"abstractText": "The presentation gives an overview of the current status of the Java EE Security API work, part of the upcoming Java EE 8 specification.\n\nBy starting why there is a need for such a new specification, we will  cover the main concepts related to security.\nSoteria is the reference implementation of the specification. Although the spec is targetted to Java E8, we can use it in several Application servers already. Various common use cases will be presented in a demo.\n\nDevelopers feedback is important to reach a good specification which can please the developers. At the end, there will be room for questions, remarks, feedback, etc...",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "531229",
+			"start": "2017-03-30T09:00:00",
+			"end": "2017-03-30T17:00:00",
+			"title": "Full Stack Java Microservices with Marathon, Docker and HTML5 (Burns & Szymanski)\r",
+			"abstractText": "Morning session: Introducing the Stack\nI. Why do we need a new stack? What's wrong with the one we already have?\nA. Brief justification for Microservices-style architecture\n    Horizontal scalability\n    Agility\n    DevOps: No more throwing it over the wall. Instead, you build lots of walls and keep most things inside them.\nB. The existing Java EE stack is still useful\n    Can evolve usage of Microservices stack alongside existing Java EE stack\n    Many skills and technologies in the Java EE stack are usable right out of the box in the Microservices stack.\nC. The DevOps movement reaches you\n    Economic background: searching for productivity gains in every possible place.\n    Because there is no more throwing it over the wall, everyone needs to think more like a sysadmin and have some basic sysadmin skills.\nII. Quick tour of the stack\nA. Bottom\n0. GNU/Linux\n1. Apache Mesos\n2. Marathon\n    Docker\n    B. Middle\n        Jersey\n        Java\n        REST\n        ELK\n        Etcd\n    C. Top\n        HTML5\nIII. The foundation layer\nA. Installing and running the basic stack\nB. Looking at the moving parts of the basic stack\n1. Mesos and Marathon\n  a. Master and Slave nodes\n  b. The Docker Containerizer\n  c. Marathon and its deployment descriptor\n2. Docker\n  a. What's so special about Docker?\n    1. Remember WARs and why they were popular?  Deployment standard.\n    2. What makes a Docker image (from the perspective of this course)?\n      - The Dockerfile\n      - The entrypoint shell script\n      - The program run by the shell script\nb. Roland Huss's Fabric 8 Docker Maven Plugin\nC. Simulating a cloud runtime environment on a single host using Maven\nIV. The middle layer (notice we don't say middle tier)\nA. The microservice\n1. Java\n2. Jersey and REST\nB. Supporting services\n1. ELK\n2. ETCD\nAfternoon Session HTML5 deep dive\n    HTML5: why all the fuss?\n        What's in a name?\n        Is it really a big deal?\n    HTML5: High Level Perspective\n        Design goals\n        How does it differ from HTML4\n    HTML5: Sub specifications\n        Browser contexts\n        Microdata\n        Canvas contxet\n        Offline apps\n        Messaging\n            Events\n            Cross-document messaging\n            Server-sent events\n            WebSockets\n            Drag and Drop\n            Web Storage",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "6",
+			"locationId": "8",
+			"speakerIds": ["353543"],
+			"languageId": "2"
+		}, {
+			"id": "529312",
+			"start": "2017-03-28T08:30:00",
+			"end": "2017-03-28T09:10:00",
+			"title": "CDI 2.0 Is Upon Us",
+			"abstractText": "Like the Winter in some famous TV show, CDI 2.0 has been coming for nearly 2 years. But now CDI 2.0 is here (like the same Winter) and all the new stuff it brings will deeply change your Java EE, MicroProfile and Java SE experience.\n\nIn this session I will review the major features introduced in CDI 2.0 and I'll demonstrate how  it can be used in various environment like Java EE 7 application server, MicroProfile platform or even Java SE. \n\nIf you still think that CDI is a simple Dependency Injection solution bound to Java EE or think that there's only one platform to bootstrap advanced service on Java SE, come and see that the CDI \"Winter\" can compete with \"Spring\".",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "531886",
+			"start": "2017-03-29T12:45:00",
+			"end": "2017-03-29T14:45:00",
+			"title": "JavaFX User Experience and Performance Pitfalls",
+			"abstractText": "Diskutiere mit Experten über JavaFX\n\nWie sich eine Software dem Anwender präsentiert, die sogenannte \"User Experience\", entscheidet letztlich darüber ob eine Software erfolgreich ist oder nicht. Dabei ist insbesondere eine flüssige Interaktion mit der Oberfläche von entscheidender Bedeutung. Diese wird nicht zuletzt maßgeblich von der Leistungsfähigkeit der GUI-Software beeinflusst.\n\nIn diesem Workshop sollen daher die Konzepte von JavaFX in diesem Sinne untersucht werden, und es sollen mögliche Performance-Probleme aufgezeigt und Lösungsansätze erarbeitet werden.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "13",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529534",
+			"start": "2017-03-29T16:00:00",
+			"end": "2017-03-29T16:40:00",
+			"title": "Reaktive Anwendungen mit RxJava",
+			"abstractText": "Reaktive Architekturen versprechen skalierbare, fehlertolerante und hoch-interaktive Anwendungen, die Informationen in Echtzeit anzeigen. Die Grundlage stellen nichtblockierende, nebenläufige Programmierparadigmen und die Unterstützung event-basierter Kommunikation dar. Allerdings gehen Nebenläufigkeit und Synchronisierungsmechanismen traditionell mit einer hohen Komplexität einher. Java 8 bietet mit CompletableFuture zwar eine elegante Lösung zur Komposition asynchroner Aufrufe, eine asynchrone Verarbeitung von Datenströmen ist damit allerdings nicht möglich. ReactiveX und die Java-Umsetzung RxJava bieten hier einen einfachen Ansatz, um die asynchrone Erzeugung, Komposition und Transformation von Events auf Basis des Observable Patterns zu ermöglichen. \n\nIn diesem Vortrag werden asynchrone Programmierparadigmen mit Callbacks, Futures und CompletableFuture betrachtet und gegenübergestellt. Anhand einfacher Beispiele werden RxJava eingeführt und die Möglichkeiten dieses Frameworks anhand konkreter Einsatzszenarien aus der Praxis erläutert.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529595",
+			"start": "2017-03-29T14:00:00",
+			"end": "2017-03-29T14:40:00",
+			"title": "Last- & Performance-Tests mit &#8206;JMeter oder Gatling",
+			"abstractText": "Performance wird bei Anwendungen eine immer kritischere Anforderung. Deswegen ist es besser, wenn man recht früh die Grenzen seines Systems kennt, um geeignete Gegenmaßnahmen einzuleiten. Performancetest gehören oft zur leidigen Last für Projekte. Besser als aufwendige Ad-hoc-Aktionen ist hier die Einbindung in den kontinuierlichen Integrationstest und die Verwendung von Cloud-Ressourcen. \n\nWir stellen hier zwei der beliebtesten Open-Source-Lasttestwerkzeuge vor, den Platzhirsch JMeter und dessen Herausforderer Gatling vor. Mit Taurus lassen sich die Stärken beider Werkzeuge versöhnen, sodass man sogar beide zusammen einsetzen kann.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "18",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529439",
+			"start": "2017-03-29T11:00:00",
+			"end": "2017-03-29T11:40:00",
+			"title": "Performance-Tuning von Spring-Boot- und Cloud-Anwendungen",
+			"abstractText": "Mit Spring Boot ist das Schreiben von Self-contained Services ein Klacks. Mit ein wenig Spring Cloud (Netflix) schafft man es, dass die Anwendung mit ihren vielen Services robust ist und horizontal skaliert. Aber ist sie auch performant im Sinne der Ressourcennutzung? Wie misst man eigentlich die Performance einer verteilten Spring-Boot-Anwendung? Oder was kostet die Verteilung gegenüber einem eher monolithischen Ansatz? \n\nIn dieser Session wird anhand von Beispielen aus der Praxis gezeigt, wie man bei einer verteilten Spring-Boot-/Cloud-Anwendung Performance-Messungen durchführen kann. Es werden Last- und Fail-Over-Tests durchgeführt und CPU- und Memory-Profile erstellt. Es wird gezeigt, wie man den Overhead von Verteilung, Discovery, Load Balancing oder Monitoring bestimmt und mit welchen Handgriffen und Werkzeugen jeder ein Gefühl für die eigene Anwendung entwickeln kann.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "12",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529951",
+			"start": "2017-03-28T17:00:00",
+			"end": "2017-03-28T18:00:00",
+			"title": "Keynote: Listening to the Design Pressures",
+			"abstractText": "Most software architectures are shaped by powerful forces which have nothing to do with technology or application requirements. These forces include, but are not limited to - Resume Driven Development, vendor's commercial interests, or the desire to be hip and ahead of the curve. What can architectures look like when we have application requirements so strong that these forces are overcome?\n\nIn this talk we will explore what architectures emerge from applying design patterns required for high-performance, efficiency, resilience, security, usability, and other quality of services measures that when not achieved result in total project failure. Surprising architectures and development approaches can emerge when the team listen to the design pressures and code accordingly. Martin has seen a number of such projects. In this talk Martin will outline emergent designs and working practices of the teams that succeed in areas where the design pressures quickly cull that which does not deliver.",
+			"demo": false,
+			"locationId": "1",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "529608",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T09:40:00",
+			"title": "Macht funktionale Programmierung TDD überflüssig?",
+			"abstractText": "Testgetriebene Entwicklung (Test-Driven Development, TDD) ist eine Kerntechnik agiler Entwicklung und hat sich bei der Programmeriung mit Java seit vielen Jahren bewährt. Manche Vertreter funktionaler Sprachen behaupten jedoch, dass TDD bei \"richtig\" funktionalem Code nicht mehr nötig sei, insbesondere wenn ein starkes Typsystem dafür sorge, dass kompilierter Code \"automatisch\" korrekt funktioniert.\n\nIch möchte in diesem Vortrag beleuchten, inwieweit TDD bei der Verwendung funktionalen Programmierstils noch sinnvoll ist,\nwas wir dabei verändern müssen und wie sehr das Vorgehen von der Programmiersprache abhängt. Typsysteme, Property Testing und Mocks spielen in dieser Diskussion eine wichtige Rolle. Und vielleicht können wir dabei auch etwas über die Verwendung funktionaler Programmiertechniken bei der Programmierung mit Java lernen.\n\nDie Zuhörer sollten sowohl die Grundlagen der testgetriebenen Entwicklung kennen, als auch an der aktuellen Diskussion über funktionale Sprachen interessiert sein.",
+			"demo": true,
+			"trackId": "6",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "19",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529341",
+			"start": "2017-03-28T08:30:00",
+			"end": "2017-03-28T09:10:00",
+			"title": "Dokumentation & Slides mit Git, Gradle, AsciiDoc und Reveal.js",
+			"abstractText": "Softwareentwicklung ist mehr als nur Code schreiben, ein wichtiger Aspekt ist auch die Dokumentation. Wer kennt die folgenden Probleme? \n\n* Es gibt zwei oder mehr Branches des Sourcecodes (z.B. Prod und Entwicklung, oder Version 1 u. Version 2), aber nur eine Version der Dokumentation.\n* Die Dokumentation wird in völlig ungeeigneten Formaten wie MS-Word erstellt.\n* Die Dokumentation enthält Code-Beispiele, aber ob die zum aktuellen Sourcecode passen, ist eher zweifelhaft.\n* Wenn mehrere Versionen der Dokumentation existieren, ist es eine Übung in Softwarearchäologie herauszufinden, was die Unterschiede sind und wie sie zustande gekommen sind und ob es nur ästhetische Korrekturen, Bugfixes in der Dokumentation oder Dokumentation von verändertem Verhalten sind.\n\nDabei gibt es in der Softwareentwicklung mit Versionsverwaltung, automatischen Tests, Stylesheets und dergleichen diverse Tools, um solche Probleme zu lösen.\n\nIn diesem Vortrag stelle ich eine Kombination aus Tools vor, mit der sich die Verwaltung und Erstellung von Dokumentation sauber in die Entwicklung von Sourcecode integriert, namentlich: Git, Gradle, AsciiDoctor und Reveal.js, die auch für die Erstellung der Slides für diesen Vortrag genutzt wurden.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "17",
+			"speakerIds": ["354836"],
+			"languageId": "1"
+		}, {
+			"id": "529713",
+			"start": "2017-03-28T16:00:00",
+			"end": "2017-03-28T16:40:00",
+			"title": "Ich bin dein Nachbar  Graphenverarbeitung mit Apache Flink",
+			"abstractText": "Datensätze, die inhärente Abhängigkeiten zueinander aufweisen und somit einen logischen Graphen darstellen, sind häufig anzutreffen. Die typischen Beispiele hierfür sind die Freundschaftsbeziehungen sozialer Netzwerke, die Berechnung von kürzesten Navigationspfaden oder die mathematischen Reputationsmodelle zur Bewertung von Webseiten (Page Rank). Die Verarbeitung solcher Datenstrukturen kann sich aber als äußerst komplex und ineffizient erweisen. Dieser Effekt wird sogar noch verstärkt, wenn es sich dabei um Massendaten handelt, die eine verteilte und effiziente Verarbeitung erfordern.\n\nEs existieren verschiedene Frameworks, die die Verarbeitung von Graphen in verteilten Systemen erleichtern. Eines davon ist das alternative Verarbeitungsframework Apache Flink, das auf dem Ressourcenmanagement von Hadoop aufsetzt. Der Schwerpunkt von Flink liegt zwar auf der Verarbeitung von kontinuierlichen Datenströmen, aber es stellt mit Gelly auch eine Library zur Graphenverarbeitung zur Verfügung. Somit erlaubt Flink nicht nur die Nutzung und Orchestrierung von verteilten Recheninstanzen, sondern ermöglicht auch einen einfachen und intuitiven Umgang mit Graphenalgorithmen. Dies wird vor allem durch ein knotenbasiertes Verarbeitungsmodell erreicht, das sich an dem Programmiermodell Bulk Synchronous Parallel (BSP) orientiert.\n\nNeben der Benutzung und den wichtigsten Konzepten von Flink zur Verarbeitung von Graphen soll vor allem anhand eines konkreten Praxisbeispiels gezeigt werden, welche Vorteile die Anwendung eines graphenbasierten Paradigmas mit sich bringt. Da der Kontakt mit graphenähnlichen Datenstrukturen häufiger ist, als es zunächst erscheinen mag, sind sowohl das Paradigma als auch das Framework nicht nur im Kontext von Massendaten interessant.",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "4",
+			"locationId": "20",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529484",
+			"start": "2017-03-29T13:00:00",
+			"end": "2017-03-29T13:40:00",
+			"title": "GraphQL als Alternative zu REST",
+			"abstractText": "Für die Abfrage von Daten in Client-Server-Anwendungen sind RESTful-Webservices etabliert, allerdings nicht ohne Nachteile. \nBeispielsweise sind oft mehrere Requests nötig, um komplexere Daten abzufragen, was vor allem für mobile Anwendungen problematisch ist. Als Konsequenz werden nun oft spezielle Ressourcen für bestimmte Ansichten ergänzt, was allerdings wiederum eigene Nachteile mit sich bringt, zum Beispiel eine stärkere Koppelung zwischen Client und Server und Versionierungsprobleme der API.\n\nUm diese Probleme zu lösen, wurde GraphQL als Abfragesprache für die Client-Server-Kommunikation entwickelt. Client-Entwickler formulieren ihre Queries in einer JSON-ähnlichen Form mit genau den Attributen und in der Tiefe, die für die konkrete Ansicht nötig sind. GraphQL kümmert sich darum, die Query ohne unnötige Server-Roundtrips abzuwickeln. \n\nIm Vortrag wird GraphQL vorgestellt und dabei sowohl die Client- als auch Serverseite betrachtet.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "15",
+			"speakerIds": ["368536"],
+			"languageId": "1"
+		}, {
+			"id": "531243",
+			"start": "2017-03-30T09:00:00",
+			"end": "2017-03-30T17:00:00",
+			"title": "Continuous Delivery of Continuous Delivery (Aschemann)",
+			"abstractText": "Viele Organisationen haben in den letzten Jahren eine Plattform für Continuous Integration oder gar Continuous Delivery aufgebaut. Man kann auch die Plattform selbst nach dem Prinzip \"Infrastructure asCode\" (Platform as Code) erstellen und kontinuierlich reproduzieren und testen, sie also zum Gegenstand einer Continuous Delivery-Strategie machen. Damit lässt sich nicht nur die Funktionsfähigkeit der Plattform permanent prüfen und garantieren, sondern es können auch sehr leicht weitergehende Use Cases abgebildet werden, z.B. Weiterentwicklung/Upgrade einer Komponente, Integration neuer Komponenten/Plugins, Austausch einer Komponente. Außerdem lassen sich beispielsweise Mitarbeiter oder Entwickler damit schulen oder komplexe CI-/CD-Prozesse testen, beispielsweise das Release von Komponenten.\n\nIm Tutorial wird eine Referenz-Plattform vorgestellt und von den Teilnehmern selbst nachgebaut (Hands-On). Die Plattform besteht aus typischen Open Source-Komponenten, wie sie sich im Java-/Enterprise-Umfeld finden:\n- SCM-Manager (Source Code Management mit SVN, Git oder Mercurial),\n- Nexus (Artifact-Repository),\n- Jenkins (Build-Server),\n- SonarQube (Qualitätssicherung).\n\nDie Plattform wird als virtuelle Maschine mit Vagrant und Puppet aufgebaut, die Komponenten werden weitgehend als Docker-Container installiert.\n\nAufbau des Tutorials:\n\n- Vorstellung/Einführung der Komponenten:\n  - Vagrant\n  - Docker\n  - CI/CD-Server (Nexus, Jenkins, SCM-Manager, SonarQube)\n- Aufbau der eigenen CI/CD-Plattform\n\nAm Ende des Tutorials sollte jeder Teilnehmer mit seiner Variante ein Referenz-Projekt bauen und ausliefern können, z.B. Spring-Boot.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "2",
+			"locationId": "7",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529550",
+			"start": "2017-03-29T11:00:00",
+			"end": "2017-03-29T11:40:00",
+			"title": "Kotlin für den Build Master",
+			"abstractText": "Kotlin ist eine statisch typisierte Programmiersprache für die Java VM, die sich für eine Vielzahl von Einsatzmöglichkeiten eignet  von der AndroidEntwicklung bis zum Gradle-Build-Skript. Für den Build Master lohnt es sich, einen Blick auf die Sprache zu werfen, da die täglichen Werkzeuge seit kurzem Kotlin unterstützen: Gradle 3 ermöglicht die Erstellung von Build-Skripten in Kotlin statt wie bisher in Groovy, wodurch z.B. wesentlich bessere Code-Vervollständigung in der IDE möglich wird. Aber auch Build-Konfigurationen für TeamCity können direkt mit Kotlin programmiert und in der Versionsverwaltung abgelegt werden.\n\nSchauen wir uns also an, was diese Sprache so besonders macht und worin sie sich von Java unterscheidet!",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "17",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531928",
+			"start": "2017-03-29T14:00:00",
+			"end": "2017-03-29T15:00:00",
+			"title": "Hacking mit Mutation Testing",
+			"abstractText": "Sammle praktische Erfahrungen mit Mutation Testing\n\nWir werden anhand von Beispiel-Quelltexten den Umgang mit Mutation Testing erlernen und praktische Erfahrungen sammeln. Besonders im Vordergrund steht der Unterschied zu den bekannten Metriken, wie zum Beispiel Line Coverage. Gerne können auch eigene Projekte verwendet werden, um die Integration und Auswirkung von Mutation Testing in seinen eigenen Quelltexten zu erleben.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529225",
+			"start": "2017-03-28T11:00:00",
+			"end": "2017-03-28T11:40:00",
+			"title": "Docker Container Orchestration Platforms on Amazon",
+			"abstractText": "Amazon EC2 is the de-facto IaaS platform for running distributed applications across multiple hosts. Docker is the developer-friendly container technology that enables creation of your application stack: OS, JVM, app server, app, database and all your custom configuration. A typical application is defined with multiple containers and deployed across multiple hosts. This session will show a simple multi-container multi-host application can be deployed using different container orchestration platforms on EC2.\n\nAttendees will learn the recipes, design patterns and anti-patterns in this code-intensive session of different container platforms. Specifically, the following platforms that will be covered:\n\n* Amazon EC2 Container Service\n* Docker Swarm\n* Kubernetes\n* DC/OS\n\nThe session will start with a brief introduction to an orchestration platform. It will then explain how each platform can be easily started on Amazon EC2. A simple multi-container multi-host application will then be deployed to each platform. The session will conclude with a compare and contrast of different container orchestration platforms on EC2.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "1",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "529250",
+			"start": "2017-03-28T11:00:00",
+			"end": "2017-03-28T11:40:00",
+			"title": "Schatten der Vergangenheit - Analyse von Git-Repositories",
+			"abstractText": "Das Versionskontrollsystem ist ein Standardwerkzeug im Entwicklungsbaukasten eines Softwareprojekts. Wir comitten, arbeiten in Branches, mergen, markieren Releases mit Tags, und manchmal suchen wir auch gezielt nach Änderungen in Dateien. War's das? \n\nMan kann einem Git-Repository auch eine Menge wertvoller Informationen entlocken! Ein einfaches Beispiel: Die Änderungshäufigkeit einer Datei kann einen Hinweis darauf geben, dass sich in ihr ein strukturelles Problem widerspiegelt, welches durch die Kombination mit anderen Metriken recht gut eingegrenzt werden kann. Doch damit nicht genug: Weitere Analysen können unbeabsichtigte Kopplungen im System offenlegen oder Optimierungsmöglichkeiten in Team- und Kommunikationsstrukturen aufzeigen - Informationen, die zur Analyse von Problemen in umfangreiche Softwareprojekte sehr wertvoll sein können. \n\nDer Vortrag demonstriert derartige Erkundungen am Beispiel von Open-Source-Projekten unter Zuhilfenahme des Werkzeugs jQAssistant.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "2",
+			"typeId": "7",
+			"locationId": "12",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529392",
+			"start": "2017-03-28T15:00:00",
+			"end": "2017-03-28T15:40:00",
+			"title": "Gradle 3.0: We Just Have Started",
+			"abstractText": "In this presentation we talk about the latest major Gradle release and what the it has to offer for build authors and developers. We start with a short overview of the Gradle build system, before we explore new functionalities like:\n\n* Latest dependency management improvements and Composite builds\n* Functional testing of build logic\n* Distributed Cache\n* Kotlin Gradle DSL\n* Gradle Build Scans\n\nWe finish up the talk with an outlook of what the Gradle team is working on next and what you can expect beyond Gradle 3.0.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "18",
+			"speakerIds": ["371857"],
+			"languageId": "2"
+		}, {
+			"id": "531224",
+			"start": "2017-03-30T09:00:00",
+			"end": "2017-03-30T17:00:00",
+			"title": "Containerorchestrierung mit Mesos und Marathon: DC/OS Workshop (Mesosphere GmbH)\r",
+			"abstractText": "Container sind ein aktueller Trend, der es sehr einfach macht Applikationen und deren Abhängigkeiten zu bündeln. Aber im Gegensatz zu dem einfachen Bauen von Containern, steht die Herausforderung Produktionssysteme mit einer großen Anzahl von Containern zu betreiben. In diesem Workshop haben die Teilnehmer die Möglichkeit in kleinen Gruppen verschiedene Anwendungen auf DC/OS zu bauen und zu deployen. Zunächst werden wir eine komplexe Anwendung, die sowohl Container, Datenablage und BigData-Analyse kombiniert, näher untersuchen. Danach werden wir eine Continuous Integration/Deployment Pipeline auf DC/OS aufsetzen, um unsere Anwendung automatisiert zu bauen und zu deployen. \n\nDer Workshop umfasst unter anderem die folgenden Themen und Übungen:\n- Einführung in Docker (mit Exkurs über die Herausforderungen von JRE basierten Anwendungen)\n- Einführung zu Mesos, Marathon und DC/OS \n\nDanach werden wir in kleinen Gruppe von 4/5 Leuten je DC/OS Cluster verschiedene Anwendungen entwickeln und deployen:\n- Tweeter, eine Web-Anwendung die Container in einer Microservice-Architektur und Data-Analytics mit Spark kombiniert\n- CI/CD, eine einfache Continuous Integration und Deployment Pipeline",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "6",
+			"locationId": "6",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529583",
+			"start": "2017-03-29T11:00:00",
+			"end": "2017-03-29T11:40:00",
+			"title": "Restrukturierung der Code-Basis mit Java 9",
+			"abstractText": "Jeder Entwickler ertappt sich dabei, wie er sich wünscht, mit einem neuen Projekt zu beginnen, um diesmal alles besser zu machen und dem Chaos im aktuellen Code zu entfliehen. Mit Version 9 unterstützt Java die Aufteilung von Code in einzelne Module. Zugriffsregeln zwischen den Modulen können z.B. die Nutzung von UI-Klassen aus Model-Klassen heraus verbieten. Durch diesen Ansatz lässt sich die bestehende Code-Basis in einzelne Teile zerlegen, um mehr Übersicht zu schaffen. Diese kleineren Module sind als eigene Projekte deutlich einfacher zu warten und sorgen für ein besseres Gefühl bei Entwicklern.\n\nDieser Vortrag zeigt Strategien zur Modularisierung von großen Projekten und berichtet von den gemachten Erfahrungen.",
+			"demo": true,
+			"trackId": "6",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "18",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529273",
+			"start": "2017-03-28T15:00:00",
+			"end": "2017-03-28T15:40:00",
+			"title": "Serverless Application - Who the heck needs a Server?",
+			"abstractText": "Kaum haben wir uns von dem klassischen Monolithen und der zugehörigen Ablaufumgebung namens Application Server, zugunsten von Microservices und Embedded Runtimes, verabschiedet, taucht am Horizont mit Serverless Applications bzw. Architectures schon die nächste Evolutionsstufe auf. Was bitte ist das jetzt schon wieder? Und wer braucht so etwas? Die Session zeigt, wie sich dank BaaS, FaaS und einiger anderer Akronyme, Mobile und Enterpriese Anwendungen implementieren lassen  ganz ohne Server! Ganz ohne? Naja, fast.",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "12",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529362",
+			"start": "2017-03-28T15:00:00",
+			"end": "2017-03-28T15:40:00",
+			"title": "Java 6++: Moderne Android-Entwicklung mit Kotlin",
+			"abstractText": "Android-Entwickler können nur sehnsüchtig seufzen: Die neuen Möglichkeiten aus Java 8 wie funktionale Programmierung, Lambdas oder Streams bleiben ihnen noch vorenthalten. Grund: Die Android-Plattform steckt weitgehend noch auf Java 6 fest. Abhilfe schafft hier die JVM-Sprache Kotlin, die nach über fünf Jahren Entwicklung mittlerweile die stabile Version 1.0 erreicht hat. Kotlin verspricht nicht nur weniger Boilerplate Code dank einer ausdrucksstarken und gut lesbaren Syntax mit funktionalen Features. Nein  eine vollständige Binärkompatibilität mit Java 6, die nahtlose Interoperabilität mit bestehenden Java-Code und eine enge Integration in die Android Studio IDE machen Kotlin auch für die moderne Android-Entwicklung zu einer idealen Alternative.\n\nIn dieser Session erleben wir live, wie es sich anfühlt, der NullpointerException auf Nimmerwiedersehen zu sagen und sie in für die App-Entwicklung gegen funktionale Features, Dataclasses und Extension-Methods einzutauschen. Eine kleine Beispiel-App hilft beim Kennenlernen und vermittelt lebendige Eindrücke, sodass auch Android-Neulinge gut folgen können. Tools wie wie Anko und die Kotlin Android Extensions unterstützen beim Bändigen des Android SDK. Am Ende konnten wir hoffentlich nicht nur viel Lust und Inspiration auf eigene Experimente und Versuche anregen, sondern auch interessante Einblicke in die Programmiersprache sowie ihren Einsatz unter Android im Speziellen mitnehmen.",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "17",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531218",
+			"start": "2017-03-30T09:00:00",
+			"end": "2017-03-30T17:00:00",
+			"title": "Steuermann an Bord - Kubernetes Hands-On (Codecentric AG)\r",
+			"abstractText": "In den letzten Jahren hat sich die Architektur von Web-Anwendungen deutlich verändert. An die Stelle einer kleiner Web-Applikation mit relationaler Datenbank trat ein komplexes System aus vielen Services wie Suchserver, NoSQL-Datenbanken und externen APIs. Die  Schulung  folgt  der  Geschichte  der  virtuellen  Portal  24  Inc.  Diese  startet  ein Webportal, das aufgrund der kurzen Time-to-Market als Monolith entwickelt worden ist. Anhand  des  einfachen Deployments dieser Applikation werden die Teilnehmer in die Grundlagen  von  Kubernetes  eingeführt.  Dabei  werden  die  wichtigsten Konzepte wie Pods, Services und Deployments vorgestellt und deren Umsetzung in 2er Teams geübt. Der dazu nötige Code der Applikation wird den Teilnehmern bereitgestellt. Nach einem erfolgreichen Start des Webportals wird dieses für die bessere Wartung und Skalierbarkeit in mehrere Microservices aufgeteilt. Die bereitgestellten Artefakte werden ebenfalls von den Teilnehmern installiert und daran die Möglichkeiten zur Skalierung und Verteilung  von  mehreren  Services  dargestellt. Über die Zeit entstehen innerhalb der Firma mehrere Seitenprodukte, wie zum Beispiel Reporting Frontends. Da bei diesen keine großen Anforderungen an die Flexibilität des Systems bestehen, sollen diese als 12 Factor Application (http://12factor.net/de/) erstellt werden. Hierzu werden wir im letzten Schritt Deis Workflow (https://deis.com/) auf  dem Cluster  installieren,  welches  eine  Heroku-artige  Umgebung  bereitstellt. Ein einfaches Reporting Frontend wird daraufhin von den Teilnehmern per git im Cluster bereitgestellt. Anhand dieser Installation wird die Interoperabilität mit Kubernetes Services erläutert.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "6",
+			"locationId": "3",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529616",
+			"start": "2017-03-29T11:00:00",
+			"end": "2017-03-29T11:40:00",
+			"title": "Resilient Software Design Patterns",
+			"abstractText": "Der Trend in der Softwareentwicklung geht weg von Monolithen hin zu Anwendungen, die aus mehreren unabhängigen Einheiten bestehen. Jede dieser Einheiten ist für sich betrachtet leichter zu testen und zu deployen. Allerdings wird hierfür das notwendige Maß an Isolation, Redundanz, und loser Kopplung zunehmend wichtiger, da der Ausfall eines einzelnen Teils nicht die Stabilität des Gesamtsystems gefährden darf. \n\nDie Session zeigt gängige Pattern und etablierte Vorgehensweisen, wie man diesen neuen Herausforderungen begegnen kann.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "19",
+			"speakerIds": ["364571"],
+			"languageId": "1"
+		}, {
+			"id": "529357",
+			"start": "2017-03-28T14:00:00",
+			"end": "2017-03-28T14:40:00",
+			"title": "JavaFX Real World Applications",
+			"abstractText": "Some companies are still resisting making the switch to JavaFX for their desktop applications. This presentation is intended to convince them that JavaFX is ready for prime time. It shows how JavaFX has been successfully deployed as part of many large and small business-critical applications. The session presents a dozen applications from various domains, such as planning and scheduling solutions, operating room control software and fitness trackers.",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "5",
+			"locationId": "17",
+			"speakerIds": ["366485"],
+			"languageId": "2"
+		}, {
+			"id": "529948",
+			"start": "2017-03-28T09:30:00",
+			"end": "2017-03-28T10:00:00",
+			"title": "Begrüßung",
+			"demo": false,
+			"locationId": "1",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "531248",
+			"start": "2017-03-30T09:00:00",
+			"end": "2017-03-30T17:00:00",
+			"title": "Das Hibernate Universum - Komplexe Lösungen jenseits von CRUD (Janssen)",
+			"abstractText": "Die Anforderungen an moderne Enterprise-Anwendungen sind in den letzten Jahren deutlich gestiegen. Die einfache Persistierung von Eingabedaten ist nicht mehr ausreichend. Eine Volltextsuche und die Auditierung der Datenbestände sind inzwischen selbstverständlich und Forderungen nach mehrmandantenfähigen Systemen keine Seltenheit.\nFür alle diese Anforderungen bieten Hibernate und die dazugehörigen Erweiterungen Hibernate Search und Hibernate Envers bereits gute Lösungen. Diese werden im Rahmen der Schulung anhand praktischer Beispiele und Übungsaufgaben vorgestellt.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "6",
+			"locationId": "9",
+			"speakerIds": ["369887"],
+			"languageId": "1"
+		}, {
+			"id": "529245",
+			"start": "2017-03-28T16:00:00",
+			"end": "2017-03-28T16:40:00",
+			"title": "Java 9 Modularity in Action",
+			"abstractText": "With Java 9, modularity comes to your doorstep (whether you ordered it or not). This isn't your average language feature: making the most out of it may involve rewiring your brain. In this session we explore the benefits of a modular codebase using Java 9 modules. Because who doesnt like more reliable and secure applications, meanwhile killing the dreaded classpath?\n\nAfter reviewing the basic concepts of modules, we'll explore modularity patterns that enhance your design and development skills. We all have existing software, so migration of codebases to a modular world is an important topic as well. Automatic modules and other new concepts are added to your toolbox to this end.\n\nWant examples? We've got plenty in this practical and code-driven talk. Even if you intend to use Java 9 without modules, this talk helps you prevent common issues. You'll be ready for Java 9 before you know it.  \n\nBoth speakers are currently writing \"Java 9 Modularity\" for OReilly, expected early 2017. They have extensive experience under the belt already with the Java 9 Jigsaw early access builds.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": ["364941", "364697"],
+			"languageId": "2"
+		}, {
+			"id": "529400",
+			"start": "2017-03-28T08:30:00",
+			"end": "2017-03-28T09:10:00",
+			"title": "Securing MQTT",
+			"abstractText": "Wie sicher ist ihre IoT-Kommunikation? Diese einfache Frage ist in der Beantwortung meist vielschichtiger und komplexer, als einem Entwickler lieb ist. \n\nIn diesem Vortrag geht es darum, wie die Kommunikation mit dem IoT-Standardprotokoll sicher für den Produktiveinsatz gestaltet wird. Dabei werden wir verschiedene Security-Layer, vom Netzwerk, über das Transportprotokoll bis zum Applikationslevel, diskutieren. Wie passen TLS, Authentication, Authorization oder gar OAuth 2.0 mit MQTT zusammen? Dieser Vortrag gibt die Antworten darauf.\n\nDie Teilnehmer bekommen einen Überblick über alle gängigen Security-Themen in Bezug auf MQTT. erfahren, wie MQTT sicher in Produktivumgebungen eingesetzt werden kann.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "19",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529476",
+			"start": "2017-03-29T11:00:00",
+			"end": "2017-03-29T11:40:00",
+			"title": "Chat Bots: Don't Shoot the Messenger",
+			"abstractText": "\"GREETINGS PROFESSOR FALKEN\" is the opening in a conversation between computer \"Joshua\" and its inventor, Dr. Stephen Falken, in the movie \"War Games\", released in 1983. In the movie, artificial intelligence is used to enable man to machine conversation. Only a bit more than 30 years later, conversational interfaces are becoming reality in mobile computing, ready for be the next big thing in consumer and enterprise mobile application development. \n\nPaired with artificial intelligence, chat bots help to simplify the mobile communication between users and services. Like in human conversation, well chosen wordings allow users to book a table in a restaurant, arrange a taxi pickup to the airport, buy an airline ticket, and many more. And the good thing about this is that there is no need to download and install a mobile application as you can use your favorite messenger from Facebook, WeChat or alike. Another way to look at messengers and chat bots is as the mobile application being a chat session. \n\nThis conference session explores chat bots in mobile, looks at architectures, and explains how bots can work and how messengers access bots to serve information as simple as in text messages, or complex and rich as in images and videos.",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "15",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529290",
+			"start": "2017-03-28T12:00:00",
+			"end": "2017-03-28T12:40:00",
+			"title": "Asynchrone Anwendungen mit CompletableFuture",
+			"abstractText": "Für lange Zeit wurden die meisten Java-Anwendungen überwiegend oder vollständig blockierend/synchron implementiert. In den letzten Jahren zeichnet sich jedoch ein Trend zu vermehrtem Einsatz asynchroner Abläufe ab. Während die Entwicklung insbesondere mehrerer abhängiger asynchroner Aktionen jedoch früher kompliziert und tipp-intensiv war, vereinfacht CompletableFuture diese Aufgabe deutlich. \n\nIn diesem Vortrag werden eingangs Gründe für den Einsatz von Asynchronität diskutiert und anschließend der Einsatz von CompletableFuture ausführlich erläutert.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "15",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531911",
+			"start": "2017-03-29T17:00:00",
+			"end": "2017-03-29T19:30:00",
+			"title": "Legacy Code Retreat",
+			"abstractText": "Probiere viele Alternativen aus\n\nZiel eines Legacy Code Retreats ist es, den Umgang mit dem Albtraum eines jeden Entwicklers (aka Legacy Code) in einer Umgebung zu üben, in der Fehler nicht den Kopf kosten. Also mal ohne Druck arbeiten und sich Zeit zum Ausprobieren von Alternativen lassen. Außerdem könnt ihr natürlich einen aktiven Austausch mit anderen Softwareentwicklern betreiben.\n\nArbeitsobjekt wird eine liebevoll kaputt-gecodete Variante des Trivia-Spiels sein. Die Programmiersprache kann dabei aus dem Portfolio der JVM-Sprachen frei gewählt werden.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "13",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529302",
+			"start": "2017-03-28T15:00:00",
+			"end": "2017-03-28T15:40:00",
+			"title": "Logs mit Kontext - Log4j im Vergleich mit Zipkin",
+			"abstractText": "Fehlermeldungen in Logs sind der Startpunkt einer Spurensuche: Meist steht in der Meldung selbst nur eine ID des Datensatzes, der den Fehler ausgelöste. Logging-Frameworks können bereits beim Entgegennehmen der Anfrage Kontextinformationen setzen, die zusätzlich zum Logeintrag protokolliert werden. Wer mehr Funktionalität benötigt, findet mit Zipkin eine Lösung, um Tracing-Informationen und Aufrufpfade anwendungsübergreifend zu annotieren, zu protokollieren und auszuwerten. \n\nKorrelations-IDs sind in verteilten Systemen und Microservice-Architekturen wichtig. Zipkin bietet einen einfach zu implementierenden De-facto-Standard. Auch ohne einen zentralen Zipkin-Server profitiert man von Correlation-IDs in Logdateien.\n\nDieser Vortrag gibt einen Einstieg über die Möglichkeiten von Log4j und zeigt die darüber hinausgehenden Möglichkeiten von Zipkin.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "15",
+			"speakerIds": ["368442"],
+			"languageId": "1"
+		}, {
+			"id": "531872",
+			"start": "2017-03-28T18:00:00",
+			"end": "2017-03-28T20:00:00",
+			"title": "Meet-the-Lib",
+			"abstractText": "Tausche dich über Bibliotheken und Open-Source-Software aus\n\nWelche Bibliothek verwendest du gerade im Projekt? Hast du besondere Open-Source-Software zu empfehlen? Im Meet-the-Lib kannst du mit Gleichgesinnten über diese Themen fachsimpeln. Natürlich kann im Anschluss dann gleich gemeinsam programmiert werden.\n\nVoraussetzungen:\nEin Laptop ist nicht erforderlich, kann aber nützlich sein.",
+			"demo": true,
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531233",
+			"start": "2017-03-30T09:00:00",
+			"end": "2017-03-30T17:00:00",
+			"title": "Java Web Security Workshop (BridgingIT GmbH)\r",
+			"abstractText": "Java-basierte Webanwendungen sind nicht sicherer oder unsicherer als in anderen Sprachen entwickelte Webanwendungen. Sicherlich trägt die gewählte Technologie zur Sicherheit oder Unsicherheit einer Webanwendung bei. Um wirklich sichere Webanwendungen zu entwickeln benötigt man als Entwickler aber erst mal eines: Know-how (Awareness). Erst danach folgen Frameworks und Tools, mit deren Hilfe sich die Entwicklungsarbeit erleichtern und gleichzeitig absichern lässt. Allerdings ist die sichere Entwicklung von Java-Webanwendungen ein umfangreiches Thema, bei dem gerade Einsteiger schnell den Überblick zu verlieren drohen. Vor allem die verbreiteten und im eigenen Code verursachten - aber lösbaren - Sicherheitsprobleme müssten eigentlich fest im Bewusstsein eines jeden Entwicklers verankert sein und jederzeit bei der Entwicklung berücksichtigt werden. Es bleibt die Frage, welche Sicherheitsprobleme das sind und wie man diesen am besten begegnet.\n\nDer Java Web Security Workshop schafft daher bei den Teilnehmern zunächst ein grundlegendes Bewusstsein für das Thema sichere Softwareentwicklung mit Java. Mit den OWASP Top 10 wird dabei ein Grundverständnis an aktuellen und verbreiteten Sicherheitsproblemen geschaffen und so das Verständnis für die Notwendigkeit sicherer Entwicklung geweckt. Die OWASP Top 10 Proactive Controls unterstützen gleichzeitig dabei, diese Sicherheitsprobleme gezielt zu beheben und zeigen Java-Entwicklern, was sie bei der täglichen Entwicklungsarbeit unbedingt berücksichtigen müssen. \n\nHilfreiche Frameworks und Tools gehören ebenso zum Workshop wie die sichere Verwendung von gewöhnlicher Java-Funktionalität. Demos und Übungen zu den einzelnen Sicherheitsproblemen wechseln sich ab mit theoretischen Inhalten. Mit vorbereiteten Webanwendungen und Codebeispielen können die Teilnehmer selbst Erfahrung mit Angriffen auf Webanwendungen sammeln und ihren eigenen Code zukünftig erfolgreich gegen zahlreiche Angriffe absichern.",
+			"demo": true,
+			"trackId": "6",
+			"audienceId": "2",
+			"typeId": "6",
+			"locationId": "4",
+			"speakerIds": ["362727"],
+			"languageId": "1"
+		}, {
+			"id": "529587",
+			"start": "2017-03-29T12:00:00",
+			"end": "2017-03-29T12:40:00",
+			"title": "Code Quality Metrics Demystified",
+			"abstractText": "In our everyday work as developers, we are confronted with various software metrics. What do these numbers mean, how are they calculated? Do these metrics enable us to make better software?\n\nIn this talk we investigate the use of software metrics in general and also take a detailed look at several frequently used code quality metrics. We will learn about the meaning and usefulness of metrics such as lines of code, cyclomatic complexity, duplication, package entanglement and unit test coverage.",
+			"demo": false,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "18",
+			"speakerIds": []
+		}, {
+			"id": "529425",
+			"start": "2017-03-28T16:00:00",
+			"end": "2017-03-28T16:40:00",
+			"title": "IoT-Integration in Java-Enterprise-Umgebungen",
+			"abstractText": "Der Raspberry Pi is sicherlich ein interessanter Einstieg in die Welt des IoT, in der Produktion wird allerdings in der Regel mit Edge Nodes gearbeitet, in dessen max. 16 k Speicher man keine Frameworks oder Programmiersprachen wie Java mehr nutzen kann. \n\nIn unserem Vortrag zeigen wir, wie man solche Devices mit Enterprise-Anwendungen und Microservices verbinden kann und so in seinem Java-Servern Zugriff auf die Live-Daten (Update alle 1 bis 10 Sekunden) von beliebig vielen Devices hat. REST ist hier sicherlich nicht das geeignete Protokoll und steht teils auf den Devices noch nicht einmal zur Verfügung. \n\nNatürlich reicht es nicht diese Daten auf dem Server zu haben. Zur Überwachung von IoT-Devices oder ganzen Netzen aus Devices muss es natürlich auch visuelle Frontends geben, in denen die Daten live angezeigt werden. Auch hier stellen wir eine interessante Lösung vor, um die Live-Daten von verschiedenen Devices auf Clients zu verfolgen. Alle unsere Lösungen basieren auf Open-Source-Bibliotheken und anerkannten Standards.",
+			"demo": true,
+			"trackId": "2",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "19",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531883",
+			"start": "2017-03-28T18:00:00",
+			"end": "2017-03-28T20:30:00",
+			"title": "Reactive Coding Workshop mit Spring Boot",
+			"abstractText": "Grundlagen der reaktiven Programmierung\n\nDu kennst bereits Spring Boot und suchst einen Einstieg in die funktional-reaktive Programmierung? Dieser Workshop ist genau richtig für dich! Du lernst die Grundlagen der reaktiven Programmierung und wie sich diese Konzepte mit den reaktiven Spring-Komponenten umsetzen lassen.\n\nWir werden in diesem Workshop gemeinsam einen Microservice mit Sprint Boot entwickeln. Wir integrieren reaktiven NoSQL-Datenzugriff und reaktive Web-Endpoints. Der Workshop findet auf Englisch statt.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "13",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "529575",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T09:40:00",
+			"title": "Setzen wir unsere Qualitätsanalysen wirklich sinnvoll ein?",
+			"abstractText": "Erfreulicherweise setzen inzwischen viele Teams statische Qualitätsanalysen wie Clone Detection, Architekturkonformitätsanalysen, Komplexitätsmessungen oder Richtlinienprüfungen ein. Leider leiten die meisten Teams daraus kaum wirksame Verbesserungsmaßnahmen ab, sodass die Analysen nichts oder wenig bringen.\n\nWoran liegt das? Einerseits an den Einschränkungen verbreiteter Werkzeuge, andererseits an der unpassenden Integration der Analysen in den Entwicklungsprozess. Meistens an beidem. Im schlimmsten Fall führt das dazu, dass die Werkzeuge nicht helfen, sondern behindern und zu Spannungen im Team führen.\n\nMeine Kollegen und ich haben in den letzten 10 Jahren Analysen in vielen verschiedenen Teams eingeführt und über Jahre begleitet. Dabei haben wir viele Anti-Patterns und Best Practices zum wirksamen Einsatz statischer Analysen kennen gelernt, sowohl in Open-Source-Projekten als auch in Firmen wie Munich Re, Siemens, BMW, Audi oder den Stadtwerken München. \n\nIm Vortrag möchte ich die wichtigsten Lessons Learned weitergeben. Ich gehe unter anderem darauf ein, wie man Qualitätsanalysen wirksam in verteilten Teams, bei Legacy-Systemen mit gewachsener Code-Basis und auch bei der Entwicklung mit vielen Branches oder dezentralen Versionskontrollsystemen wie Git sinnvoll einsetzt. Ich stelle dar, wie man die eigenen Kollegen überzeugen kann, in welcher Reihenfolge man verschiedene Analysen sinnvoll neu einführen kann, wie sie gut mit manuellen Reviews zusammenspielen und wie man beim eigenen Management die richtige Erwartungshaltung in Sachen Qualitätsanalysen schaffen kann.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "18",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529254",
+			"start": "2017-03-28T12:00:00",
+			"end": "2017-03-28T12:40:00",
+			"title": "Produktiver programmieren - Aha-Erlebnisse mit Multi-Clipboards, Application Launcher und Editor-Shortcuts",
+			"abstractText": "Das Leben eines Softwareentwicklers ist schon schwer genug: sich ständig ändernde Anforderungen, immer neue Standards und Frameworks und dabei immer zu wenig Zeit. Diese wird dann häufig damit verbracht, im Windows Explorer nach der richtigen Datei zu suchen. In der IDE seiner Wahl verliert man sich mit der Maus in den unendlichen Tiefen der Menüs auf der Suche nach der einen Funktion die doch letzte Woche noch dort war. Und in welchem Editor war noch gleich das letzte Code-Schnipsel eingefügt? \n\nAls Freiberufler erlebe ich bei jedem Projekt aufs Neue, wie viele Kollegen in starren Arbeitsabläufen festhängen und gar nicht bemerken, wie viel Zeit sie mit wiederkehrenden Arbeitsabläufen vergeuden. Mache ich sie darauf aufmerksam, reagieren die meisten sehr erfreut darüber, wenn man ihnen ihren Alltag etwas erleichtert, durch ein Tool oder einen neuen Shortcut. \n\nNeben all den fachlich sicher hoch interessanten Themen, die am Puls der Zeit sind, möchte ich den Fokus auf die einfachen und alltäglichen Arbeitsabläufe legen und zeigen, wie viel Potenzial hier vielleicht für Verbesserung steckt. Ich möchte Tools und Arbeitsweisen vorstellen, die den Entwickleralltag produktiver werden lassen. Fort mit Windows Explorer und Mac OS Finder und ihren Single-Pane-Ansichten, auf denen meist nur wild gescrollt wird. Ich stelle Multi-Clipboards und Application Launcher vor und preise die Vorzüge einer Nutzung des \"einen\" Editors, egal welcher das auch immer ist. Dessen Shortcuts sollte man dann im Schlaf aufsagen könne. In einem unterhaltsamen Vortrag verweise ich auf die Wichtigkeit der richtigen Einstellung (von Kopf und Editor/IDE) und sorge so vielleicht für das ein oder andere Aha-Erlebnis.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "7",
+			"locationId": "12",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529520",
+			"start": "2017-03-29T13:00:00",
+			"end": "2017-03-29T13:40:00",
+			"title": "Javaslang - Functional Java the Easy Way",
+			"abstractText": "This talk will introduce you to Javaslang, a library that borrows heavily from Scala and applies Scala's ideas to plain old Java.\nWe will cover some of the productivity enhancements and syntactic sugar that Javaslang offers, such as pattern matching aka. structural composition, value types and functional data types.\nJavaslang can be a building block for functional business code, that is easy to maintain and understand. \n\nIt consists of a broad set of ideas and enhancements to Java and makes developing in a more-or-less functional style so much easier. Developers that have tried Scala but have to develop business assets using Java do not have to despair anymore.\n\nThis quick overview shows how to improve business code using Javaslang using actual code from our projects (although anonymized for obvious reasons) and give a taste of the features and benefits a small library like Javaslang offers.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "7",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529241",
+			"start": "2017-03-28T15:00:00",
+			"end": "2017-03-28T15:40:00",
+			"title": "Project Panama - the New Java Native",
+			"abstractText": "Most people know JNI, the Java Native Interface - nobody likes it. JNI was designed as a fast solution to a nifty problem; interfacing Java with natively compiled C code. FFI, or Foreign Function Interfaces, are available in most programing languages today. No matter how fast a virtual machine is, no matter if code is compiled natively or not, interfacing to C/C++ is still a necessary requirement, not only to utilize native libraries.\n\nAs JNI is probably one of the most hated features in Java, Project Panama emerged to bring relief to programmers that have to write JNI binding code, but theres more about Project Panama than what meets the eye.\n\nThis talk will introduce the basics of Project Panama and some features which are not obvious at first sight. It will present what is possible and how using some live demos.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "529337",
+			"start": "2017-03-28T16:00:00",
+			"end": "2017-03-28T16:40:00",
+			"title": "Rocket Science: Agilität und DevOps vor 50 Jahren und heute",
+			"abstractText": "Unvollständige Anforderungen, zahlreiche technische Probleme, ein unrealistischer Zeitplan - wer kennt das nicht? Dabei soll es erst mal nicht um Softwareentwicklung gehen, sondern um das Apollo-Programm. Ohne dass je ein Amerikaner im Erdorbit war, sollte innerhalb von weniger als 10 Jahren ein Mensch auf dem Mond landen. Unvorstellbar! Aber IT ist keine \"Rocket Science\" ... Oder doch?\n\nWie sind die echten Raketentechniker mit Unklarheiten umgegangen? Wie haben die Teams aus Fehlern gelernt? Wie hat Mission Control für einen stabilen Ablauf gesorgt? Dieser Blick über den Tellerrand zeigt, wo wir bei Agilität und DevOps auf dem richtigen Weg sind - und wo wir bezüglich Mut, Zusammenarbeit und Kommunikation noch etwas lernen können.\n\nZiel ist, die Stärken und Probleme bei der eigenen Softwareentwicklung zu erkennen, egal mit welcher JVM-Sprache entwickelt wird. Und ein paar Anregungen zu bekommen, wie das eigene agile Vorgehen verbessert werden kann.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "7",
+			"locationId": "16",
+			"speakerIds": ["368551"],
+			"languageId": "1"
+		}, {
+			"id": "531897",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T10:00:00",
+			"title": "Code-Golf",
+			"abstractText": "Erstelle den kürzesten Code\n\nWer die wenigsten Schläge benötigt, gewinnt  so das Prinzip beim Golfspielen. Beim Code-Golf gelten ähnliche Spielregeln: Löse eine Aufgabe mit dem kürzesten Java-8-Quellcode (wenigste Zeichen, keine Drittbibliotheken) und trage den Sieg davon! Dieses Jahr zum ersten Mal mit einer Online-App, die Euren Code direkt validieren und gegen eine Test-Suite ausführen wird  ihr bekommt also direktes Feedback, ob Eure Lösung funktioniert oder nicht.\n\nDie Siegerehrung findet am Mittwoch um 15 Uhr statt.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529570",
+			"start": "2017-03-29T16:00:00",
+			"end": "2017-03-29T16:40:00",
+			"title": "Lagom - die richtige Dosis Microservice",
+			"abstractText": "Lagom liefert Entwicklern eine mundgerechte Portion Unterstützung für die Entwicklung von Microservices - gemäß der Namensbedeutung (das schwedische Wort \"Lagom\" bedeutet frei übersetzt \"nicht zu viel und nicht zu wenig\"). Hat man bei anderen Ansätzen die Qual der Wahl, aus welchen Bibliotheken man sein Tooling zusammensetzt, liefert Lagom Entwicklern ein fertiges Set, um (nach persönlicher Meinung der Macher) \"gute\" und \"moderne\" Microservices bauen zu können.\n\nIn diesem Vortrag soll es darum gehen, wie die Microservice-Idee in Lagom verstanden wird, worauf Lagom besonderen Wert legt - und wie man seine ersten Microservices implementiert.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "17",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529258",
+			"start": "2017-03-28T13:00:00",
+			"end": "2017-03-28T13:40:00",
+			"title": "Bean Validation 2.0 - Support für Java 8 und mehr",
+			"abstractText": "\"Declare once - Validate everywhere\": Bean Validation 1.0/1.1 hat sein Versprechen gehalten und sich rasch als der Standard für Objektvalidierung in der Java-Welt etabliert (Java SE und Java EE). Während dessen wurde Java in Version 8 um viele nützliche Sprachfeatures erweitert: wiederholbare und Type-Level-Annotationen, eine neues Datums- und Zeit-API, zur Laufzeit abrufbare Parameternamen, Optional&lt;T&gt; und vieles andere mehr. Das eröffnet spannende neue Möglichkeiten auch für Bean Validation, z.B. List&lt;@Email String&gt; emails.\n\nDer Vortrag widmet sich den für Bean Validation 2.0 (JSR 380) geplanten Neuerungen. Neben der verbesserten Unterstützung von Java 8 werden von der Community lang ersehnte Features wie die einfachere Ordnung von Constraints oder flexiblere Constraint-Payloads vorgestellt. Auch werden wir einen Blick auf erweiterte Features der Referenzimplementierung Hibernate Validator werfen, wie etwa die API zur programmatischen Erstellung von Constraints.\n\nDie Session ist Code-zentriert, zeigt die neuen APIs in Aktion und vermittelt so ein gutes Verständnis darüber, wie Bean Validation 2.0 beim Lösen typischer Validierungsaufgaben im Entwickleralltag helfen kann.",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "12",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531905",
+			"start": "2017-03-29T12:00:00",
+			"end": "2017-03-29T13:00:00",
+			"title": "Code-Golf",
+			"abstractText": "Erstelle den kürzesten Code\n\nWer die wenigsten Schläge benötigt, gewinnt  so das Prinzip beim Golfspielen. Beim Code-Golf gelten ähnliche Spielregeln: Löse eine Aufgabe mit dem kürzesten Java-8-Quellcode (wenigste Zeichen, keine Drittbibliotheken) und trage den Sieg davon! Dieses Jahr zum ersten Mal mit einer Online-App, die Euren Code direkt validieren und gegen eine Test-Suite ausführen wird  ihr bekommt also direktes Feedback, ob Eure Lösung funktioniert oder nicht.\n\nDie Siegerehrung findet am Mittwoch um 15 Uhr statt.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529603",
+			"start": "2017-03-29T16:00:00",
+			"end": "2017-03-29T16:40:00",
+			"title": "Eclipse 3.x to Eclipse 4.x Migration",
+			"abstractText": "In this session we will show how to migrate an existing Eclipse 3.x based application to Eclipse 4 step by step. The following topics will be covered:\n\n* Identify the components that need to be migrated\n* Soft migration (use the compatibility layer)\n  - Updating the target platform and the product definition\n  - Migration of views\n  - Migration of handlers, commands and menus, contributing to the application model\n  - Dealing with selections\n  - Remove usage of internal API and platform.ui code\n  - Replace Extension Points with OSGi declarative services\n* Extended soft migration (still using the compatibility layer)\n  - Migration of perspectives and part descriptors\n* Full migration\n  - Creation of the application model\n  - Bringing the pieces together and remove all Eclipse 3.x remains\n\nAfter this session you should have a good idea on how to migrate an Eclipse 3.x based application to an Eclipse 4 based application with and without using the combatibility layer.\n\nTo get started a sample Eclipse 3.x based application will be provided that covers the topics of this tutorial.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "2",
+			"typeId": "7",
+			"locationId": "18",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529345",
+			"start": "2017-03-28T11:00:00",
+			"end": "2017-03-28T11:40:00",
+			"title": "Müssen sich Feature Branches und Continuous Integration widersprechen?",
+			"abstractText": "Die Verwendung von Feature Branches bietet den Vorteil, in einem isolierten Bereich entwickeln zu können und die Ergebnisse erst nach Abschluss der Arbeiten in die Hauptentwicklungslinie einfließen lassen zu müssen. Ein Kerngedanke von Continuous Integration ist die mindestens tägliche Integration der Arbeit aller Projektmitglieder, sodass oft zu hören ist, dass Feature Branches durch deren verspätete Integration für CI unbrauchbar sind.\n\nDer Vortrag stellt die Hintergründe dieses \"Streits\" vor und zeigt, wie Feature Branches durch entsprechende Maßnahmen und Tool Unterstützung im CI-Server helfen können, den Master fehlerfrei zu halten, ohne Abstriche beim Testen machen zu müssen.",
+			"demo": false,
+			"trackId": "7",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "17",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529705",
+			"start": "2017-03-28T14:00:00",
+			"end": "2017-03-28T14:40:00",
+			"title": "Kotlin-based Build Scripts: New Opportunities in Gradle 3.0",
+			"abstractText": "One of the new features in Gradle 3.0 is support for Kotlin-based build scripts. Kotlin is a relative new JVM language, fully interoperable with Java and developers should be able to learn it quickly. Features like extension methods, higher-order functions and scripting support let developers write concise, type-safe DSLs with the benefit of auto-completion, refactoring and other tool support of modern IDEs.\n\nAfter a short introduction to Gradle and Kotlin, we will deep dive into an example and compare a still supported Groovy-based build script with its Kotlin counterpart.\n\nAt the end of this talk you will have a brief understanding of the possibilities the new Kotlin-based build language provides and will be able to extend your existing Gradle environment or start using Gradle Script Kotlin for your new projects.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "4",
+			"locationId": "20",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "529492",
+			"start": "2017-03-29T15:00:00",
+			"end": "2017-03-29T15:40:00",
+			"title": "From Legacy to modern Web - ein Reisebericht",
+			"abstractText": "Das Internet ist der Quasi-Standard für Anwendungen aller Art geworden. Eine große Herausforderung ist, bestehende Anwendungen an diesen Standard anzupassen und anpassbar zu halten. Im Vortrag wird am Beispiel einer Testbed-Anwendungen gezeigt, wie Domain-Driven Design und eventbasierte Architekturen als Grundlage für portierbare Anwendungen verwendet werden können. Besonderer Schwerpunkt liegt hier auf der Nutzung von bestehenden Quellcode und Libraries, Präsentations-Frameworks unterschiedlicher Art(Swing/JavaFX/HTML5) und den Möglichkeiten von Transpiler-Technologien, um den Spagat zwischen Wiederverwendung und technologischer Erneuerung zu meistern.",
+			"demo": true,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "5",
+			"locationId": "15",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529221",
+			"start": "2017-03-28T08:30:00",
+			"end": "2017-03-28T09:10:00",
+			"title": "Pipeline as Code: Continuous Delivery with Jenkins 2.0",
+			"abstractText": "Over the past 10 years, Jenkins has grown to a de-facto standard tool that millions of people use to handle automation in software development and beyond. This year, the first major Jenkins release in years was delivered: Jenkins 2.0. The new version is a drop-in replacement that features three big changes:\n\n1. Pipeline as code, which allows you to describe your chain of automation in textual form and put it in version control\n2. Better out-of-the-box experience and a more powerful plugin manager\n3. A revamped UI for configuring jobs, views and build agents\n\nIn this session, I will talk about the upgrade from Jenkins 1.x and I'll demo the new features in Jenkins 2.0. The session's focus will be on the new 'pipeline as code' feature. Ill show how to set up continuous delivery pipelines and Ill share lots of practical tips from my own experience. Ill end I'll show the new Blue Ocean user experience thats currently being worked on the Jenkins team.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "7",
+			"locationId": "12",
+			"speakerIds": ["371530"],
+			"languageId": "2"
+		}, {
+			"id": "529388",
+			"start": "2017-03-28T14:00:00",
+			"end": "2017-03-28T14:40:00",
+			"title": "AsciiDoctor mal Groovy",
+			"abstractText": "AsciiDoctorJ ist die offizielle Portierung von Asciidoctor auf die JVM. Damit lassen sich AsciiDoc-Dateien direkt aus einer Java-Anwendung in HTML, PDF oder DocBook-Dokumente umwandeln. Neben der vielen Standardfunktionen stellen AsciiDoctor und auch AsciiDoctorJ eine einfache Plugin-API zur Verfügung. Dadurch lassen sich eigenen Funktionalitäten realisieren und die Fähigkeiten von AsciiDoctor erweitern.\n\nEine solche Erweiterung ist das AsciiDoctorJ Screenshot Plugin. Es verwendet Geb, um einen Browser zu kontrollieren und Screenshots zu erstellen, welche danach direkt in das Dokument eingefügt werden. Eine Automatisierung dieses Arbeitsschritts ist ein weiteres Puzzle-Teil hin zu einer lebenden Dokumentation.\n\nIn dieser Präsentation wird eine Einführung in die AsciidoctorJ Plugin API gegeben. Dazu wird das Screenshot-Plug-in als Beispiel verwendet, um einerseits zu zeigen, wie einfach eine Erweiterung geschrieben werden kann und andererseits warum Groovy die perfekte Sprache für diese Aufgabe ist. Weil theoretisch immer alles gut und einfach ist, die Tücken jedoch meistens im Detail liegen, wird direkt auf der Bühne eine reduzierte Version des Screenshot-Plug-in erstellt. Dadurch wird demonstriert, welche Eleganz und Mächtigkeit Groovy für AsciidoctorJ-Erweiterungen zur Verfügung stellt.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "18",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529472",
+			"start": "2017-03-29T10:00:00",
+			"end": "2017-03-29T10:40:00",
+			"title": "Detaillierte Zeitmessungen für Web-Tests",
+			"abstractText": "In der Entwicklung Web basierter Anwendungen gehören Tools wie Firebug oder die Entwicklertools von Firefox, Chrome und IE zum alltäglichen Handwerkszeug. Ein wichtiger Bestandteil ist der Netzwerk-Tab mit seiner ausführlichen Timeline. Dank neuer APIs wie \"Navigation Timing\" und \"Resource Timing\" sind viele dieser Informationen inzwischen browserübergreifend in JavaScript abrufbar.\n\nIm aktuellen Projekt nutzen wir diese Informationen, um während der Ausführung unserer Webtests detaillierte Daten über das Ladezeitverhalten der E-Commerce-Plattform zu sammeln. Zusammen mit vielen weiteren Messgrößen des Java-basierten Backends sammeln wir diese Daten in Prometheus, einer auf Zeitreihen spezialisierten Datenbank, um diese anschließend auszuwerten. Damit haben wir viele wichtigen Größen für die UX und Performance der Webseite ständig um Blick und können Performanceproblemen frühzeitig entgegensteuern.\n\nDer Vortrag zeigt unser Setup, eine Demo und detaillierte Informationen, wie man die Messgrößen mit JavaScript extrahiert und über die Java-basierten Web-Tests in Selenium zugänglich macht und zusammen mit anderen Messgrößen aus der Java-Web-Applikation in Prometheus aggregiert.",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "2",
+			"typeId": "5",
+			"locationId": "15",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529268",
+			"start": "2017-03-28T14:00:00",
+			"end": "2017-03-28T14:40:00",
+			"title": "Fallacies of Distributed Computing: What If Networks Fail?",
+			"abstractText": "Modern Software Architectures increasingly rely on the network for parts of applications to communicate with each other. In the minds of many software developers the network will never fail. But when L Peter Deutsch wrote the \"Fallacies of Distributed Computing\" paper back in 1994, he was probably never more right than today. \n\nOne of the hardest things when designing and testing for distributed failures is that most issues such as slow networks and lost packets will only be found in production environments. In this talk we will show you how to deal with distributed dependencies. We'll discuss setting and dealing with time-outs, connection monitoring, connection pooling, thread pools, queue sizes, and latency. Moreover we'll cover a strategy for improving fault tolerance in distributed architectures. \n\nThe topics covered are especially relevant if your application has a lot of dependencies that it communicates with over a network i.e. microservices. It is even more applicable if your application is deployed to an environment which is prone to failure on a regular basis e.g. a \"cloud\".",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "12",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "529718",
+			"start": "2017-03-28T08:30:00",
+			"end": "2017-03-28T09:10:00",
+			"title": "Domänenspezifische Sprachen: Sprich domänisch!",
+			"abstractText": "Domänenspezifische Sprachen (kurz DSLs) sind Sprachen, welche den Entwickleralltag erheblich erleichtern. etwa im Routing den Posteingangs, in der Generierung von Persistenzschichten, der Abbildung von Versicherungsmathematik, dem Verfassen von Einkaufslisten oder der Steuerung des eigenen Hauses. Bei der Definition der Domäne sind keine Grenzen gesetzt. Durch die Nutzung von DSLs konzentriert sich der Entwickler auf das Wesentliche, d.h. die Domäne und die Frage nach dem \"Was soll getan werden\" und belastet Anwender nicht mit langweiligen Boilerplatecode und den technischen Details der Frage \"Wie soll es getan werden\". Am Anfang steht eine kleine Grammatik, am Ende ergibt sich eine lauffähige Entwicklungsumgebung mit Codevervollständigung, Refactoring u.v.a.m.\n\nIn diesem Vortrag werden sowohl die relevanten Schritte vorgeführt als auch konkrete Beispiele aus der Praxis gezeigt.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "4",
+			"locationId": "20",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531853",
+			"start": "2017-03-28T12:00:00",
+			"end": "2017-03-28T13:00:00",
+			"title": "Der Java Flipper",
+			"abstractText": "Ein Open-Source-Schulungsprojekt\n\nJugendlichen die Java-Programmierung näher zu bringen, ist eine Herausforderung. Die Java User Group Goldstadt (JUG PF) stellt sich dieser Aufgabe unter Zuhilfenahme eines aus \"Schrott\" gebastelten Flippers. Dabei herausgekommen ist ein Open-Source-Projekt (Hardware und Software), das die Goldstädter in der Community Hall anderen live demonstrieren und zur Nutzung in der eigenen Jugendarbeit vorstellen.\n\nWir zeigen euch, wie man mit einfachen Mitteln selbst die notwendige \"Hardware\" aus Holz, Blech und anderen Materialien herstellt. Vor allem aber, wie das ganze mit einer \"Java Flipper API\" zu einem spannenden Spielgerät animiert wird.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529968",
+			"start": "2017-03-28T18:00:00",
+			"end": "2017-03-28T23:30:00",
+			"title": "Open Park",
+			"demo": true,
+			"locationId": "1",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529468",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T09:40:00",
+			"title": "Isomorphe JavaScript Webapps mit React.js und Java EE MVC",
+			"abstractText": "Isomorphe JavaScript Apps sind JavaScript Anwendungen, die sowohl auf der Client-Seite als auch auf der Server-Seite ausgeführt können. Ursprünglich aus der Mathematik kommend, beschreibt der Begriff in der Webentwicklung ein Muster bei dem der gleiche Code zwischen Front- und Back-End geteilt wird.\n\nReact.js (entwickelt von Facebook) ist der neue Stern am JavaScript UI-Framework Himmel, dabei ist React kein komplettes MVC-Framework, sondern stellt lediglich das \"V\" bereit. Mit Hilfe von Nashorn können wir die View auf dem Server (vor-)rendern und dann an den Client ausliefern, wo die Seite dynamisch mit Daten befüllt und fertiggestellt wird. Mit Spring-MVC ist das schon eine zeitlang (prototypisch) möglich, mit dem neuen Standard MVC API 1.0 (JSR-371) wird das auch in Java EE 8 der Fall. Anhand der Referenz-Implementierung Ozark zeige ich wie moderne Java-EE-Webapplikationen heute aussehen können. Nichts bleibt dabei unmöglich - auch Netflix, Airbnb und Walmart arbeiten nach dem isomorphen Prinzip!",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "2",
+			"typeId": "7",
+			"locationId": "15",
+			"speakerIds": ["359390"],
+			"languageId": "1"
+		}, {
+			"id": "529579",
+			"start": "2017-03-29T10:00:00",
+			"end": "2017-03-29T10:40:00",
+			"title": "Field Notes of a Command Line Ninja",
+			"abstractText": "Ever wished you had superpowers? Ninja superpowers! So you can move swiftly across the keyboard, enjoy an arsenal of effective tools, and make tedious and mundane tasks fun? \n\nHave you ever witnessed someone write fancy commands and perform magic from the console. Have you ever wished you could learn, or brush up on, those skills too? Maybe you want to be more effective at your everyday tasks, or need a new topic for the next family dinner? \n\nJoin us and learn some awesome command line ninja skills. You will be able to find something new no matter your level of experience. The audience will get a chance to show off their skills as well!\n\nYou can bring your PC/Mac with you and hack-along! Linux, Mac or Windows (with Cygwin, or Windows Subsystem for Linux).",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "7",
+			"locationId": "18",
+			"speakerIds": ["371752"]
+		}, {
+			"id": "529286",
+			"start": "2017-03-28T11:00:00",
+			"end": "2017-03-28T11:40:00",
+			"title": "Multiplexing und Server Push - HTTP/2 in Java 9",
+			"abstractText": "Seit Mai 2015 ist HTTP/2, verabschiedet durch die IETF, der offizielle Nachfolger des Hyptertext Transfer Protocol der Version 1.1. Die Standardisierung wurde in den RFC 7540 und 7541 festgeschrieben.\n\nHTTP/2 ermöglicht eine effizientere Ausnutzung der Netzwerk-Ressourcen und soll außerdem die Netzwerk-Latenz reduzieren. Eine HTTP-Verbindung kann für mehrere Übertragungen wiederverwendet werden, was auch als Request/Response-Multiplexing bezeichnet wird. In den Genuss dieser Neuerung kommt man mit dem neuen JDK 9 automatisch. Der HTTP/2-Client aus dem neuen JDK wird bei der Kommunikation mit dem Server die einmal aufgebaute TCP-Verbindung für mehrere HTTP-Verbindungen wiederverwenden. Dabei können mehrere Anfragen direkt hintereinander verschickt werden. Die Antworten können in beliebiger Reihenfolge verarbeitet werden.\n\nEbenfalls neu ist das Konzept des sogenannten Server-Push. Dabei kann der Server die Entscheidung treffen, dem Client Daten unverlangt zuzusenden, wenn ersterer der Ansicht ist, dass diese zukünftig notwendig sein werden. \n\nIn Java war man bisher auf Bibliotheken wie den freien Jetty-HTTP/2-Client angewiesen, um diese Vorteile nutzen zu können. Mit Java 9 wird die Unterstützung von HTTP/2 eine Kernfunktionalität. Dieser Vortrag stellt die Implementierung im neuen JDK mithilfe von Code-Beispielen und einer Demo vor. In einer Demo soll der Unterschied zwischen den HTTP-Versionen 1.1 und 2 live vorgeführt werden. Hierbei werden mithilfe von Restful-Service-Aufrufen die Roundtrips und die Nebenläufigkeit der 2er-Version vorgeführt. Im Vergleich dazu werden ähnliche Service-Aufrufe mit dem alten 1.1er-Protokoll vorgeführt.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "15",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531869",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T14:00:00",
+			"title": "Meet the JUGs",
+			"abstractText": "Lerne Java User Groups bei Kaffeespezialitäten kennen\n\nIn deiner Region ist auf jeden Fall mindestens eine Java User Group (JUG) aktiv. Mach dich über die Aktivitäten der JUGs schlau und lerne deren Ansprechpartner bei ausgesuchten Kaffeespezialisten kennen. Die beste Möglichkeit, dein Netzwerk zu erweitern.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "11",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529508",
+			"start": "2017-03-29T10:00:00",
+			"end": "2017-03-29T10:40:00",
+			"title": "Cloud Native und Java EE: Freund oder Feind?",
+			"abstractText": "Anwendungen nativ für den Betrieb in der Cloud auszulegen, ist der Architekturstil der Stunde: Microservices, 12-Factor Apps und Serverless-Architecturen sind en vogue. Daneben gibt es Java EE, das sich über Jahre bewährt hat beim Bau von Java-Anwendungen fürs Unternehmen. Java-EE-Anwendungen im modernen Cloud-Native-Stil zu entwickeln- ist kein Widerspruch, sondern ein Zugewinn: Man kann damit Enterprise-Anwendungen bauen, die reif für die Cloud-Ära sind. \n\nDer Vortrag zeigt am laufenden Beispiel, wie man eine Cloud-Native-Java-EE-Anwendung entwickelt und wie sich Java-EE-APIs wie JAX-RS, CDI und JPA integrieren mit Cloud-Native-Infrastruktur wie DC/OS, Kubernetes, Hystrix, Traefik, Consul und Docker. Dabei wird nicht nur blanke Technologie gezeigt, sondern auch das Thema Cloud Native Java EE auf Architekturebene betrachtet.",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "7",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529229",
+			"start": "2017-03-28T12:00:00",
+			"end": "2017-03-28T12:40:00",
+			"title": "The Dark and Light Side of JavaFX",
+			"abstractText": "More and more companies and individuals are using JavaFX. But where light is is also shadow and with all the great things JavaFX has to offer there are also a few  things that you should be aware of.\n\nThe session will cover things like Scene Graph, CSS, TableView, Support of mobile and embedded, Canvas, Properties, Custom Controls and more. This session will try to help developers making the right decisions when working with JavaFX.",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "1",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529396",
+			"start": "2017-03-28T16:00:00",
+			"end": "2017-03-28T16:40:00",
+			"title": "Application Performance Management with Open-Source-Tooling",
+			"abstractText": "In vielen Softwareprojekten wissen häufig nicht nur Anwender, sondern auch Entwickler nicht, warum sich die Anwendung nicht verhält wie erwartet. Wieso ist meine Anwendung so langsam? Warum ist die Anwendung gerade jetzt nicht verfügbar? An Performance-Tests wurde während der Entwicklung nicht gespart. Aber selbst die innovativste Software ist nutzlos, wenn die Performance und Verfügbarkeit nicht gewährleistet ist. Was kann also das Problem sein? Abhilfe schafft in solchen Fällen die Integration von Application Performance Management (APM) in den Entwicklungsprozess und den Betrieb. Kommerzielle APM Lösungen bieten oft sehr umfassende und mächtige Werkzeuge, die allerdings mit entsprechend hohen Kosten verbunden sind und die Kunden in einen Vendor Lock-in drängen. Die Sicherstellung der Softwareperformance muss aber weder teuer noch proprietär sein.\n\nIn diesem Vortrag zeigen wir die Wichtigkeit und den Umfang des Themengebiets APM auf und gehen auf die Frage ein, wie man mit Open-Source-Werkzeugen unterschiedliche Belange rund um das Thema APM adressieren kann. Fokussiert auf Java-basierte Unternehmenssoftware beleuchten wir unterschiedliche Dimensionen und Aspekte von APM und illustrieren diese anhand von konkreten Beispielen. Dabei zeigen wir für unterschiedliche Aspekte von APM, wie Open-Source-Werkzeuge sinnvoll miteinander kombiniert werden können, um die Performance der Anwendung in unterschiedlichen Phasen des Softwarelebenszyklus sicherzustellen. \n\nDie Zuhörer dieses Vortrags lernen Alternativen zu den oft schwergewichtigen, kommerziellen APM-Lösungen kennen und bekommen Ideen an die Hand,  welche Open-Source-Werkzeuge wie und in welcher Kombination sinnvoll angewendet werden können, um bestimmte Ziele zu erreichen.",
+			"demo": false,
+			"trackId": "7",
+			"audienceId": "2",
+			"typeId": "7",
+			"locationId": "18",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531254",
+			"start": "2017-03-30T09:00:00",
+			"end": "2017-03-30T17:00:00",
+			"title": "Moderne Webarchitekturen (Orientation in Objects GmbH)",
+			"abstractText": "Google, Facebook & Co setzten in den vergangenen Jahren neue Defacto-Standards in der Entwicklung von Webanwendungen. Vorbei sind die Zeiten, in denen eine Browseranwendung die Ausrede für eine simple Benutzeroberfläche sein durfte und komplexe Anfragen mit langen Wartezeiten gleichgesetzt werden mussten. Moderne Webanwendungen unterscheiden sich zudem beim Thema Usabitlity nur noch unwesentlich von klassischen Desktop-Anwendungen und die Benutzer erwarten eine Anzeige auch komplexer Inhalte ohne Wartezeiten.\n\nDie Schulung gibt einen Überblick über aktuelle Konzepte im Bereich der Erstellung von Java Webanwendungen und präsentiert diejenigen Technologien, mit denen sich diese Konzepte umsetzen lassen.",
+			"demo": true,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "6",
+			"locationId": "2",
+			"speakerIds": ["364571"],
+			"languageId": "1"
+		}, {
+			"id": "529233",
+			"start": "2017-03-28T13:00:00",
+			"end": "2017-03-28T13:40:00",
+			"title": "TypeScript, PureScript und Elm für funktionales JavaScript",
+			"abstractText": "Man kann reines JavaScript funktional programmieren, wenn man eiserne Disziplin durchhält. Das wird zunehmend schwierig, sobald das Team größer wird und wechselnde Mitglieder hat. Sprachen, die funktionales Programmieren auf JavaScript abbilden, können einen Teil dieser Disziplin über den Compiler und das Typsystem durchsetzen. \n\nVon den vielen Möglichkeiten schauen wir uns neben reinem \"Vanilla\" JavaScript noch TypeScript, PureScript und Elm an, die unterschiedliche, interessante Eigenschaften haben.\n\nZiel des Vortrags ist, die Neugierde für alternative Ansätze zu wecken und Hilfestellung bei der Entscheidung zu geben, welche Optionen man sich später genauer anschauen möchte.",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "1",
+			"speakerIds": ["364258"],
+			"languageId": "1"
+		}, {
+			"id": "529333",
+			"start": "2017-03-28T15:00:00",
+			"end": "2017-03-28T15:40:00",
+			"title": "Security im Entwicklerteam",
+			"abstractText": "\"Security ist kein Produkt - Security ist ein Prozess!\" ist einer der Sätze, den man oft hört und der sicher richtig ist. Aber wie sieht ein solcher Prozess konkret im eigenen Entwicklerteam aus? Oft ist nach einer knappen Schulung der Mitarbeiter über die üblichen Schlagworte wie SQL-Injection oder XSS Schluss - wenn überhaupt.\n\nDieser Vortrag berichtet über die Einführung eines Security-Prozesses im hausinternen Scrum-Team und wie versucht wird, die Brücke zwischen Security-Wünschen, Entwickler-Alltag, agiler Entwicklung und nicht zuletzt auch dem Kunden zu schlagen.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529380",
+			"start": "2017-03-28T12:00:00",
+			"end": "2017-03-28T12:40:00",
+			"title": "A Tour of the (Advanced) Akka Features in 40 Minutes",
+			"abstractText": "Akka is a very interesting and powerful framework which can be used to build high performance applications. But what can you do with Akka?\n\nThis session will start with the basics and then cover some of the more advanced topics such as Finite State Machines, Akka HTTP, remote actors, clustering, routing, sharding and persistence. The demo will be done on a Raspberry Pi Akka cluster.\n\nAfter this session you know what is possible with Akka and you can start using those features yourself.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "18",
+			"speakerIds": ["368448"],
+			"languageId": "2"
+		}, {
+			"id": "529566",
+			"start": "2017-03-29T15:00:00",
+			"end": "2017-03-29T15:40:00",
+			"title": "Reactive Domain Driven Design",
+			"abstractText": "Reaktie Anwendungsframeworks wie Akka und Vert.x etablieren sich immer stärker im Einsatzbereich \"klassischer\" Anwendungsframeworks. Waren die Gründe hierfür bisher eher technischer Natur (Resilienz, horizontale und vertikale Skalierbarkeit ...), treten ihre Vorteile bei der Umsetzung komplexer fachlicher Anforderungen zunehmend stärker in den Vordergrund. Vor allem die Umsetzung der Prinzipien des Domain Driven Design harmoniert ausgezeichnet mit dem zugrunde liegenden, event-orientierten Ansatz, den echte reaktive Frameworks verfolgen. \n\nIn diesem Vortrag werde ich anhand eines Beispiels zeigen, wie eine via DDD entwickelte Domäne auf Frameworks wie Vert.x oder Akka abgebildet werden kann.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "17",
+			"speakerIds": ["364537"],
+			"languageId": "1"
+		}, {
+			"id": "529692",
+			"start": "2017-03-28T11:00:00",
+			"end": "2017-03-28T11:40:00",
+			"title": "Microservices mit Java  OSGi ist doch die Lösung",
+			"abstractText": "Der Vortrag soll die These belegen, dass Microservices in Java sich am besten mit OSGi umsetzen lassen, da das Framework alles mitbringt, was benötigt wird und noch einiges andere mehr.\n\nMicroservices gelten als das Allheilmittel der modernen Softwarearchitekturen. Durch sie lassen sich Monolithen in überschaubare und einfach zu wartende Softwareteile zerlegen. Dabei übernimmt  ein Teil möglichst nur eine abgrenzte Aufgabe in einer Anwendung. Darüber hinaus vereinfacht sich das Deployment, da nicht immer die gesamte Software auf einen Schlag ausgetauscht werden muss. Wie schon oben angedeutet, werden Microservices auch gerne mit Modulen gleichgesetzt. Ein Vorteil von Modulen ist, dass sie ihr Inneres - ihre Implementierung - vor der Außenwelt verbergen. D.h., sie stellen ihre Funktionalität nur über eine API bereit und sind voneinander entkoppelt. Aktuell hat sich REST zur Kommunikation zwischen Microservices durchgesetzt. Module können, müssen aber nicht, GUI- und Persistenz-Bestandteile beinhalten.\n \nIm Zusammenhang mit Microservices stehen oft der verteilte Betrieb und die Kommunikation zwischen ihnen im Vordergrund, obwohl das Konzept zur Aufteilung der Software an erster Stelle stehen muss  Modularität. Java besitzt bisher kein Konzept zur Modularisierung. Das ist erst mit der Version 9 geplant. \n\nOSGi führt schon heute ein solches Konzept in Java ein. Dort werden Module \"Bundles\" genannt. Diese können ihre Funktionalität wiederum anderen Bundles über Services zur Verfügung stellen. Die Präsentation wird zeigen, wie einfach es ist, Module/Services in OSGi umzusetzen. Dabei wird anhand einer bestehenden Anwendung die Struktur und der Aufbau eines Bundles in der Eclipse-IDE vorgestellt.\n\nBeim Betrieb von Microservices besteht oft das Problem, verfügbare Services zu ermitteln. Auch hierfür bietet OSGI eine Lösung. Module können zur Laufzeit installiert, gestartet und gestoppt werden. Es wird gezeigt was bei dem Einsatz von Service-Dynamik zu berücksichtigen ist und welche Vorteile sich daraus für die Softwareentwicklung ergeben. Dieses Feature wird in einer Demo mit GUI vorgeführt.\n\nDie Verwendung von Services ist in OSGi nicht nur auf die lokale JVM beschränkt. Die Spezifikation sieht dafür sogenannte Remote-Services vor. Da dies in Verbindung mit dem Konzept und dem Betrieb von  Microservices eines der herausragenden Features von OSGi ist, wird darauf ausführlicher im Vortrag eingegangen. Es werden verschiedene Remote-Services-Implementierungen in der IDE vorgestellt und anhand einer weiteren Demo-Anwendung vorgeführt. Dazu werden verschiedene Bundles in unterschiedlichen Docker-Container installiert und ausgeführt.\n\nDer Vortrag wird neben einigen Folien zum größten Teil aus Sourcecode-Vorstellung und Live-Demos bestehen. Dabei wird das Thema Remote-Services den größten Anteil einnehmen.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "4",
+			"locationId": "20",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529353",
+			"start": "2017-03-28T13:00:00",
+			"end": "2017-03-28T13:40:00",
+			"title": "DDD & REST - Domain Driven APIs für das Web",
+			"abstractText": "Während Domain-Driven Design versucht, Komplexität im Kern der Software handhabbar zu machen, ist REST für viele nur eine Schnittstellentechnologie. Der Vortrag deckt Berührungspunkte zwischen DDD und REST in Bezug auf die Modellierung der Domäne und der REST-Ressourcen auf. Wir diskutieren, warum und inwiefern ein gutes Domänendesign essentiell ist, um eine gute REST-API zu modellieren, und welche Elemente von REST besonders helfen, eine API domain-getriebener zu machen.\n\nDer Vortrag identifiziert die DDD-Bausteine, die im Kontext von REST-APIs am wichtigsten sind: Aggregate als natürliche Grenzen für Representationen, Repositories als Grundlage von Collection- und Item-Ressourcen  - und wie domänenspezifische Aktionen mit Hypermedia-Mitteln ausgedrückt werden können.",
+			"demo": false,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "17",
+			"speakerIds": ["364408"],
+			"languageId": "1"
+		}, {
+			"id": "531862",
+			"start": "2017-03-28T09:00:00",
+			"end": "2017-03-28T17:00:00",
+			"title": "Meet the JUGs",
+			"abstractText": "Lerne Java User Groups bei Kaffeespezialitäten kennen\n\nIn deiner Region ist auf jeden Fall mindestens eine Java User Group (JUG) aktiv. Mach dich über die Aktivitäten der JUGs schlau und lerne deren Ansprechpartner bei ausgesuchten Kaffeespezialitäten kennen. Die beste Möglichkeit, dein Netzwerk zu erweitern.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "11",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529591",
+			"start": "2017-03-29T13:00:00",
+			"end": "2017-03-29T13:40:00",
+			"title": "Robuste, lesbare Web-UI-Tests mit Page Object Pattern, Geb und Spock",
+			"abstractText": "Die UI gilt gemeinhin als schwierig zu testen, und die Tests haben den Ruf, fragil zu sein und bei kleinen Änderungen im produktiven Code reihenweise umzufallen. Das Page Object Pattern erlaubt es, die Details der HTML-Struktur in einer wiederverwendbaren Form zu kapseln. Dadurch wird der Test-Code von der Web-UI separiert und er gewinnt an Stabilität.\n\nIm JVM-Ökosystem hat Geb sich als De-facto-Standard für Web-UI-Tests etabliert. Geb bietet mit seiner Groovy-basierten DSL und einer jQuery-ähnlicher Syntax eine pragmatische Abstraktion über den Selenium WebDriver. Mit Spock als letzte Zutat ergibt sich eine Mischung, die es erlaubt, ohne großen Aufwand gut leserliche Tests zu schreiben, welche äußerst robust gegenüber Änderungen sind.\n\nFür Entwickler, die bis jetzt noch wenig oder hauptsächlich schlechte Erfahrungen mit UI-Tests gemacht haben, wird dieser Vortrag eine Reise durchs Wunderland. Die Fahrt beginnt mit eine kurze Einführung in das Page Object Pattern sowie Geb und Spock. Da auch im Wunderland ein paar Überraschungen lauern, folgen eine Reihe von Tipps und Tricks wie die Stabilität und Lesbarkeit und somit auch die Wartbarkeit von Web-UI-Tests zusätzlich erhöht werden kann. Am Ziel des Ausflugs geht es dann in die Tiefe mit einer detaillierte Betrachtung des Page Object Pattern im Umfeld von Single Page Applications und asynchronen Webseiten.",
+			"demo": true,
+			"trackId": "7",
+			"audienceId": "1",
+			"typeId": "1",
+			"locationId": "18",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529298",
+			"start": "2017-03-28T14:00:00",
+			"end": "2017-03-28T14:40:00",
+			"title": "Container-Orchestrierung auf Mesos - DC/OS für Java-Entwickler",
+			"abstractText": "In Zeiten von Docker, Big Data und Microservices wird es zunehmend wichtiger, seine verteilte Anwendung sinnvoll auf sein Cluster zu verteilen und dabei trotzdem noch den Überblick zu behalten. Daher werden Cluster-Management-Systeme wie DC/OS immer wichtiger und halten in immer mehr Bereiche Einzug. \n\nIn dieser Session werden wir einen Java-basierten Service implementieren und ihn mit einer Handvoll umgebenden Services zunächst mit Docker Compose starten. Danach werden wir sehen, wie einfach es ist, die gleiche verteilte Anwendung in DC/OS auf dem eigenen Cluster zu deployen und zu monitoren. Danach werden wir einzelne Services unabhängig vom restlichen System skalieren, im laufenden Betrieb aktualisieren und uns ein paar weitere nette Features ansehen.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "15",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529452",
+			"start": "2017-03-29T14:00:00",
+			"end": "2017-03-29T14:40:00",
+			"title": "Was macht Java auf dem Client?",
+			"abstractText": "Swing und SWT sind veraltet, die JavaFX-Entwicklung lahmt, während JavaScript und HTML5 auch in der Java-Welt zunehmend neue Fans gewinnt. Ist Java auf dem Client überhaupt noch sinnvoll, und welche Frameworks und Alternativen gibt es? Wie kann man mobile Java-Anwendungen entwickeln, und wo sind die Vorteile von Java gegenüber nativen Apps und Applikationen? \n\nIn dieser Session stellen wir die Alternativen vor und beantworten Fragen aus dem Publikum zu den einzelnen Lösungen.",
+			"demo": false,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "5",
+			"locationId": "12",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531893",
+			"start": "2017-03-28T14:00:00",
+			"end": "2017-03-28T15:00:00",
+			"title": "Code-Golf",
+			"abstractText": "Erstelle den kürzesten Code\n\nWer die wenigsten Schläge benötigt, gewinnt  so das Prinzip beim Golfspielen. Beim Code-Golf gelten ähnliche Spielregeln: Löse eine Aufgabe mit dem kürzesten Java-8-Quellcode (wenigste Zeichen, keine Drittbibliotheken) und trage den Sieg davon! Dieses Jahr zum ersten Mal mit einer Online-App, die Euren Code direkt validieren und gegen eine Test-Suite ausführen wird  ihr bekommt also direktes Feedback, ob Eure Lösung funktioniert oder nicht.\n\nDie Siegerehrung findet am Mittwoch um 15 Uhr statt.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529554",
+			"start": "2017-03-29T12:00:00",
+			"end": "2017-03-29T12:40:00",
+			"title": "JShell: Javas interaktive Schale als neues Juwel",
+			"abstractText": "Mit dem JDK 9 ist nun eine vollwertige Read-Eval-Print-Loop für Java verfügbar. Dies ermöglicht zum einen das leichtere Erlernen der Sprache oder neuer Sprachfeatures, zum anderen auch die Erkundung unbekannter Bibliotheken oder die interaktive Entwicklung von Codefragmenten.\n\nDer Vortrag erläutert die Möglichkeiten der neuen Java-Shell und zeigt die praktische Anwendung auf.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "17",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529370",
+			"start": "2017-03-28T08:30:00",
+			"end": "2017-03-28T09:10:00",
+			"title": "The Pragmatic Developer's Guide to Java 9",
+			"abstractText": "The upcoming Java 9 release brings with it modularity, a new REPL, a new default garbage collector, HTTP 2 client, and much more. However it importantly misses out on such features as Value Types, JSON API and others. \n\nThis session looks at what is in and what is out of the Java 9 release and whether the features *really* benefit a developer. Well discuss questions like whether Java 9 will be as useful to a developer as Java 8 was? How will libraries and frameworks make use of the modularity framework? How will applications benefit, or not, from the new default garbage collector? \n\nThis session cuts through the hype to outline how Java 9 will realistically affect the everyday pragmatic developer.",
+			"demo": false,
+			"trackId": "3",
+			"audienceId": "1",
+			"typeId": "7",
+			"locationId": "18",
+			"speakerIds": ["371809", "364713"],
+			"languageId": "2"
+		}, {
+			"id": "529435",
+			"start": "2017-03-29T10:00:00",
+			"end": "2017-03-29T10:40:00",
+			"title": "JDK 8 Lambdas: Cool Code that Doesn't Use Streams",
+			"abstractText": "Lambda expressions were the big new language feature in JDK 8 and tend to always be associated with their use in the streams API.  However, the ability to pass behaviour as a parameter (or assign it to a variable) in a simple way has many other practical uses.\n\nThis session will look at some of the more esoteric details of Lambda expressions as well as how they can be used in a number of very useful ways to make your code more concise and yet still very simple to read and understand.  Examples of how to improve the efficiency of your code will also be provided.\n\nWell finish off with a light-hearted look at just how extreme you can make use of Lambda expressions showing Lambda calculus in Java and how Java code can look a lot like Lisp (if you squint).",
+			"demo": false,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "7",
+			"locationId": "12",
+			"speakerIds": ["357053"],
+			"languageId": "2"
+		}, {
+			"id": "529448",
+			"start": "2017-03-29T13:00:00",
+			"end": "2017-03-29T13:40:00",
+			"title": "JavaScript im Jahr 2017",
+			"abstractText": "Kaum eine Sprache hat sich in den vergangenen Jahren so stark gewandelt wie JavaScript. Während sie früher als Spielerei abgetan wurde, hat sich besonders in den letzten Sprachversionen gezeigt, dass man auch in JavaScript professionellen und hochwertigen Code schreiben kann. \n\nDieser Talk zeigt anhand konkreter Beispiele, in welchen Bereichen es deutliche Verbesserungen gegeben hat und auf welche Weise man heute die typischen JavaScript-Fallstricke vermeiden kann. Dabei stehen besonders die neusten Sprachversionen ECMAScript 2015 und 2016 im Fokus, die sich mithilfe von Transpilern auch problemlos in älteren Browsern nutzen lassen.",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "2",
+			"typeId": "3",
+			"locationId": "12",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529463",
+			"start": "2017-03-29T16:00:00",
+			"end": "2017-03-29T16:40:00",
+			"title": "Wir haben doch keine Zeit! IoT-Datenverarbeitung mit Big Data",
+			"abstractText": "Das Internet der Dinge ist im Umfeld von z.B. Banken, Versicherungen, Logistikunternehmen und Automobilherstellern ein umfangreiches Big-Data-Thema. In Bezug auf Datenmenge und Verarbeitungszeit stellt dies sehr hohe Ansprüche. Es reicht dabei selten aus, Daten über Nacht zu berechnen, sondern es ist erforderlich, Ergebnisse im Bereich von Sekunden und Millisekunden bereitzustellen. Speed-Layer und die mit ihnen verbundene Stream-Processing-Lösungen werden immer mehr zum tragenden Bestandteil moderner Big-Data-Landschaften.\n\nIn unserem Vortrag wollen wir zeigen, wie sich durch die Kombination von vert.x-MQTT, Apache Kafka und Apache Spark ein flexibel skalierbares und hochgradig ausfallsicheres System zur IoT-Datenverarbeitung aufbauen lässt. In eine Live-Demo werden wir demonstrieren, wie ein solches System elastisch auf Lastschwankungen und Ausfälle reagieren kann. Der gesamte Beispielaufbau wird später auch auf GitHub verfügbar sein.\n\nZiel des Vortrages ist es, deutlich über das klassische \"Hello World\" hinauszugehen. Vor allem Skalierung und Ausfallsicherheit sind zentrale Themen solcher hochgradig verteilten Architekturen.  Gleichzeitig wollen wir auch eine Strategie zum (Last)Testen solcher Anwendungen demonstrieren. Alle Tests werden wir mit Gatling und dem zugehörigen MQTT-Plug-in durchführen.",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "12",
+			"speakerIds": ["364537"],
+			"languageId": "1"
+		}, {
+			"id": "529636",
+			"start": "2017-03-29T16:00:00",
+			"end": "2017-03-29T16:40:00",
+			"title": "Einführung in Web Components - Was ist das und wie geht das?",
+			"abstractText": "Web Components sind ein neuer W3C-Standard bestehend aus vier Spezifikationen, die es erlauben, wiederverwendbare Widgets und Komponenten für den Einsatz auf Webseiten und in Webapplikationen zu erstellen. Die Intention hinter dem Standard ist es, die Idee komponentenbasierter Softwareentwicklung in das World Wide Web zu bringen. Web Components erlauben die Kapselung von und die Interoperabilität zwischen HTML-Elementen.\n\nAgenda\n\n Was sind Web Components? \n Die vier Spezifikationen im Überblick \n Unterstützung der \"großen\" Webbrowser \n Web Components Libraries \n Demo: Web Components in der Anwendung \n Demo: Eigene Web Components erstellen\n\nMit diesem Vortrag möchte ich den Sinn der Web Components vermitteln und aufzeigen, wie Entwickler mit dessen Hilfe effizient moderne, einfach zu wartende Webseiten und Webanwendungen erstellen können. Einen großen Teil des Vortrags nimmt die Demo ein, in der ich mittels riskantem Live-Coding den Einsatz von Web Components genauso am praktischen Beispiel zeige, wie die Entwicklung eigener Komponenten.\n\nUm diesen Vortrag vollständig verstehen und den meisten Nutzen herausholen zu können, solltest du Basiswissen im Bereich HTML, CSS und JavaScript mitbringen. Im Anschluss an den Vortrag gibt es einen Link, unter dem du sowohl die Vortragsfolien als auch den Quellcode des Live-Coding herunterladen kannst.",
+			"demo": true,
+			"trackId": "5",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "19",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529430",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T09:40:00",
+			"title": "Migrating to Java 9 Modules",
+			"abstractText": "With Java 9 modules coming to us soon, you want your existing code to be fully ready for the module system. Making code modular can be a daunting task, but Java 9 comes with a number features to ease migration. This includes automatic modules, the unnamed module and a number of command line arguments.\n\nIn this talk we will look at examples of migrating real code. It discusses common problems youll run into during migration, leading to practical tips and the ability to set realistic goals. Its also a good way to understand the module system itself and the various migration paths it supports. This talk is an excellent preparation to start migrating your own code.\n\n* Understanding modules and the module path\n* Automatic modules\n* Mixing classpath and modulepath\n* Dealing with reflection\n* Escape switches\n* Jdeps\n\nAll topics will be based on examples of often used libraries and frameworks.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "7",
+			"locationId": "12",
+			"speakerIds": ["364941", "364697"],
+			"languageId": "2"
+		}, {
+			"id": "529538",
+			"start": "2017-03-29T13:00:00",
+			"end": "2017-03-29T13:40:00",
+			"title": "MicroProfile, Apache TomEE Now & Beyond",
+			"abstractText": "MicroProfile is the name for the recent pre-specification effort by IBM Liberty Profile, London Java Community, RedHat, Tomitribe and Payara to optimize Enterprise Java for a microservices architecture by innovating across multiple implementations and collaborating on common areas of interest, with a goal of standardization.\n\nDelivered by an Apache developer, this talk will focus on what the MicroProfile means to the OSS project Apache TomEE, both today and tomorrow. TomEE has been a sustainable choice for thousands of EE projects across the globe. Recent announcements by Oracle have laid to rest some of the negative rumours that have been surrounding Java EE 8. We know that there is a long and bright future ahead for Enterprise Java, so what will the MicroProfile bring to the party? More importantly, what cake would \"you\" like to bring?",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "17",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "529697",
+			"start": "2017-03-28T12:00:00",
+			"end": "2017-03-28T12:40:00",
+			"title": "Microservice-Anwendungen mit Docker",
+			"abstractText": "Docker ist ein ideales Werkzeug, den gesamten Entwicklungszyklus zu begleiten und einen weiteren Schritt in Richtung universell einsetzbare und verfügbare Anwendungen zu machen.\n\nVia Live-Demos wird anhand einer Spring-Cloud-Microservice-Anwendung der Einsatz der verschiedenen Docker-Tools in der Entwicklung, Integration und Betrieb gezeigt. Dabei wird auf Anforderungen einer verteilten Microservice-Architektur eingegangen und gezeigt, wie diese mit Docker und dem Spring Cloud/NetflixOSS Stack umgesetzt werden können.",
+			"demo": true,
+			"trackId": "1",
+			"audienceId": "2",
+			"typeId": "4",
+			"locationId": "20",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531916",
+			"start": "2017-03-28T13:00:00",
+			"end": "2017-03-28T14:00:00",
+			"title": "Hacking mit Mutation Testing",
+			"abstractText": "Sammle praktische Erfahrungen mit Mutation Testing\n\nWir werden anhand von Beispiel-Quelltexten den Umgang mit Mutation Testing erlernen und praktische Erfahrungen sammeln. Besonders im Vordergrund steht der Unterschied zu den bekannten Metriken, wie zum Beispiel Line Coverage. Gerne können auch eigene Projekte verwendet werden, um die Integration und Auswirkung von Mutation Testing in seinen eigenen Quelltexten zu erleben.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529562",
+			"start": "2017-03-29T14:00:00",
+			"end": "2017-03-29T14:40:00",
+			"title": "Klein, leicht, modular - Java EE goes Microservices",
+			"abstractText": "Microservices sind der neue Stern am Architekturhimmel und können angeblich mit Java EE nicht umgesetzt werden. Aber warum eigentlich nicht? Java EE bietet mit JAX-RS, CDI und JMS seit Jahren alles, was man für modulare, lose gekoppelte Anwendung benötigt. Die Server sind inzwischen klein und modular geworden, es gibt verschiedene für Microservices optimierte Distributionen und es wird an einem anbieterübergreifenden MicroProfile gearbeitet. Beste Voraussetzungen also, die neue Architektur mit vertrauten und produktionserprobten Java-EE-Implementierungen umzusetzen. \n\nWelche Möglichkeiten es dafür gibt und an welchen Stellen externe Frameworks verwendet werden sollten, werde ich in diesem Vortrag vorstellen.",
+			"demo": true,
+			"trackId": "4",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "17",
+			"speakerIds": ["369887"],
+			"languageId": "1"
+		}, {
+			"id": "531848",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T11:50:00",
+			"title": "Mustererkennung mit neuronalen Netzen",
+			"abstractText": "Öffne dich für die Neuroinformatik und entdecke die Aufgabe neuronaler Netze\n\nDie Begriffe maschinelles Lernen, Deep Learning und neuronale Netze begegnen uns mit ansteigender Häufigkeit. Im Workshop soll mit Hilfe einer speziellen IDE, Neuroph Studio, ein praktisch ausgerichteter Einstieg in diese Materie erreicht werden. Wer nicht nur aus Interesse an seiner Allgemeinbildung kommt (auch solche Leute sind herzlich willkommen), soll die vier Grundregeln erlernen, die es ihm ermöglichen, bei seinen Problemen einen Versuch mit neuronalen Netzen zu wagen.\n\nVoraussetzungen:\nBringt bitte einen Laptop mit, auf dem bereits Java 8 sowie die neueste Version von \"Neuroph Studio, Java Neural Network IDE based on NetBeans Platform\" installiert sind.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "13",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529957",
+			"start": "2017-03-28T10:00:00",
+			"end": "2017-03-28T10:40:00",
+			"title": "Keynote: The role of the CDO as Chief Product Owner",
+			"abstractText": "Jean-Jacques van Oosten talks about the digital transformation of Rewe Group\nDr Jean-Jacques van Oosten (Chief Digital Officer of the Rewe-Group)",
+			"demo": false,
+			"locationId": "1",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "529504",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T09:40:00",
+			"title": "Big Data & Stream Processing mit Apache Spark",
+			"abstractText": "In diesem Vortrag wird mit Apache Spark ein Framework für verteiltes Verarbeiten großer und stetiger Datenmengen vorgestellt. Es kann sich sowohl um Batch- als auch Streaming-Verarbeitung handeln. Insbesondere die Verarbeitung von Daten-Streams, wie sie beispielsweise im IoT-Bereich vorkommen, wird zunehmend interessanter. Spark und insbesondere Spark Streaming werden stetig weiterentwickelt und stellen seit Spark 2.0 eine einheitliche Plattform und API sowohl für Batch und Streaming bereit. \n\nZu Beginn soll Spark grundsätzlich vorgestellt und anschließend speziell auf die Neuerungen in Spark 2.x eingegangen werden.",
+			"demo": false,
+			"trackId": "4",
+			"audienceId": "1",
+			"typeId": "3",
+			"locationId": "16",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "531923",
+			"start": "2017-03-29T11:00:00",
+			"end": "2017-03-29T12:00:00",
+			"title": "Hacking mit Mutation Testing",
+			"abstractText": "Sammle praktische Erfahrungen mit Mutation Testing\n\nWir werden anhand von Beispiel-Quelltexten den Umgang mit Mutation Testing erlernen und praktische Erfahrungen sammeln. Besonders im Vordergrund steht der Unterschied zu den bekannten Metriken, wie zum Beispiel Line Coverage. Gerne können auch eigene Projekte verwendet werden, um die Integration und Auswirkung von Mutation Testing in seinen eigenen Quelltexten zu erleben.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529375",
+			"start": "2017-03-28T11:00:00",
+			"end": "2017-03-28T11:40:00",
+			"title": "Beyond Lambdas - the Aftermath",
+			"abstractText": "As Java developers we are used to having rich ecosystems of libraries and tools that make our lives easier. As of the release of Java 8, we finally got our hands on building blocks like lambdas, optionals, and streams. All sorts of tools that help us write more concise code. But now, when the honeymoon is over, are there any downsides to Java 8 or is it a silver bullet? Are there any new anti-patterns emerging? Or subtle bugs caused by the new style of programming? Have there been any lessons learned? Are there any best practices?\n\nIf you are interested in learning about the challenges encountered when moving over to a functional style of Java programming, what code constructs to avoid, and best practices to use, well then this session is for you.",
+			"demo": true,
+			"trackId": "3",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "18",
+			"speakerIds": [],
+			"languageId": "2"
+		}, {
+			"id": "531920",
+			"start": "2017-03-29T09:00:00",
+			"end": "2017-03-29T10:00:00",
+			"title": "Hacking mit Mutation Testing",
+			"abstractText": "Sammle praktische Erfahrungen mit Mutation Testing\n\nWir werden anhand von Beispiel-Quelltexten den Umgang mit Mutation Testing erlernen und praktische Erfahrungen sammeln. Besonders im Vordergrund steht der Unterschied zu den bekannten Metriken, wie zum Beispiel Line Coverage. Gerne können auch eigene Projekte verwendet werden, um die Integration und Auswirkung von Mutation Testing in seinen eigenen Quelltexten zu erleben.",
+			"demo": true,
+			"typeId": "2",
+			"locationId": "10",
+			"speakerIds": [],
+			"languageId": "1"
+		}, {
+			"id": "529620",
+			"start": "2017-03-29T12:00:00",
+			"end": "2017-03-29T12:40:00",
+			"title": "Mutierbare verteilte Daten einfach gemacht mit Conflict-free Replicated Data Types (CRDT)",
+			"abstractText": "Zugriff und Änderung von Daten, die auf mehrere Computer verteilt sind, die wiederum durch unzuverlässige Netzwerke verbunden sind, gilt als eines der schwersten Probleme in der modernen Softwareentwicklung. Conflict-free Replicated Data Types (CRDT) sind ein neuer und vielversprechender Ansatz, um diese Herausforderung anzugehen. CRDTs sind Datentypen, die auf mehreren Computer repliziert und gleichzeitig modifiziert werden können - sogar während sie offline sind - wobei es niemals zu Konflikten kommen kann und daher niemals Rollbacks erforderlich sind. \n\nDiese Session behandelt die Grundlagen von CRDTs, erläutert die gebräuchlichsten Datentypen und stellt Projekte und Tools vor, die bereits heute die Nutzung von CRDTs erlauben.",
+			"demo": false,
+			"trackId": "6",
+			"audienceId": "2",
+			"typeId": "1",
+			"locationId": "19",
+			"speakerIds": ["368512"],
+			"languageId": "1"
+		}
+	],
+	"speakers": [{
+			"id": "364385",
+			"name": "Kai Tödter",
+			"company": "Siemens AG",
+			"eventIds": ["529306"]
+		}, {
+			"id": "368441",
+			"name": "Daniel Mitterdorfer",
+			"company": "Elasticsearch GmbH",
+			"website": "http://test.mitterdorfer.org",
+			"twitter": "http://www.twitter.com",
+			"facebook": "https://www.facebook.com",
+			"linkedin": "http://www.linkedin.com",
+			"bio": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, ",
+			"photoId": "5ce4886b6141924414052b9b4722a612",
+			"eventIds": [null]
+		}, {
+			"id": "364408",
+			"name": "Oliver Gierke",
+			"company": "Pivotal",
+			"eventIds": ["529353"]
+		}, {
+			"id": "371987",
+			"name": "Matthias Naab",
+			"company": "Fraunhofer IESE",
+			"eventIds": [null]
+		}, {
+			"id": "371994",
+			"name": "Sean Floyd",
+			"company": "Zalando",
+			"eventIds": [null]
+		}, {
+			"id": "373653",
+			"name": "David Barnes",
+			"company": "IBM",
+			"eventIds": [null]
+		}, {
+			"id": "368680",
+			"name": "Dmitry Vyazelenko",
+			"company": "Sowatec AG",
+			"eventIds": [null]
+		}, {
+			"id": "364065",
+			"name": "Ralf Müller",
+			"eventIds": [null]
+		}, {
+			"id": "373679",
+			"name": "Riccardo Massera",
+			"eventIds": [null]
+		}, {
+			"id": "368171",
+			"name": "Lars Vogel",
+			"company": "vogella GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "373237",
+			"name": "Tobias Stamann",
+			"company": "Holisticon AG",
+			"eventIds": [null]
+		}, {
+			"id": "369852",
+			"name": "Torben Fojuth",
+			"company": "Neuland Bremen GmbH ",
+			"eventIds": [null]
+		}, {
+			"id": "353643",
+			"name": "Kirsten Böttcher",
+			"company": "DOAG Dienstleistungen GmbH",
+			"website": "http://www.doag.org/de/doag/personenseiten-doag/kirsten-boettcher.html",
+			"xing": "https://www.xing.com/profile/Kirsten_Boettcher4?sc_o=mxb_p",
+			"linkedin": "https://www.linkedin.com/in/kirsten-boettcher-6b32b140?trk=hp-identity-name",
+			"bio": "Projektleiterin bei der DOAG Dienstleistungen GmbH",
+			"photoId": "f88d7e0f14fad3c8897f1ebab4e6af5f",
+			"eventIds": [null]
+		}, {
+			"id": "371867",
+			"name": "Guido Oelmann",
+			"eventIds": [null]
+		}, {
+			"id": "368414",
+			"name": "Jörg Herbst",
+			"company": "10m GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "372026",
+			"name": "Sven Kölpin",
+			"company": "open knowledge GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "363832",
+			"name": "Markus Schlichting",
+			"company": "Canoo Engineering AG",
+			"eventIds": [null]
+		}, {
+			"id": "364713",
+			"name": "Simon Maple",
+			"company": "ZeroTurnaround",
+			"eventIds": ["529370"]
+		}, {
+			"id": "371801",
+			"name": "Burr Sutter",
+			"eventIds": [null]
+		}, {
+			"id": "364697",
+			"name": "Sander Mak",
+			"company": "Luminis Technologies",
+			"eventIds": ["529245", "529430"]
+		}, {
+			"id": "365991",
+			"name": "Stephen Chin",
+			"company": "Oracle",
+			"eventIds": ["529404"]
+		}, {
+			"id": "368613",
+			"name": "Dominik Helleberg",
+			"company": "inovex GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "371592",
+			"name": "Martin Förtsch",
+			"company": "TNG Technology Consulting GmbH",
+			"eventIds": ["529416"]
+		}, {
+			"id": "371413",
+			"name": "Jan Carsten Lohmüller",
+			"company": "Workplace Solutions GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "365280",
+			"name": "Thomas Endres",
+			"company": "TNG Technology Consulting GmbH",
+			"eventIds": ["529416"]
+		}, {
+			"id": "368442",
+			"name": "Alexander Schwartz",
+			"company": "msg systems ag",
+			"eventIds": ["529302"]
+		}, {
+			"id": "353543",
+			"name": "Ed Burns",
+			"company": "Oracle Corporation",
+			"eventIds": ["531229"]
+		}, {
+			"id": "371560",
+			"name": "Andreas Evers",
+			"company": "Ordina",
+			"eventIds": [null]
+		}, {
+			"id": "366223",
+			"name": "Peter Lehto",
+			"company": "Vaadin Ltd. \t",
+			"eventIds": [null]
+		}, {
+			"id": "371531",
+			"name": "Adam Gowdiak",
+			"company": "Security Explorations",
+			"eventIds": [null]
+		}, {
+			"id": "270784",
+			"name": "Wolfgang Weigend",
+			"company": "ORACLE Deutschland B.V. & Co. KG",
+			"eventIds": [null]
+		}, {
+			"id": "371581",
+			"name": "Roel Spilker",
+			"company": "TOPdesk",
+			"eventIds": [null]
+		}, {
+			"id": "371652",
+			"name": "Romain Pelisse",
+			"company": "Red Hat",
+			"eventIds": [null]
+		}, {
+			"id": "136700",
+			"name": "Fried Saacke",
+			"company": "DOAG Dienstleistungen GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "371857",
+			"name": "Rene Groeschke",
+			"company": "Gradle Inc.",
+			"eventIds": ["529392"]
+		}, {
+			"id": "371780",
+			"name": "Oliver Heuser",
+			"company": "Heuser Software AG",
+			"eventIds": [null]
+		}, {
+			"id": "368448",
+			"name": "Johan Janssen",
+			"company": "Info Support",
+			"eventIds": ["529421", "529380"]
+		}, {
+			"id": "357053",
+			"name": "Simon Ritter",
+			"company": "Azul Systems",
+			"eventIds": ["529435"]
+		}, {
+			"id": "364730",
+			"name": "David Blevins",
+			"company": "Tomitribe",
+			"eventIds": [null]
+		}, {
+			"id": "146723",
+			"name": "Matthias Faix",
+			"company": "IPM Köln",
+			"eventIds": [null]
+		}, {
+			"id": "369887",
+			"name": "Thorben Janssen",
+			"eventIds": ["531248", "529562"]
+		}, {
+			"id": "368551",
+			"name": "Thomas Much",
+			"company": "muchsoft.com",
+			"eventIds": ["529337"]
+		}, {
+			"id": "364258",
+			"name": "Dierk König",
+			"company": "Canoo Engineering AG",
+			"eventIds": ["529233"]
+		}, {
+			"id": "371792",
+			"name": "Michael Tamm",
+			"company": "optivo GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "355126",
+			"name": "Markus Eisele",
+			"eventIds": [null]
+		}, {
+			"id": "372313",
+			"name": "Jan Reimann",
+			"company": "DevBoost GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "371138",
+			"name": "Mario Vöhl",
+			"eventIds": [null]
+		}, {
+			"id": "371809",
+			"name": "Oleg Shelajev",
+			"company": "ZeroTurnaround",
+			"eventIds": ["529370"]
+		}, {
+			"id": "364571",
+			"name": "Thorsten Maier",
+			"company": "Orientation in Objects GmbH",
+			"eventIds": ["529616", "531254"]
+		}, {
+			"id": "354580",
+			"name": "Tobias Kraft",
+			"company": "exensio GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "362727",
+			"name": "Dominik Schadow",
+			"company": "BridgingIT GmbH",
+			"eventIds": ["531233"]
+		}, {
+			"id": "371831",
+			"name": "Susanne Braun",
+			"company": "Fraunhofer IESE",
+			"eventIds": [null]
+		}, {
+			"id": "368627",
+			"name": "Jason Porter",
+			"company": "Red Hat Inc",
+			"eventIds": [null]
+		}, {
+			"id": "354836",
+			"name": "Jens Schauder",
+			"company": "T-Systems on site services GmbH",
+			"eventIds": ["529341"]
+		}, {
+			"id": "371991",
+			"name": "Reinier Zwitserloot",
+			"company": "medipc.nl",
+			"eventIds": [null]
+		}, {
+			"id": "364567",
+			"name": "Christoph Deppisch",
+			"company": "ConSol* Consulting & Solutions Software GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "371963",
+			"name": "Klara Ward",
+			"company": "Oracle Corporation",
+			"eventIds": [null]
+		}, {
+			"id": "368532",
+			"name": "Mark Paluch",
+			"company": "PALUCH.biz",
+			"eventIds": [null]
+		}, {
+			"id": "362273",
+			"name": "Mirko Seifert",
+			"company": "DevBoost GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "365616",
+			"name": "Marc Sluiter",
+			"company": "Luminis Technologies",
+			"eventIds": [null]
+		}, {
+			"id": "363284",
+			"name": "Falk Sippach",
+			"company": "Orientation in Objects GmbH",
+			"website": "http://www.sippsack.de",
+			"twitter": "https://twitter.com/sippsack",
+			"bio": "Lorem ipsum",
+			"photoId": "5ce4886b6141924414052b9b4722a612",
+			"eventIds": ["529480"]
+		}, {
+			"id": "371530",
+			"name": "Bert Jan Schrijver",
+			"company": "JPoint",
+			"eventIds": ["529221"]
+		}, {
+			"id": "356789",
+			"name": "Christoph Engelbert",
+			"eventIds": [null]
+		}, {
+			"id": "365736",
+			"name": "Stephan Kaps",
+			"company": "Bundesversicherungsamt",
+			"eventIds": [null]
+		}, {
+			"id": "363955",
+			"name": "Alexander Heusingfeld",
+			"company": "innoQ Deutschland GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "364707",
+			"name": "Ivar Grimstad",
+			"company": "Cybercom Sweden",
+			"eventIds": [null]
+		}, {
+			"id": "371791",
+			"name": "Arek Czarnik",
+			"company": "Rewe-Digital",
+			"eventIds": [null]
+		}, {
+			"id": "365313",
+			"name": "Andres Almiray",
+			"company": "Canoo Engineering AG",
+			"eventIds": [null]
+		}, {
+			"id": "370942",
+			"name": "Henning Schwentner",
+			"company": "WPS - Workplace Solutions GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "369973",
+			"name": "Jeremias Rößler",
+			"company": "ReTest",
+			"eventIds": [null]
+		}, {
+			"id": "368660",
+			"name": "Kirk Pepperdine",
+			"company": "Kodewerk Ltd.",
+			"eventIds": [null]
+		}, {
+			"id": "363341",
+			"name": "Gerrit Grunwald",
+			"company": "ORACLE Deutschland B.V. & Co. KG",
+			"eventIds": [null]
+		}, {
+			"id": "371775",
+			"name": "Jan Sauer",
+			"company": "10m",
+			"eventIds": [null]
+		}, {
+			"id": "364576",
+			"name": "Roland Huß",
+			"company": "Red Hat, Inc.",
+			"eventIds": [null]
+		}, {
+			"id": "371626",
+			"name": "Kalle Erlacher",
+			"company": "DOAG Dienstleistungen GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "356754",
+			"name": "Mylène Diacquenod",
+			"company": "DOAG Dienstleistungen GmbH",
+			"website": "www.doag.org",
+			"twitter": "https://twitter.com/DOAGeV",
+			"facebook": "https://www.facebook.com/DOAGeV/",
+			"xing": "https://www.xing.com/communities/groups/doag-deutsche-oracle-anwendergruppe-ev-525d-1067684",
+			"linkedin": "https://www.linkedin.com/in/petersechser/de",
+			"bio": "Eine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich den süßen Frühlingsmorgen, die ich mit ganzem Herzen genieße. Ich bin allein und freue mich meines Lebens in dieser Gegend, die für solche Seelen geschaffen ist wie die meine. Ich bin so glücklich, mein Bester, so ganz in dem Gefühle von ruhigem Dasein versunken, daß meine Kunst darunter leidet.",
+			"photoId": "a0bdcc0e6104adcc97ff67cc141537bf",
+			"eventIds": [null]
+		}, {
+			"id": "371600",
+			"name": "Sven Haiges",
+			"company": "hybris GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "364537",
+			"name": "Jochen Mader",
+			"company": "codecentric AG",
+			"eventIds": ["529566", "529463"]
+		}, {
+			"id": "371840",
+			"name": "Andrzej Grzesik",
+			"eventIds": [null]
+		}, {
+			"id": "374059",
+			"name": "Alwin Mark",
+			"company": "Rewe-Digital",
+			"eventIds": [null]
+		}, {
+			"id": "374172",
+			"name": "Jérôme Boateng",
+			"website": "http://jeromeboateng.com/?",
+			"twitter": "https://twitter.com/JB17Official",
+			"facebook": "https://www.facebook.com/JeromeBoateng17/",
+			"bio": "Alle Jahre wieder\r\nkommt das Christuskind\r\nauf die Erde nieder,\r\nwo wir Menschen sind.\r\nKehrt mit seinem Segen\r\nein in jedes Haus,\r\ngeht auf allen Wegen\r\nmit uns ein und aus.\r\nIst auch mir zur Seite\r\nstill und unerkannt,\r\ndaß es treu mich leite\r\nan der lieben Hand.",
+			"eventIds": [null]
+		}, {
+			"id": "371752",
+			"name": "Rustam Mehmandarov",
+			"company": "Computas AS",
+			"eventIds": ["529579"]
+		}, {
+			"id": "371842",
+			"name": "Ray Tsang",
+			"company": "Google",
+			"eventIds": ["530111"]
+		}, {
+			"id": "368512",
+			"name": "Michael Heinrichs",
+			"company": "Canoo Engineering AG",
+			"eventIds": ["529620"]
+		}, {
+			"id": "368530",
+			"name": "Josh Long",
+			"company": "Pivotal",
+			"eventIds": [null]
+		}, {
+			"id": "359390",
+			"name": "Niko Köbler",
+			"company": "Niko Köbler IT-Beratung",
+			"website": "http://www.n-k.de",
+			"twitter": "https://twitter.com/dasniko",
+			"bio": "Niko macht irgendwas mit Computern, oft im Web und serverlos in der Cloud, meistens (funktional) auf der JVM. Er ist Co-Lead der JUG Darmstadt, Autor und Sprecher auf internationalen Konferenzen. Niko tweetet unter @dasniko",
+			"photoId": "384adc4c17568938801ceab9124c039f",
+			"eventIds": ["529325", "529468"]
+		}, {
+			"id": "290916",
+			"name": "Jürgen Pittorf",
+			"company": "DOAG Dienstleistungen GmbH",
+			"website": "Fo",
+			"twitter": "Fo",
+			"facebook": "Fo",
+			"xing": "Fo",
+			"linkedin": "fo",
+			"bio": "Fo",
+			"photoId": "6eb58f72ede3936a347a2fdc92be1cbb",
+			"eventIds": [null]
+		}, {
+			"id": "364349",
+			"name": "Philipp Tarasiewicz",
+			"company": "Freiberufler",
+			"eventIds": [null]
+		}, {
+			"id": "368549",
+			"name": "Thomas Darimont",
+			"company": "eurodata AG",
+			"eventIds": ["529500"]
+		}, {
+			"id": "352213",
+			"name": "Anton Epple",
+			"company": "Dukehoff GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "371848",
+			"name": "Rob Brinkman",
+			"company": "JDriven",
+			"eventIds": [null]
+		}, {
+			"id": "369968",
+			"name": "Andreas Knuth",
+			"company": "Deutsche WertpapierService Bank AG",
+			"eventIds": [null]
+		}, {
+			"id": "368144",
+			"name": "Johannes Barop",
+			"company": "mgm technology partners GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "368536",
+			"name": "Manuel Mauky",
+			"company": "Saxonia Systems AG",
+			"eventIds": ["529366", "529484"]
+		}, {
+			"id": "371794",
+			"name": "Bernhard Cygan",
+			"company": "CloudBees",
+			"eventIds": [null]
+		}, {
+			"id": "366253",
+			"name": "Tobias Schneck",
+			"company": "ConSol* Software GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "368443",
+			"name": "David Delabassee",
+			"company": "Oracle Belgium",
+			"eventIds": ["529278"]
+		}, {
+			"id": "366485",
+			"name": "Alexander Casall",
+			"company": "Saxonia Systems AG",
+			"eventIds": ["529357"]
+		}, {
+			"id": "364777",
+			"name": "Justin Lee",
+			"company": "MongoDB",
+			"eventIds": [null]
+		}, {
+			"id": "364341",
+			"name": "Michael Sperber",
+			"company": "Active Group GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "364941",
+			"name": "Paul Bakker",
+			"company": "Luminis Technologies",
+			"eventIds": ["529245", "529430"]
+		}, {
+			"id": "371992",
+			"name": "Martin Kanters",
+			"company": "Info Support",
+			"eventIds": [null]
+		}, {
+			"id": "371969",
+			"name": "Maurice Naftalin",
+			"company": "Morningside Light Ltd. Company",
+			"eventIds": [null]
+		}, {
+			"id": "370163",
+			"name": "Oliver Hock",
+			"company": "Videa Project Services GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "370461",
+			"name": "Geertjan Wielenga",
+			"company": "Oracle",
+			"eventIds": [null]
+		}, {
+			"id": "366636",
+			"name": "Sven Ruppert",
+			"eventIds": [null]
+		}, {
+			"id": "364559",
+			"name": "Tammo van Lessen",
+			"company": "innoQ Deutschland GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "371631",
+			"name": "Daniel Wegener",
+			"company": "Holisticon AG",
+			"eventIds": [null]
+		}, {
+			"id": "368455",
+			"name": "Andrey Adamovich",
+			"company": "Aestas/IT",
+			"eventIds": [null]
+		}, {
+			"id": "364760",
+			"name": "Werner Keil",
+			"company": "Creative Arts & Technologies",
+			"eventIds": [null]
+		}, {
+			"id": "369805",
+			"name": "Niklas Heidloff",
+			"company": "IBM Deutschland Research & Development GmbH",
+			"eventIds": [null]
+		}, {
+			"id": "368146",
+			"name": "Björn Kimminich",
+			"company": "Kuehne + Nagel (AG & Co.) KG",
+			"eventIds": [null]
+		}
+	]
+}
