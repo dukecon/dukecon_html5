@@ -76,7 +76,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
             this.email = data.email || '';
             if (data.photoId) {
-                this.image = "http://localhost:8080/develop/rest/speaker/images/" + data.photoId
+                this.image = urlprovider.imageBaseUrl + data.photoId
             } else {
                 this.image = "img/Unknown.png";
             }

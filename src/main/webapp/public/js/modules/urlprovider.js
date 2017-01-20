@@ -88,6 +88,7 @@ define(
         var emtpyFunc = function() {};
 
         return {
+            imageBaseUrl: currentBaseUrl + '/rest/speaker/images/',
             getJsonUrl: function(callback) {
                 callback = callback || emptyFunc;
                 if (!initialized) {
