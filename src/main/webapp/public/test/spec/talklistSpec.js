@@ -85,7 +85,7 @@ define(['js/modules/talklist'], function(talklist) {
             ]
         };
 
-        xit("allTalks", function () {
+        it("allTalks", function () {
             var model = new talklist.TalkListViewModel();
             model.initialize(talk_json);
             expect(model.allTalks[0].id).toEqual(talk_json.events[0].id);

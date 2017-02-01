@@ -125,6 +125,14 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
 
              self.initializeFilters = function(metaData) {
                 var savedFilters = dukeconSettings.getSavedFilters(self.filters);
+
+                if (metaData.locations) {
+                    // tests break without this check; for some reason the metadata seems to get lost at some point. :-?
+                    metaData.locations.sort(function (a, b) {
+                        return parseInt(a.order) - parseInt(b.order);
+                    });
+                }
+
                 self.filters[0].title(languageUtils.strings.level[languageUtils.selectedLanguage()]);
                 self.filters[0].filtervalues(self.getFilterValues('audiences', metaData, savedFilters[self.filters[0].filterKey]));
                 self.filters[1].title(languageUtils.strings.language[languageUtils.selectedLanguage()]);

@@ -41,10 +41,10 @@ define(['jquery', 'knockout', 'js/modules/talklist', 'js/modules/dukeconsettings
 		var generateLocations = function (data, visGroup) {
 			// sort the rooms by their "order" field
 			data.sort(function (a, b) {
-				return a.order - b.order;
+				return parseInt(a.order) - parseInt(b.order);
 			});
 			for (var g = 0; g < data.length; g++) {
-				visGroup.add({id: data[g].id, content: data[g].names[languageUtils.selectedLanguage()]});
+				visGroup.add({id: data[g].id, order: data[g].order, content: data[g].names[languageUtils.selectedLanguage()]});
 			}
 		};
 		
@@ -70,9 +70,9 @@ define(['jquery', 'knockout', 'js/modules/talklist', 'js/modules/dukeconsettings
 		
 		function drawTimeTable(scheduleTalksModel) {
 			var groups = new vis.DataSet();
-			
+
 			generateLocations(scheduleTalksModel.metaData.locations, groups);
-			
+
 			// create a dataset with items
 			// create visualization
 
