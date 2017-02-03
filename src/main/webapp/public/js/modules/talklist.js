@@ -1,13 +1,14 @@
 define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offline', 'js/modules/dukecon', 'js/modules/languageutils', 'js/modules/urlprovider'],
     function(_, $, ko, dukeconSettings, dukeconTalkUtils, dukecon, languageUtils, urlHelper) {
 
-        function FilterValue(key, value, isSelected) {
+        function FilterValue(key, value, isSelected, defaultLanguage) {
             var filterValue = this;
+            defaultLanguage = defaultLanguage || "de";
             this.ui_id = key + "_" + value.id;
             this.id = value.id;
             this.selected = ko.observable(isSelected);
-            this.en = value.names.en;
-            this.de = value.names.de;
+            this.en = value.names.en || value.names[defaultLanguage];
+            this.de = value.names.de || value.names[defaultLanguage];
             this.displayName = function () {
                 return filterValue[languageUtils.selectedLanguage()];
             };
@@ -144,9 +145,10 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             };
 
             self.getFilterValues = function(key, metaData, selectedValues) {
+				var defaultLanguage = metaData.defaultLanguage ? metaData.defaultLanguage.code : "de";
                 var values = metaData[key];
                 return _.map(values, function(value) {
-                    var filterValue = new FilterValue(key, value, selectedValues.indexOf(value.id) > -1);
+                    var filterValue = new FilterValue(key, value, selectedValues.indexOf(value.id) > -1, defaultLanguage);
                     filterValue.selected.subscribe(function () {
                         if (!self.updateFiltersPaused) {
                             self.filterTalks();

@@ -78,7 +78,7 @@
     }, {
       "id": "3",
       "order": 1,
-      "names": {"de": "Internet der Dinge", "en": "Internet of Things"},
+      "names": {"de": "Internet der Dinge", "en_testforbug78": "Internet of Things"},
       "icon": "track_1.png"
     }, {
       "id": "4",
@@ -159,7 +159,7 @@
     }, {
       "id": "12",
       "order": 2,
-      "names": {"de": "Wintergarten", "en": "Wintergarten"},
+      "names": {"de": "Wintergarten"},
       "icon": "location_2.png"
     }, {
       "id": "13",

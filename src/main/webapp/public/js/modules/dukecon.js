@@ -116,26 +116,27 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             },
 
             getTrack: function (metaData, trackId) {
-                return dukeconUtils.getById(metaData.tracks, trackId);
+                return dukeconUtils.getById(metaData.tracks, trackId, metaData);
             },
 
             getLanguage: function (metaData, languageId) {
-                return dukeconUtils.getById(metaData.languages, languageId);
+                return dukeconUtils.getById(metaData.languages, languageId, metaData);
             },
 
             getLevel: function (metaData, levelId) {
-                return dukeconUtils.getById(metaData.audiences, levelId);
+                return dukeconUtils.getById(metaData.audiences, levelId, metaData);
             },
 
             getLocation: function (metaData, locationId) {
-                return dukeconUtils.getById(metaData.locations, locationId);
+                return dukeconUtils.getById(metaData.locations, locationId, metaData);
             },
 
-            getById: function (data, id) {
+            getById: function (data, id, metaData) {
+                var defaultLanguage = metaData.defaultLanguage ? metaData.defaultLanguage.code : "de";
                 var value = _.find(data, function (d) {
                     return d.id === id;
                 });
-                return value ? value.names[languageUtils.selectedLanguage()] : '';
+                return value ? (value.names[languageUtils.selectedLanguage()] ? value.names[languageUtils.selectedLanguage()] : value.names[defaultLanguage]) : '';
             },
 
             getOrderById: function (data, id) {

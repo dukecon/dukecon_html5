@@ -30,7 +30,7 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils, moment) {
 		var timetableEnd = getTimeTableEnd(timetableStart);
 		talkOptions = {
 			locale: languageUtils.selectedLanguage(),
-			stack: true,
+			stack: false,
 			min: firstStart.format(),
 			start: timetableStart.format(),
 			end: timetableEnd.format(),
@@ -41,8 +41,8 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils, moment) {
 			editable: false,
 			dataAttributes: ['tooltip', 'id'],
 			margin: {
-				item: 1, // minimal margin between items
-				axis: 1   // minimal margin between items and the axis
+				item: 5, // minimal margin between items
+				axis: 5   // minimal margin between items and the axis
 			},
 			orientation: 'top'
 		};
