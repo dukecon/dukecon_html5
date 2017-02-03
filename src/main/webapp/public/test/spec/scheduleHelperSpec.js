@@ -39,11 +39,11 @@ define(['js/modules/scheduleHelper', 'moment'], function(scheduleHelper, moment)
         });
         it("calculates time point, across days, forward", function () {
 			var result = scheduleHelper.getNewTimePoint(endTime.format(), 4);
-			expect(result.format()).toBe("2016-03-10T13:00:00+01:00");
+			expect(result.format()).toBe("2016-03-10T11:30:00+01:00");
         });
         it("calculates time point, across days, backward", function () {
 			var result = scheduleHelper.getNewTimePoint(currentTimeInRange.format(), -4);
-			expect(result.format()).toBe("2016-03-07T17:00:00+01:00");
+			expect(result.format()).toBe("2016-03-07T18:30:00+01:00");
         });
     });
 });

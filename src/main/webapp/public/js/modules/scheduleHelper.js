@@ -19,7 +19,7 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils, moment) {
 		// these don't normally need to change because of the "repeat", so leave it hard-coded
 		{
 			start: "2016-01-01T20:00:00",
-			end: "2016-01-02T09:00:00",
+			end: "2016-01-02T07:30:00",
 			repeat: "daily"
 		}
 	];
@@ -56,13 +56,13 @@ define(['js/modules/languageutils', 'moment'], function(languageUtils, moment) {
 		for (index in hiddenDates) {
 			hiddenStart = moment(hiddenDates[index].start);
 			hiddenEnd = moment(hiddenDates[index].end);
-			hiddenSpan = hiddenEnd.diff(hiddenStart, 'hours');
+			hiddenSpan = hiddenEnd.diff(hiddenStart, 'minutes');
 			if (hours > 0 && (newMoment.hour() > hiddenStart.hour() || oldMoment.day() < newMoment.day())) {
-				newMoment = newMoment.add(hiddenSpan, 'hours');
+				newMoment = newMoment.add(hiddenSpan, 'minutes');
 				break;
 			}
 			if (hours < 0 && (newMoment.hour() < hiddenEnd.hour() || oldMoment.day() > newMoment.day())) {
-				newMoment = newMoment.subtract(hiddenSpan, 'hours');
+				newMoment = newMoment.subtract(hiddenSpan, 'minutes');
 				break;
 			}
 		}
