@@ -15,10 +15,10 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
         
         var sortSpeaker = function(s1, s2) {
             function sortString(a, b) {
-				if (a < b) {
+				if (a.toLowerCase() < b.toLowerCase()) {
 					return -1;
 				}
-				return a > b ? 1 : 0;
+				return a.toLowerCase() > b.toLowerCase() ? 1 : 0;
             }
             
 			function sortByFirstAndLastName(a, b) {
