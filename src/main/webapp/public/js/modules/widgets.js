@@ -1,4 +1,18 @@
 define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/dukecon'], function(ko, languageUtils, dukeconTalkUtils, dukecloak, dukecon) {
+
+    function adjustLoginAreaPosition() {
+        window.removeEventListener('resize', adjustLoginAreaPosition);
+        setTimeout(function() {
+            var menuArea = document.getElementById("mainmenu-items");
+            var loginArea = document.getElementById("login-area");
+            if (loginArea && menuArea) {
+                var loginWidgetPosition = menuArea.offsetWidth + 5;
+                loginArea.style.right = loginWidgetPosition + 'px';
+                window.addEventListener('resize', adjustLoginAreaPosition, false);
+            }
+        }, 310);
+    }
+
     //noinspection JSUnusedLocalSymbols
     ko.bindingHandlers['resource'] = {
         init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
@@ -31,6 +45,9 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             me.toggleLanguage = languageUtils.toggleLanguage;
             me.homeTitle = ko.observable();
             me.homeUrl = ko.observable();
+
+            me.homeTitle.subscribe(adjustLoginAreaPosition);
+            languageUtils.selectedLanguage.subscribe(adjustLoginAreaPosition);
 
             dukeconTalkUtils.getData(function (allData) {
                 me.homeTitle(allData.name);

@@ -810,7 +810,7 @@ span.twitter a {
 }
 
 /* RESPONSIVE TWEAKS for small screens */
-@media (max-width: 47.9em) {
+@media (max-width: 768px) {
     div.talk-widget  {
         display:block;
         width:95%;
@@ -953,7 +953,7 @@ span.twitter a {
         }
     }
     #login-area {
-        right: 2.5em;
+        right: 2.5em !important;
         .username {
             display:none;
         }
@@ -971,6 +971,7 @@ span.twitter a {
             width: 95px;
             white-space: normal;
             img {
+                float: none;
                 display: block;
             }
             .talk-cell {
@@ -981,7 +982,7 @@ span.twitter a {
                         white-space: normal;
                     }
                 }
-                div.track {
+                div.track, div.room {
                     display: block;
                     overflow: hidden;
                     white-space: nowrap;
@@ -1075,7 +1076,7 @@ span.twitter a {
 .timeline-menu input:hover {
     background: #ddd;
 }
-@media (max-width: 47.9em) {
+@media (max-width: 768px) {
     .vis-left {
         width: 80px;
     }
