@@ -227,6 +227,11 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         function initializeApp() {
             languageUtils.init();
             offline.init();
+            offline.getData(function(allData) {
+                if (allData) {
+                    document.title = allData.name;
+                }
+            })
         }
 
         // insert the custom style into the html, if not already done
