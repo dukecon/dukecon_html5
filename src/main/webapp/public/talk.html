@@ -57,6 +57,10 @@
                 </td>
             </tr>
         </table>
+        <!-- ko foreach:  talk().speakersWithCompanies-->
+        <div style="display: none;" data-bind="text:id"></div>
+        <div style="display: none;" class="speaker-widget" data-bind='component: { name: "speaker-widget", params: { value: $data, parentTalkId: $parent.talk().id } }'></div>
+        <!-- /ko -->
         <!-- /ko -->
     </div>
 </div>

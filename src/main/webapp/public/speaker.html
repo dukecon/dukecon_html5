@@ -21,7 +21,7 @@
 <header-widget params="value: 'none'"></header-widget>
 <div class="content-wrapper">
     <div class="content">
-        <div class="speaker-widget" data-bind='component: { name: "speaker-widget", params: { value: speaker } }'></div>
+        <div class="speaker-widget" data-bind="component: { name: 'speaker-widget', params: { value: speaker() } }"></div>
     </div>
 </div>
 <footer-widget></footer-widget>

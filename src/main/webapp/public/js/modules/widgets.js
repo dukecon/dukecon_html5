@@ -153,6 +153,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
         viewModel: function(data) {
             var me = this;
             me.speaker = data.value;
+            me.parentTalkId = data.parentTalkId;
 			me.socialmedias = ko.observable(["facebook", "googleplus", "instagram", "linkedin", "pinterest", "twitterLink", "xing", "youtube"]);
         },
         template:
@@ -160,33 +161,33 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             '	<div class="speaker-overview">' +
             '		<div class="flexbox">' +
             '			<div class="speaker-portrait">' +
-            '				<img alt="" src="" data-bind="attr : { src : speaker().image }">' +
+            '				<img alt="" src="" data-bind="attr : { src : speaker.image }">' +
             '			</div>' +
             '			<div class="speaker-contact">' +
-            '				<h2 class="darkLink" data-bind="text: speaker().name">' +
+            '				<h2 class="darkLink" data-bind="text: speaker.name">' +
             '				</h2>' +
             '				<div class="speaker-function">' +
-            '					<div data-bind="text: speaker().function, visible: speaker().function">Function</div>' +
-            '					<div data-bind="text: speaker().company, visible: speaker().company">Company</div>' +
+            '					<div data-bind="text: speaker.function, visible: speaker.function">Function</div>' +
+            '					<div data-bind="text: speaker.company, visible: speaker.company">Company</div>' +
             '				</div>' +
             '				<table>' +
-            '					<tr data-bind="visible: speaker().email">' +
+            '					<tr data-bind="visible: speaker.email">' +
             '						<th>E-Mail:</th>' +
-            '						<td><a data-bind="text: speaker().email, attr: { href: \'mailto:\' + speaker().email }"></a></td>' +
+            '						<td><a data-bind="text: speaker.email, attr: { href: \'mailto:\' + speaker.email }"></a></td>' +
             '					</tr>' +
-            '					<tr data-bind="visible: speaker().web">' +
+            '					<tr data-bind="visible: speaker.web">' +
             '						<th>Web:</th>' +
-            '						<td><a target="_blank" data-bind="text: speaker().web, attr: { href: speaker().web }"></a></td>' +
+            '						<td><a target="_blank" data-bind="text: speaker.web, attr: { href: speaker.web }"></a></td>' +
             '					</tr>' +
-            '					<tr data-bind="visible: speaker().blog">' +
+            '					<tr data-bind="visible: speaker.blog">' +
             '						<th>Blog:</th>' +
-            '						<td><a target="_blank" data-bind="text: speaker().blog, attr: { href: speaker().blog }"></a></td>' +
+            '						<td><a target="_blank" data-bind="text: speaker.blog, attr: { href: speaker.blog }"></a></td>' +
             '					</tr>' +
             '				</table>' +
             '				<div class="speaker-socialmedia">' +
             '					<!-- ko foreach: socialmedias -->' +
-            '					<span data-bind="visible: $parent.speaker()[$data], attr: { class: \'speaker-\' + $data}">' +
-            '                            <a target="_blank" href="" data-bind="attr: { href: $parent.speaker()[$data]}">' +
+            '					<span data-bind="visible: $parent.speaker[$data], attr: { class: \'speaker-\' + $data}">' +
+            '                            <a target="_blank" href="" data-bind="attr: { href: $parent.speaker[$data]}">' +
             '                                <img src="" data-bind="attr: {src: \'img/social_\' + $data + \'.svg\', alt: $data}">' +
             '                            </a>' +
             '                        </span>' +
@@ -194,14 +195,16 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             '				</div>' +
             '			</div>' +
             '		</div>' +
-            '		<div id="speaker-bio" data-bind="text: speaker().bio">' +
+            '		<div id="speaker-bio" data-bind="text: speaker.bio">' +
             '		</div>' +
             '	</div>' +
-            '	<div class="speaker-talks">' +
-            '		<h2 data-bind="resource: \'speakertalks\'"></h2>' +
-            '		<!-- ko foreach: speaker().talks -->' +
-            '		<div class="talk-widget" data-bind="component: { name: \'talk-widget\', params: { value: $data } }"></div>' +
-            '		<!-- /ko -->' +
+            '	<div class="speaker-talks" data-bind="visible: (parentTalkId && speaker.talks && speaker.talks.length > 1) || (!parentTalkId && speaker.talks && speaker.talks.length > 0)">' +
+            '		<h2 data-bind="resource: parentTalkId ? \'other_speakertalks\' : \'speakertalks\'"></h2>' +
+            '		<!-- ko foreach: speaker.talks -->' +
+			'		    <!-- ko if: id !== $parent.parentTalkId -->' +
+            '		    <div class="talk-widget" data-bind="component: { name: \'talk-widget\', params: { value: $data } }"></div>' +
+			'		    <!-- /ko -->' +
+			'		<!-- /ko -->' +
             '	</div>' +
             '</div>'
 	});

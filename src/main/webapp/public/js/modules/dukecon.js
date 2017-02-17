@@ -93,7 +93,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             this.twitterLink = twitterInfo.link;
             
             this.email = data.email || '';
-            this.image = data.photoId ? urlprovider.imageBaseUrl + data.photoId : "img/Unknown.png";
+            this.image = data.photoId ? urlprovider.imageBaseUrl + data.photoId : "img/UnknownUser.png";
             this.blog = data.blog || '';
             this.web = data.website || '';
 

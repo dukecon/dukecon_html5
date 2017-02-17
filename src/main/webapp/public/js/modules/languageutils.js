@@ -127,6 +127,10 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
         speakertalks: {
             'de' : "Talks dieses Sprechers",
             'en' : "Talks held by this speaker"
+        },
+        other_speakertalks: {
+            'de' : "Weitere Talks dieses Sprechers",
+            'en' : "Other talks held by this speaker"
         }
     };
 
