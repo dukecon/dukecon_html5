@@ -25,12 +25,22 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
 
     ko.components.register('header-widget', {
         viewModel : function(params) {
-            this.active = params.value;
-            this.icon = languageUtils.getLanguageIconUrl();
-            this.toggleLanguage = languageUtils.toggleLanguage;
-            this.getCssClass = function(item) {
-                return (item === this.active ? "mainmenu active dark reverseBack" : "mainmenu darkBack reverse");
+            var me = this;
+            me.active = params.value;
+            me.icon = languageUtils.getLanguageIconUrl();
+            me.toggleLanguage = languageUtils.toggleLanguage;
+            me.homeTitle = ko.observable();
+            me.homeUrl = ko.observable();
+
+            dukeconTalkUtils.getData(function (allData) {
+                me.homeTitle(allData.name);
+                me.homeUrl(allData.homeUrl);
+            });
+
+            me.getCssClass = function(item) {
+                return (item === me.active ? "mainmenu active dark reverseBack" : "mainmenu darkBack reverse");
             };
+
             this.toggleMenu = function() {
                 var menu = document.getElementById('mainmenu-items');
                 if (menu && $('#mainmenu-button').is(':visible')) {
@@ -54,7 +64,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '	 <a href="schedule.html" data-bind="resource: \'schedule\', attr: {class: getCssClass(\'schedule\')}"></a>'
             + '	 <a href="speakers.html" data-bind="resource: \'speaker\', attr: {class: getCssClass(\'speaker\')}"></a>'
             + '	 <a href="feedback.html" data-bind="resource: \'feedback\', attr: {class: getCssClass(\'feedback\')}"></a>'
-            + '	 <a href="http://www.javaland.eu" target="new" class="mainmenu darkBack reverse">Javaland Home</a>'
+            + '	 <a data-bind="visible: homeTitle, text: homeTitle, attr: { href: homeUrl}" target="_blank" class="mainmenu darkBack reverse"></a>'
             + '	 <a class="mainmenu darkBack reverse" id="language-select" data-bind="click: function() {toggleLanguage(); toggleMenu(); }"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
             + ' </div>'
             + '</h1>'
