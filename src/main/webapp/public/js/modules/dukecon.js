@@ -164,6 +164,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                         twitterLink = "http://www.twitter.com/" + (speaker.twitter.indexOf('@') === 0 ? speaker.twitter.substr(1) : speaker.twitter);
                     }
                     return {
+                        id: speaker.id || 0,
                         name: speaker.name || "",
                         company: (speaker.company ? ", " + speaker.company : ''),
                         twitterHandle: twitterHandle,
