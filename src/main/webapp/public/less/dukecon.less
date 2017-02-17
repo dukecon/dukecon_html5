@@ -472,6 +472,7 @@ div.room span, div.time span {
 }
 
 span.twitter a {
+    display: block;
     vertical-align: top;
     padding-left: 0;
 }
@@ -546,16 +547,19 @@ span.twitter a {
         flex-direction: row;
         .speaker-portrait {
             width: 40%;
-            padding: 0 10px 10px 0;
+            padding: 10px 10px 10px 0;
             img {
                 width: 100%;
             }
         }
         .speaker-contact {
+            padding-top: 10px;
+            line-height: normal;
             background: white;
             h2 {
+                line-height: 1.6em;
                 font-size: 140%;
-                margin: 0;
+                margin: 0 0 0 0;
             }
             table {
                 border: none;
@@ -630,6 +634,15 @@ span.twitter a {
 #talkinfo .label {
     font-weight: bold;
     display: inline-block;
+    line-height: normal;
+    a {
+      padding: 0;
+      &.speaker-link {
+          font-weight: inherit;
+          font-style: inherit;
+          margin: 0;
+      }
+    }
 }
 #talkinfo .title {
     display: inline-block;
@@ -996,6 +1009,9 @@ span.twitter a {
             margin-top: 5px;
             display: block;
             width: auto;
+            div.talk-widget {
+                width: 95%;
+            }
         }
     }
     #talkinfo, #talkinfo td, #talkinfo .talk-details {

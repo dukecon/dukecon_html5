@@ -1,6 +1,24 @@
 define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/urlprovider', 'js/modules/dukeconsettings', 'js/modules/dukecondateutils', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/synch'],
     function (_, $, ko, dukeconDb, urlprovider, dukeconSettings, dukeconDateUtils, languageUtils, offline, dukecloak, synch) {
 
+        function extractTwitterInfo(twitterString) {
+            var result = {
+                link : '',
+                handle : ''
+            };
+			if (twitterString && twitterString.length > 1) {
+				if (twitterString.indexOf("http") === 0) {
+					var urlRegex = new RegExp(".*/(.+)");
+					result.link = twitterString;
+					result.handle = '@' + twitterString.replace(urlRegex, "\$1");
+				} else {
+					result.handle = twitterString;
+					result.link = "http://www.twitter.com/" + (twitterString.indexOf('@') === 0 ? twitterString.substr(1) : twitterString);
+				}
+			}
+			return result;
+        }
+    
         function Talk(data, speakers, metaData, isFavourite) {
             var self = this;
 
@@ -69,19 +87,10 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             this.firstname = data.firstname || '';
             this.lastname = data.lastname || '';
             this.company = data.company || '';
-            this.twitterHandle = '';
-            this.twitterLink = '';
-            if (data.twitter && data.twitter.length > 1) {
-                if (data.twitter.indexOf("http") === 0) {
-                    var urlRegex = new RegExp(".*/(.+)");
-                    this.twitterLink = data.twitter;
-                    this.twitterHandle = '@' + data.twitter.replace(urlRegex, "\$1");
-                } else {
-					this.twitterHandle = data.twitter;
-					this.twitterLink = "http://www.twitter.com/" + (data.twitter.indexOf('@') === 0 ? data.twitter.substr(1) : data.twitter);
-				}
-            }
-
+            
+            var twitterInfo = extractTwitterInfo(data.twitter);
+            this.twitterHandle = twitterInfo.handle;
+            this.twitterLink = twitterInfo.link;
             
             this.email = data.email || '';
             this.image = data.photoId ? urlprovider.imageBaseUrl + data.photoId : "img/Unknown.png";
@@ -158,17 +167,14 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                                 return s.id === speakerId;
                             }
                         ) || {};
-                    var twitterHandle = "", twitterLink = "";
-                    if (speaker.twitter && speaker.twitter.length > 1) {
-                        twitterHandle = "(" + speaker.twitter + ")";
-                        twitterLink = "http://www.twitter.com/" + (speaker.twitter.indexOf('@') === 0 ? speaker.twitter.substr(1) : speaker.twitter);
-                    }
+
+					var twitterInfo = extractTwitterInfo(speaker.twitter);
                     return {
                         id: speaker.id || 0,
                         name: speaker.name || "",
                         company: (speaker.company ? ", " + speaker.company : ''),
-                        twitterHandle: twitterHandle,
-                        twitterLink: twitterLink
+                        twitterHandle: twitterInfo.handle ? "(" + twitterInfo.handle + ")" : "",
+                        twitterLink: twitterInfo.link
                     };
                 });
             },
