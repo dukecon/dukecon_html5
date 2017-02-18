@@ -33,17 +33,18 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             ];
 
             self.searchTerm = ko.observable("");
-            self.searchTerm.subscribe(function(val) {
-                if (val.length <= 2) {
+            self.searchTerm.subscribe(function(newValue) {
+                var searchTerm = newValue.toLowerCase();
+                if (searchTerm.length <= 2) {
                     self.filtersActive(true);
                     self.filterTalks();
                 }
-                else if(val.length > 2) {
+                else if(searchTerm.length > 2) {
                     self.filtersActive(false);
                     var filtered = _.filter(self.allTalks, function (talk) {
-                        return talk.title.toLowerCase().includes(val) ||
-                            talk.speakerString.toLowerCase().includes(val) ||
-                            talk.fullAbstract.toLowerCase().includes(val);
+                        return talk.title.toLowerCase().includes(searchTerm) ||
+                            talk.speakerString.toLowerCase().includes(searchTerm) ||
+                            talk.fullAbstract.toLowerCase().includes(searchTerm);
                     });
                     self.groupedTalks(self.groupTalks(filtered));
                 }
