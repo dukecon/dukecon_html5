@@ -156,10 +156,10 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
         template:
             '<!-- ko if: talk && talk.title -->'
             + '<div data-bind="attr : {class: \'talk-cell \' + talk.timeCategory}, click : function() {window.location.href=\'talk.html#talk?talkId=\' + talk.id; }">'
-            + '<div class="fav-smallscreen" data-bind="click: toggleFavourite"><img style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="attr:{src: talk.favicon}"/></div>'
+            + '<div class="fav-smallscreen" data-bind="click: toggleFavourite, clickBubble: false"><img style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="attr:{src: talk.favicon}"/></div>'
             + '<div class="talk-info">'
             + ' <div class="title darkLink">'
-            + ' <img class="fav-largescreen" style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="click: toggleFavourite, attr:{src: talk.favicon}"/>'
+            + ' <img class="fav-largescreen" style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="click: toggleFavourite, clickBubble: false, attr:{src: talk.favicon}"/>'
             + ' <a style="padding: 0" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id, title: talk.title }"></a>'
             + ' </div>'
             + ' <div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
