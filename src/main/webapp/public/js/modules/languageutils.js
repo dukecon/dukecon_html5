@@ -124,6 +124,10 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
                 + '<a href="https://github.com/dukecon/dukecon/issues" title="Isssuetracker">create a ticket here</a><span>!</span>'
         },
         // Speaker details
+        none: {
+            'de' : "-- keine --",
+            'en' : "-- none --"
+        },
         speakertalks: {
             'de' : "Talks dieses Sprechers",
             'en' : "Talks held by this speaker"

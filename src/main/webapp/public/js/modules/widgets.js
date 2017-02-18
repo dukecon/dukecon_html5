@@ -225,8 +225,9 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             '		<div id="speaker-bio" data-bind="text: speaker.bio">' +
             '		</div>' +
             '	</div>' +
-            '	<div class="speaker-talks" data-bind="visible: (parentTalkId && speaker.talks && speaker.talks.length > 1) || (!parentTalkId && speaker.talks && speaker.talks.length > 0)">' +
+            '	<div class="speaker-talks">' +
             '		<h2 data-bind="resource: parentTalkId ? \'other_speakertalks\' : \'speakertalks\'"></h2>' +
+            '        <div data-bind="resource: \'none\', visible: parentTalkId && speaker.talks && speaker.talks.length <= 1"></div>'+
             '		<!-- ko foreach: speaker.talks -->' +
 			'		    <!-- ko if: id !== $parent.parentTalkId -->' +
             '		    <div class="talk-widget" data-bind="component: { name: \'talk-widget\', params: { value: $data } }"></div>' +

@@ -42,7 +42,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             this.level = data.audienceId || '';
             this.title = data.title || '';
             this.speakerString = dukeconUtils.getSpeakerNames(data.speakerIds, speakers).join(', ');
-            this.speakersWithCompanies = dukeconUtils.getSpeakerInfo(data.speakerIds, speakers);
+            this.speakerIds = data.speakerIds;
             this.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
             this.language = data.languageId || '';
             this.fullAbstract = dukeconUtils.getSaveAbstractHtml(data.abstractText || '');
@@ -155,27 +155,17 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 return value ? value.order : 0;
             },
 
-            getSpeakerInfo: function (speakerIds, speakers) {
+            getSpeakerInfo: function (speakerIds, talks, speakers, metaData, favorites) {
                 if (!speakerIds || speakerIds.length === 0) {
                     return [];
                 }
-                var filteredSpeakers = _.filter(speakers, function (speaker) {
-                    return speaker && speaker.name;
-                });
                 return _.map(speakerIds, function (speakerId) {
                     var speaker = _.find(speakers, function (s) {
                                 return s.id === speakerId;
                             }
                         ) || {};
 
-					var twitterInfo = extractTwitterInfo(speaker.twitter);
-                    return {
-                        id: speaker.id || 0,
-                        name: speaker.name || "",
-                        company: (speaker.company ? ", " + speaker.company : ''),
-                        twitterHandle: twitterInfo.handle ? "(" + twitterInfo.handle + ")" : "",
-                        twitterLink: twitterInfo.link
-                    };
+                    return new Speaker(speaker, talks, speakers, metaData, favorites) ;
                 });
             },
 
@@ -183,9 +173,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 if (!speakerIds || speakerIds.length === 0) {
                     return [];
                 }
-                var filteredSpeakers = _.filter(speakers, function (speaker) {
-                    return speaker && speaker.name;
-                });
                 return _.map(speakerIds, function (speakerId) {
                     var speaker = _.find(speakers, function (s) {
                                 return s.id === speakerId;
@@ -245,6 +232,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             initializeApp: initializeApp,
             Talk: Talk,
             Speaker: Speaker,
+            getSpeakerInfo: dukeconUtils.getSpeakerInfo,
             toggleFavourite: dukeconUtils.toggleFavourite,
             cookiesConfirmed: cookiesConfirmed
         };

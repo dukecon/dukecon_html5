@@ -26,41 +26,45 @@
             <span style="font-size:110%; font-weight:bold;" data-bind="text: talk().title"></span>
         </div>
         <!-- ko if: talk() && talk().title -->
-        <table id="talkinfo">
-            <tr>
-                <td class="talk-details">
-                    <div class="speaker-list" data-bind="foreach: talk().speakersWithCompanies">
-                        <div class="label">
-                                    <div>
-                                        <a class="speaker-link" data-bind="attr : { href : 'speaker.html#speaker?speakerId=' + id }">
-                                            <span class="speakerinfo" data-bind="text: $data.name"></span>
-                                            <span class="speakerinfo" data-bind="text: $data.company"></span>
-                                        </a>
-                                        <span class="twitter"><a target="_blank" data-bind="attr: { href: $data.twitterLink }, text: $data.twitterHandle"></a></span>
-                                    </div>
+            <table id="talkinfo">
+                <tr>
+                    <td class="talk-details">
+                        <div class="speaker-list" data-bind="foreach: speakersWithCompanies">
+                            <div class="label">
+                                        <div>
+                                            <a class="speaker-link" data-bind="attr : { href : 'speaker.html#speaker?speakerId=' + id }">
+                                                <span class="speakerinfo" data-bind="text: $data.name"></span>
+                                                <span class="speakerinfo" data-bind="text: $data.company"></span>
+                                            </a>
+                                            <span class="twitter"><a target="_blank" data-bind="attr: { href: $data.twitterLink }, text: $data.twitterHandle"></a></span>
+                                        </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <div data-bind="attr: {class: talk().timeClass}">
-                            <img width="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>
-                            <span data-bind="text: talk().day"></span><span>,</span>
-                            <span data-bind="text: talk().startDisplayed"></span> (<span data-bind="text: talk().duration"></span><span> min)</span>
+                        <div>
+                            <div data-bind="attr: {class: talk().timeClass}">
+                                <img width="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>
+                                <span data-bind="text: talk().day"></span><span>,</span>
+                                <span data-bind="text: talk().startDisplayed"></span> (<span data-bind="text: talk().duration"></span><span> min)</span>
+                            </div>
+                            <div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk().locationDisplay" /></div>
+                            <div class="track" data-bind="visible: talk().isTrackVisible"><img width="16px" height="16px" data-bind="attr: {src: talk().talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk().trackDisplay" /></div>
                         </div>
-                        <div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk().locationDisplay" /></div>
-                        <div class="track" data-bind="visible: talk().isTrackVisible"><img width="16px" height="16px" data-bind="attr: {src: talk().talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk().trackDisplay" /></div>
-                    </div>
-                </td>
-                <td class="talk-abstract">
-                    <div class="label">Abstract</div>
-                    <div class="talk-abstract" data-bind="html : talk().fullAbstract"></div>
-                </td>
-            </tr>
-        </table>
-        <!-- ko foreach:  talk().speakersWithCompanies-->
-        <div style="display: none;" data-bind="text:id"></div>
-        <div style="display: none;" class="speaker-widget" data-bind='component: { name: "speaker-widget", params: { value: $data, parentTalkId: $parent.talk().id } }'></div>
-        <!-- /ko -->
+                    </td>
+                    <td class="talk-abstract">
+                        <div class="label">Abstract</div>
+                        <div class="talk-abstract" data-bind="html : talk().fullAbstract"></div>
+                    </td>
+                </tr>
+            </table>
+            <!-- ko if: speakersWithCompanies().length > 0 -->
+                <h2 data-bind="resource: 'speaker'"></h2>
+                <div id="speakersubpage">
+                    <!-- ko foreach:  speakersWithCompanies-->
+                    <div class="speaker-widget" data-bind='component: { name: "speaker-widget", params: { value: $data, parentTalkId: $parent.talk().id } }'></div>
+                    <!-- /ko -->
+                </div>
+            <!-- /ko -->
         <!-- /ko -->
     </div>
 </div>

@@ -5,6 +5,7 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
             // Data
             var self = this;
             self.talk = ko.observable(new dukecon.Talk({}, [], {}, false));
+            self.speakersWithCompanies = ko.observable([]); // TODO: filter and remove useless entries
 
             self.initializeData = function (allData) {
                 var talkId = self.getParameterByName("talkId");
@@ -14,6 +15,7 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
                     });
                     var talk = filtered[0];
                     self.talk(new dukecon.Talk(talk, allData.speakers, allData.metaData, dukeconSettings.isFavourite(talk.id)));
+                    self.speakersWithCompanies(dukecon.getSpeakerInfo(self.talk().speakerIds, allData.events, allData.speakers, allData.metaData, dukeconSettings.getFavourites()));
                     document.title = self.talk().title + " - " + document.title;
                 }
                 (function (history) {

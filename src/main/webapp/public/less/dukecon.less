@@ -516,6 +516,7 @@ span.twitter a {
     background: @offWhite;
     border:none;
     padding:0;
+    width: 100%;
 }
 #speakers .speakerinfo .talk-cell {
     min-width: 80px;
@@ -537,7 +538,26 @@ span.twitter a {
     width: 30%;
 }
 /* SPEAKER DETAIL PAGE */
+#speakersubpage {
+    font-size: 90%;
+    .speaker-content {
+        margin-top: 10px;
+    }
+    .speaker-portrait {
+        width: 30%;
+    }
+    .speaker-overview {
+        width: 50%;
+    }
+}
 #speakerpage {
+    font-size: 90%;
+    margin-top: 10px;
+    .speaker-portrait {
+        width: 40%;
+    }
+}
+#speakerpage, #speakersubpage {
     .speaker-content {
         border: 1px solid @lightGray;
         background: @offWhite;
@@ -546,7 +566,6 @@ span.twitter a {
         align-items: stretch;
         flex-direction: row;
         .speaker-portrait {
-            width: 40%;
             padding: 10px 10px 10px 0;
             img {
                 width: 100%;
@@ -991,7 +1010,7 @@ span.twitter a {
             }
         }
     }
-    #speakerpage {
+    #speakerpage, #speakersubpage {
         .speaker-content {
             padding: 0;
             display: block;
