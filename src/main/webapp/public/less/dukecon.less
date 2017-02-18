@@ -153,7 +153,7 @@ a {
     padding: 0.2em 0.5em;
     text-decoration:none;
     display:inline;
-    transition: background 0.7s
+    transition: background 0.5s;
 }
 
 .mainmenu.active {
@@ -1012,7 +1012,6 @@ span.twitter a {
     }
     #speakerpage, #speakersubpage {
         .speaker-content {
-            padding: 0;
             display: block;
         }
         h1 #pagetitle {
@@ -1035,7 +1034,13 @@ span.twitter a {
             }
         }
     }
-    #talkinfo, #talkinfo td, #talkinfo .talk-details {
+    #talkinfo {
+        display:block;
+        min-width:0;
+        border-spacing: 0;
+        width:auto;
+    }
+    #talkinfo td, #talkinfo .talk-details {
         display:block;
         min-width:0;
         width:auto;
