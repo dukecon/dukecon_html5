@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <div id="content">
+    <div id="content"data-bind="css: { 'search-result' : $root.searchTerm().length > 2 }">
         <div id="swipeable" data-bind="visible: searchTerm().length <= 2">
             <div id="days_filter" data-bind="foreach: days">
                 <button type="button" data-bind="text: $data.displayDay, click: $parent.updateDay, attr: { class: 'day-widescreen' + ($index() == $parent.selectedDayIndex() ? ' highlightBack' : '')}"></button>
@@ -90,7 +90,7 @@
                             <!-- changed from <talk-widget...> so that we can style it with CSS -->
                             <div class="talk-widget" data-bind='component: { name: "talk-widget", params: { value: $data } }'></div>
                         </div>
-                        <a class="uparrow" data-bind="attr : { title: $root.getResource('uparrow')}, css: { 'searching' : $root.searchTerm().length > 2 }" href="#top">&uArr;</a>
+                        <a class="uparrow" data-bind="attr : { title: $root.getResource('uparrow')}" href="#top">&uArr;</a>
                     </td>
                 </tr>
             </table>

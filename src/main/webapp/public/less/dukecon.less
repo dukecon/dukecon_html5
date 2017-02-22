@@ -47,6 +47,22 @@ table, th, td {
         height: 1.5em;
     }
 }
+.search-result {
+    #talks-grid {
+      background: white;
+      table, tr, td {
+        border: none;
+        border-collapse: collapse;
+      }
+      div.talk-widget, .talk-cell {
+        width: 90%;
+        display: block;
+      }
+      .uparrow {
+        display: none;
+      }
+    }
+}
 #login-area {
     position: fixed;
     right: 41em;
@@ -390,10 +406,6 @@ div.time-cell {
     left: -49px;
     font-weight:bold;
     font-size:150%;
-    &.searching {
-        top: -15px;
-        left: -15px;
-    }
 }
 div.talk-widget  {
     border-bottom: none;
@@ -740,6 +752,10 @@ span.twitter a {
     display: inline;
 }
 
+.vis-content .fav-smallscreen, .vis-content .fav-largescreen {
+    display: none;
+}
+
 /* IMPRINT */
 .imprint {
     max-width: 800px;
@@ -858,6 +874,9 @@ span.twitter a {
         float: left;
     }
     .fav-largescreen {
+        display: none;
+    }
+    .vis-content .fav-smallscreen, .vis-content .fav-largescreen {
         display: none;
     }
     .talk-info {
