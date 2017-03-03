@@ -45,6 +45,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             this.speakerIds = data.speakerIds;
             this.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
             this.language = data.languageId || '';
+            this.languageIcon = "img/lang_" + dukeconUtils.getLanguageCode(metaData, data.languageId) + ".png";
             this.fullAbstract = dukeconUtils.getSaveAbstractHtml(data.abstractText || '');
             this.timeCategory = dukeconDateUtils.getTimeCategory(this.duration);
             this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra alternate';
@@ -130,6 +131,13 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
             getLanguage: function (metaData, languageId) {
                 return dukeconUtils.getById(metaData.languages, languageId, metaData);
+            },
+
+            getLanguageCode: function (metaData, languageId) {
+				var value = _.find(metaData.languages, function (d) {
+					return d.id === languageId;
+				});
+				return value ? value.code : "de";
             },
 
             getLevel: function (metaData, levelId) {
