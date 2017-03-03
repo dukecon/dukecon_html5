@@ -50,12 +50,17 @@
                 </div>
             </div>
             <div class="filter-box">
-                <div  data-bind="foreach: filters">
-                    <span class="filter-category darkBack reverse" data-bind="text:title"></span>
-                    <div class="filter-values" data-bind="foreach: filtervalues">
-                        <div>
-                            <input type="checkbox" data-bind="checkedValue: $data, checked: $data.selected, attr:{id: $data.ui_id}" />
-                            <label data-bind="text: $data.displayName(), attr:{for: $data.ui_id}"></label>
+                <div data-bind="foreach: filters">
+                    <div class="">
+                        <span class="filter-category darkBack reverse">
+                            <span data-bind="text:title"></span>
+                            <img class="filter-button" src="img/group_expanded_16.svg" alt="+/-" data-bind="click: $parent.expandCollapseFilter"/>
+                        </span>
+                        <div class="filter-values" data-bind="foreach: filtervalues">
+                            <div>
+                                <input type="checkbox" data-bind="checkedValue: $data, checked: $data.selected, attr:{id: $data.ui_id}" />
+                                <label data-bind="text: $data.displayName(), attr:{for: $data.ui_id}"></label>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -265,9 +265,68 @@ h2 {
     cursor: pointer;
 }
 
-.filter-box {
+.filter-box, .filter-settings {
     padding:0;
     position:relative;
+	.filter-button {
+		cursor: pointer;
+		float: right;
+		padding-bottom: 6px;
+		transform: rotate(180deg);
+	}
+	.filter-category {
+		font-weight:bold;
+		display: block;
+		padding: 5px;
+		margin: 0 0 5px 0;
+		button {
+			vertical-align:middle;
+			float:right;
+			padding:0.4em;
+			margin:0 5px 0 0;
+			font-size:smaller;
+
+		}
+	}
+
+	.filter-values {
+		margin-left: 5px;
+		margin-right:5px;
+		margin-bottom:5px;
+		font-size:smaller;
+		line-height:1.5em;
+		input[type=checkbox] {
+			display:none;
+		}
+		input[type="checkbox"] + label {
+			padding: 2px;
+			margin-left: 0;
+			display:block;
+			vertical-align:middle;
+			cursor:pointer;
+		}
+		input[type="checkbox"]:checked + label:before {
+			content: url('../img/checkbox_checked.png');
+		}
+
+		input[type="checkbox"] + label:before {
+			content: url('../img/checkbox.png');
+			padding-right:3px;
+			vertical-align:middle;
+		}
+		div:hover {
+			background: @lightGray;
+		}
+	}
+	.collapsed {
+		.filter-button {
+			padding-top: 6px;
+			transform: none;
+		}
+		.filter-values {
+			display: none;
+		}
+	}
 }
 
 .filter-settings {
@@ -290,51 +349,6 @@ h2 {
     &.shown {
         z-index: 2000;
         visibility: visible;
-    }
-}
-
-.filter-category {
-    font-weight:bold;
-    display: block;
-    padding: 5px;
-    margin: 0 0 5px 0;
-    button {
-        vertical-align:middle;
-        float:right;
-        padding:0.4em;
-        margin:0 5px 0 0;
-        font-size:smaller;
-
-    }
-}
-
-.filter-values {
-    margin-left: 5px;
-    margin-right:5px;
-    margin-bottom:5px;
-    font-size:smaller;
-    line-height:1.5em;
-    input[type=checkbox] {
-        display:none;
-    }
-    input[type="checkbox"] + label {
-        padding: 2px;
-        margin-left: 0;
-        display:block;
-        vertical-align:middle;
-        cursor:pointer;
-    }
-    input[type="checkbox"]:checked + label:before {
-        content: url('../img/checkbox_checked.png');
-    }
-
-    input[type="checkbox"] + label:before {
-        content: url('../img/checkbox.png');
-        padding-right:3px;
-        vertical-align:middle;
-    }
-    div:hover {
-        background: @lightGray;
     }
 }
 
