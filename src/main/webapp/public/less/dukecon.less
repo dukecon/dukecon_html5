@@ -430,13 +430,14 @@ div.talk-cell {
 div.title {
     font-weight:bold;
     width:100%;
-    .language-icon {
-        vertical-align: baseline;
-        height: 12px;
-    }
     a {
         font-weight: bold;
     }
+}
+.language-icon {
+    vertical-align: baseline;
+    height: 12px;
+    font-size: 14px;
 }
 
 #visualization {
@@ -444,12 +445,18 @@ div.title {
         width: 100%;
     }
     div.talk-cell {
+        position: relative;
         overflow: hidden;
         width: 100%;
         min-width: 1px;
         div.title {
             overflow: hidden;
             width: 100%;
+            margin-left: 22px;
+            .language-icon {
+                position: absolute;
+                left: 0;
+            }
             a {
                 overflow: hidden;
                 white-space: nowrap;
@@ -504,6 +511,7 @@ span.twitter a {
 }
 
 .speakerinfo {
+    font-weight: normal;
     vertical-align: top;
     img {
         width: 42px;
@@ -520,6 +528,9 @@ span.twitter a {
     .track {
         white-space: normal;
     }
+}
+a .speakerinfo {
+    font-weight: inherit;
 }
 
 .time-extra {

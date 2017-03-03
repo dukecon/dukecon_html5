@@ -31,13 +31,13 @@
                     <td class="talk-details">
                         <div class="speaker-list" data-bind="foreach: speakersWithCompanies">
                             <div class="label">
-                                        <div>
-                                            <a class="speaker-link" data-bind="attr : { href : 'speaker.html#speaker?speakerId=' + id }">
-                                                <span class="speakerinfo" data-bind="text: $data.name"></span>
-                                                <span class="speakerinfo" data-bind="text: $data.company"></span>
-                                            </a>
-                                            <span class="twitter"><a target="_blank" data-bind="attr: { href: $data.twitterLink }, text: $data.twitterHandle"></a></span>
-                                        </div>
+                                    <div>
+                                        <a class="speaker-link" data-bind="attr : { href : 'speaker.html#speaker?speakerId=' + id }">
+                                            <span class="speakerinfo" data-bind="text: $data.name"></span><span data-bind="visible:$data.company">,</span>
+                                        </a>
+                                        <span class="speakerinfo" data-bind="text: $data.company"></span>
+                                        <span class="twitter" data-bind="visible: $data.twitterHandle"><a target="_blank" data-bind="attr: { href: $data.twitterLink }, text: $data.twitterHandle"></a></span>
+                                    </div>
                             </div>
                         </div>
 
@@ -49,6 +49,10 @@
                             </div>
                             <div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk().locationDisplay" /></div>
                             <div class="track" data-bind="visible: talk().isTrackVisible"><img width="16px" height="16px" data-bind="attr: {src: talk().talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk().trackDisplay" /></div>
+                            <div class="room">
+                                <span style="margin-left: -2px;" class="language-icon">&#128172;</span> <span data-bind="text: talk().languageDisplay"></span>
+                                <img alt="" class="language-icon" src="" data-bind="attr: {src: talk().languageIcon}">
+                            </div>
                         </div>
                     </td>
                     <td class="talk-abstract">
