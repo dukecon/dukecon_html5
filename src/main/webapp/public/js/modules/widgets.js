@@ -5,12 +5,12 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
         setTimeout(function() {
             var menuArea = document.getElementById("mainmenu-items");
             var loginArea = document.getElementById("login-area");
-            if (loginArea && menuArea) {
+            if (loginArea && menuArea && menuArea.offsetWidth > 0) {
                 var loginWidgetPosition = menuArea.offsetWidth + 5;
                 loginArea.style.right = loginWidgetPosition + 'px';
                 window.addEventListener('resize', adjustLoginAreaPosition, false);
             }
-        }, 310);
+        }, 400);
     }
 
     //noinspection JSUnusedLocalSymbols
@@ -68,6 +68,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
                     }
                 }
             };
+			adjustLoginAreaPosition();
         },
         template:
             '<div class="header hidden">'

@@ -92,7 +92,7 @@ define(['js/modules/browserinfo', 'underscore'], function(browserInfo) {
 				return setting ? JSON.parse(setting) : null;
             }
             catch (e) {
-                console.log("ERROR in getSetting:");
+                console.log("ERROR in getSetting - please check the integrity of your localStorage");
                 console.log(e);
                 return null;
             }
@@ -107,7 +107,7 @@ define(['js/modules/browserinfo', 'underscore'], function(browserInfo) {
 				localStorage.setItem(context + settingKey, JSON.stringify(value));
 			}
 			catch (e) {
-				console.log("ERROR in saveSetting");
+				console.log("ERROR in saveSetting - please check the integrity of your localStorage");
 				console.log(e);
 				return null;
 			}
