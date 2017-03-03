@@ -1,18 +1,5 @@
 define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/dukecon'], function(ko, languageUtils, dukeconTalkUtils, dukecloak, dukecon) {
 
-    function adjustLoginAreaPosition() {
-        window.removeEventListener('resize', adjustLoginAreaPosition);
-        setTimeout(function() {
-            var menuArea = document.getElementById("mainmenu-items");
-            var loginArea = document.getElementById("login-area");
-            if (loginArea && menuArea && menuArea.offsetWidth > 0) {
-                var loginWidgetPosition = menuArea.offsetWidth + 5;
-                loginArea.style.right = loginWidgetPosition + 'px';
-                window.addEventListener('resize', adjustLoginAreaPosition, false);
-            }
-        }, 400);
-    }
-
     //noinspection JSUnusedLocalSymbols
     ko.bindingHandlers['resource'] = {
         init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
@@ -46,9 +33,6 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             me.homeTitle = ko.observable();
             me.homeUrl = ko.observable();
 
-            me.homeTitle.subscribe(adjustLoginAreaPosition);
-            languageUtils.selectedLanguage.subscribe(adjustLoginAreaPosition);
-
             dukeconTalkUtils.getData(function (allData) {
                 me.homeTitle(allData.name);
                 me.homeUrl(allData.homeUrl);
@@ -68,7 +52,6 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
                     }
                 }
             };
-			adjustLoginAreaPosition();
         },
         template:
             '<div class="header hidden">'
@@ -97,10 +80,10 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
         template:
             '<div id="login-area" class="hidden" data-bind="visible: dukecloak">'
             + '     <div>'
+			+ '         <a class="button" data-bind="click: dukecloak.login, visible: !hideLoginButton && dukecloak.auth.loggedOut" name="login"><img alt="Sign in/Register" title="Sign in/Register" src="img/unlock_24px.svg"></a>'
+			+ '         <a class="button" data-bind="click: dukecloak.logout, visible: !hideLoginButton && dukecloak.auth.loggedIn" name="logout"><img alt="Sign Out" title="Sign Out" src="img/lock_24px.svg"></a>'
             + '         <a href="#" class="username" data-bind="text: dukecloak.auth.username, click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"></a>'
             + '         <a href="#" class="gravatar" data-bind="click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"><img data-bind="attr: {src: dukecloak.auth.gravatar}, visible: !hideLoginButton && dukecloak.auth.loggedIn"/></a>'
-            + '         <a class="button" data-bind="click: dukecloak.login, visible: !hideLoginButton && dukecloak.auth.loggedOut" name="login"><img alt="Sign in/Register" title="Sign in/Register" src="img/unlock_24px.svg"></a>'
-            + '         <a class="button" data-bind="click: dukecloak.logout, visible: !hideLoginButton && dukecloak.auth.loggedIn" name="logout"><img alt="Sign Out" title="Sign Out" src="img/lock_24px.svg"></a>'
             + '     </div>'
             + '</div>'
     });

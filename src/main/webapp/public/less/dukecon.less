@@ -65,9 +65,10 @@ table, th, td {
 }
 #login-area {
     position: fixed;
-    right: 41em;
+    left: 24.5em;
+    right: auto;
     top: 6px;
-    z-index: 1010;
+    z-index: 1011;
     img {
         color: @white;
     }
@@ -83,6 +84,7 @@ table, th, td {
     }
     .username {
         margin-right:0;
+        padding-left:0;
         color: white;
     }
     a.username:hover {
@@ -995,6 +997,7 @@ span.twitter a {
         }
     }
     #login-area {
+        left: auto;
         right: 2.5em !important;
         .username {
             display:none;
