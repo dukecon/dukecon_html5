@@ -33,7 +33,7 @@ table, th, td {
     position: fixed;
     left: 5em;
     top: 5px;
-    width: 30%;
+    width: 27em;
     z-index: 1010;
     img {
         color: @white;
@@ -65,8 +65,7 @@ table, th, td {
 }
 #login-area {
     position: fixed;
-    left: 24.5em;
-    right: auto;
+    left: 5em;
     top: 6px;
     z-index: 1011;
     img {
@@ -103,6 +102,9 @@ table, th, td {
             margin-top: -2px;
         }
     }
+}
+.has-search #login-area {
+    left: 24.5em;
 }
 
 button, .button {
@@ -849,7 +851,56 @@ span.twitter a {
 .talk-cell .speaker {
     display:block;
 }
-
+/* Cut-off for menu  */
+@media (max-width: 1090px) {
+    h1 {
+        #mainmenu-button {
+            display: inline-block;
+            float: right;
+            padding-right: 5px;
+            font-size: smaller;
+            cursor: pointer;
+            img {
+                vertical-align: middle;
+            }
+        }
+        #mainmenu-items {
+            height: auto;
+            font-size: smaller;
+            width: 200px;
+            position: fixed;
+            display: none;
+            top: 40px;
+            right: 0;
+            &.shown {
+                display: block;
+                box-shadow: 0 2px 3px 0 @boxShadowColor;
+            }
+        }
+    }
+    .mainmenu {
+        display: block;
+        border-bottom: 1px solid @white;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .mainmenu:last-child {
+        display: block;
+        border-bottom: none;
+        padding-bottom: 5px;
+    }
+    #language-select {
+        margin-left:0;
+    }
+    #login-area {
+        left: auto !important;
+        right: 2.5em !important;
+        .username {
+            display:none;
+        }
+    }
+}
 /* RESPONSIVE TWEAKS for small screens */
 @media (max-width: 768px) {
     div.talk-widget  {
@@ -938,30 +989,6 @@ span.twitter a {
             display:inline-block;
             width: 55px;
         }
-
-        #mainmenu-button {
-            display: inline-block;
-            float: right;
-            padding-right: 5px;
-            font-size: smaller;
-            cursor: pointer;
-            img {
-                vertical-align: middle;
-            }
-        }
-        #mainmenu-items {
-            height: auto;
-            font-size: smaller;
-            width: 200px;
-            position: fixed;
-            display: none;
-            top: 40px;
-            right: 0;
-            &.shown {
-                display: block;
-                box-shadow: 0 2px 3px 0 @boxShadowColor;
-            }
-        }
     }
     #talkpage h1 #pagetitle {
         display: none;
@@ -977,33 +1004,11 @@ span.twitter a {
         padding: 10px 3px;
     }
 
-    .mainmenu {
-        display: block;
-        border-bottom: 1px solid @white;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-    .mainmenu:last-child {
-        display: block;
-        border-bottom: none;
-        padding-bottom: 5px;
-    }
-    #language-select {
-        margin-left:0;
-    }
     #search-area {
         width: auto;
         input {
             width: 60%;
             border-radius: 4px;
-        }
-    }
-    #login-area {
-        left: auto;
-        right: 2.5em !important;
-        .username {
-            display:none;
         }
     }
     #speakers {
