@@ -86,17 +86,31 @@ define(['js/modules/browserinfo', 'underscore'], function(browserInfo) {
 
     var getSetting = function(settingKey) {
         if (localStorage) {
-            var setting = localStorage.getItem(context + settingKey);
-            //console.log("Load: " + settingKey + " -> " + setting);
-            return setting ? JSON.parse(setting) : null;
+            try {
+				var setting = localStorage.getItem(context + settingKey);
+				//console.log("Load: " + settingKey + " -> " + setting);
+				return setting ? JSON.parse(setting) : null;
+            }
+            catch (e) {
+                console.log("ERROR in getSetting:");
+                console.log(e);
+                return null;
+            }
         }
         return null;
     };
 
     var saveSetting = function(settingKey, value) {
         if (localStorage) {
-            //console.log("Save: " + settingKey + " -> " + JSON.stringify(value));
-            localStorage.setItem(context + settingKey, JSON.stringify(value));
+			try {
+				//console.log("Save: " + settingKey + " -> " + JSON.stringify(value));
+				localStorage.setItem(context + settingKey, JSON.stringify(value));
+			}
+			catch (e) {
+				console.log("ERROR in saveSetting");
+				console.log(e);
+				return null;
+			}
         }
     };
 
