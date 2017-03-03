@@ -45,10 +45,10 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             this.toggleMenu = function() {
                 var menu = document.getElementById('mainmenu-items');
                 if (menu && $('#mainmenu-button').is(':visible')) {
-                    if (menu.className === "") {
-                        menu.className = "shown";
+                    if (menu.className.indexOf("shown") < 0) {
+                        menu.className += " shown";
                     } else {
-                        menu.className = "";
+                        menu.className = menu.className.replace(" shown", "");
                     }
                 }
             };
