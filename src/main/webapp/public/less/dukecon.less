@@ -882,6 +882,58 @@ a .speakerinfo {
 }
 /* Cut-off for menu  */
 @media (max-width: 1090px) {
+    .has-search {
+        h1 {
+            #mainmenu-button {
+                display: inline-block;
+                float: right;
+                padding-right: 5px;
+                font-size: smaller;
+                cursor: pointer;
+                img {
+                    vertical-align: middle;
+                }
+            }
+            #mainmenu-items {
+                height: auto;
+                font-size: smaller;
+                width: 200px;
+                position: fixed;
+                display: none;
+                top: 40px;
+                right: 0;
+                &.shown {
+                    display: block;
+                    box-shadow: 0 2px 3px 0 @boxShadowColor;
+                }
+            }
+        }
+        .mainmenu {
+            display: block;
+            border-bottom: 1px solid @white;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .mainmenu:last-child {
+            display: block;
+            border-bottom: none;
+            padding-bottom: 5px;
+        }
+        #language-select {
+            margin-left:0;
+        }
+        #login-area {
+            left: auto !important;
+            right: 2.5em !important;
+            .username {
+                display:none;
+            }
+        }
+    }
+}
+/* RESPONSIVE TWEAKS for small screens */
+@media (max-width: 768px) {
     h1 {
         #mainmenu-button {
             display: inline-block;
@@ -929,9 +981,6 @@ a .speakerinfo {
             display:none;
         }
     }
-}
-/* RESPONSIVE TWEAKS for small screens */
-@media (max-width: 768px) {
     div.talk-widget  {
         display:block;
         width:95%;
