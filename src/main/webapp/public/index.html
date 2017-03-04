@@ -52,9 +52,9 @@
             <div class="filter-box">
                 <div data-bind="foreach: filters">
                     <div class="collapsed">
-                        <span class="filter-category darkBack reverse">
+                        <span class="filter-category darkBack reverse" data-bind="click: $parent.expandCollapseFilter">
                             <span data-bind="text:title"></span>
-                            <img class="filter-button" src="img/group_expanded_16.svg" alt="+/-" data-bind="click: $parent.expandCollapseFilter"/>
+                            <img class="filter-button" src="img/group_expanded_16.svg" alt="+ -"/>
                             <span class="badge highlightBack" data-bind="text: selectedFilterCount, visible: selectedFilterCount() > 0"></span>
                         </span>
                         <div class="filter-values" data-bind="foreach: filtervalues">

@@ -82,7 +82,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             
             self.expandCollapseFilter = function(unused, event) {
                 var collapsedCss = "collapsed";
-                var targetElem = event.currentTarget.parentNode.parentNode; // the one with class "collapsed"
+                var targetElem = event.currentTarget.parentNode; // the one with class "collapsed"
                 if (targetElem.className === collapsedCss) {
 					targetElem.className = "";
                 }
