@@ -55,9 +55,10 @@
                         <span class="filter-category darkBack reverse">
                             <span data-bind="text:title"></span>
                             <img class="filter-button" src="img/group_expanded_16.svg" alt="+/-" data-bind="click: $parent.expandCollapseFilter"/>
+                            <span class="badge highlightBack" data-bind="text: selectedFilterCount, visible: selectedFilterCount() > 0"></span>
                         </span>
                         <div class="filter-values" data-bind="foreach: filtervalues">
-                            <div>
+                            <div data-bind="click: $parents[1].updateFilterCount($parent)">
                                 <input type="checkbox" data-bind="checkedValue: $data, checked: $data.selected, attr:{id: $data.ui_id}" />
                                 <label data-bind="text: $data.displayName(), attr:{for: $data.ui_id}"></label>
                             </div>

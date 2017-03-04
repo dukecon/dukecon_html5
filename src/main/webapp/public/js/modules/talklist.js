@@ -26,11 +26,25 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             self.metaData = {};
 
             self.filters = [
-                {title: ko.observable(''), filterKey: 'level', filtervalues : ko.observableArray([])},
-                {title: ko.observable(''), filterKey: 'language', filtervalues : ko.observableArray([])},
-                {title: ko.observable(''), filterKey: 'track', filtervalues : ko.observableArray([])},
-                {title: ko.observable(''), filterKey: 'location', filtervalues : ko.observableArray([])}
+                {title: ko.observable(''), filterKey: 'level', filtervalues : ko.observableArray([]), selectedFilterCount: ko.observable(0)},
+                {title: ko.observable(''), filterKey: 'language', filtervalues : ko.observableArray([]), selectedFilterCount: ko.observable(0)},
+                {title: ko.observable(''), filterKey: 'track', filtervalues : ko.observableArray([]), selectedFilterCount: ko.observable(0)},
+                {title: ko.observable(''), filterKey: 'location', filtervalues : ko.observableArray([]), selectedFilterCount: ko.observable(0)}
             ];
+
+            self.updateFilterCount = function(filter) {
+                var countSelected = _.filter(filter.filtervalues(), function(item) {
+                    return item.selected();
+                });
+                filter.selectedFilterCount(countSelected.length);
+            };
+
+            self.updateAllFilterCounts = function() {
+                self.updateFilterCount(self.filters[0]);
+                self.updateFilterCount(self.filters[1]);
+                self.updateFilterCount(self.filters[2]);
+                self.updateFilterCount(self.filters[3]);
+            };
 
             self.searchTerm = ko.observable("");
             self.searchTerm.subscribe(function(newValue) {
@@ -154,6 +168,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
                 self.filters[2].filtervalues(self.getFilterValues('tracks', metaData, savedFilters[self.filters[2].filterKey]));
                 self.filters[3].title(languageUtils.strings.location[languageUtils.selectedLanguage()]);
                 self.filters[3].filtervalues(self.getFilterValues('locations', metaData, savedFilters[self.filters[3].filterKey]));
+                self.updateAllFilterCounts();
             };
 
             self.getFilterValues = function(key, metaData, selectedValues) {
@@ -181,6 +196,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
                 self.filterTalks();
                 self.searchTerm("");
                 self.filtersActive(true);
+                self.updateAllFilterCounts();
             };
 
             self.getDistinctDateValues = function() {
