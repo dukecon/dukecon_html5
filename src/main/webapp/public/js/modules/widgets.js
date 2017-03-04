@@ -62,7 +62,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + ' <div id="mainmenu-button" data-bind="click: toggleMenu"><img src="img/menu_24px.svg"></div>'
             + ' <div id="mainmenu-items" class="darkBack">'
             + '	 <a href="index.html" data-bind="resource: \'talks\', attr: {class: getCssClass(\'talks\')}"></a>'
-            + '	 <a href="schedule.html" data-bind="resource: \'schedule\', attr: {class: getCssClass(\'schedule\')}"></a>'
+            + '	 <a href="schedule.html" data-bind="resource: \'schedule\', attr: {class: \'hideOnMobile \' + getCssClass(\'schedule\')}"></a>'
             + '	 <a href="speakers.html" data-bind="resource: \'speaker\', attr: {class: getCssClass(\'speaker\')}"></a>'
             + '	 <a href="feedback.html" data-bind="resource: \'feedback\', attr: {class: getCssClass(\'feedback\')}"></a>'
             + '	 <a data-bind="visible: homeTitle, text: homeTitle, attr: { href: homeUrl}" target="_blank" class="mainmenu darkBack reverse"></a>'
