@@ -95,17 +95,3 @@ var hideLoading = function (delayMs, pageId) {
 		loadP(pageId || 'dukeConMain');
 	}, delayMs ? delayMs : 5);
 };
-
-// check if it's a Microsoft-browser
-if (window.ActiveXObject || "ActiveXObject" in window || window.navigator.userAgent.indexOf("Edge") >= 0 ){
-    window.addEventListener('load', function() {
-    	document.querySelector("body").innerHTML =
-			"<div class='content-wrapper'>" +
-			"<div class='content'>Leider funktioniert das Offline-Caching unserer Seite nicht mit " +
-			"Microsoft-Browsern. Wir suchen derzeit nach einer Lösung und " +
-			"bitten, die Unannehmlichkeiten zu entschuldigen.</div>" +
-			"<div class='content'>Unfortunately, Microsoft's offline-cache handling cannot handle our site, " +
-            "please use another browser. Sorry for the inconvenience. We're working on this.</div>" +
-			"</div>";
-    });
-}
