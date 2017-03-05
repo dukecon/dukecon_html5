@@ -144,7 +144,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '<div class="talk-info">'
             + ' <div class="title darkLink">'
             + ' <img class="fav-largescreen" style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="click: toggleFavourite, clickBubble: false, attr:{src: talk.favicon}"/>'
-            + ' <a style="padding: 0" data-bind="text: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id, title: talk.title }"></a>'
+            + ' <a style="padding: 0" data-bind="html: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id, title: talk.title }"></a>'
             + ' <img class="language-icon" src="" data-bind="attr: {src: talk.languageIcon, alt: talk.languageDisplay}">'
             + ' </div>'
             + ' <div class="speaker"><span data-bind="text: talk.speakerString" /></div>'

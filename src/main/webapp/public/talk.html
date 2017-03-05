@@ -23,7 +23,7 @@
     <div class="content talk-content">
         <div style="margin:5px;" data-bind="visible: talk().title">
             <img style="cursor:pointer; margin-right: 2px; vertical-align: middle" title="Add to Favourites" data-bind="click: toggleFavourite, attr:{src: talk().favicon}"/>
-            <span style="font-size:110%; font-weight:bold;" data-bind="text: talk().title"></span>
+            <span style="font-size:110%; font-weight:bold;" data-bind="html: talk().title"></span>
         </div>
         <!-- ko if: talk() && talk().title -->
             <table id="talkinfo">

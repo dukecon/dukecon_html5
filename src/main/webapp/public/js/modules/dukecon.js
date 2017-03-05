@@ -40,13 +40,13 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             this.locationOrder = dukeconUtils.getOrderById(metaData.locations, data.locationId);
             this.levelDisplay = ko.observable(dukeconUtils.getLevel(metaData, data.audienceId));
             this.level = data.audienceId || '';
-            this.title = data.title || '';
+            this.title = dukeconUtils.getSafeHtml(data.title || '');
             this.speakerString = dukeconUtils.getSpeakerNames(data.speakerIds, speakers).join(', ');
             this.speakerIds = data.speakerIds;
             this.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
             this.language = data.languageId || '';
             this.languageIcon = "img/lang_" + dukeconUtils.getLanguageCode(metaData, data.languageId) + ".png";
-            this.fullAbstract = dukeconUtils.getSaveAbstractHtml(data.abstractText || '');
+            this.fullAbstract = dukeconUtils.getSafeHtml(data.abstractText || '');
             this.timeCategory = dukeconDateUtils.getTimeCategory(this.duration);
             this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra alternate';
             this.favourite = ko.observable(isFavourite);
@@ -209,7 +209,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 synch.push(dukecloak.dukecloak);
             },
 
-            getSaveAbstractHtml: function (unsafe) {
+            getSafeHtml: function (unsafe) {
                 return unsafe
                     .replace(/</g, "&lt;")
                     .replace(/>/g, "&gt;")
