@@ -4,6 +4,7 @@ define([], function() {
     // so that all pages of the app use the same context
     var context = window.location.href.substring(window.location.href.indexOf(":") + 2);
     context = context.substring(0, context.lastIndexOf("/"));
+    context = context.replace(/[\/:]/g, "_");
     console.log("db-context=" + context);
     var db_name = 'dukecon' + context;
     var talk_store = 'talks';
