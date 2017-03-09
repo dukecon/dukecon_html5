@@ -1,10 +1,9 @@
 define([], function() {
-    // strip the file name from the URL to get the context (i.e. 'http://dev.dukecon.org/latest/speakers.html' -> '/dev.dukecon.org/latest')
+    // strip the file name from the URL pathname to get the context (i.e. 'http://dev.dukecon.org/latest/speakers.html' -> 'latest')
     // so that all pages of the app use the same context
-    var contextRegExp = /.+?\:\/\/.+?(\/.+?)(?:#|\?|$)/;
-    var context = contextRegExp.exec(window.location)[1];
-    console.log("db-context=" + context);
-    var db_name = 'dukecon' + context;
+
+    var db_name = 'dukecon' + window.location.pathname.substring(1, window.location.pathname.lastIndexOf('/'));
+    console.log("db-context=" + db_name);
     var talk_store = 'talks';
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.msIndexedDB || window.mozIndexedDB;
 
