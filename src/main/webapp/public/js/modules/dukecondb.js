@@ -1,10 +1,8 @@
 define([], function() {
-
     // strip the file name from the URL to get the context (i.e. 'http://dev.dukecon.org/latest/speakers.html' -> '/dev.dukecon.org/latest')
     // so that all pages of the app use the same context
-    var context = window.location.href.substring(window.location.href.indexOf(":") + 2);
-    context = context.substring(0, context.lastIndexOf("/"));
-    context = context.replace(/[\/:]/g, "_");
+    var contextRegExp = /.+?\:\/\/.+?(\/.+?)(?:#|\?|$)/;
+    var context = contextRegExp.exec(window.location)[1];
     console.log("db-context=" + context);
     var db_name = 'dukecon' + context;
     var talk_store = 'talks';
@@ -50,13 +48,13 @@ define([], function() {
     };
 
     var createDatabase = function(storeKey, callback) {
-        //this.indexedDB.deleteDatabase(this.db_name); //please keep this line for debugging
+        // indexedDB.deleteDatabase(db_name); //please keep this line for debugging
         if (duke_privatemode || !indexedDB) {
             console.log("Cannot store in indexedDB");
             return;
         }
         try {
-            var request = indexedDB.open(this.db_name, 3);
+            var request = indexedDB.open(db_name, 3);
             request.onupgradeneeded = function (e) {
                 if (!e || !e.target || !e.target.result) {
                     console.log("No db in " + e);
@@ -88,7 +86,7 @@ define([], function() {
     var deleteDatabase = function() {
         if (indexedDB) {
             try {
-                indexedDB.deleteDatabase(this.db_name);
+                indexedDB.deleteDatabase(db_name);
             }
             catch(e) {
                 console.log("Deleting database throws error: " + e);
