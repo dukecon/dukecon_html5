@@ -57,11 +57,15 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
             'de' : 'Ort',
             'en' : 'Location'
         },
+        booked : {
+            "de" : "Ausgebucht",
+            "en" : "Fully booked"
+        },
         language : {
             'de' : 'Sprache',
             'en' : 'Language'
         },
-        simultan: {
+        simultan : {
             "de": "mit Simultanübersetzung",
             "en": "with live translation"
         },
