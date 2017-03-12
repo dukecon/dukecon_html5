@@ -61,6 +61,10 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
             'de' : 'Sprache',
             'en' : 'Language'
         },
+        simultan: {
+            "de": "mit Simultanübersetzung",
+            "en": "with live translation"
+        },
         notalksfound : {
             'de' : 'Keine Talks gefunden; bitte die Filter ',
             'en' : 'No talks found; please perform a filter '

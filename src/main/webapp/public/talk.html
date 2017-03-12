@@ -50,7 +50,9 @@
                             <div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk().locationDisplay" /></div>
                             <div class="track" data-bind="visible: talk().isTrackVisible"><img width="16px" height="16px" data-bind="attr: {src: talk().talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk().trackDisplay" /></div>
                             <div class="room">
-                                <span style="margin-left: -2px;" class="language-icon">&#128172;</span> <span data-bind="text: talk().languageDisplay"></span>
+                                <span style="margin-left: -2px;" class="language-icon">&#128172;</span>
+                                <span data-bind="text: talk().languageDisplay"></span>
+                                <span data-bind="resource: 'simultan', visible: talk().simultan"></span>
                                 <img alt="" class="language-icon" src="" data-bind="attr: {src: talk().languageIcon}">
                             </div>
                         </div>

@@ -18,6 +18,11 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 			}
 			return result;
         }
+
+        function getLanguageIcon(talk, metaData) {
+            var prefix = talk.simultan ? "img/" : "img/lang_";
+            return prefix + dukeconUtils.getLanguageCode(metaData, talk.languageId) + ".png";
+        }
     
         function Talk(data, speakers, metaData, isFavourite) {
             var self = this;
@@ -45,7 +50,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             this.speakerIds = data.speakerIds;
             this.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
             this.language = data.languageId || '';
-            this.languageIcon = "img/lang_" + dukeconUtils.getLanguageCode(metaData, data.languageId) + ".png";
+            this.languageIcon = getLanguageIcon(data, metaData);
+            this.simultan = data.simultan;
             this.fullAbstract = dukeconUtils.getSafeHtml(data.abstractText || '');
             this.timeCategory = dukeconDateUtils.getTimeCategory(this.duration);
             this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra alternate';
