@@ -1065,6 +1065,9 @@ a .speakerinfo {
             position: absolute;
             right: 0;
             top: 55px;
+            &.no-speaker {
+                top: 40px;
+            }
         }
         a {
             overflow: hidden;
@@ -1082,7 +1085,10 @@ a .speakerinfo {
                 position: absolute;
                 right: auto;
                 left: 0;
-                top: 3px;
+                top: 1px;
+                &.no-speaker {
+                    top: 1px;
+                }
             }
         }
     }
@@ -1106,6 +1112,7 @@ a .speakerinfo {
             display:inline-block;
         }
         a#backbutton {
+            cursor: pointer;
             display:inline-block;
             width: 55px;
         }
