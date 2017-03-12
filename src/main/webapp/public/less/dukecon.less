@@ -229,7 +229,7 @@ h1 {
         display: none;
         border-radius: 4px;
         border-style: none none solid solid;
-        border-width: medium medium 1px 1px;
+        border-width: 0 0 1px 1px;
         content: " ";
         height: 1em;
         transform: rotate(45deg);
@@ -898,6 +898,14 @@ a .speakerinfo {
 }
 /* Cut-off for menu  */
 @media (max-width: 1090px) {
+    .filter-box, .filter-settings {
+        .filter-values {
+            input[type="checkbox"] + label {
+                font-size: 115%;
+                line-height: 2em;
+            }
+        }
+    }
     .has-search {
         h1 {
             #mainmenu-button {
