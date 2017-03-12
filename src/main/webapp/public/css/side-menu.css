@@ -24,7 +24,6 @@ This is the parent `<div>` that contains the menu and the content area.
     padding-left: 0;
 }
     #layout.active #menu {
-        left: -260px;
         margin-left: 0px;
         width: 267px;
     }
@@ -48,13 +47,13 @@ appears on the left side of the page.
 */
 
 #menu {
-    margin-left: -260px; /* "#menu" width */
     width: 260px;
-    position: absolute;
+    position:fixed;
     left: 0;
-    top: 0;
+    top: 66px;
+    bottom: 40px;
     z-index: 1000; /* so the menu or its navicon stays above all content */
-    overflow-y: visible;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 2.5em;
 }
@@ -114,18 +113,11 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         padding-left: 260px; /* left col width "#menu" */
         left: 0;
     }
-    #menu {
-        left: 260px;
-    }
 
     .menu-link {
         position: absolute;
         left: 0;
         display: none;
-    }
-
-    #layout.active .menu-link {
-        left: 260px;
     }
 }
 
@@ -136,9 +128,31 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         * Tap the menu to trigger the active state.
         * Make the window large again.
     */
-    #layout.active {
-        position: relative;
+
+    #layout {
+        padding-left: 0px; /* left col width "#menu" */
+        left: 0;
+    }
+    #menu {
+        left: -260px;
+        overflow-y: auto;
+    }
+
+    .menu-link {
+        position: fixed;
+        top: 70px;
+        left: 0;
+    }
+
+    #layout.active .menu-link {
         left: 260px;
+    }
+    #layout.active #menu {
+        left: 0;
+    }
+
+    #layout.active {
+        padding-left: 260px; /* left col width "#menu" */
     }
     #days_filter {
         margin-left: 34px;
