@@ -31,6 +31,13 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
                 {title: ko.observable(''), filterKey: 'track', filtervalues : ko.observableArray([]), selectedFilterCount: ko.observable(0)},
                 {title: ko.observable(''), filterKey: 'location', filtervalues : ko.observableArray([]), selectedFilterCount: ko.observable(0)}
             ];
+            
+            self.totalFilterCount = ko.computed(function() {
+                return self.filters[0].selectedFilterCount() +
+					self.filters[1].selectedFilterCount() +
+					self.filters[2].selectedFilterCount() +
+					self.filters[3].selectedFilterCount();
+			});
 
             self.updateFilterCount = function(filter) {
                 var countSelected = _.filter(filter.filtervalues(), function(item) {

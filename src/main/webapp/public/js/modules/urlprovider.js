@@ -77,7 +77,7 @@ define(
                 },
                 error: function(err) {
                     console.log("could not initialize: " + JSON.stringify(err));
-                    initialized = true;
+                    initialized = false;
                 }
             });
         }

@@ -85,12 +85,12 @@ small screens.
     top: 3px;
 }
 
-.menu-link span {
+.menu-link span.stretch {
 	position: relative;
 	display: block;
 }
 
-.menu-link span {
+.menu-link span.stretch {
 	width:26px;
 	background-image: url('../img/filter.png');
 	background-repeat:no-repeat;
