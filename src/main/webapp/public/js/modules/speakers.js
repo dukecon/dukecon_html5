@@ -9,6 +9,7 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
                 self.allSpeakers(_.map(allData.speakers, function(s) {
                     return new dukecon.Speaker(s, allData.events, allData.speakers, allData.metaData, favourites);
                 }).sort(sortSpeaker));
+				dukecon.addCustomCss();
                 hideLoading(globalLoadTimeout, 'dukeConSpeakers');
             };
         }

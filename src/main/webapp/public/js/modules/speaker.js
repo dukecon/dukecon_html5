@@ -17,14 +17,16 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
                         document.title = self.speaker().name + " - " + document.title;
                     }
                 }
-                (function (history) {
+				dukecon.addCustomCss();
+	
+				(function (history) {
                     // keycloak will issue a redirect, only after that has finished we will know about the
                     var replaceState = history.replaceState;
                     history.replaceState = function (data, title, url) {
                         var r = replaceState.apply(history, [data, title, url]);
                         dukeconTalkUtils.getData(function (allData) {
                             self.initializeData(allData);
-                        });
+						});
                         return r;
                     }
                 })(window.history);

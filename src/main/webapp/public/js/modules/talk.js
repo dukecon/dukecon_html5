@@ -18,6 +18,7 @@ define(['underscore', 'knockout', 'js/modules/dukeconsettings', 'js/modules/offl
                     self.speakersWithCompanies(dukecon.getSpeakerInfo(self.talk().speakerIds, allData.events, allData.speakers, allData.metaData, dukeconSettings.getFavourites()));
                     document.title = self.talk().title + " - " + document.title;
                 }
+				dukecon.addCustomCss();
                 (function (history) {
                     // keycloak will issue a redirect, only after that has finished we will know about the
                     var replaceState = history.replaceState;

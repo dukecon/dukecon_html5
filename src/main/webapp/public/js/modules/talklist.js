@@ -131,6 +131,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             
             self.initialize = function(allData) {
                 self.commonInitializations(allData);
+				dukecon.addCustomCss();
                 hideLoading(globalLoadTimeout, "dukeConMain");
             };
 

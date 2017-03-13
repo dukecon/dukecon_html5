@@ -225,6 +225,15 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             }
         };
 
+        function addCustomCss() {
+			// insert the custom style into the html, if not already done
+			if ($('#styleCssNode').length === 0) {
+				urlprovider.getCustomCssUrl(function (url) {
+					$('head').append($('<link id="styleCssNode" rel="stylesheet" href="' + url + '"/>'));
+				});
+			}
+        }
+        
         function initializeApp() {
             languageUtils.init();
             offline.init();
@@ -232,20 +241,15 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 if (allData) {
                     document.title = allData.name;
                 }
-            })
-        }
-
-        // insert the custom style into the html, if not already done
-        if ($('#styleCssNode').length === 0) {
-            urlprovider.getCustomCssUrl(function (url) {
-                $('head').append($('<link id="styleCssNode" rel="stylesheet" href="' + url + '"/>'));
             });
+            addCustomCss();
         }
 
         return {
             initializeApp: initializeApp,
             Talk: Talk,
             Speaker: Speaker,
+            addCustomCss: addCustomCss,
             getSpeakerInfo: dukeconUtils.getSpeakerInfo,
             toggleFavourite: dukeconUtils.toggleFavourite,
             cookiesConfirmed: cookiesConfirmed

@@ -96,10 +96,10 @@ define(['jquery', 'knockout', 'js/modules/talklist', 'js/modules/dukeconsettings
 			var dukeconTalkscheduleModel = new talklist.TalkListViewModel();
 			
 			dukeconTalkscheduleModel.initializeForSchedule = function (allData) {
-				console.log("TODO: re-insert filters, foldable like for mobile");
 				dukeconTalkscheduleModel.commonInitializations(allData);
 				drawTimeTable(dukeconTalkscheduleModel);
 				hideLoading(globalLoadTimeout, "dukeConSchedule");
+				dukecon.addCustomCss();
 			};
 			
 			
