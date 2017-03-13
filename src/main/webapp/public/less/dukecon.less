@@ -161,13 +161,6 @@ td {
     }
 }
 
-/* remove: */
-.main-menu {
-    margin-top: 0.5em;
-    display: inline-block;
-    float:left;
-}
-
 a {
     font-weight:normal;
     padding: 0.2em 0.5em;
@@ -176,6 +169,13 @@ a {
     transition: background 0.5s;
 }
 
+#menu-veil {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+}
 .mainmenu.active {
     cursor: default;
 }
@@ -383,7 +383,7 @@ h2 {
     min-width: 250px;
 }
 
-#timetable.content {
+#timetable.content, #layout.content {
     max-width: none;
 }
 
@@ -904,6 +904,18 @@ a .speakerinfo {
                 font-size: 115%;
                 line-height: 2em;
             }
+        }
+    }
+    #menu-veil {
+        &.shown {
+            position: fixed;
+            top:0;
+            width: auto;
+            height: auto;
+            bottom: 0;
+            left:0;
+            right: 0;
+            background: rgba(0,0,0,0);
         }
     }
     .has-search {

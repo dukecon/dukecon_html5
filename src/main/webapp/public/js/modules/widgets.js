@@ -44,11 +44,14 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
 
             this.toggleMenu = function() {
                 var menu = document.getElementById('mainmenu-items');
+                var veil = document.getElementById('menu-veil');
                 if (menu && $('#mainmenu-button').is(':visible')) {
                     if (menu.className.indexOf("shown") < 0) {
                         menu.className += " shown";
+                        veil.className = "shown";
                     } else {
                         menu.className = menu.className.replace(" shown", "");
+						veil.className = "";
                     }
                 }
             };
@@ -60,13 +63,14 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '	<span id="backbutton_before"></span><a id="backbutton" onclick="window.history.back();" data-bind="resource: \'backbutton\'"></a>'
             + ' <span id="pagetitle" data-bind="resource: active"></span>'
             + ' <div id="mainmenu-button" data-bind="click: toggleMenu"><img src="img/menu_24px.svg"></div>'
+			+ ' <div id="menu-veil" data-bind="click: toggleMenu"></div>'
             + ' <div id="mainmenu-items" class="darkBack">'
-            + '	 <a href="index.html" data-bind="resource: \'talks\', attr: {class: getCssClass(\'talks\')}"></a>'
-            + '	 <a href="schedule.html" data-bind="resource: \'schedule\', attr: {class: \'hideOnMobile \' + getCssClass(\'schedule\')}"></a>'
-            + '	 <a href="speakers.html" data-bind="resource: \'speaker\', attr: {class: getCssClass(\'speaker\')}"></a>'
-            + '	 <a href="feedback.html" data-bind="resource: \'feedback\', attr: {class: getCssClass(\'feedback\')}"></a>'
-            + '	 <a data-bind="visible: homeTitle, text: homeTitle, attr: { href: homeUrl}" target="_blank" class="mainmenu darkBack reverse"></a>'
-            + '	 <a class="mainmenu darkBack reverse" id="language-select" data-bind="click: function() {toggleLanguage(); toggleMenu(); }"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
+            + '	  <a href="index.html" data-bind="resource: \'talks\', attr: {class: getCssClass(\'talks\')}"></a>'
+            + '	  <a href="schedule.html" data-bind="resource: \'schedule\', attr: {class: \'hideOnMobile \' + getCssClass(\'schedule\')}"></a>'
+            + '	  <a href="speakers.html" data-bind="resource: \'speaker\', attr: {class: getCssClass(\'speaker\')}"></a>'
+            + '	  <a href="feedback.html" data-bind="resource: \'feedback\', attr: {class: getCssClass(\'feedback\')}"></a>'
+            + '	  <a data-bind="visible: homeTitle, text: homeTitle, attr: { href: homeUrl}" target="_blank" class="mainmenu darkBack reverse"></a>'
+            + '	  <a class="mainmenu darkBack reverse" id="language-select" data-bind="click: function() {toggleLanguage(); toggleMenu(); }, clickBubble: false"><img alt="Sprache umschalten / Change language" title="Sprache umschalten / Change language" data-bind="attr : { src : icon }"/>'
             + ' </div>'
             + '</h1>'
             + '</div>'
