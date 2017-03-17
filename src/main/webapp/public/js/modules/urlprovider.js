@@ -4,7 +4,8 @@ define(
         var cssFile = "/styles.css";
         var currentBaseUrl = window.location.href
             .replace(/\/[^\/]+\.html\S*/ig, "")
-            .replace(/\/$/ig, "");
+            .replace(/\/$/ig, "")
+            .replace(/#\S*/g, "");
         console.log('Using currentBaseUrl: "' + currentBaseUrl + '"');
         var jsonUrl, customCssUrl, initialized = false;
         var allQueryParams;
@@ -62,6 +63,7 @@ define(
          }
 
         function loadInitData(callback) {
+            console.log("initializing via " + currentBaseUrl + '/rest/init.json');
             $.ajax({
                 url: currentBaseUrl + '/rest/init.json',
                 dataType: 'json',
