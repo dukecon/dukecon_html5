@@ -105,14 +105,42 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
 
     ko.components.register('footer-widget', {
         viewModel : function() {
-            this.updateCheck = dukeconTalkUtils.updateCheck;
+            var links = {  // temporarily hard-wired, until returned somehow from backend
+				imprint : {
+					'de' : 'https://www.javaland.eu/de/impressum/',
+					'en' : 'https://www.javaland.eu/en/imprint/'
+				},
+				termsOfUse : {
+					'de' : 'https://www.javaland.eu/de/nutzungsbedingungen/',
+					'en' : 'https://www.javaland.eu/en/term-of-use/'
+				},
+				privacy : {
+					'de' : 'https://www.javaland.eu/de/datenschutz/',
+					'en' : 'https://www.javaland.eu/en/privacy/'
+				}
+			};
+            var me = this;
+	
+			me.updateCheck = dukeconTalkUtils.updateCheck;
+	
+			me.imprintLink = ko.observable(links.imprint[languageUtils.selectedLanguage()]);
+            me.privacyLink = ko.observable(links.privacy[languageUtils.selectedLanguage()]);
+            me.termsLink = ko.observable(links.termsOfUse[languageUtils.selectedLanguage()]);
+
+            languageUtils.selectedLanguage.subscribe(function(newLanguage) {
+				me.imprintLink(links.imprint[newLanguage]);
+				me.privacyLink(links.privacy[newLanguage]);
+				me.termsLink(links.termsOfUse[newLanguage]);
+            });
         },
         template:
             '<div class="footer hidden">'
             + '<div id="update-info">'
             + '<span data-bind="visible: updateCheck" style="margin-left:5px;">Checking for update...</span>'
             + '</div>'
-            + '<a href="impressum.html" data-bind="resource: \'imprint\'"></a>'
+            + '<a target="_blank" data-bind="resource: \'imprint\', attr: { href: imprintLink}"></a> '
+            + '<a target="_blank" data-bind="resource: \'privacy\', visible: privacyLink(), attr: { href: privacyLink}"></a> '
+            + '<a target="_blank" data-bind="resource: \'termsOfUse\', visible: termsLink(), attr: { href: termsLink}"></a> '
             + '<span>powered by<a href="http://www.dukecon.org" target="_blank">DukeCon</a></span>'
             + '</div>'
     });

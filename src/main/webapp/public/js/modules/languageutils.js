@@ -93,10 +93,18 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
             'de' : 'nach oben',
             'en' : 'back to top'
         },
-        // imprint
+        // imprint et al
         imprint : {
             'de' : 'Impressum',
-            'en' : 'Imprint'
+            'en' : 'Legal mentions'
+        },
+        termsOfUse : {
+            'de' : 'Nutzungsbedingungen',
+            'en' : 'Terms of use'
+        },
+        privacy : {
+            'de' : 'Datenschutz',
+            'en' : 'Privacy'
         },
         // favorites hint
         favoriteAlertTitle : {
