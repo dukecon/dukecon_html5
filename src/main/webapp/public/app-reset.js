@@ -6,7 +6,7 @@ require.config({
     }
 });
 
-require(['jquery', 'js/modules/dukecondb', 'js/modules/dukeconsettings'], function($, db, settings) {
+require(['jquery', 'js/modules/dukecondb', 'js/modules/dukeconsettings', 'domReady!'], function($, db, settings) {
     console.log("Clearing DB");
     db.purge();
     console.log("Clearing DB done; resetting localstore");
