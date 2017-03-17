@@ -106,6 +106,10 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
             'de' : 'Datenschutz',
             'en' : 'Privacy'
         },
+        loggedIn : {
+            'de' : 'eingeloggt',
+            'en' : 'logged in'
+        },
         // favorites hint
         favoriteAlertTitle : {
             'de' : 'Favoriten',
