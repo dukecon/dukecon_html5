@@ -185,7 +185,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + ' <img width="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>'
             + '  <span class="day-long" data-bind="text: talk.day"></span>'
             + ' <span class="day-short" data-bind="text: talk.dayshort"></span><span>,&nbsp;</span>'
-            + ' <span data-bind="text: talk.startDisplayed"></span> (<span data-bind="text: talk.duration"></span><span> min)</span>'
+            + ' <span data-bind="text: talk.startDisplayed"></span> <span>(</span><span data-bind="text: talk.duration"></span><span> min)</span>'
             + ' </div>'
             + ' <div class="room"><img width="16px" height="16px" src="img/Home.png" alt="at" title="Location"/> <span data-bind="text: talk.locationDisplay" /></div>'
             + ' <div class="track" data-bind="visible: talk.isTrackVisible"><img width="16px" height="16px" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.trackDisplay" /></div>'
