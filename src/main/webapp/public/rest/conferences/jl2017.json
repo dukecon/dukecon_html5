@@ -112,7 +112,7 @@
       "order": 1,
       "names": {"de": "Silverado Theater", "en": "Silverado Theater"},
       "icon": "location_1.png",
-      "capacity": 100
+      "capacity": 1000
     }, {
       "id": "2",
       "order": 10,
@@ -1284,7 +1284,7 @@
     "demo": true,
     "simultan": true,
     "fullyBooked": true,
-    "numberOfFavorites": 25,
+    "numberOfFavorites": 3,
     "trackId": "3",
     "audienceId": "2",
     "typeId": "3",

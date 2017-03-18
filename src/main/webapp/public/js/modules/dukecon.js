@@ -76,11 +76,21 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                     }
                 }
             };
+
+            // TODO: get rid of dummyData variable after real data is returned from backend
+            var dummyData = data.numberOfFavorites === 25 && dukeconUtils.getLocationCapacity(metaData, data.locationId) === 100;
+            if (dummyData) {
+                self.numberOfFavorites(0);
+                self.locationCapacity(0);
+            }
+
             self.toggleFavourite = function () {
                 self.showAlertWindow();
                 self.favourite(!self.favourite());
-                var delta = self.favourite() ? 1 : -1;
-                self.numberOfFavorites(self.numberOfFavorites() + delta)
+                if (!dummyData) {
+                    var delta = self.favourite() ? 1 : (self.numberOfFavorites() > 0 ? -1 : 0);
+                    self.numberOfFavorites(self.numberOfFavorites() + delta);
+                }
             };
 
             languageUtils.selectedLanguage.subscribe(function () {
