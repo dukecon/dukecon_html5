@@ -27,39 +27,39 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         function Talk(data, speakers, metaData, isFavourite) {
             var self = this;
 
-            this.id = data.id || '';
-            this.startDate = data.start ? new Date(data.start) : null;
-            this.day = ko.observable(dukeconDateUtils.getDisplayDate(data.start));
-            this.dayshort = ko.observable(dukeconDateUtils.getDisplayDateShort(data.start));
-            this.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
-            this.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
-            this.startSortable = data.start || '';
-            this.trackDisplay = ko.observable(dukeconUtils.getTrack(metaData, data.trackId));
-            this.track = data.trackId || '';
-            this.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '');
-            this.isTrackVisible = ko.computed(function () {
+            self.id = data.id || '';
+            self.startDate = data.start ? new Date(data.start) : null;
+            self.day = ko.observable(dukeconDateUtils.getDisplayDate(data.start));
+            self.dayshort = ko.observable(dukeconDateUtils.getDisplayDateShort(data.start));
+            self.startDisplayed = dukeconDateUtils.getDisplayTime(data.start);
+            self.duration = dukeconDateUtils.getDurationInMinutes(data.start, data.end);
+            self.startSortable = data.start || '';
+            self.trackDisplay = ko.observable(dukeconUtils.getTrack(metaData, data.trackId));
+            self.track = data.trackId || '';
+            self.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '');
+            self.isTrackVisible = ko.computed(function () {
                 return self.trackDisplay() !== '';
             });
-            this.locationDisplay = ko.observable(dukeconUtils.getLocation(metaData, data.locationId));
-            this.location = data.locationId || '';
-            this.locationOrder = dukeconUtils.getOrderById(metaData.locations, data.locationId);
-            this.levelDisplay = ko.observable(dukeconUtils.getLevel(metaData, data.audienceId));
-            this.level = data.audienceId || '';
-            this.title = dukeconUtils.getSafeHtml(data.title || '');
-            this.speakerString = dukeconUtils.getSpeakerNames(data.speakerIds, speakers).join(', ');
-            this.speakerIds = data.speakerIds;
-            this.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
-            this.language = data.languageId || '';
-            this.languageIcon = getLanguageIcon(data, metaData);
-            this.simultan = data.simultan;
-            this.fullAbstract = dukeconUtils.getSafeHtml(data.abstractText || '');
-            this.timeCategory = dukeconDateUtils.getTimeCategory(this.duration);
-            this.timeClass = this.timeCategory == 'regular' ? 'time' : 'time-extra alternate';
-            this.favourite = ko.observable(isFavourite);
-            this.favicon = ko.computed(function () {
-                return this.favourite() ? "img/StarFilled.png" : "img/StarLine.png";
-            }, this);
-            this.showAlertWindow = function () {
+            self.locationDisplay = ko.observable(dukeconUtils.getLocation(metaData, data.locationId));
+            self.location = data.locationId || '';
+            self.locationOrder = dukeconUtils.getOrderById(metaData.locations, data.locationId);
+            self.levelDisplay = ko.observable(dukeconUtils.getLevel(metaData, data.audienceId));
+            self.level = data.audienceId || '';
+            self.title = dukeconUtils.getSafeHtml(data.title || '');
+            self.speakerString = dukeconUtils.getSpeakerNames(data.speakerIds, speakers).join(', ');
+            self.speakerIds = data.speakerIds;
+            self.languageDisplay = ko.observable(dukeconUtils.getLanguage(metaData, data.languageId));
+            self.language = data.languageId || '';
+            self.languageIcon = getLanguageIcon(data, metaData);
+            self.simultan = data.simultan;
+            self.fullAbstract = dukeconUtils.getSafeHtml(data.abstractText || '');
+            self.timeCategory = dukeconDateUtils.getTimeCategory(self.duration);
+            self.timeClass = self.timeCategory == 'regular' ? 'time' : 'time-extra alternate';
+            self.favourite = ko.observable(isFavourite);
+            self.favicon = ko.computed(function () {
+                return self.favourite() ? "img/StarFilled.png" : "img/StarLine.png";
+            });
+            self.showAlertWindow = function () {
                 // requires scrollfix.js for cookie handling:
                 var alreadySeen = readCookie('dukecon.favouriteAlertSeen');
                 if (!dukecloak.dukecloak.auth.loggedIn() && !alreadySeen) {
@@ -72,9 +72,9 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                     }
                 }
             };
-            this.toggleFavourite = function () {
-                this.showAlertWindow();
-                this.favourite(!this.favourite());
+            self.toggleFavourite = function () {
+                self.showAlertWindow();
+                self.favourite(!self.favourite());
             };
 
             languageUtils.selectedLanguage.subscribe(function () {

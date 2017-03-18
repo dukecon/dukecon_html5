@@ -25,6 +25,14 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
             'de' : 'Nur Favoriten',
             'en' : 'Only Favorites'
         },
+        saveAsFavourite: {
+            'de' : 'Als Favorit speichern',
+            'en' : 'Save as favorite'
+        },
+        removeFavourite: {
+            'de' : 'Favorit gespeichert',
+            'en' : 'Favorite saved'
+        },
         reset : {
             'de' : 'Zurücksetzen',
             'en' : 'Reset'
