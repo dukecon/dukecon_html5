@@ -511,6 +511,7 @@ div.title {
 }
 
 .talk-info {
+    position: relative;
     display:block;
     width: 100%;
 }
@@ -804,6 +805,27 @@ a .speakerinfo {
     padding:6px;
 }
 
+.fully-booked {
+    color: red;
+    margin-top: -2em;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.2em;
+    font-size: 300%;
+    width: auto;
+    border-top: 8px double red;
+    border-bottom: 8px double red;
+    opacity: 0.6;
+    transform: rotate(-25deg);
+    &.stamp {
+        margin-top: auto;
+        font-size: 150%;
+        opacity: 0.7;
+        position: absolute;
+        top:40px;
+        left:40px;
+    }
+}
 
 /* FAVOURITES */
 .as-favorite {
@@ -1318,5 +1340,12 @@ a .speakerinfo {
     }
     .hideOnMobile {
         display: none !important;
+    }
+    .fully-booked {
+        &.stamp {
+            top:20px;
+            line-height: 1.2em;
+            font-size: 120%;
+        }
     }
 }

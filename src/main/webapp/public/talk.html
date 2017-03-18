@@ -44,6 +44,10 @@
                             <img class="fav-detail" title="Add to Favourites" data-bind="attr:{src: talk().favicon}"/>
                             <span data-bind="resource: 'removeFavourite', visible: talk().favourite"></span>
                             <span data-bind="resource: 'saveAsFavourite', visible: !talk().favourite()"></span>
+                            <!-- ko if: talk().numberOfFavorites -->
+                            <span>(</span><span data-bind="resource: 'numberOfFavorites'"></span><span>:</span>
+                            <span data-bind="text: talk().numberOfFavorites"></span><span>)</span>
+                            <!-- /ko -->
                         </div>
 
                         <div>
@@ -52,7 +56,10 @@
                                 <span data-bind="text: talk().day"></span><span>,</span>
                                 <span data-bind="text: talk().startDisplayed"></span> <span>(</span><span data-bind="text: talk().duration"></span><span> min)</span>
                             </div>
-                            <div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/> <span data-bind="text: talk().locationDisplay" /></div>
+                            <div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/>
+                                <span data-bind="text: talk().locationDisplay"></span>
+                                <span>(</span><span data-bind="text: talk().locationCapacity"></span> <span data-bind="resource: 'capacity'"></span><span>)</span>
+                            </div>
                             <div class="track" data-bind="visible: talk().isTrackVisible"><img width="16px" height="16px" data-bind="attr: {src: talk().talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk().trackDisplay" /></div>
                             <div class="room">
                                 <span style="margin-left: -2px;" class="language-icon">&#128172;</span>
@@ -60,6 +67,7 @@
                                 <span data-bind="resource: 'simultan', visible: talk().simultan"></span>
                                 <img alt="" class="language-icon" src="" data-bind="attr: {src: talk().languageIcon}">
                             </div>
+                            <div style="display:none;" class="fully-booked" data-bind="resource: 'fullyBooked', visible: talk().fullyBooked"></div>
                         </div>
                     </td>
                     <td class="talk-abstract">

@@ -41,6 +41,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 return self.trackDisplay() !== '';
             });
             self.locationDisplay = ko.observable(dukeconUtils.getLocation(metaData, data.locationId));
+            self.locationCapacity = ko.observable(dukeconUtils.getLocationCapacity(metaData, data.locationId));
             self.location = data.locationId || '';
             self.locationOrder = dukeconUtils.getOrderById(metaData.locations, data.locationId);
             self.levelDisplay = ko.observable(dukeconUtils.getLevel(metaData, data.audienceId));
@@ -56,9 +57,12 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             self.timeCategory = dukeconDateUtils.getTimeCategory(self.duration);
             self.timeClass = self.timeCategory == 'regular' ? 'time' : 'time-extra alternate';
             self.favourite = ko.observable(isFavourite);
+            self.numberOfFavorites = ko.observable(data.numberOfFavorites);
+            self.fullyBooked = ko.observable(data.fullyBooked);
             self.favicon = ko.computed(function () {
                 return self.favourite() ? "img/StarFilled.png" : "img/StarLine.png";
             });
+
             self.showAlertWindow = function () {
                 // requires scrollfix.js for cookie handling:
                 var alreadySeen = readCookie('dukecon.favouriteAlertSeen');
@@ -75,6 +79,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             self.toggleFavourite = function () {
                 self.showAlertWindow();
                 self.favourite(!self.favourite());
+                var delta = self.favourite() ? 1 : -1;
+                self.numberOfFavorites(self.numberOfFavorites() + delta)
             };
 
             languageUtils.selectedLanguage.subscribe(function () {
@@ -152,6 +158,13 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
             getLocation: function (metaData, locationId) {
                 return dukeconUtils.getById(metaData.locations, locationId, metaData);
+            },
+
+            getLocationCapacity: function (metaData, locationId) {
+                var value = _.find(metaData.locations, function (d) {
+                    return d.id === locationId;
+                });
+                return value ? value.capacity || "" : "";
             },
 
             getById: function (data, id, metaData) {
