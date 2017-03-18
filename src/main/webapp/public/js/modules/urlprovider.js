@@ -4,8 +4,8 @@ define(
         var cssFile = "/styles.css";
         var currentBaseUrl = window.location.href
             .replace(/\/[^\/]+\.html\S*/ig, "")
-            .replace(/\/$/ig, "")
-            .replace(/#\S*/g, "");
+            .replace(/#\S*/g, "")
+            .replace(/\/$/ig, "");
         console.log('Using currentBaseUrl: "' + currentBaseUrl + '"');
         var jsonUrl, customCssUrl, initialized = false;
         var allQueryParams;
