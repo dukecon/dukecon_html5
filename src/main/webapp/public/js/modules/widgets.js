@@ -1,4 +1,5 @@
 define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/dukecon'], function(ko, languageUtils, dukeconTalkUtils, dukecloak, dukecon) {
+    "use strict";
 
     //noinspection JSUnusedLocalSymbols
     ko.bindingHandlers['resource'] = {
@@ -167,8 +168,16 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
 
     ko.components.register('talk-widget', {
         viewModel: function(data) {
-            this.talk = data.value;
-            this.toggleFavourite = dukecon.toggleFavourite;
+            var me = this;
+            me.talk = data.value;
+            me.isOtherTalk = data.isOtherTalk;
+            me.toggleFavourite = dukecon.toggleFavourite;
+            me.checkMustReload = function() {
+              if (me.isOtherTalk) {
+                  window.location.href = "talk.html#talk?talkId=" + me.talk.id;
+                  window.location.reload();
+              }
+            };
         },
         template:
             '<!-- ko if: talk && talk.title -->'
@@ -177,7 +186,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '<div class="talk-info">'
             + ' <div class="title darkLink">'
             + ' <img class="fav-largescreen" style="cursor:pointer; margin-right: 2px;" title="Add to Favourites" data-bind="click: toggleFavourite, clickBubble: false, attr:{src: talk.favicon}"/>'
-            + ' <a style="padding: 0" data-bind="html: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id, title: talk.title }"></a>'
+            + ' <a style="padding: 0" data-bind="html: talk.title, attr : { href : \'talk.html#talk?talkId=\' + talk.id, title: talk.title }, click: checkMustReload"></a>'
             + ' <img class="language-icon" src="" data-bind="attr: {src: talk.languageIcon, alt: talk.languageDisplay}, css: {\'no-speaker\': !talk.speakerString}">'
             + ' </div>'
             + ' <div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
@@ -248,7 +257,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             '        <div data-bind="resource: \'none\', visible: parentTalkId && speaker.talks && speaker.talks.length <= 1"></div>'+
             '		<!-- ko foreach: speaker.talks -->' +
 			'		    <!-- ko if: id !== $parent.parentTalkId -->' +
-            '		    <div class="talk-widget" data-bind="component: { name: \'talk-widget\', params: { value: $data } }"></div>' +
+            '		    <div class="talk-widget" data-bind="component: { name: \'talk-widget\', params: { value: $data, isOtherTalk: true } }"></div>' +
 			'		    <!-- /ko -->' +
 			'		<!-- /ko -->' +
             '	</div>' +
