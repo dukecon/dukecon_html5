@@ -33,9 +33,9 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch', 
             dukecloak.keycloakAuth.updateToken()
                 .success(function () {
                     var username = dukeconSettings.getSetting('keycloak_username');
-                    if (username || !dukecloak.keycloakAuth.accountManagement()) {
-                        dukecloak.auth.username(username || "");
-                        dukecloak.auth.gravatar(username ? gravatar.url(username) : "");
+                    if (username) {
+                        dukecloak.auth.username(username);
+                        dukecloak.auth.gravatar(gravatar.url(username));
                     } else {
                         dukecloak.keycloakAuth.loadUserProfile().success(function (profile) {
                             dukecloak.auth.username(profile.username);
