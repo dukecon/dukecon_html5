@@ -25,10 +25,6 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
             'de' : 'Nur Favoriten',
             'en' : 'Only Favorites'
         },
-        numberOfFavorites: {
-            'de' : 'gesamt',
-            'en' : 'total'
-        },
         saveAsFavourite: {
             'de' : 'Als Favorit speichern',
             'en' : 'Save as favorite'
@@ -68,10 +64,6 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
         location : {
             'de' : 'Ort',
             'en' : 'Location'
-        },
-        capacity : {
-            'de' : 'Plätze',
-            'en' : 'seats'
         },
         fullyBooked : {
             "de" : "voll besetzt",

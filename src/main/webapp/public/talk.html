@@ -44,10 +44,6 @@
                             <img class="fav-detail" title="Add to Favourites" data-bind="attr:{src: talk().favicon}"/>
                             <span data-bind="resource: 'removeFavourite', visible: talk().favourite"></span>
                             <span data-bind="resource: 'saveAsFavourite', visible: !talk().favourite()"></span>
-                            <!-- ko if: talk().numberOfFavorites -->
-                            <span>(</span><span data-bind="resource: 'numberOfFavorites'"></span><span>:</span>
-                            <span data-bind="text: talk().numberOfFavorites"></span><span>)</span>
-                            <!-- /ko -->
                         </div>
 
                         <div>
@@ -56,10 +52,15 @@
                                 <span data-bind="text: talk().day"></span><span>,</span>
                                 <span data-bind="text: talk().startDisplayed"></span> <span>(</span><span data-bind="text: talk().duration"></span><span> min)</span>
                             </div>
-                            <div class="room"><img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/>
+                            <div class="room">
+                                <img width="16px" height="16px" src="img/Home.png" alt="Raum" title="Raum"/>
                                 <span data-bind="text: talk().locationDisplay"></span>
                                 <!-- ko if: talk().locationCapacity -->
-                                <span>(</span><span data-bind="text: talk().locationCapacity"></span> <span data-bind="resource: 'capacity'"></span><span>)</span>
+                                    &nbsp;&nbsp;
+                                    <img width="16px" height="16px" src="img/chair.svg" alt="Plätze"/><span data-bind="text: talk().locationCapacity"></span>
+                                <!-- /ko -->
+                                <!-- ko if: talk().numberOfFavorites -->
+                                    <img width="16px" height="16px" src="img/StarFilled.png" alt="Favoriten"/><span data-bind="text: talk().numberOfFavorites"></span>
                                 <!-- /ko -->
                             </div>
                             <div class="track" data-bind="visible: talk().isTrackVisible"><img width="16px" height="16px" data-bind="attr: {src: talk().talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk().trackDisplay" /></div>
