@@ -59,7 +59,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             self.favourite = ko.observable(isFavourite);
             self.numberOfFavorites = ko.observable(data.numberOfFavorites);
             self.fullyBooked = ko.observable(data.fullyBooked);
-            self.veryPopular = ko.observable(data.veryPopular);
             self.favicon = ko.computed(function () {
                 return self.favourite() ? "img/StarFilled.png" : "img/StarLine.png";
             });

@@ -805,43 +805,26 @@ a .speakerinfo {
     padding:6px;
 }
 
-.fully-booked, .very-popular {
+.fully-booked {
+    color: red;
+    margin-top: -2em;
+    margin-bottom: 10px;
     text-align: center;
     font-weight: bold;
     line-height: 1.2em;
+    font-size: 300%;
     width: auto;
-    display: inline-block;
-    position: absolute;
-    border-top: 8px double;
-    border-bottom: 8px double;
+    border-top: 8px double red;
+    border-bottom: 8px double red;
     opacity: 0.6;
     transform: rotate(-25deg);
     &.stamp {
         margin-top: auto;
-    }
-}
-.fully-booked {
-    margin-top: -2em;
-    color: red;
-    border-color: red;
-    font-size: 300%;
-    &.stamp {
         font-size: 150%;
+        opacity: 0.7;
+        position: absolute;
         top:40px;
-        left:80px;
-    }
-}
-.very-popular {
-    color: darkgreen;
-    border-color: darkgreen;
-    font-size: 150%;
-    left: 120px;
-    margin-top: -1em;
-    &.stamp {
-        margin:0;
-        font-size: 100%;
-        top:65px;
-        left:120px;
+        left:40px;
     }
 }
 
@@ -1341,21 +1324,13 @@ a .speakerinfo {
     }
     .fully-booked {
         &.stamp {
-            top:10px;
-            left: 140px;
+            top: 20px;
             line-height: 1.2em;
             font-size: 120%;
         }
     }
-    .very-popular {
-        &.stamp {
-            top:10px;
-            line-height: 1.2em;
-            font-size: 100%;
-            left: 150px;
-        }
-    }
 }
+
 @media (max-width: 480px) {
     .content {
         font-size: 95%;
