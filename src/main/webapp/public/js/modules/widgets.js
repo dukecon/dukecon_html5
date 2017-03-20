@@ -191,6 +191,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + ' <img class="language-icon" src="" data-bind="attr: {src: talk.languageIcon, alt: talk.languageDisplay}, css: {\'no-speaker\': !talk.speakerString}">'
             + ' </div>'
             + ' <div style="display:none;" class="fully-booked stamp" data-bind="resource: \'fullyBooked\', visible: talk.fullyBooked"></div>'
+            + ' <div style="display:none;" class="very-popular stamp" data-bind="resource: \'veryPopular\', visible: talk.veryPopular() && !talk.fullyBooked()"></div>'
             + ' <div class="speaker"><span data-bind="text: talk.speakerString" /></div>'
             + ' <div data-bind="attr: {class: talk.timeClass}">'
             + ' <img width="16px" height="16px" src="img/Clock.png" alt="Startzeit" title="Startzeit"/>'

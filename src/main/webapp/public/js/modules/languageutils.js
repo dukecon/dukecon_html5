@@ -77,6 +77,10 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
             "de" : "voll besetzt",
             "en" : "fully booked"
         },
+        veryPopular : {
+            "de" : "BELIEBT!",
+            "en" : "POPULAR!"
+        },
         language : {
             'de' : 'Sprache',
             'en' : 'Language'
