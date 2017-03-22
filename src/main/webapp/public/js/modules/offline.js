@@ -70,6 +70,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
             dukeconsettings.saveSetting(dukeconsettings.keys.offline, true);
             dukeconsettings.saveSetting(dukeconsettings.keys.previously_offline, false);
             if (checkUpdateIntervalHandle) {
+                console.log("clear interval for updates from server");
                 window.clearInterval(checkUpdateIntervalHandle);
             }
         }
@@ -99,15 +100,17 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                 }
             }
             else if (!offline) {
-                urlprovider.getJsonUrl(function(url) {
-                    getDataFromServer(url, callback);
+                urlprovider.getData(function(data) {
+                    getDataFromServer(data.jsonUrl, callback);
                 });
             }
         });
     };
-	
+
     var updateBookingsAndFavorites = function(data, callback) {
         updateCheck(true);
+        var dirty = false;
+
 		var findByEventId = function(events, eventId) {
 			var i;
 			for (i = 0; i < events.length; i += 1) {
@@ -119,22 +122,31 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 		};
 
 		var addDeltaToConferences = function(events, delta) {
-			var i;
+		    var i;
 			for (i = 0; i < delta.length; i += 1) {
 				var event = findByEventId(events, delta[i].eventId);
 				if (event) {
-					event.fullyBooked = delta[i].fullyBooked;
-					event.numberOfFavorites = delta[i].numberOfFavorites;
+				    if (event.fullyBooked !== delta[i].fullyBooked) {
+    					event.fullyBooked = delta[i].fullyBooked;
+    					dirty = true;
+                    }
+                    if (event.numberOfFavorites !== delta[i].numberOfFavorites) {
+					    event.numberOfFavorites = delta[i].numberOfFavorites;
+                        dirty = true;
+                    }
 				}
 			}
 			return events;
 		};
 
-		urlprovider.getBookingsUrl(function(bookingsUrl) {
-			doServerRequest(bookingsUrl,
+		urlprovider.getData(function(urlData) {
+			doServerRequest(urlData.bookingsUrl,
 				function(bookings) {
 					data.events = addDeltaToConferences(data.events, bookings);
-					dukecondb.save(dukecondb.talk_store, data);
+                    if (dirty) {
+                        console.log("new bookings found, adding them to talks");
+    					dukecondb.save(dukecondb.talk_store, data);
+                    }
    					callback(data);
 					updateCheck(false);
 				}, function () {
@@ -167,8 +179,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                 }
                 updateCheck(false);
             };
-            urlprovider.getJsonUrl(function(url) {
-                doServerRequest(url, successCallback, function () {
+            urlprovider.getData(function(urlData) {
+                doServerRequest(urlData.jsonUrl, successCallback, function () {
                     console.log('No connection to server');
                     updateCheck(false);
                 }, {"If-None-Match": oldCacheHash});
@@ -184,6 +196,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                 etag = data.etag;
                 dukecondb.save(dukecondb.talk_store, data);
                 updateCheck(true);
+                console.log("fetched data, checking bookings");
 				updateBookingsAndFavorites(data, callbackOnNewData);
                 callback(data);
             }

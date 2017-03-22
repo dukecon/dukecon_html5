@@ -5,9 +5,19 @@ define(
         var currentBaseUrl = window.location.href
             .replace(/\/[^\/]+\.html\S*/ig, "")
             .replace(/#\S*/g, "")
+            .replace(/\?\S*/g, "")
             .replace(/\/$/ig, "");
         console.log('Using currentBaseUrl: "' + currentBaseUrl + '"');
-        var jsonUrl, customCssUrl, bookingsUrl, initialized = false;
+
+        var data = {
+            jsonUrl: null,
+            customCssUrl: null,
+            bookingsUrl: null,
+            homepageName: null,
+            homepageUrl: null
+        };
+
+        var initialized = false;
         var allQueryParams;
 
         function getQueryParams() {
@@ -54,13 +64,13 @@ define(
         }
 
         function setUrls(newUrl, allowOverride) {
-             jsonUrl = newUrl;
+             data.jsonUrl = newUrl;
              if (allowOverride && getUrlVar("conference") != undefined) {
-                 jsonUrl = insertConferenceIdIntoUrl(jsonUrl, getUrlVar("conference"));
+                 data.jsonUrl = insertConferenceIdIntoUrl(data.jsonUrl, getUrlVar("conference"));
                  console.log('detected conference id from url parameter: ' + getUrlVar("conference"));
              }
-             bookingsUrl = jsonUrl.replace("conferences", "eventsBooking");
-             customCssUrl = jsonUrl.replace(".json", "") + cssFile;
+             data.bookingsUrl = data.jsonUrl.replace("conferences", "eventsBooking");
+             data.customCssUrl = data.jsonUrl.replace(".json", "") + cssFile;
          }
 
         function loadInitData(callback) {
@@ -68,13 +78,16 @@ define(
             $.ajax({
                 url: currentBaseUrl + '/rest/init.json',
                 dataType: 'json',
-                success: function (data) {
-                    if (data.id != undefined) {
-                        setUrls(insertConferenceIdIntoUrl(jsonUrl, data.id), false);
-                        console.log('detected conference id from init call: ' + data.id)
+                success: function (result) {
+                    if (result.id != undefined) {
+                        setUrls(insertConferenceIdIntoUrl(data.jsonUrl, result.id), false);
+                        data.homepageName = result.name;
+                        data.homepageUrl = result.homeUrl;
+                        document.title = result.name;
+                        console.log('detected conference id from init call: ' + result.id)
                     }
                     if (callback) {
-                        callback(jsonUrl, customCssUrl, bookingsUrl);
+                        callback(data);
                     }
                     initialized = true;
                 },
@@ -92,37 +105,15 @@ define(
 
         return {
             imageBaseUrl: currentBaseUrl + '/rest/speaker/images/',
-            getJsonUrl: function(callback) {
+            getData: function(callback) {
                 callback = callback || emptyFunc;
                 if (!initialized) {
-                    loadInitData(function(jsonUrl, unused1, unused2) {
-                        callback(jsonUrl);
+                    loadInitData(function(data) {
+                        callback(data);
                     });
                 }
                 else {
-                    callback(jsonUrl);
-                }
-            },
-            getCustomCssUrl: function(callback) {
-                callback = callback || emptyFunc;
-                if (!initialized) {
-                    loadInitData(function(unused1, customCssUrl, unused2) {
-                        callback(customCssUrl);
-                    });
-                }
-                else {
-                    callback(customCssUrl);
-                }
-            },
-            getBookingsUrl: function(callback) {
-                callback = callback || emptyFunc;
-                if (!initialized) {
-                    loadInitData(function(unused1, unused2, bookingsUrl) {
-                        callback(bookingsUrl);
-                    });
-                }
-                else {
-                    callback(bookingsUrl);
+                    callback(data);
                 }
             },
             getUrlParam: getUrlVar,

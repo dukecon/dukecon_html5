@@ -1,4 +1,4 @@
-define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/dukecon'], function(ko, languageUtils, dukeconTalkUtils, dukecloak, dukecon) {
+define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/urlprovider', 'js/modules/dukecon'], function(ko, languageUtils, dukeconTalkUtils, dukecloak, urlprovider, dukecon) {
     "use strict";
 
     //noinspection JSUnusedLocalSymbols
@@ -34,9 +34,11 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             me.homeTitle = ko.observable();
             me.homeUrl = ko.observable();
 
-            dukeconTalkUtils.getData(function (allData) {
-                me.homeTitle(allData.name);
-                me.homeUrl(allData.homeUrl);
+            urlprovider.getData(function (data) {
+                if (data) {
+                    me.homeTitle(data.homepageName);
+                    me.homeUrl(data.homepageUrl);
+                }
             });
 
             me.getCssClass = function(item) {

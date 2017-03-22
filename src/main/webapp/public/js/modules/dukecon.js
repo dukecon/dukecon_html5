@@ -242,8 +242,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         function addCustomCss() {
 			// insert the custom style into the html, if not already done
 			if ($('#styleCssNode').length === 0) {
-				urlprovider.getCustomCssUrl(function (url) {
-					$('head').append($('<link id="styleCssNode" rel="stylesheet" href="' + url + '"/>'));
+				urlprovider.getData(function (urlData) {
+					$('head').append($('<link id="styleCssNode" rel="stylesheet" href="' + urlData.customCssUrl + '"/>'));
 				});
 			}
         }
@@ -251,11 +251,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         function initializeApp() {
             languageUtils.init();
             offline.init();
-            offline.getData(function(allData) {
-                if (allData) {
-                    document.title = allData.name;
-                }
-            });
             addCustomCss();
         }
 

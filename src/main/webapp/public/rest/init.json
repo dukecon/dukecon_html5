@@ -1,1 +1,10 @@
-{"id":"jl2017", "name":"javaland"}
+{
+  "id": "jl2017",
+  "name": "JavaLand 2017",
+  "year": "2017",
+  "url": "http://javaland.dukecon.org/2017",
+  "homeUrl": "http://www.javaland.eu",
+  "homeTitle": null,
+  "startDate": "2017-03-28",
+  "endDate": "2017-03-30"
+}
