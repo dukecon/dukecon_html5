@@ -3,9 +3,9 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 
     var etag;
 
-    var callbackOnNewData;
+    var callbackOnNewData, checkUpdateIntervalSeconds = 90, checkUpdateIntervalHandle;
 
-    var init = function() {
+	var init = function() {
         // These variables are set when the application cache events are triggered before the init method
         if (duke_cachestatus === 'updateready') {
             onUpdateReady(duke_status);
@@ -69,14 +69,17 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
             console.log("We are offline");
             dukeconsettings.saveSetting(dukeconsettings.keys.offline, true);
             dukeconsettings.saveSetting(dukeconsettings.keys.previously_offline, false);
+            if (checkUpdateIntervalHandle) {
+                window.clearInterval(checkUpdateIntervalHandle);
+            }
         }
         else {
             console.log("We are online - starting timer to check for updates");
             dukeconsettings.saveSetting(dukeconsettings.keys.previously_offline, dukeconsettings.getSetting(dukeconsettings.keys.offline));
             dukeconsettings.saveSetting(dukeconsettings.keys.offline, false);
-            setInterval(function() {
+			checkUpdateIntervalHandle = setInterval(function() {
                 checkNewDataOnServer();
-            }, 300000);
+            }, checkUpdateIntervalSeconds * 1000);
             dukecloak.dukecloak.nowOnline();
         }
     }
@@ -102,7 +105,46 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
             }
         });
     };
+	
+    var updateBookingsAndFavorites = function(data, callback) {
+        updateCheck(true);
+		var findByEventId = function(events, eventId) {
+			var i;
+			for (i = 0; i < events.length; i += 1) {
+				if (events[i].id == eventId) {
+					return events[i];
+				}
+			}
+			return null;
+		};
 
+		var addDeltaToConferences = function(events, delta) {
+			var i;
+			for (i = 0; i < delta.length; i += 1) {
+				var event = findByEventId(events, delta[i].eventId);
+				if (event) {
+					event.fullyBooked = delta[i].fullyBooked;
+					event.numberOfFavorites = delta[i].numberOfFavorites;
+				}
+			}
+			return events;
+		};
+
+		urlprovider.getBookingsUrl(function(bookingsUrl) {
+			doServerRequest(bookingsUrl,
+				function(bookings) {
+					data.events = addDeltaToConferences(data.events, bookings);
+					dukecondb.save(dukecondb.talk_store, data);
+   					callback(data);
+					updateCheck(false);
+				}, function () {
+					console.log('No connection to server for bookings');
+					updateCheck(false);
+				});
+		});
+        
+    };
+    
     var checkNewDataOnServer = function() {
         if (callbackOnNewData) {
             updateCheck(true);
@@ -115,8 +157,13 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                     data.etag = xhr.getResponseHeader("ETag");
                     etag = data.etag;
                     console.log("New Data on server; replacing old data in store");
-                    dukecondb.save(dukecondb.talk_store, data);
-                    callbackOnNewData(data)
+					dukecondb.save(dukecondb.talk_store, data);
+					updateBookingsAndFavorites(data, callbackOnNewData);
+                } else {
+                    console.log("No new talks, getting favorites and bookings");
+					dukecondb.get(dukecondb.talk_store, function(dbValue) {
+                        updateBookingsAndFavorites(dbValue, callbackOnNewData);
+                    });
                 }
                 updateCheck(false);
             };
@@ -136,6 +183,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                 data.etag = xhr.getResponseHeader("ETag");
                 etag = data.etag;
                 dukecondb.save(dukecondb.talk_store, data);
+                updateCheck(true);
+				updateBookingsAndFavorites(data, callbackOnNewData);
                 callback(data);
             }
         };
@@ -144,6 +193,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
             dukecondb.get(dukecondb.talk_store, function(data) {
                 if (data) {
                     etag = data.etag;
+					updateBookingsAndFavorites(data, callbackOnNewData);
                     callback(data);
                 }
                 else {

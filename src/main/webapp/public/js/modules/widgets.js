@@ -143,7 +143,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '<a target="_blank" data-bind="resource: \'imprint\', attr: { href: imprintLink}"></a> '
             + '<a target="_blank" data-bind="resource: \'privacy\', visible: privacyLink(), attr: { href: privacyLink}"></a> '
             + '<a target="_blank" data-bind="resource: \'termsOfUse\', visible: termsLink(), attr: { href: termsLink}"></a> '
-            + '<span>powered by<a href="http://www.dukecon.org" target="_blank">DukeCon</a></span>'
+            + '<span id="poweredByDukecon">powered by<a href="http://www.dukecon.org" target="_blank">DukeCon</a></span>'
             + '</div>'
     });
 

@@ -7,7 +7,7 @@ define(
             .replace(/#\S*/g, "")
             .replace(/\/$/ig, "");
         console.log('Using currentBaseUrl: "' + currentBaseUrl + '"');
-        var jsonUrl, customCssUrl, initialized = false;
+        var jsonUrl, customCssUrl, bookingsUrl, initialized = false;
         var allQueryParams;
 
         function getQueryParams() {
@@ -59,6 +59,7 @@ define(
                  jsonUrl = insertConferenceIdIntoUrl(jsonUrl, getUrlVar("conference"));
                  console.log('detected conference id from url parameter: ' + getUrlVar("conference"));
              }
+             bookingsUrl = jsonUrl.replace("conferences", "eventsBooking");
              customCssUrl = jsonUrl.replace(".json", "") + cssFile;
          }
 
@@ -73,7 +74,7 @@ define(
                         console.log('detected conference id from init call: ' + data.id)
                     }
                     if (callback) {
-                        callback(jsonUrl, customCssUrl);
+                        callback(jsonUrl, customCssUrl, bookingsUrl);
                     }
                     initialized = true;
                 },
@@ -94,7 +95,7 @@ define(
             getJsonUrl: function(callback) {
                 callback = callback || emptyFunc;
                 if (!initialized) {
-                    loadInitData(function(jsonUrl, unused) {
+                    loadInitData(function(jsonUrl, unused1, unused2) {
                         callback(jsonUrl);
                     });
                 }
@@ -105,12 +106,23 @@ define(
             getCustomCssUrl: function(callback) {
                 callback = callback || emptyFunc;
                 if (!initialized) {
-                    loadInitData(function(unused, customCssUrl) {
+                    loadInitData(function(unused1, customCssUrl, unused2) {
                         callback(customCssUrl);
                     });
                 }
                 else {
                     callback(customCssUrl);
+                }
+            },
+            getBookingsUrl: function(callback) {
+                callback = callback || emptyFunc;
+                if (!initialized) {
+                    loadInitData(function(unused1, unused2, bookingsUrl) {
+                        callback(bookingsUrl);
+                    });
+                }
+                else {
+                    callback(bookingsUrl);
                 }
             },
             getUrlParam: getUrlVar,
