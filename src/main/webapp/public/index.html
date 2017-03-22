@@ -22,7 +22,7 @@
     <div class="alert-button"><button data-bind="resource: 'cookieDisclaimerOK', click : function() { closeCookieDisclaimer(); }"></button></div>
 </div>
 <login-widget></login-widget>
-<header-widget params="value: 'talks'"></header-widget><a name="top" id="top">&nbsp;</a>
+<header-widget params="value: 'talks'"></header-widget><a id="top">&nbsp;</a>
 <search-widget params="searchTerm: searchTerm"></search-widget>
 
 <div id="loading">&nbsp;</div>
@@ -72,7 +72,7 @@
         </div>
     </div>
 
-    <div id="content"data-bind="css: { 'search-result' : $root.searchTerm().length > 2 }">
+    <div id="content" data-bind="css: { 'search-result' : $root.searchTerm().length > 2 }">
         <div id="swipeable" data-bind="visible: searchTerm().length <= 2">
             <div id="days_filter" data-bind="foreach: days">
                 <button type="button" data-bind="text: $data.displayDay, click: $parent.updateDay, attr: { class: 'day-widescreen' + ($index() == $parent.selectedDayIndex() ? ' highlightBack' : '')}"></button>
