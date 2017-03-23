@@ -3,8 +3,25 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 
     var etag;
 
-    var callbackOnNewData, checkUpdateIntervalSeconds = 90, checkUpdateIntervalHandle;
-
+    var callbackOnNewData, checkUpdateIntervalSeconds = 90, checkUpdateIntervalHandle = null;
+	
+	var addCheckUpdateInterval = function() {
+		if (!checkUpdateIntervalHandle) {
+    		console.log("We are online - starting timer to check for updates");
+			checkUpdateIntervalHandle = setInterval(function() {
+				checkNewDataOnServer();
+			}, checkUpdateIntervalSeconds * 1000);
+		}
+	};
+	
+	var removeCheckUpdateInterval = function() {
+		if (checkUpdateIntervalHandle) {
+			console.log("clear interval for updates from server");
+			window.clearInterval(checkUpdateIntervalHandle);
+			checkUpdateIntervalHandle = null;
+		}
+	};
+	
 	var init = function() {
         // These variables are set when the application cache events are triggered before the init method
         if (duke_cachestatus === 'updateready') {
@@ -16,19 +33,21 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
         else if (duke_cachestatus === 'cached' || duke_cachestatus === 'noupdate') {
             setOfflineStatus(false)
         }
-
+        
+		addCheckUpdateInterval();
+        
         // In case these events are triggered after the init method, we add a listener
-        window.addEventListener('load', function(e) {
-            window.applicationCache.addEventListener('updateready', function(e) {
+        window.addEventListener('load', function() {
+            window.applicationCache.addEventListener('updateready', function() {
                 onUpdateReady(window.applicationCache.status);
             }, false);
-            window.applicationCache.addEventListener("error", function(e) {
+            window.applicationCache.addEventListener("error", function() {
                 setOfflineStatus(true);
             });
-            window.applicationCache.addEventListener("cached", function(e) {
+            window.applicationCache.addEventListener("cached", function() {
                 setOfflineStatus(false);
             });
-            window.applicationCache.addEventListener("noupdate", function(e) {
+            window.applicationCache.addEventListener("noupdate", function() {
                 setOfflineStatus(false);
             });
         }, false);
@@ -69,25 +88,19 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
             console.log("We are offline");
             dukeconsettings.saveSetting(dukeconsettings.keys.offline, true);
             dukeconsettings.saveSetting(dukeconsettings.keys.previously_offline, false);
-            if (checkUpdateIntervalHandle) {
-                console.log("clear interval for updates from server");
-                window.clearInterval(checkUpdateIntervalHandle);
-            }
+            removeCheckUpdateInterval();
         }
         else {
-            console.log("We are online - starting timer to check for updates");
             dukeconsettings.saveSetting(dukeconsettings.keys.previously_offline, dukeconsettings.getSetting(dukeconsettings.keys.offline));
             dukeconsettings.saveSetting(dukeconsettings.keys.offline, false);
-			checkUpdateIntervalHandle = setInterval(function() {
-                checkNewDataOnServer();
-            }, checkUpdateIntervalSeconds * 1000);
+            addCheckUpdateInterval();
             dukecloak.dukecloak.nowOnline();
         }
     }
 
     var updateCheck = ko.observable(false);
 
-    var getData = function(callback) {
+    function getData(callback) {
         callbackOnNewData = callback;
 
         dukecondb.get(dukecondb.talk_store, function (data) {
@@ -105,9 +118,9 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                 });
             }
         });
-    };
+    }
 
-    var updateBookingsAndFavorites = function(data, callback) {
+    function updateBookingsAndFavorites(data, callback) {
         updateCheck(true);
         var dirty = false;
 
@@ -146,8 +159,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                     if (dirty) {
                         console.log("new bookings found, adding them to talks");
     					dukecondb.save(dukecondb.talk_store, data);
+       					callback(data);
                     }
-   					callback(data);
 					updateCheck(false);
 				}, function () {
 					console.log('No connection to server for bookings');
@@ -155,9 +168,9 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 				});
 		});
         
-    };
+    }
     
-    var checkNewDataOnServer = function() {
+    function checkNewDataOnServer() {
         if (callbackOnNewData) {
             updateCheck(true);
             console.log('Check for new data on server');
@@ -170,6 +183,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                     etag = data.etag;
                     console.log("New Data on server; replacing old data in store");
 					dukecondb.save(dukecondb.talk_store, data);
+					callbackOnNewData(data);
 					updateBookingsAndFavorites(data, callbackOnNewData);
                 } else {
                     console.log("No new talks, getting favorites and bookings");
@@ -186,9 +200,9 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                 }, {"If-None-Match": oldCacheHash});
             });
         }
-    };
+    }
 
-    var getDataFromServer = function(url, callback) {
+    function getDataFromServer(url, callback) {
         console.log("Retrieving data from server");
         var successCallback = function(data, status, xhr) {
             if (data) {
@@ -215,9 +229,9 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
             });
         };
         doServerRequest(url, successCallback, errorCallback);
-    };
+    }
 
-    var doServerRequest = function(url, successCallback, errorCallback, headers) {
+    function doServerRequest(url, successCallback, errorCallback, headers) {
         $.ajax({
             method: 'GET',
             dataType: "json",
@@ -226,7 +240,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
             success: successCallback,
             error: errorCallback
         });
-    };
+    }
 
     return {
         init : init,
