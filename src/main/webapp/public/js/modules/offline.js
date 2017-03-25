@@ -2,6 +2,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
     var reloadInPrivateMode = ko.observable(false);
 
     var etag;
+    var etagForBookings;
 
     var callbackOnNewData, checkUpdateIntervalSeconds = 90, checkUpdateIntervalHandle = null;
 	
@@ -53,7 +54,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
         }, false);
 
 
-        window.onerror = function(msg, url, linenumber) {
+        window.onerror = function(msg, url) {
             if (msg === 'InvalidStateError' && url.indexOf('dukecondb.js') != -1) {
                 console.log('Error opening indexeddb; browser seems to be in private mode');
                 duke_privatemode = true;
@@ -122,7 +123,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 
     function updateBookingsAndFavorites(data, callback) {
         updateCheck(true);
-        var dirty = false;
+        var oldCacheHash = etagForBookings;
 
 		var findByEventId = function(events, eventId) {
 			var i;
@@ -141,11 +142,9 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 				if (event) {
 				    if (event.fullyBooked !== delta[i].fullyBooked) {
     					event.fullyBooked = delta[i].fullyBooked;
-    					dirty = true;
                     }
                     if (event.numberOfFavorites !== delta[i].numberOfFavorites) {
 					    event.numberOfFavorites = delta[i].numberOfFavorites;
-                        dirty = true;
                     }
 				}
 			}
@@ -154,18 +153,23 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 
 		urlprovider.getData(function(urlData) {
 			doServerRequest(urlData.bookingsUrl,
-				function(bookings) {
-					data.events = addDeltaToConferences(data.events, bookings);
-                    if (dirty) {
+				function(bookings, status, xhr) {
+                    if (bookings) {
+                        data.etagForBookings = xhr.getResponseHeader("ETag");
+                        etagForBookings = data.etagForBookings;
                         console.log("new bookings found, adding them to talks");
-    					dukecondb.save(dukecondb.talk_store, data);
-       					callback(data);
+                        data.events = addDeltaToConferences(data.events, bookings);
+                        dukecondb.save(dukecondb.talk_store, data);
+                        callback(data);
                     }
-					updateCheck(false);
+                    else {
+                        console.log("No new room bookings.");
+                    }
+                    updateCheck(false);
 				}, function () {
 					console.log('No connection to server for bookings');
 					updateCheck(false);
-				});
+				}, {"If-None-Match": oldCacheHash});
 		});
         
     }
