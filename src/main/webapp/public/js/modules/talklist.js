@@ -311,9 +311,10 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukeconsettings', 'js/mo
             ko.applyBindings(dukeconTalklistModel);
             
             if (urlHelper.getUrlParam("search")) {
-                setTimeout(function() {
+                var handle = setInterval(function() {
                     dukeconTalklistModel.searchTerm(urlHelper.getUrlParam("search") || "");
-                }, 500);  // timeout needed to allow for ko-rendering
+                    window.clearInterval(handle);
+                }, 1000);
             }
         }
 
