@@ -7,7 +7,8 @@ define(
             customCssUrl: null,
             bookingsUrl: null,
             homepageName: null,
-            homepageUrl: null
+            homepageUrl: null,
+            loginEnabled: null
         };
 
         var initialized = false;
@@ -82,10 +83,11 @@ define(
                 url: currentBaseUrl + '/rest/init.json',
                 dataType: 'json',
                 success: function (result) {
-                    if (result.id != undefined) {
+                    if (result.id) {
                         setUrls(insertConferenceIdIntoUrl(data.jsonUrl, result.id), false);
                         data.homepageName = result.name;
                         data.homepageUrl = result.homeUrl;
+                        data.loginEnabled = !!result.loginEnabled;
                         document.title = result.name;
                         console.log('detected conference id from init call: ' + result.id)
                     }

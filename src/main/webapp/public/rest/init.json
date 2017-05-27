@@ -6,5 +6,6 @@
   "homeUrl": "http://www.javaland.eu",
   "homeTitle": null,
   "startDate": "2017-03-28",
-  "endDate": "2017-03-30"
+  "endDate": "2017-03-30",
+  "loginEnabled": true
 }
