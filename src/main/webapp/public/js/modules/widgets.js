@@ -90,17 +90,17 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
     ko.components.register('login-widget', {
         viewModel : function(params) {
             var me = this;
-            me.loginEnabled = ko.observable(false);
+            me.authEnabled = ko.observable(false);
             me.dukecloak = dukecloak.dukecloak;
             urlprovider.getData(function (data) {
                 if (data) {
-                    me.loginEnabled(data.loginEnabled);
+                    me.authEnabled(data.authEnabled);
                 }
             });
 
         },
         template:
-            '<div id="login-area" class="hidden" data-bind="visible: dukecloak && loginEnabled">'
+            '<div id="login-area" class="hidden" data-bind="visible: dukecloak && authEnabled">'
             + '     <div>'
 			+ '         <a class="button" data-bind="click: dukecloak.login, visible: dukecloak.auth.loggedOut" name="login"><img alt="Sign in/Register" title="Sign in/Register" src="img/unlock_24px.svg"></a>'
 			+ '         <a class="button" data-bind="click: dukecloak.logout, visible: dukecloak.auth.loggedIn" name="logout"><img alt="Sign Out" title="Sign Out" src="img/lock_24px.svg"></a>'
