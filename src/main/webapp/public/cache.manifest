@@ -67,6 +67,7 @@ js/modules/gravatar.js
 js/modules/languageutils.js
 js/modules/offline.js
 js/modules/urlprovider.js
+js/modules/imageprovider.js
 js/modules/schedule.js
 js/modules/speakers.js
 js/modules/speaker.js
