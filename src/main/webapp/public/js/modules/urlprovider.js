@@ -2,13 +2,6 @@ define(
     ['jquery'],
     function($) {
         var cssFile = "/styles.css";
-        var currentBaseUrl = window.location.href
-            .replace(/\/[^\/]+\.html\S*/ig, "")
-            .replace(/#\S*/g, "")
-            .replace(/\?\S*/g, "")
-            .replace(/\/$/ig, "");
-        console.log('Using currentBaseUrl: "' + currentBaseUrl + '"');
-
         var data = {
             jsonUrl: null,
             customCssUrl: null,
@@ -19,6 +12,16 @@ define(
 
         var initialized = false;
         var allQueryParams;
+
+        function getCurrentBaseUrl() {
+            return window.location.href
+                .replace(/\/[^\/]+\.html\S*/ig, "")
+                .replace(/#\S*/g, "")
+                .replace(/\?\S*/g, "")
+                .replace(/\/$/ig, "");
+        }
+        var currentBaseUrl = getCurrentBaseUrl();
+        console.log('Url provider using currentBaseUrl: "' + currentBaseUrl + '"');
 
         function getQueryParams() {
             var vars = {};
@@ -116,6 +119,7 @@ define(
                     callback(data);
                 }
             },
+            getCurrentBaseUrl: getCurrentBaseUrl,
             getUrlParam: getUrlVar,
             setUrlParam: setUrlVar
         };

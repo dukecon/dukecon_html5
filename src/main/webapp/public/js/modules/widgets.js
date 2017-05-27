@@ -1,4 +1,5 @@
-define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/urlprovider', 'js/modules/dukecon'], function(ko, languageUtils, dukeconTalkUtils, dukecloak, urlprovider, dukecon) {
+define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/urlprovider', 'js/modules/imageprovider', 'js/modules/dukecon'],
+    function(ko, languageUtils, dukeconTalkUtils, dukecloak, urlprovider, imageprovider, dukecon) {
     "use strict";
 
     //noinspection JSUnusedLocalSymbols
@@ -33,11 +34,18 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             me.toggleLanguage = languageUtils.toggleLanguage;
             me.homeTitle = ko.observable();
             me.homeUrl = ko.observable();
+            me.logo = ko.observable(imageprovider.defaultImage);
 
             urlprovider.getData(function (data) {
                 if (data) {
                     me.homeTitle(data.homepageName);
                     me.homeUrl(data.homepageUrl);
+                }
+            });
+
+            imageprovider.getByName("logo", function (image) {
+                if (image) {
+                    me.logo(image);
                 }
             });
 
@@ -62,7 +70,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
         template:
             '<div class="header hidden">'
             + '<h1 id="headertitle" class="darkBack reverse">'
-            + '	<a id="logo" href="index.html"><img src="img/logo_javaland.gif" title="javaland 2016"/></a>'
+            + '	<a id="logo" href="index.html"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" data-bind="attr: {src: logo}"/></a>'
             + '	<span id="backbutton_before"></span><a id="backbutton" onclick="window.history.back();" data-bind="resource: \'backbutton\'"></a>'
             + ' <span id="pagetitle" data-bind="resource: active"></span>'
             + ' <div id="mainmenu-button" data-bind="click: toggleMenu"><img src="img/menu_24px.svg"></div>'
