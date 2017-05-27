@@ -43,7 +43,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
                 }
             });
 
-            imageprovider.getByName("logo", function (image) {
+            imageprovider.getByName("conferenceImage", function (image) {
                 if (image) {
                     me.logo(image);
                 }

@@ -16,7 +16,6 @@ define(
                 success: function (result) {
                     imageResources = result;
                     imageResources.loaded = true;
-                    console.log(imageResources);
                     if (callback) {
                         callback(imageResources[name] || defaultImage);
                     }
