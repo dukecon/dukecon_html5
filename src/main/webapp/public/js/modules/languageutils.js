@@ -58,8 +58,8 @@ define(['knockout', 'js/modules/dukeconsettings', 'js/modules/browserinfo'], fun
             'en' : 'Audience'
         },
         track : {
-            'de' : 'Track',
-            'en' : 'Track'
+            'de' : 'Stream',
+            'en' : 'Stream'
         },
         location : {
             'de' : 'Ort',

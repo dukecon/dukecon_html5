@@ -217,7 +217,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '   &nbsp;<img width="16px" height="16px" src="img/StarFilled.png" alt="Favoriten"/><span data-bind="text: talk.numberOfFavorites"></span>'
             + '<!-- /ko -->'
             + ' </div>'
-            + ' <div class="track" data-bind="visible: talk.isTrackVisible"><img width="16" height="16" data-bind="attr: {src: talk.talkIcon }" alt="Track" title="Track"/> <span data-bind="text: talk.trackDisplay" /></div>'
+            + ' <div class="track" data-bind="visible: talk.isTrackVisible"><img width="16" height="16" data-bind="attr: {src: talk.talkIcon }" alt="Stream" title="Stream"/> <span data-bind="text: talk.trackDisplay" /></div>'
             + ' </div>'
             + '</div>'
             + '<!-- /ko -->'
