@@ -52,7 +52,7 @@ define(['js/modules/talklist', 'js/modules/languageutils'], function(talklist, l
             model.initializeFilters(metadata);
             expectFilter(model.filters[0], "Zielgruppe", "level", [new talklist.FilterValue("audiences", metadata.audiences[0], false), new talklist.FilterValue("audiences", metadata.audiences[1], false)], false);
             expectFilter(model.filters[1], "Sprache", "language", [new talklist.FilterValue("languages", metadata.languages[0], false), new talklist.FilterValue("languages", metadata.languages[1], false)], false);
-            expectFilter(model.filters[2], "Track", "track", [new talklist.FilterValue("tracks", metadata.tracks[0], false), new talklist.FilterValue("tracks", metadata.tracks[1], false)], false);
+            expectFilter(model.filters[2], "Stream", "track", [new talklist.FilterValue("tracks", metadata.tracks[0], false), new talklist.FilterValue("tracks", metadata.tracks[1], false)], false);
             expectFilter(model.filters[3], "Ort", "location", [new talklist.FilterValue("locations", metadata.locations[0], false), new talklist.FilterValue("locations", metadata.locations[1], false)], false);
             done();
         });
@@ -63,7 +63,7 @@ define(['js/modules/talklist', 'js/modules/languageutils'], function(talklist, l
             model.initializeFilters(metadata);
             expectFilter(model.filters[0], "Audience", "level", [new talklist.FilterValue("audiences", metadata.audiences[0], false), new talklist.FilterValue("audiences", metadata.audiences[1], false)], false);
             expectFilter(model.filters[1], "Language", "language", [new talklist.FilterValue("languages", metadata.languages[0], false), new talklist.FilterValue("languages", metadata.languages[1], false)], false);
-            expectFilter(model.filters[2], "Track", "track", [new talklist.FilterValue("tracks", metadata.tracks[0], false), new talklist.FilterValue("tracks", metadata.tracks[1], false)], false);
+            expectFilter(model.filters[2], "Stream", "track", [new talklist.FilterValue("tracks", metadata.tracks[0], false), new talklist.FilterValue("tracks", metadata.tracks[1], false)], false);
             expectFilter(model.filters[3], "Location", "location", [new talklist.FilterValue("locations", metadata.locations[0], false), new talklist.FilterValue("locations", metadata.locations[1], false)], false);
             done();
         });
