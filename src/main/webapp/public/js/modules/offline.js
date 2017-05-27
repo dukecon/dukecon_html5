@@ -4,7 +4,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
     var etag;
     var etagForBookings;
 
-    var callbackOnNewData, checkUpdateIntervalSeconds = 90, checkUpdateIntervalHandle = null;
+    var callbackOnNewData, checkUpdateIntervalSeconds = 1800, checkUpdateIntervalHandle = null;
 	
 	var addCheckUpdateInterval = function() {
 		if (!checkUpdateIntervalHandle) {
