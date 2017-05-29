@@ -37,7 +37,7 @@ table, th, td {
     display: inline-block;
     vertical-align: top;
     margin-top: 5px;
-    width: 15em;
+    width: 14em;
     z-index: 1010;
     img {
         color: @white;
@@ -204,7 +204,7 @@ h1 {
     text-align: right;
 
     #mainmenu-items {
-        position: relative;
+        position: absolute;
         top: 0;
         right: 0;
     }
@@ -214,6 +214,13 @@ h1 {
         display: inline-block;
         margin:0;
         padding: 0;
+        a {
+            display: inline-block;
+            max-width: 12em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
     }
     #pagetitle, #mainmenu-button {
         display: none;
@@ -1001,7 +1008,7 @@ a .speakerinfo {
             #mainmenu-items {
                 height: auto;
                 font-size: smaller;
-                width: 200px;
+                width: 250px;
                 position: fixed;
                 display: none;
                 top: 40px;
@@ -1009,6 +1016,10 @@ a .speakerinfo {
                 &.shown {
                     display: block;
                     box-shadow: 0 2px 3px 0 @boxShadowColor;
+                }
+                a {
+                    display: block;
+                    max-width: none;
                 }
             }
         }
@@ -1050,7 +1061,7 @@ a .speakerinfo {
         #mainmenu-items {
             height: auto;
             font-size: smaller;
-            width: 200px;
+            width: 250px;
             position: fixed;
             display: none;
             display: none;
