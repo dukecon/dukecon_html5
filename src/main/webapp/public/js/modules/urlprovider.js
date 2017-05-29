@@ -8,7 +8,12 @@ define(
             bookingsUrl: null,
             homepageName: null,
             homepageUrl: null,
-            authEnabled: null
+            authEnabled: null,
+            links: {
+                imprint: {},
+                termsOfUse: {},
+                privacy: {}
+            }
         };
 
         var initialized = false;
@@ -88,6 +93,9 @@ define(
                         data.homepageName = result.name;
                         data.homepageUrl = result.homeUrl;
                         data.authEnabled = !!result.authEnabled;
+                        data.links.imprint = result.imprint || {};
+                        data.links.termsOfUse = result.termsOfUse || {};
+                        data.links.privacy = result.privacy || {};
                         document.title = result.name;
                         console.log('detected conference id from init call: ' + result.id)
                     }

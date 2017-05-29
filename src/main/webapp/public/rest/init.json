@@ -1,11 +1,20 @@
 {
   "id": "jl2017",
-  "name": "JavaLand 2017",
+  "name": "Lokal Test",
   "year": "2017",
-  "url": "http://javaland.dukecon.org/2017",
+  "url": "http://latest.dukecon.org/jfs/2016",
   "homeUrl": "http://www.javaland.eu",
   "homeTitle": null,
   "startDate": "2017-03-28",
   "endDate": "2017-03-30",
-  "authEnabled": true
+  "authEnabled": true,
+  "imprint": {
+    "de": "https://www.java-forum-stuttgart.de/de/Impressum.html",
+    "en": "https://www.java-forum-stuttgart.de/de/Impressum.html"
+  },
+  "termsOfUse": null,
+  "privacy": {
+    "de": "https://www.google.de",
+    "en": "https://www.google.com"
+  }
 }
