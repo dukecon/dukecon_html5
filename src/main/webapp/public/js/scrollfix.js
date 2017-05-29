@@ -87,7 +87,7 @@ function unloadP(pageref){
 var hideLoading = function (delayMs, pageId) {
 	// tried knockout-event-catching (ko.bindingHandlers...) but it doesn't work, so adding a minimal timeout here to avoid watching the screen render
 	setTimeout(function () {
-		var loadingDiv = $('#loading'), contentDivs = $('.header, .footer, .content, #login-area, #search-area');
+		var loadingDiv = $('#loading'), contentDivs = $('.header, .footer, .content');
 		contentDivs.removeClass('hidden');
 		if (!loadingDiv.hasClass('hidden')) {
 			loadingDiv.addClass('hidden');

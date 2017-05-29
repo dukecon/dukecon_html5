@@ -21,9 +21,7 @@
     <div data-bind="resource: 'cookieDisclaimer'"></div>
     <div class="alert-button"><button data-bind="resource: 'cookieDisclaimerOK', click : function() { closeCookieDisclaimer(); }"></button></div>
 </div>
-<login-widget></login-widget>
-<header-widget params="value: 'talks'"></header-widget><a id="top">&nbsp;</a>
-<search-widget params="searchTerm: searchTerm"></search-widget>
+<header-widget params="value: 'talks', searchTerm: searchTerm"></header-widget><a id="top">&nbsp;</a>
 
 <div id="loading">&nbsp;</div>
 <div id="layout" class="content hidden">

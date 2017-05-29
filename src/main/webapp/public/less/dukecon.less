@@ -33,10 +33,11 @@ table, th, td {
 }
 
 #search-area {
-    position: fixed;
-    left: 5em;
-    top: 5px;
-    width: 27em;
+    float: left;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 5px;
+    width: 15em;
     z-index: 1010;
     img {
         color: @white;
@@ -45,8 +46,14 @@ table, th, td {
     }
     input {
         -webkit-appearance: none;
+        &::placeholder {
+            color: #aaa;
+        }
+        font-size: smaller;
+        font-weight: normal;
+        color: #777;
         vertical-align: top;
-        width: calc(100% - 40px);
+        width: 80%;
         padding: 1px;
         border: 1px solid;
         height: 24px;
@@ -69,10 +76,9 @@ table, th, td {
     }
 }
 #login-area {
-    position: fixed;
-    left: 5em;
-    top: 6px;
-    z-index: 1011;
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
     img {
         color: @white;
         &:hover {
@@ -93,6 +99,7 @@ table, th, td {
     .username {
         margin-right:0;
         padding-left:0;
+        line-height: 2em;
         color: white;
     }
     a.username:hover {
@@ -111,9 +118,6 @@ table, th, td {
             margin-top: -2px;
         }
     }
-}
-.has-search #login-area {
-    left: 24.5em;
 }
 
 button, .button {
@@ -1024,8 +1028,6 @@ a .speakerinfo {
             margin-left:0;
         }
         #login-area {
-            left: auto !important;
-            right: 2.5em !important;
             .username {
                 display:none;
             }
@@ -1051,6 +1053,7 @@ a .speakerinfo {
             width: 200px;
             position: fixed;
             display: none;
+            display: none;
             top: 40px;
             right: 0;
             &.shown {
@@ -1075,8 +1078,8 @@ a .speakerinfo {
         margin-left:0;
     }
     #login-area {
-        left: auto !important;
-        right: 2.5em !important;
+        position: absolute;
+        right: 2em;
         .username {
             display:none;
         }
@@ -1210,7 +1213,7 @@ a .speakerinfo {
     #search-area {
         width: auto;
         input {
-            width: 60%;
+            width: calc(100% - 50px);
             border-radius: 4px;
         }
     }

@@ -35,11 +35,16 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             me.homeTitle = ko.observable();
             me.homeUrl = ko.observable();
             me.logo = ko.observable(imageprovider.defaultImage);
+            me.authEnabled = ko.observable(false);
+            me.dukecloak = dukecloak.dukecloak;
+            me.searchTerm = params.searchTerm;
+            me.searchEnabled = params.searchTerm !== undefined;
 
             urlprovider.getData(function (data) {
                 if (data) {
                     me.homeTitle(data.homepageName);
                     me.homeUrl(data.homepageUrl);
+                    me.authEnabled(data.authEnabled);
                 }
             });
 
@@ -53,7 +58,7 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
                 return (item === me.active ? "mainmenu active dark reverseBack" : "mainmenu darkBack reverse");
             };
 
-            this.toggleMenu = function() {
+            me.toggleMenu = function() {
                 var menu = document.getElementById('mainmenu-items');
                 var veil = document.getElementById('menu-veil');
                 if (menu && $('#mainmenu-button').is(':visible')) {
@@ -72,7 +77,20 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + '<h1 id="headertitle" class="darkBack reverse">'
             + '	<a id="logo" href="index.html"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" data-bind="attr: {src: logo}"/></a>'
             + '	<span id="backbutton_before"></span><a id="backbutton" onclick="window.history.back();" data-bind="resource: \'backbutton\'"></a>'
-            + ' <span id="pagetitle" data-bind="resource: active"></span>'
+            + '<div id="search-area" data-bind="visible: searchEnabled">\n'
+            + '   <input class="quicksearch" type="search" data-bind="textInput: searchTerm, attrResource: {\'placeholder\' : \'search\'}"/>\n'
+            + '   <img src="img/search.png">\n'
+            + '</div>\n'
+            + '<!-- ko if: !searchEnabled --><span id="pagetitle" data-bind="resource: active"></span><!-- /ko -->'
+            + '<div id="login-area" data-bind="visible: dukecloak && authEnabled">'
+            + '     <div>'
+            + '         <a class="button" data-bind="click: dukecloak.login, visible: dukecloak.auth.loggedOut" name="login"><img alt="Sign in/Register" title="Sign in/Register" src="img/unlock_24px.svg"></a>'
+            + '         <a class="button" data-bind="click: dukecloak.logout, visible: dukecloak.auth.loggedIn" name="logout"><img alt="Sign Out" title="Sign Out" src="img/lock_24px.svg"></a>'
+            + '         <a href="#" class="username" data-bind="text: dukecloak.auth.username, click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"></a>'
+            + '         <a href="#" class="username" data-bind="resource: \'loggedIn\', visible: dukecloak.auth.loggedIn() && !dukecloak.auth.username()"></a>'
+            + '         <a href="#" class="gravatar" data-bind="click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"><img data-bind="attr: {src: dukecloak.auth.gravatar}, visible: dukecloak.auth.loggedIn"/></a>'
+            + '     </div>'
+            + '</div>'
             + ' <div id="mainmenu-button" data-bind="click: toggleMenu"><img src="img/menu_24px.svg"></div>'
 			+ ' <div id="menu-veil" data-bind="click: toggleMenu"></div>'
             + ' <div id="mainmenu-items" class="darkBack">'
@@ -85,41 +103,6 @@ define(['knockout', 'js/modules/languageutils', 'js/modules/offline', 'js/module
             + ' </div>'
             + '</h1>'
             + '</div>'
-    });
-
-    ko.components.register('login-widget', {
-        viewModel : function(params) {
-            var me = this;
-            me.authEnabled = ko.observable(false);
-            me.dukecloak = dukecloak.dukecloak;
-            urlprovider.getData(function (data) {
-                if (data) {
-                    me.authEnabled(data.authEnabled);
-                }
-            });
-
-        },
-        template:
-            '<div id="login-area" class="hidden" data-bind="visible: dukecloak && authEnabled">'
-            + '     <div>'
-			+ '         <a class="button" data-bind="click: dukecloak.login, visible: dukecloak.auth.loggedOut" name="login"><img alt="Sign in/Register" title="Sign in/Register" src="img/unlock_24px.svg"></a>'
-			+ '         <a class="button" data-bind="click: dukecloak.logout, visible: dukecloak.auth.loggedIn" name="logout"><img alt="Sign Out" title="Sign Out" src="img/lock_24px.svg"></a>'
-            + '         <a href="#" class="username" data-bind="text: dukecloak.auth.username, click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"></a>'
-            + '         <a href="#" class="username" data-bind="resource: \'loggedIn\', visible: dukecloak.auth.loggedIn() && !dukecloak.auth.username()"></a>'
-            + '         <a href="#" class="gravatar" data-bind="click: dukecloak.keycloakAuth.accountManagement, visible: dukecloak.auth.loggedIn && dukecloak.auth.username"><img data-bind="attr: {src: dukecloak.auth.gravatar}, visible: dukecloak.auth.loggedIn"/></a>'
-            + '     </div>'
-            + '</div>'
-    });
-
-    ko.components.register('search-widget', {
-        viewModel : function(params) {
-            this.searchTerm = params.searchTerm;
-        },
-        template:
-            '<div id="search-area" class="hidden">\n'
-            + '   <input class="quicksearch" type="search" data-bind="textInput: searchTerm, attrResource: {\'placeholder\' : \'search\'}"/>\n'
-            + '   <img src="img/search.png">\n'
-            + '</div>\n'
     });
 
     ko.components.register('footer-widget', {
