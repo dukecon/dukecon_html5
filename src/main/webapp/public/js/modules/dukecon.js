@@ -1,6 +1,8 @@
 define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/urlprovider', 'js/modules/dukeconsettings', 'js/modules/dukecondateutils', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/synch'],
     function (_, $, ko, dukeconDb, urlprovider, dukeconSettings, dukeconDateUtils, languageUtils, offline, dukecloak, synch) {
 
+        var authEnabled = ko.observable(false);
+
         function extractTwitterInfo(twitterString) {
             var result = {
                 link : '',
@@ -28,6 +30,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             var self = this;
 
             self.id = data.id || '';
+            self.authEnabled = authEnabled;
             self.startDate = data.start ? new Date(data.start) : null;
             self.day = ko.observable(dukeconDateUtils.getDisplayDate(data.start));
             self.dayshort = ko.observable(dukeconDateUtils.getDisplayDateShort(data.start));
@@ -64,15 +67,18 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             });
 
             self.showAlertWindow = function () {
-                // requires scrollfix.js for cookie handling:
-                var alreadySeen = readCookie('dukecon.favouriteAlertSeen');
-                if (!dukecloak.dukecloak.auth.loggedIn() && !alreadySeen) {
-                    var alertWin = document.getElementById('alert-window');
-                    if (alertWin) {
-                        var position = getScrollXY();
-                        alertWin.className = 'shown';
-                        alertWin.style.top = (position[1] + 150) + 'px';
-                        alertWin.style.left = (position[0] + 40) + 'px';
+                console.log("show alert, auth=" + self.authEnabled());
+                if (self.authEnabled()) {
+                    // requires scrollfix.js for cookie handling:
+                    var alreadySeen = readCookie('dukecon.favouriteAlertSeen');
+                    if (!dukecloak.dukecloak.auth.loggedIn() && !alreadySeen) {
+                        var alertWin = document.getElementById('alert-window');
+                        if (alertWin) {
+                            var position = getScrollXY();
+                            alertWin.className = 'shown';
+                            alertWin.style.top = (position[1] + 150) + 'px';
+                            alertWin.style.left = (position[0] + 40) + 'px';
+                        }
                     }
                 }
             };
@@ -239,11 +245,12 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             }
         };
 
-        function addCustomCss() {
+        function performCustomizations() {
 			// insert the custom style into the html, if not already done
 			if ($('#styleCssNode').length === 0) {
 				urlprovider.getData(function (urlData) {
 					$('head').append($('<link id="styleCssNode" rel="stylesheet" href="' + urlData.customCssUrl + '"/>'));
+                    authEnabled(urlData.authEnabled);
 				});
 			}
         }
@@ -251,14 +258,14 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
         function initializeApp() {
             languageUtils.init();
             offline.init();
-            addCustomCss();
+            performCustomizations();
         }
 
         return {
             initializeApp: initializeApp,
             Talk: Talk,
             Speaker: Speaker,
-            addCustomCss: addCustomCss,
+            addCustomCss: performCustomizations,
             getSpeakerInfo: dukeconUtils.getSpeakerInfo,
             toggleFavourite: dukeconUtils.toggleFavourite,
             cookiesConfirmed: cookiesConfirmed
