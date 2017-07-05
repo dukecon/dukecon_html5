@@ -1,5 +1,5 @@
-define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/urlprovider', 'js/modules/dukeconsettings', 'js/modules/dukecondateutils', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/synch'],
-    function (_, $, ko, dukeconDb, urlprovider, dukeconSettings, dukeconDateUtils, languageUtils, offline, dukecloak, synch) {
+define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/urlprovider', 'js/modules/imageprovider', 'js/modules/dukeconsettings', 'js/modules/dukecondateutils', 'js/modules/languageutils', 'js/modules/offline', 'js/modules/dukecloak', 'js/modules/synch'],
+    function (_, $, ko, dukeconDb, urlprovider, imageprovider, dukeconSettings, dukeconDateUtils, languageUtils, offline, dukecloak, synch) {
 
         var authEnabled = ko.observable(false);
 
@@ -39,7 +39,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             self.startSortable = data.start || '';
             self.trackDisplay = ko.observable(dukeconUtils.getTrack(metaData, data.trackId));
             self.track = data.trackId || '';
-            self.talkIcon = dukeconUtils.getTalkIcon(data.trackId || '');
+            self.talkIcon = ko.observable('img/Unknown.png');
             self.isTrackVisible = ko.computed(function () {
                 return self.trackDisplay() !== '';
             });
@@ -64,6 +64,10 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
             self.fullyBooked = ko.observable(data.fullyBooked);
             self.favicon = ko.computed(function () {
                 return self.favourite() ? "img/StarFilled.png" : "img/StarLine.png";
+            });
+
+            dukeconUtils.getTalkIcon(data.trackId, function(image) {
+                self.talkIcon(image);
             });
 
             self.showAlertWindow = function () {
@@ -132,18 +136,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
 //not sure where else to put
         var dukeconUtils = {
-            talkIcons: {
-                "7": "img/track_architecture.jpg",
-                "2": "img/track_jvm-languages.jpg",
-                "3": "img/track_enterprise-java-cloud.jpg",
-                "4": "img/track_frontend-mobile.jpg",
-                "5": "img/track_ide-tools.jpg",
-                "1": "img/track_microservices.jpg",
-                "6": "img/track_internet-of-things.jpg",
-                "8": "img/track_newcomer.jpg",
-                "9": "img/track_community.jpg"
-            },
-
             getTrack: function (metaData, trackId) {
                 return dukeconUtils.getById(metaData.tracks, trackId, metaData);
             },
@@ -216,8 +208,12 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
                 });
             },
 
-            getTalkIcon: function (typeId) {
-                return dukeconUtils.talkIcons[typeId] || 'img/Unknown.png';
+            getTalkIcon: function (typeId, callback) {
+                imageprovider.getByName("streamImages", function(allStreamIcons) {
+                    if (allStreamIcons) {
+                        callback(allStreamIcons[typeId] || 'img/Unknown.png');
+                    }
+                });
             },
 
             getTalks: function (talkIds, talks, speakers, metaData, favourites) {
