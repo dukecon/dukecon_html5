@@ -210,7 +210,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/dukecondb', 'js/modules/
 
             getTalkIcon: function (typeId, callback) {
                 imageprovider.getByName("streamImages", function(allStreamIcons) {
-                    if (allStreamIcons) {
+                    if (allStreamIcons && typeof allStreamIcons === "object") {
                         callback(allStreamIcons[typeId] || 'img/Unknown.png');
                     }
                 });
