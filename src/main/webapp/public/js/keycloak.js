@@ -120,8 +120,8 @@
                     }
                     kc.login(options).success(function () {
                         initPromise.setSuccess();
-                    }).error(function () {
-                        initPromise.setError();
+                    }).error(function (errorData) {
+                        initPromise.setError(errorData);
                     });
                 }
 
@@ -174,12 +174,12 @@
                             kc.updateToken(-1).success(function() {
                                 kc.onAuthSuccess && kc.onAuthSuccess();
                                 initPromise.setSuccess();
-                            }).error(function() {
+                            }).error(function(errorData) {
                                 kc.onAuthError && kc.onAuthError();
                                 if (initOptions.onLoad) {
                                     onLoad();
                                 } else {
-                                    initPromise.setError();
+                                    initPromise.setError(errorData);
                                 }
                             });
                         }
@@ -194,8 +194,8 @@
             }
 
             configPromise.success(processInit);
-            configPromise.error(function() {
-                promise.setError();
+            configPromise.error(function(errorData) {
+                promise.setError(errorData);
             });
 
             return promise.promise;
@@ -329,7 +329,7 @@
                         kc.profile = JSON.parse(req.responseText);
                         promise.setSuccess(kc.profile);
                     } else {
-                        promise.setError();
+                        promise.setError({ status: req.status, text: req.responseText });
                     }
                 }
             }
@@ -354,7 +354,7 @@
                         kc.userInfo = JSON.parse(req.responseText);
                         promise.setSuccess(kc.userInfo);
                     } else {
-                        promise.setError();
+                        promise.setError({ status: req.status, text: req.responseText });
                     }
                 }
             }
@@ -385,7 +385,7 @@
             var promise = createPromise();
 
             if (!kc.refreshToken) {
-                promise.setError();
+                promise.setError({ status: "norefreshtoken", text: "no refresh token" });
                 return promise.promise;
             }
 
@@ -443,7 +443,7 @@
 
                                     kc.onAuthRefreshError && kc.onAuthRefreshError();
                                     for (var p = refreshQueue.pop(); p != null; p = refreshQueue.pop()) {
-                                        p.setError(true);
+                                        p.setError({ status: "refresherror", text: "Refresh error in refresh queue #" + i });
                                     }
                                 }
                             }
@@ -458,8 +458,8 @@
                 var iframePromise = checkLoginIframe();
                 iframePromise.success(function() {
                     exec();
-                }).error(function() {
-                    promise.setError();
+                }).error(function(errorData) {
+                    promise.setError(errorData);
                 });
             } else {
                 exec();
@@ -540,7 +540,7 @@
                             authSuccess(tokenResponse['access_token'], tokenResponse['refresh_token'], tokenResponse['id_token'], kc.flow === 'standard');
                         } else {
                             kc.onAuthError && kc.onAuthError();
-                            promise && promise.setError();
+                            promise && promise.setError({ status: "autherror", text: "authentication error" });
                         }
                     }
                 };
@@ -559,7 +559,7 @@
 
                     console.info('[KEYCLOAK] Invalid nonce, clearing token');
                     kc.clearToken();
-                    promise && promise.setError();
+                    promise && promise.setError({ status: "nonceerror", text: "nonce error" });
                 } else {
                     if (fulfillPromise) {
                         kc.onAuthSuccess && kc.onAuthSuccess();
@@ -597,7 +597,7 @@
 
                             promise.setSuccess();
                         } else {
-                            promise.setError();
+                            promise.setError({ status: req.status, text: req.responseText });
                         }
                     }
                 };
@@ -856,7 +856,7 @@
                     if (event.data == 'unchanged') {
                         promise.setSuccess();
                     } else {
-                        promise.setError();
+                        promise.setError({ status: "callbackerror", text: "Error in callback[" + i + "]" });
                     }
                 }
             };
@@ -968,7 +968,7 @@
                                     ref.close();
                                     completed = true;
                                 } else {
-                                    promise.setError();
+                                    promise.setError({ status: "loaderror", text: "load error" });
                                     ref.close();
                                 }
                             }
@@ -1002,7 +1002,7 @@
 
                         ref.addEventListener('exit', function(event) {
                             if (error) {
-                                promise.setError();
+                                promise.setError({ status: "exiterror", text: "error on exit" });
                             } else {
                                 kc.clearToken();
                                 promise.setSuccess();
