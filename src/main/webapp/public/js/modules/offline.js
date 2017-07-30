@@ -92,6 +92,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
             removeCheckUpdateInterval();
         }
         else {
+            console.log("We are online");
             dukeconsettings.saveSetting(dukeconsettings.keys.previously_offline, dukeconsettings.getSetting(dukeconsettings.keys.offline));
             dukeconsettings.saveSetting(dukeconsettings.keys.offline, false);
             addCheckUpdateInterval();
