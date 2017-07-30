@@ -30,6 +30,7 @@ img/StarFilled.png
 img/StarLine.png
 img/Unknown.png
 img/favicon.ico
+img/chair.svg
 img/checkbox.png
 img/checkbox_checked.png
 img/unlock_24px.svg
@@ -48,6 +49,10 @@ img/lang_de.png
 img/lang_en.png
 img/lang_germanenglish.png
 img/group_expanded_16.svg
+img/simtranslate_eng_ger.png
+img/simtranslate_ger_eng.png
+img/StarFilledBlack.png
+img/UnknownUser.png
 # Js
 js/modules/browserinfo.js
 js/modules/dukecloak.js
@@ -61,6 +66,7 @@ js/modules/offline.js
 js/modules/urlprovider.js
 js/modules/imageprovider.js
 js/modules/schedule.js
+js/modules/scheduleHelper.js
 js/modules/speakers.js
 js/modules/speaker.js
 js/modules/synch.js
