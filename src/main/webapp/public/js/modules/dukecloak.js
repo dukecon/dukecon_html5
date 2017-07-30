@@ -124,10 +124,16 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch', 
             }
             dukecloak.keycloakAuth.login(
                 { scope: 'offline_access' }
-            ).success(function () {
+            ).success(function (result) {
+                console.log("Successful login");
+                console.log("result.status: " + (result && result.status));
+                console.log("result.text: " + (result && result.text));
                 dukecloak.auth.loggedIn(true);
                 dukecloak.auth.loggedOut(false);
-            }).error(function () {
+            }).error(function (result) {
+                console.log("Unable to login");
+                console.log("result.status: " + (result && result.status));
+                console.log("result.text: " + (result && result.text));
                 dukecloak.auth.loggedIn(false);
                 dukecloak.auth.loggedOut(true);
             });
@@ -175,8 +181,10 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch', 
                     console.log('isExpired: ' + dukecloak.keycloakAuth.isTokenExpired());
                     dukecloak.loadUserData();
                 }
-            }).error(function () {
+            }).error(function (result) {
                 console.log("Error initializing keycloak");
+                console.log("result.status: " + (result && result.status));
+                console.log("result.text: " + (result && result.text));
             });
         };
 
