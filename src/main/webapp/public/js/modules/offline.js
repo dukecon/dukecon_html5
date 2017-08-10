@@ -52,7 +52,10 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
                 setOfflineStatus(false);
             });
         }, false);
-
+        onUpdateReady(window.applicationCache.status);
+        if (window.applicationCache.status === window.applicationCache.IDLE) {
+            setOfflineStatus(false);
+        }
 
         window.onerror = function(msg, url) {
             if (msg === 'InvalidStateError' && url.indexOf('dukecondb.js') != -1) {
@@ -67,7 +70,6 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 
     function onUpdateReady(status) {
         var doPageReload = dukeconsettings.getSetting(dukeconsettings.keys.offline);
-        setOfflineStatus(false);
         if (window.applicationCache.UPDATEREADY === status) {
             console.log("Loading new version of page");
             // Browser downloaded a new app cache.
@@ -80,7 +82,8 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
             window.location.reload();
         }
         else {
-            console.log("The manifest did not change!");
+            console.log("The manifest did not change: " + status);
+            setOfflineStatus(false);
         }
     }
 
