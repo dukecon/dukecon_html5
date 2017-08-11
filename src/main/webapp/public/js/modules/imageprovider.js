@@ -7,8 +7,17 @@ define(
         console.log('Image provider Using currentBaseUrl: "' + currentBaseUrl + '"');
 
         var imageResources = {};
+        
+        var pendingCallbacks = [];
 
         function loadResources(name, callback) {
+            if(imageResources.loading && callback !== null) {
+                pendingCallbacks.push(function () {
+                    callback(imageResources[name] || defaultImage)
+                })
+                return;
+            }
+            imageResources.loading = true;
             console.log("Getting images from " + currentBaseUrl + imageResourceUrl);
             $.ajax({
                 url: currentBaseUrl + imageResourceUrl,
@@ -16,9 +25,9 @@ define(
                 success: function (result) {
                     imageResources = result;
                     imageResources.loaded = true;
-                    if (callback) {
-                        callback(imageResources[name] || defaultImage);
-                    }
+                    pendingCallbacks.forEach(function (element) {
+                        element()
+                    })
                 },
                 error: function(err) {
                     console.log("could not get resources: " + JSON.stringify(err));
@@ -36,8 +45,6 @@ define(
         }
 
         loadResources();
-
-        var emtpyFunc = function() {};
 
         return {
             getByName: getByName,
