@@ -111,7 +111,12 @@ define(
             });
         }
 
-        setUrls("${dukecon.server.jsonUrl}", true);
+        var url = "${dukecon.server.jsonUrl}";
+        // sensible default for testing without Maven's replacement above
+        if (url.indexOf("$") != -1) {
+            url = "rest/conferences/jl2017";
+        }
+        setUrls(url, true);
         loadInitData();
 
         var emtpyFunc = function() {};
