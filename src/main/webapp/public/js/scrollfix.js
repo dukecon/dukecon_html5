@@ -1,25 +1,6 @@
 //global variables
-var duke_cachestatus;
-var duke_status;
 var duke_privatemode = false;
 var globalLoadTimeout = 500;
-
-// Check if a new cache is available on page load.
-window.addEventListener('load', function(e) {
-	window.applicationCache.addEventListener('updateready', function(e) {
-		duke_cachestatus = 'updateready';
-		duke_status = window.applicationCache.status;
-	}, false);
-	window.applicationCache.addEventListener("error", function(e) {
-		duke_cachestatus = 'error';
-	});
-	window.applicationCache.addEventListener("cached", function(e) {
-		duke_cachestatus = 'cached';
-	});
-	window.applicationCache.addEventListener("noupdate", function(e) {
-		duke_cachestatus = 'noupdate';
-	});
-}, false);
 
 ////////////////////////////////
 // fixscroll.js:

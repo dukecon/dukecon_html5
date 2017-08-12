@@ -5,7 +5,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
     var etagForBookings;
 
     var callbackOnNewData, checkUpdateIntervalSeconds = 1800, checkUpdateIntervalHandle = null;
-	
+
 	var addCheckUpdateInterval = function() {
 		if (!checkUpdateIntervalHandle) {
     		console.log("We are online - starting timer to check for updates");
@@ -14,7 +14,7 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 			}, checkUpdateIntervalSeconds * 1000);
 		}
 	};
-	
+
 	var removeCheckUpdateInterval = function() {
 		if (checkUpdateIntervalHandle) {
 			console.log("clear interval for updates from server");
@@ -22,42 +22,39 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 			checkUpdateIntervalHandle = null;
 		}
 	};
-	
+
 	var init = function() {
-        // These variables are set when the application cache events are triggered before the init method
-        if (duke_cachestatus === 'updateready') {
-            onUpdateReady(duke_status);
-        }
-        else if (duke_cachestatus === 'error') {
-            setOfflineStatus(true)
-        }
-        else if (duke_cachestatus === 'cached' || duke_cachestatus === 'noupdate') {
-            setOfflineStatus(false)
-        }
-        
 		addCheckUpdateInterval();
-        
+
         // In case these events are triggered after the init method, we add a listener
-        window.addEventListener('load', function() {
-            window.applicationCache.addEventListener('updateready', function() {
-                onUpdateReady(window.applicationCache.status);
-            }, false);
-            window.applicationCache.addEventListener("error", function() {
-                setOfflineStatus(true);
-            });
-            window.applicationCache.addEventListener("cached", function() {
-                setOfflineStatus(false);
-            });
-            window.applicationCache.addEventListener("noupdate", function() {
-                setOfflineStatus(false);
-            });
+        // we don't register for
+        //    window.addEventListener('load', ...
+        // as this is already done by domReady.js and we will never be called
+        window.applicationCache.addEventListener('updateready', function (e) {
+            console.log("got event: updateready in offline.js")
+            onUpdateReady(window.applicationCache.status);
         }, false);
-        onUpdateReady(window.applicationCache.status);
-        if (window.applicationCache.status === window.applicationCache.IDLE) {
+        window.applicationCache.addEventListener("error", function (e) {
+            setOfflineStatus(true);
+        });
+        window.applicationCache.addEventListener("cached", function (e) {
             setOfflineStatus(false);
+        });
+        window.applicationCache.addEventListener("noupdate", function (e) {
+            setOfflineStatus(false);
+        });
+
+        // TODO: detecting the online status from applicationCache doesn't
+        // work as expected, also in offline mode it will get to "noupdate"
+        // therefore: rewrite and/or remove offline detection functionality
+
+        // we might have missed the application cache update, therefore
+        // look if we are already idle
+        if (window.applicationCache.status === window.applicationCache.IDLE) {
+            onUpdateReady(window.applicationCache.status);
         }
 
-        window.onerror = function(msg, url) {
+        window.onerror = function (msg, url) {
             if (msg === 'InvalidStateError' && url.indexOf('dukecondb.js') != -1) {
                 console.log('Error opening indexeddb; browser seems to be in private mode');
                 duke_privatemode = true;
@@ -69,16 +66,11 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
     };
 
     function onUpdateReady(status) {
-        var doPageReload = dukeconsettings.getSetting(dukeconsettings.keys.offline);
         if (window.applicationCache.UPDATEREADY === status) {
             console.log("Loading new version of page");
             // Browser downloaded a new app cache.
             // Swap it in and reload the page to get the new hotness.
             window.applicationCache.swapCache();
-            window.location.reload();
-        }
-        else if (doPageReload) {
-            console.log("Back online - reload page in case there is new data");
             window.location.reload();
         }
         else {
@@ -175,9 +167,9 @@ define(['underscore', 'jquery', 'knockout', 'js/modules/urlprovider', 'js/module
 					updateCheck(false);
 				}, {"If-None-Match": oldCacheHash});
 		});
-        
+
     }
-    
+
     function checkNewDataOnServer() {
         if (callbackOnNewData) {
             updateCheck(true);
