@@ -116,6 +116,7 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch', 
         };
 
         var dukecloakInitialized = false;
+        var dukecloakInitializing = false;
 
         self.login = function () {
             if (!dukecloakInitialized) {
@@ -155,9 +156,11 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch', 
         };
 
         self.init = function (login) {
-            if (dukecloakInitialized) {
+            if (dukecloakInitializing) {
                 return;
             }
+            console.log("dukecloak: initializing, login: " + login);
+            dukecloakInitializing = true
 
             // https://issues.jboss.org/browse/KEYCLOAK-2322
             dukecloak.keycloakAuth.timeSkew = dukeconSettings.getSetting('keycloak_timeSkew');
@@ -206,15 +209,19 @@ define(['jquery', 'knockout', 'js/modules/dukeconsettings', 'js/modules/synch', 
         };
 
         self.nowOnline = function () {
-            self.online = true;
-            console.log("dukecloak: online");
-            self.check();
+            if(self.online == false) {
+                console.log("dukecloak: online");
+                self.online = true;
+                self.check();
+            }
         };
 
         $(document).ready(function () {
-            console.log("dukecloak: documentready");
-            self.domReady = true;
-            self.check();
+            if(self.domReady == false) {
+                console.log("dukecloak: documentready");
+                self.domReady = true;
+                self.check();
+            }
         });
 
     };
