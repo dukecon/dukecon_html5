@@ -13,7 +13,7 @@ var dest = './target',
 
 
 var backendurl = (argv.backendurl === undefined || argv.backendurl == '') ?
-    (argv.local === undefined) ? 'https://dev.dukecon.org/latest' : 'http://localhost:8080' :
+    (argv.local === undefined) ? 'https://latest.dukecon.org/javaland/2017/' : 'http://localhost:8080' :
 argv.backendurl;
 
 // proxy all spring-boot service requests to a server
@@ -22,13 +22,19 @@ var proxy = proxyMiddleware('/rest', {
     changeOrigin: true
 });
 
+var proxydukeconcss = proxyMiddleware('/css/dukecon.css', {
+    target: backendurl,
+    changeOrigin: true
+});
+
 var config = {
     browserSync: {
+        port: 8000, // default port 3000 will conflict with grafana on dukecon
         server: {
             // We're serving the src folder as well
             // for sourcemap linking
             baseDir: [dest, src],
-            middleware: [proxy, historyApiFallback()]
+            middleware: [proxy, proxydukeconcss, historyApiFallback()]
         },
         files: [
             dest + '/public/**/*'

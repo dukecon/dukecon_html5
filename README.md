@@ -1,6 +1,6 @@
 # dukecon_html5
 
-## Developing
+## Developing using Tomcat
 
 Start local tomcat with 
     
@@ -18,10 +18,26 @@ Customize used REST service url with an environment variable:
     
     mvn tomcat7:run-war -Ddukecon.server.jsonUrl=https://dev.dukecon.org/latest/rest/conferences/499959
 
+## Developing using Node
+
+Initially run 
+
+    npm install
+
+to install dependencies. Afterwards run
+
+    node node_modules\gulp\bin\gulp.js watch
+    
+to serve the web pages locally.
+
 ## Reset IndexDB and Localstore
 
 To remove all local settings, including the latest talks, offline status, filters and favorties, open [dukeon-url]/reset.html
 CAUTION: this currently does not force purging of the HTML5-cache (i.e. reload files listed in cache.manifest)
+
+## Rest HTML5 Cache
+
+When using chrome use the following URL to manually clear it: [chrome://appcache-internals](chrome://appcache-internals)
 
 ## Run the Jasmine Tests
 
