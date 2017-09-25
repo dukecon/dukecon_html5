@@ -81,6 +81,7 @@ define(['jquery', 'knockout', 'js/modules/talklist', 'js/modules/dukeconsettings
 			var options = helper.getOptions(firstStart, lastEnd);
 
 			var container = document.getElementById('visualization');
+			container.innerHTML = "";
 			var timeline = new vis.Timeline(container);
 			timeline.setOptions(options);
 			timeline.setGroups(groups);
