@@ -1069,6 +1069,10 @@ a .speakerinfo {
                 display: block;
                 box-shadow: 0 2px 3px 0 @boxShadowColor;
             }
+            a {
+                display: block;
+                max-width: none;
+            }
         }
     }
     .mainmenu {
@@ -1222,7 +1226,7 @@ a .speakerinfo {
     #search-area {
         width: auto;
         input {
-            width: calc(100% - 50px);
+            width: 60%;
             border-radius: 4px;
         }
     }
@@ -1380,5 +1384,14 @@ a .speakerinfo {
     }
     .hideOnMobile {
         display: none !important;
+    }
+}
+@media (max-width: 360px) {
+    .has-search {
+        h1 {
+            #search-area {
+                width: 60%;
+            }
+        }
     }
 }
